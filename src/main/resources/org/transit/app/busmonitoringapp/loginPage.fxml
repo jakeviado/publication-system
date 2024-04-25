@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" prefHeight="620.0" prefWidth="940.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.transit.app.busmonitoringapp.controller.loginController">
+    <Pane prefHeight="620.0" prefWidth="940.0">
+        <Label fx:id="notifyLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="343.0" layoutY="517.0" prefHeight="17.0" prefWidth="256.0" textFill="#f24444" />
+        <Button layoutX="282.0" layoutY="380.0" onAction="#login" prefHeight="45.0" prefWidth="377.0" text="LOGIN" textFill="WHITE" />
+      <PasswordField fx:id="passwordTextField" layoutX="282.0" layoutY="310.0" prefHeight="45.0" prefWidth="377.0" />
+      <TextField fx:id="usernameTextField" layoutX="282.0" layoutY="237.0" prefHeight="45.0" prefWidth="377.0" />
+      <Button fx:id="closeAppButton" layoutX="851.0" layoutY="14.0" mnemonicParsing="false" onAction="#closeApplication" prefHeight="38.0" prefWidth="75.0" text="EXIT" textFill="WHITE" />
+      <Label layoutX="282.0" layoutY="214.0" text="Username" />
+      <Hyperlink layoutX="506.0" layoutY="446.0" prefHeight="23.0" prefWidth="85.0" text="Register now!" />
+      <Label layoutX="283.0" layoutY="289.0" text="Password" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="342.0" layoutY="450.0" prefHeight="17.0" prefWidth="167.0" text="Don't have an account yet?" />
+    </Pane>
+
+    <stylesheets>
+        <URL value="@../styles/buttons.css" />
+        <URL value="@../styles/fonts.css" />
+        <URL value="@../styles/textfField.css" />
+    </stylesheets>
+</VBox>

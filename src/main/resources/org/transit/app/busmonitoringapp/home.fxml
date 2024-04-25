@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" prefHeight="620.0" prefWidth="940.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.transit.app.busmonitoringapp.controller.homePageController">
+    <Pane prefHeight="620.0" prefWidth="940.0">
+        <Button onAction="#logoutButton" layoutX="851.0" layoutY="14.0" mnemonicParsing="false"  prefHeight="38.0" prefWidth="75.0" text="EXIT" textFill="WHITE" />
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="26.0" prefHeight="15.0" prefWidth="63.0" text="Welcome!" />
+    </Pane>
+
+    <stylesheets>
+        <URL value="@../styles/buttons.css" />
+        <URL value="@../styles/fonts.css" />
+        <URL value="@../styles/textfField.css" />
+    </stylesheets>
+</VBox>
