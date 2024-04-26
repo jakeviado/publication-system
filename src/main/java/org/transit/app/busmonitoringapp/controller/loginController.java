@@ -5,7 +5,6 @@ import org.transit.app.busmonitoringapp.model.sceneSwitch;
 import javafx.scene.layout.VBox;
 import org.transit.app.busmonitoringapp.model.Login;
 import org.transit.app.busmonitoringapp.logic.login;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.stage.Stage;
 
