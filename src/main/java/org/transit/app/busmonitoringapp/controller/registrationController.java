@@ -35,7 +35,7 @@ public class registrationController {
         String confirmPassword = confirmPasswordTextField.getText();
 
         if (!password.equals(confirmPassword)) {
-            notifyLabel.setText("Passwords do not match. Please try again.");
+            notifyLabel.setText("Passwords do not match");
             return;
         }
 
