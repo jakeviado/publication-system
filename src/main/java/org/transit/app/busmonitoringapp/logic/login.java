@@ -12,7 +12,7 @@ public class login {
         String password = userData.getPassword();
 
         try (Connection connection = getConnection()) {
-            String query = "SELECT * from USER_ACC where USERNAME = ? AND PASSWORD = ?";
+            String query = "SELECT * from ACCOUNT where USERNAME = ? AND PASSWORD = ?";
             assert connection != null;
             PreparedStatement stmt = connection.prepareStatement(query);
             stmt.setString(1, username);
