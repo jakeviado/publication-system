@@ -24,17 +24,19 @@ public class loginController {
     @FXML
     private VBox loginScene;
 
-
     @FXML
-    public void login() throws SQLException, IOException {
+    public void login() throws IOException {
         Login userData = new Login(usernameTextField.getText(), passwordTextField.getText());
         login loginLogic = new login();
 
-        if (loginLogic.loginQuery(userData)) {
-            new sceneSwitch(loginScene, "home.fxml");
-
-        } else {
-            notifyLabel.setText("Incorrect username or password");
+        try {
+            if (loginLogic.loginQuery(userData)) {
+                new sceneSwitch(loginScene, "home.fxml");
+            } else {
+                notifyLabel.setText("Incorrect username or password");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
     }
 
