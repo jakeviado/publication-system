@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.net.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<VBox fx:id="loginScene" alignment="CENTER" prefHeight="620.0" prefWidth="940.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.transit.app.busmonitoringapp.controller.loginController">
+<VBox fx:id="loginScene" alignment="CENTER" prefHeight="620.0" prefWidth="940.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.transit.app.busmonitoringapp.controller.loginController">
     <Pane prefHeight="620.0" prefWidth="940.0">
         <Label fx:id="notifyLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="343.0" layoutY="492.0" prefHeight="17.0" prefWidth="256.0" textFill="#f24444" />
         <Button layoutX="282.0" layoutY="380.0" onAction="#login" prefHeight="45.0" prefWidth="377.0" text="LOGIN" textFill="WHITE" />
@@ -41,7 +49,7 @@
             <Button fx:id="closeAppButton" mnemonicParsing="false" onAction="#closeApplication" prefHeight="38.0" prefWidth="75.0" text="EXIT" textFill="WHITE" GridPane.columnIndex="1" />
         </GridPane>
         <FlowPane layoutX="329.0" layoutY="126.0" prefHeight="62.0" prefWidth="142.0" />
-         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="334.0" layoutY="120.0" prefHeight="62.0" prefWidth="281.0" style="-fx-font-size: 50;" text="publication" textAlignment="CENTER">
+         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="310.0" layoutY="126.0" prefHeight="62.0" prefWidth="323.0" style="-fx-font-size: 50;" text="the gazette" textAlignment="CENTER">
              <font>
                  <Font size="43.0" />
              </font>

@@ -1,7 +1,6 @@
 package org.transit.app.busmonitoringapp.model;
 
 public class Login {
-
     private String username;
     private String password;
     public Login(String username, String password){

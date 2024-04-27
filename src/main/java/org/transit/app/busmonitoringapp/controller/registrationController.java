@@ -25,8 +25,6 @@ public class registrationController {
     @FXML
     public PasswordField confirmPasswordTextField;
 
-
-
     @FXML
     public void signup()  {
         String name = nameTextField.getText();
