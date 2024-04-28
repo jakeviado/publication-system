@@ -1,10 +1,26 @@
 package org.transit.app.busmonitoringapp.model;
 
-public class Signup {
+import org.transit.app.busmonitoringapp.interfaces.SignupInterface;
 
+public class Signup implements SignupInterface {
     private String username;
     private String password;
     private String name;
+
+    @Override
+    public String username() {
+        return getUsername();
+    }
+
+    @Override
+    public String password() {
+        return getPassword();
+    }
+
+    @Override
+    public String name() {
+        return getPersonName();
+    }
 
     public Signup(String name, String username, String password){
         this.name = name;
@@ -29,5 +45,4 @@ public class Signup {
     public void setPassword(String password) {
         this.password = password;
     }
-
 }

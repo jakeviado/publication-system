@@ -1,8 +1,8 @@
 package org.transit.app.busmonitoringapp.model;
 
-import org.transit.app.busmonitoringapp.interfaces.User;
+import org.transit.app.busmonitoringapp.interfaces.LoginInterface;
 
-public class Login implements User {
+public class Login implements LoginInterface {
     private String username;
     private String password;
 

@@ -1,13 +1,39 @@
 .button {
     -fx-background-color: #000000;
     -fx-background-radius: 0px;
+    -fx-text-fill: white;
 }
 
 .button:focused {
     -fx-background-color: #262626;
+    -fx-text-fill: white;
+}
+
+.button:hover {
+    -fx-background-color: #2d2d2d;
+    -fx-text-fill: white;
+}
+
+.sign-up-button {
+    -fx-background-color: #b5b5b5;
+    -fx-text-fill: black;
+}
+
+.sign-up-button:hover {
+    -fx-text-fill: black;
 }
 
 .button-burger {
     -fx-background-color: #ffffff;
     -fx-background-radius: 0px;
+    -fx-text-fill: black;
+}
+
+.toggle-button {
+     -fx-background-color: #000000;
+     -fx-background-radius: 0px;
+}
+
+.logout-button:hover, .exit-button:hover {
+    -fx-text-fill: #dd6a67;
 }
