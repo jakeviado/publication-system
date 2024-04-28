@@ -17,19 +17,25 @@ public class registrationController {
     public VBox registrationScene;
     public CheckBox checkbox;
     @FXML
+    public TextField firstNameTextField;
+    @FXML
+    public TextField lastNameTextField;
+    @FXML
+    public TextField emailTextField;
+    @FXML
     TextField usernameTextField;
     @FXML
     TextField passwordTextField;
-    @FXML
-    public TextField nameTextField;
     @FXML
     public PasswordField confirmPasswordTextField;
 
     @FXML
     public void signup()  {
-        String name = nameTextField.getText();
         String username = usernameTextField.getText();
         String password = passwordTextField.getText();
+        String email = emailTextField.getText();
+        String first_name = firstNameTextField.getText();
+        String last_name = lastNameTextField.getText();
         String confirmPassword = confirmPasswordTextField.getText();
 
         if (!password.equals(confirmPassword)) {
@@ -37,13 +43,15 @@ public class registrationController {
             return;
         }
 
-        Signup userData = new Signup(name, username, password);
+        Signup userData = new Signup(username, password, email, first_name, last_name);
 
         registerUserInfo registerUserInfoLogic = new registerUserInfo();
         try {
             if (registerUserInfoLogic.registerUser(userData)) {
                 notifyLabel.setText("Registered successfully!");
-                nameTextField.clear();
+                firstNameTextField.clear();
+                lastNameTextField.clear();
+                emailTextField.clear();
                 usernameTextField.clear();
                 passwordTextField.clear();
                 confirmPasswordTextField.clear();

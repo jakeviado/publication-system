@@ -13,7 +13,7 @@ public class retrieveUserInfo {
         String password = userData.password();
 
         try (Connection connection = getConnection()) {
-            String query = "SELECT * from ACCOUNT where USERNAME = ? AND PASSWORD = ?";
+            String query = "SELECT * from USERS where USERNAME = ? AND PASSWORD = ?";
             assert connection != null;
             PreparedStatement stmt = connection.prepareStatement(query);
             stmt.setString(1, username);
@@ -24,18 +24,5 @@ public class retrieveUserInfo {
         }
     }
 
-    public boolean retrieveName(Signup userData) throws SQLException {
-        String name = userData.name();
-
-        try (Connection connection = getConnection()) {
-            String query = "SELECT name FROM users WHERE username = ?";
-            assert connection != null;
-            PreparedStatement stmt = connection.prepareStatement(query);
-            stmt.setString(3, name);
-
-            ResultSet rs = stmt.executeQuery();
-            return rs.next();
-        }
-    }
 }
 

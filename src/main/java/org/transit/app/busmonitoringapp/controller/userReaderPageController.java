@@ -34,8 +34,9 @@ public class userReaderPageController {
     private Button exitButton;
 
     public void initialize(){
+        //TODO hindi pa nags-setText
         Signup name = new Signup();
-        welcomeNameLabel.setText(name.name());
+        welcomeNameLabel.setText(name.first_name());
     }
 
     public void toggle(ActionEvent mouseEvent) {
