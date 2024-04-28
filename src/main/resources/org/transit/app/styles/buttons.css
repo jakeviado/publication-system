@@ -7,4 +7,7 @@
     -fx-background-color: #262626;
 }
 
-
+.button-burger {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 0px;
+}

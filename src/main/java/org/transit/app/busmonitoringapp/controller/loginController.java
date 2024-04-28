@@ -31,7 +31,7 @@ public class loginController {
 
         try {
             if (loginLogic.loginQuery(userData)) {
-                new sceneSwitch(loginScene, "home.fxml");
+                new sceneSwitch(loginScene, "readerLandingPage.fxml");
             } else {
                 notifyLabel.setText("Incorrect username or password");
             }

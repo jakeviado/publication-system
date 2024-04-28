@@ -8,8 +8,8 @@ import static org.transit.app.busmonitoringapp.dbConnection.DBConnection.getConn
 
 public class login {
     public boolean loginQuery(Login userData) throws SQLException {
-        String username = userData.getUsername();
-        String password = userData.getPassword();
+        String username = userData.username();
+        String password = userData.password();
 
         try (Connection connection = getConnection()) {
             String query = "SELECT * from ACCOUNT where USERNAME = ? AND PASSWORD = ?";
