@@ -1,11 +1,10 @@
 package org.transit.app.busmonitoringapp.logic;
 
 import org.transit.app.busmonitoringapp.model.Login;
-import org.transit.app.busmonitoringapp.model.Signup;
 
 import java.sql.*;
 
-import static org.transit.app.busmonitoringapp.dbConnection.DBConnection.getConnection;
+import static org.transit.app.busmonitoringapp.utilities.DBConnection.getConnection;
 
 public class retrieveUserInfo {
     public boolean loginQuery(Login userData) throws SQLException {
@@ -23,6 +22,5 @@ public class retrieveUserInfo {
             return rs.next();
         }
     }
-
 }
 

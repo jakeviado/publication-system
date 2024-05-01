@@ -21,3 +21,17 @@
     -fx-font-family: 'Chomsky';
     -fx-font-weight: 700;
 }
+
+.articleTitleLabel {
+    -fx-font-size: 28px;
+    -fx-font-weight: 700;
+}
+
+.b {
+    -fx-font-size: 28px;
+    -fx-font-weight: 700;
+}
+
+.articleAuthor, .articlePublishedAt, .articleDescription{
+    -fx-font-size: 16px;
+}

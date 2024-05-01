@@ -3,7 +3,7 @@ package org.transit.app.busmonitoringapp.logic;
 import org.transit.app.busmonitoringapp.model.Signup;
 import java.sql.*;
 
-import static org.transit.app.busmonitoringapp.dbConnection.DBConnection.getConnection;
+import static org.transit.app.busmonitoringapp.utilities.DBConnection.getConnection;
 
 public class registerUserInfo {
     public boolean registerUser(Signup userData) throws SQLException {

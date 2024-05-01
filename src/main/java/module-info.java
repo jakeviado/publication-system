@@ -3,6 +3,7 @@ module org.transit.app.busmonitoringapp {
     requires javafx.fxml;
     requires java.sql;
     requires com.oracle.database.jdbc;
+    requires com.google.gson;
 
 
     opens org.transit.app.busmonitoringapp to javafx.fxml;

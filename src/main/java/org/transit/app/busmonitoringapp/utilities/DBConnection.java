@@ -1,4 +1,4 @@
-package org.transit.app.busmonitoringapp.dbConnection;
+package org.transit.app.busmonitoringapp.utilities;
 import java.sql.*;
 
 import java.sql.DriverManager;
