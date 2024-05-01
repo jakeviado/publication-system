@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox fx:id="container" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="565.0" prefWidth="485.0" style="-fx-background-color: #d2d2d2;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.transit.app.busmonitoringapp.controller.CardController">
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+
+   <ImageView fitHeight="160.0" fitWidth="443.0" pickOnBounds="true" preserveRatio="true" />
+   <VBox prefHeight="347.0" prefWidth="446.0">
+      <Label fx:id="articleTitleLabel" prefHeight="86.0" prefWidth="446.0" text="Title" textOverrun="CLIP" />
+      <Label fx:id="articleAuthorLabel" prefHeight="78.0" prefWidth="446.0" text="Author" textOverrun="CLIP" />
+      <Label fx:id="articlePublishedAtLabel" prefHeight="72.0" prefWidth="446.0" text="Published at" textOverrun="CLIP" />
+      <Label fx:id="articleDescriptionLabel" prefHeight="65.0" prefWidth="446.0" text="Description" textOverrun="CLIP" />
+   </VBox>
+
+   <stylesheets>
+      <URL value="@../styles/buttons.css" />
+      <URL value="@../styles/fonts.css" />
+      <URL value="@../styles/textField.css" />
+   </stylesheets>
+</VBox>
