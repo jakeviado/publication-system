@@ -2,7 +2,6 @@ package org.transit.app.busmonitoringapp.controller;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.control.ToggleButton;
@@ -11,14 +10,12 @@ import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-import org.transit.app.busmonitoringapp.Main;
 import org.transit.app.busmonitoringapp.model.ArticlesDetails;
 import org.transit.app.busmonitoringapp.model.sceneSwitch;
 
@@ -26,10 +23,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import java.util.ResourceBundle;
 
-import org.transit.app.busmonitoringapp.controller.CardController;
 import static org.transit.app.busmonitoringapp.utilities.APIConnection.fetchArticles;
 
 
@@ -73,8 +68,8 @@ public class readerPageController implements Initializable {
         fetchedArticles = new ArrayList<>(latestNews());
 
         for (ArticlesDetails articles : fetchedArticles) {
-            CardController cardController = new CardController();
-            VBox articleCard = cardController.getView(articles);
+            cardController c = new cardController();
+            VBox articleCard = c.getView(articles);
             articleGrid.add(articleCard, 2, articleGrid.getRowCount());
             GridPane.setMargin(articleCard, new Insets(50));
         }

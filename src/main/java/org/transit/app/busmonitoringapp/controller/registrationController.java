@@ -3,7 +3,8 @@ package org.transit.app.busmonitoringapp.controller;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
-import org.transit.app.busmonitoringapp.logic.registerUserInfo;
+//import org.transit.app.busmonitoringapp.logic.registerUserInfo;
+import org.transit.app.busmonitoringapp.logic.retrieveUserInfo;
 import org.transit.app.busmonitoringapp.model.Signup;
 import org.transit.app.busmonitoringapp.model.sceneSwitch;
 
@@ -45,7 +46,7 @@ public class registrationController {
 
         Signup userData = new Signup(username, password, email, first_name, last_name);
 
-        registerUserInfo registerUserInfoLogic = new registerUserInfo();
+        retrieveUserInfo registerUserInfoLogic = new retrieveUserInfo();
         try {
             if (registerUserInfoLogic.registerUser(userData)) {
                 notifyLabel.setText("Registered successfully!");

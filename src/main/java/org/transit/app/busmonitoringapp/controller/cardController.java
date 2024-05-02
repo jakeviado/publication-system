@@ -6,7 +6,7 @@ import javafx.scene.control.OverrunStyle;
 import javafx.scene.layout.VBox;
 import org.transit.app.busmonitoringapp.model.ArticlesDetails;
 
-public class CardController {
+public class cardController {
     @FXML
     public Label articleAuthorLabel;
     @FXML
