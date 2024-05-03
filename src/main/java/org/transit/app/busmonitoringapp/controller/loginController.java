@@ -4,7 +4,7 @@ import javafx.scene.control.*;
 import org.transit.app.busmonitoringapp.model.sceneSwitch;
 import javafx.scene.layout.VBox;
 import org.transit.app.busmonitoringapp.model.Login;
-import org.transit.app.busmonitoringapp.logic.retrieveUserInfo;
+import org.transit.app.busmonitoringapp.logic.transactions;
 import javafx.fxml.FXML;
 import javafx.stage.Stage;
 
@@ -27,7 +27,7 @@ public class loginController {
     @FXML
     public void login() throws IOException {
         Login userData = new Login(usernameTextField.getText(), passwordTextField.getText());
-        retrieveUserInfo retrieveUserInfoLogic = new retrieveUserInfo();
+        transactions retrieveUserInfoLogic = new transactions();
 
         try {
             if (retrieveUserInfoLogic.loginQuery(userData)) {
@@ -35,10 +35,10 @@ public class loginController {
             } else {
                 notifyLabel.setText("Incorrect username or password");
             }
-
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+
     }
 
     public void signup() throws IOException {

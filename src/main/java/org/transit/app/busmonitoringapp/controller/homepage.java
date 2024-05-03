@@ -79,6 +79,6 @@ public class homepage {
     }
 
     public void publishArticlePage() throws IOException {
-        new sceneSwitch(homepageScene, "authorPublishingPage.fxml");
+        new sceneSwitch(homepageScene, "publishingPage.fxml");
     }
 }

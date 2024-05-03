@@ -7,7 +7,7 @@ import java.sql.*;
 
 import static org.transit.app.busmonitoringapp.utilities.DBConnection.getConnection;
 
-public class retrieveUserInfo {
+public class transactions {
 
     public boolean loginQuery(Login userData) throws SQLException {
         String username = userData.username();

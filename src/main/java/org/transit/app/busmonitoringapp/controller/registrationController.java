@@ -4,7 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 //import org.transit.app.busmonitoringapp.logic.registerUserInfo;
-import org.transit.app.busmonitoringapp.logic.retrieveUserInfo;
+import org.transit.app.busmonitoringapp.logic.transactions;
 import org.transit.app.busmonitoringapp.model.Signup;
 import org.transit.app.busmonitoringapp.model.sceneSwitch;
 
@@ -57,7 +57,7 @@ public class registrationController {
         }
 
         Signup userData = new Signup(username, password, email, first_name, last_name);
-        retrieveUserInfo registerUserInfoLogic = new retrieveUserInfo();
+        transactions registerUserInfoLogic = new transactions();
 
         try {
             if (registerUserInfoLogic.registerQuery(userData)) {
