@@ -11,7 +11,7 @@ public class publishingPage {
     public VBox pageVbox;
 
     public void back() throws IOException {
-        new sceneSwitch(pageVbox, "homeREADER.fxml");
+        new sceneSwitch(pageVbox, "homepage.fxml");
     }
 }
 

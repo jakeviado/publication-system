@@ -4,17 +4,13 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
 <VBox fx:id="homepageScene" alignment="BOTTOM_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0" prefWidth="940.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.transit.app.busmonitoringapp.controller.homepage">
@@ -88,9 +84,9 @@
                      <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                   </padding>
                   <children>
-                     <HBox alignment="CENTER_LEFT" prefHeight="38.0" prefWidth="223.0">
+                     <HBox alignment="CENTER_LEFT" prefHeight="38.0" prefWidth="173.0">
                         <children>
-                           <Label prefHeight="19.0" prefWidth="136.0" style="-fx-font-size: 15;" text="Latest Stories:">
+                           <Label prefHeight="19.0" prefWidth="110.0" style="-fx-font-size: 15;" text="Latest Stories:">
                               <HBox.margin>
                                  <Insets right="2.0" />
                               </HBox.margin>
@@ -99,7 +95,7 @@
                      </HBox>
                      <HBox alignment="CENTER" prefHeight="38.0" prefWidth="398.0">
                         <children>
-                           <Label fx:id="welcomeNameLabel" prefHeight="18.0" prefWidth="380.0">
+                           <Label fx:id="welcomeNameLabel" prefHeight="28.0" prefWidth="342.0">
                               <HBox.margin>
                                  <Insets right="2.0" />
                               </HBox.margin>
@@ -115,25 +111,7 @@
                </HBox>
             </top>
             <center>
-               <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-                  <children>
-                     <ScrollPane hbarPolicy="NEVER" prefHeight="501.0" prefWidth="725.0" HBox.hgrow="ALWAYS">
-                        <content>
-                           <GridPane fx:id="articleGrid" prefHeight="553.0" prefWidth="724.0">
-                             <columnConstraints>
-                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                             </columnConstraints>
-                              <rowConstraints>
-                                 <RowConstraints />
-                              </rowConstraints>
-                              <children>
-                                 <VBox fx:id="object" prefHeight="554.0" prefWidth="872.0" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS" />
-                              </children>
-                           </GridPane>
-                        </content>
-                     </ScrollPane>
-                  </children>
-               </HBox>
+               <BorderPane fx:id="articleContainerBorderPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
             </center>
          </BorderPane>
          <VBox fx:id="slidePanel" alignment="TOP_CENTER" layoutX="-200.0" prefHeight="552.0" prefWidth="200.0" style="-fx-background-color: #ffffff;" styleClass="menu-panel">

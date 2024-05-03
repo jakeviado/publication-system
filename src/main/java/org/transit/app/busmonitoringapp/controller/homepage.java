@@ -1,5 +1,7 @@
 package org.transit.app.busmonitoringapp.controller;
 
+import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ToggleButton;
 
 import javafx.animation.TranslateTransition;
@@ -15,6 +17,7 @@ import javafx.util.Duration;
 import org.transit.app.busmonitoringapp.model.sceneSwitch;
 
 import java.io.IOException;
+import java.util.Objects;
 
 
 public class homepage {
@@ -44,6 +47,9 @@ public class homepage {
 
     @FXML
     public Button writeArticleButton;
+
+    @FXML
+    public BorderPane articleContainerBorderPane;
 
     @FXML
     private Button exitButton;
@@ -78,7 +84,8 @@ public class homepage {
         new sceneSwitch(homepageScene, "loginForm.fxml");
     }
 
-    public void publishArticlePage() throws IOException {
-        new sceneSwitch(homepageScene, "publishingPage.fxml");
+    public void publishArticlePage(ActionEvent event) throws IOException {
+        VBox view = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("publishingPage.fxml")));
+        articleContainerBorderPane.setCenter(view);
     }
 }

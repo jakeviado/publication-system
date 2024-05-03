@@ -24,8 +24,40 @@ public class transactions {
 
             ResultSet rs = stmt.executeQuery();
             return rs.next();
+
         }
     }
+
+//    public boolean loginQuery(Login userData, boolean isAuthor) throws SQLException {
+//        String username = userData.username();
+//        String password = userData.password();
+//
+//        try (Connection connection = getConnection()) {
+//            String query = "SELECT * FROM USERS WHERE USERNAME = ? AND PASSWORD = ?";
+//            assert connection != null;
+//
+//            PreparedStatement stmt = connection.prepareStatement(query);
+//            stmt.setString(1, username);
+//            stmt.setString(2, password);
+//
+//            ResultSet rs = stmt.executeQuery();
+////            return rs.next();
+//
+//            if (rs.next()) {
+//                if (isAuthor) {
+//                    String authorQuery = "SELECT * FROM Authors WHERE ROLE_ID = 1";
+//                    PreparedStatement authorStmt = connection.prepareStatement(authorQuery);
+//                    authorStmt.executeUpdate();
+//                    authorStmt.close();
+//                }
+//                return true;
+//            }
+//
+//        }
+//        return false;
+//    }
+
+
 //
 //    public boolean registerQuery(Signup userData) throws SQLException {
 //        String first_name = userData.first_name();

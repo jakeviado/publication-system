@@ -3,7 +3,7 @@ package org.transit.app.busmonitoringapp.controller;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
-//import org.transit.app.busmonitoringapp.logic.registerUserInfo;
+
 import org.transit.app.busmonitoringapp.logic.transactions;
 import org.transit.app.busmonitoringapp.model.Signup;
 import org.transit.app.busmonitoringapp.model.sceneSwitch;
@@ -15,10 +15,13 @@ public class registrationController {
     @FXML
     public Button registerStartButton;
 
+    @FXML
     public Label notifyLabel;
 
+    @FXML
     public VBox registrationScene;
 
+    @FXML
     public CheckBox checkbox;
 
     @FXML
@@ -41,6 +44,8 @@ public class registrationController {
 
     @FXML
     public PasswordField confirmPasswordTextField;
+
+
 
     @FXML
     public void registerAsReader() {
