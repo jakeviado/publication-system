@@ -40,12 +40,6 @@ public class homepage {
     public Button logoutButton;
 
     @FXML
-    public GridPane articleGrid;
-
-    @FXML
-    public VBox object;
-
-    @FXML
     public Button writeArticleButton;
 
     @FXML
