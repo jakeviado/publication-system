@@ -8,12 +8,13 @@ import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import org.transit.app.busmonitoringapp.Main;
 import org.transit.app.busmonitoringapp.model.sceneSwitch;
 
 import java.io.IOException;
@@ -44,6 +45,21 @@ public class homepage {
 
     @FXML
     public BorderPane articleContainerBorderPane;
+
+    @FXML
+    public Button homeBtn;
+
+    @FXML
+    public Button categoriesBtn;
+
+    @FXML
+    public Button aboutBtn;
+
+    @FXML
+    public Button accountBtn;
+
+    @FXML
+    public AnchorPane root;
 
     @FXML
     private Button exitButton;
@@ -78,8 +94,23 @@ public class homepage {
         new sceneSwitch(homepageScene, "loginForm.fxml");
     }
 
+    public void setCategoriesBtn(ActionEvent event) throws IOException {
+        BorderPane nextVbox = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("categories.fxml")));
+        articleContainerBorderPane.setCenter(nextVbox);
+    }
+
     public void publishArticlePage(ActionEvent event) throws IOException {
-        VBox view = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("publishingPage.fxml")));
-        articleContainerBorderPane.setCenter(view);
+        BorderPane nextVbox = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("publishingPage.fxml")));
+        articleContainerBorderPane.setCenter(nextVbox);
+    }
+
+    public void setAboutBtn(ActionEvent event) throws IOException {
+        BorderPane about = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("about.fxml")));
+        articleContainerBorderPane.setCenter(about);
+    }
+
+    public void setAccountBtn(ActionEvent event) throws IOException {
+        BorderPane about = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("account.fxml")));
+        articleContainerBorderPane.setCenter(about);
     }
 }

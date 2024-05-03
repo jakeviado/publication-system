@@ -14,50 +14,21 @@
 <?import javafx.scene.layout.VBox?>
 
 <VBox fx:id="homepageScene" alignment="BOTTOM_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0" prefWidth="940.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.transit.app.busmonitoringapp.controller.homepage">
-   <HBox prefHeight="44.0" prefWidth="940.0">
+   <HBox alignment="CENTER" prefHeight="55.0" prefWidth="940.0" VBox.vgrow="ALWAYS">
       <children>
-         <HBox alignment="CENTER" prefHeight="69.0" prefWidth="118.0">
+         <HBox alignment="CENTER_LEFT" prefHeight="57.0" prefWidth="143.0">
             <children>
-               <Pane prefHeight="23.0" prefWidth="66.0">
-                  <children>
-                     <ToggleButton fx:id="toggleButton" layoutX="-2.0" layoutY="5.0" mnemonicParsing="false" onAction="#toggle" prefHeight="38.0" prefWidth="70.0" text="MORE" textFill="WHITE" />
-                  </children>
-               </Pane>
+               <ToggleButton fx:id="toggleButton" mnemonicParsing="false" onAction="#toggle" prefHeight="38.0" prefWidth="70.0" text="MORE" textFill="WHITE" />
             </children>
-            <padding>
-               <Insets bottom="10.0" right="10.0" top="10.0" />
-            </padding>
          </HBox>
-         <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="69.0" prefWidth="200.0" style="-fx-font-size: 40;" styleClass="label-main-logo" text="T">
-            <HBox.margin>
-               <Insets />
-            </HBox.margin>
-            <padding>
-               <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
-            </padding>
-         </Label>
-         <HBox alignment="CENTER_LEFT" prefHeight="69.0" prefWidth="546.0">
+         <HBox alignment="CENTER" prefHeight="57.0" prefWidth="661.0">
             <children>
-               <ImageView fitHeight="27.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+               <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="38.0" prefWidth="225.0" style="-fx-font-size: 35;" styleClass="label-main-logo" text="The Gazette">
                   <HBox.margin>
-                     <Insets bottom="10.0" left="5.0" right="10.0" top="10.0" />
+                     <Insets right="2.0" />
                   </HBox.margin>
-                  <image>
-                     <Image url="@../styles/assets/search-icon.png" />
-                  </image>
-               </ImageView>
-               <TextField prefHeight="26.0" prefWidth="278.0" promptText="Search">
-                  <HBox.margin>
-                     <Insets />
-                  </HBox.margin>
-               </TextField>
+               </Label>
             </children>
-            <HBox.margin>
-               <Insets />
-            </HBox.margin>
-            <padding>
-               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-            </padding>
          </HBox>
          <HBox alignment="CENTER_RIGHT" prefHeight="69.0" prefWidth="148.0">
             <children>
@@ -72,59 +43,60 @@
          <Insets left="10.0" right="10.0" />
       </padding>
    </HBox>
-   <Pane prefHeight="562.0" prefWidth="940.0">
+   <Pane prefHeight="562.0" prefWidth="940.0" VBox.vgrow="ALWAYS">
       <children>
-         <BorderPane fx:id="MainBorderPanel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="552.0" prefWidth="940.0">
-            <padding>
-               <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
-            </padding>
+         <BorderPane fx:id="MainBorderPanel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="562.0" prefWidth="940.0">
             <top>
-               <HBox alignment="CENTER_LEFT" prefHeight="47.0" prefWidth="936.0" BorderPane.alignment="CENTER">
+               <HBox alignment="CENTER" prefHeight="56.0" prefWidth="936.0" BorderPane.alignment="CENTER">
                   <padding>
-                     <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                     <Insets left="9.0" right="9.0" />
                   </padding>
                   <children>
-                     <HBox alignment="CENTER_LEFT" prefHeight="38.0" prefWidth="173.0">
+                     <HBox alignment="CENTER_LEFT" prefHeight="56.0" prefWidth="328.0">
                         <children>
-                           <Label prefHeight="19.0" prefWidth="110.0" style="-fx-font-size: 15;" text="Latest Stories:">
+                           <ImageView fitHeight="27.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
                               <HBox.margin>
-                                 <Insets right="2.0" />
+                                 <Insets bottom="10.0" left="5.0" right="10.0" top="10.0" />
                               </HBox.margin>
-                           </Label>
+                              <image>
+                                 <Image url="@../styles/assets/search-icon.png" />
+                              </image>
+                           </ImageView>
+                           <TextField prefHeight="26.0" prefWidth="216.0" promptText="Search">
+                              <HBox.margin>
+                                 <Insets />
+                              </HBox.margin>
+                           </TextField>
                         </children>
                      </HBox>
-                     <HBox alignment="CENTER" prefHeight="38.0" prefWidth="398.0">
+                     <HBox alignment="CENTER" prefHeight="56.0" prefWidth="180.0" HBox.hgrow="ALWAYS" />
+                     <HBox alignment="CENTER_RIGHT" prefHeight="56.0" prefWidth="315.0">
                         <children>
-                           <Label fx:id="welcomeNameLabel" prefHeight="28.0" prefWidth="342.0">
-                              <HBox.margin>
-                                 <Insets right="2.0" />
-                              </HBox.margin>
-                           </Label>
-                        </children>
-                     </HBox>
-                     <HBox alignment="CENTER_RIGHT" prefHeight="38.0" prefWidth="507.0">
-                        <children>
-                           <Button fx:id="writeArticleButton" mnemonicParsing="false" onAction="#publishArticlePage" prefHeight="32.0" prefWidth="185.0" text="PUBLISH AN ARTICLE" />
+                           <Button fx:id="writeArticleButton" mnemonicParsing="false" onAction="#publishArticlePage" prefHeight="37.0" prefWidth="185.0" text="PUBLISH AN ARTICLE" />
                         </children>
                      </HBox>
                   </children>
                </HBox>
             </top>
             <center>
-               <BorderPane fx:id="articleContainerBorderPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+               <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                  <children>
+                     <BorderPane fx:id="articleContainerBorderPane" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
+                  </children>
+               </VBox>
             </center>
          </BorderPane>
-         <VBox fx:id="slidePanel" alignment="TOP_CENTER" layoutX="-200.0" prefHeight="552.0" prefWidth="200.0" style="-fx-background-color: #ffffff;" styleClass="menu-panel">
+         <VBox fx:id="slidePanel" alignment="TOP_CENTER" layoutX="-200.0" layoutY="2.0" prefHeight="585.0" prefWidth="200.0" style="-fx-background-color: #ffffff;" styleClass="menu-panel">
             <children>
                <Label ellipsisString="" prefHeight="51.0" prefWidth="200.0" text="More">
                   <padding>
                      <Insets left="10.0" />
                   </padding>
                </Label>
-               <Button ellipsisString="" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="52.0" prefWidth="234.0" styleClass="button-burger" text="Home" />
-               <Button alignment="CENTER" contentDisplay="TOP" ellipsisString="" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="52.0" prefWidth="234.0" styleClass="button-burger" text="Page" />
-               <Button alignment="CENTER" contentDisplay="TOP" ellipsisString="" layoutX="10.0" layoutY="62.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="52.0" prefWidth="234.0" styleClass="button-burger" text="About" />
-               <Button alignment="CENTER" contentDisplay="TOP" ellipsisString="" layoutX="10.0" layoutY="114.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="52.0" prefWidth="234.0" styleClass="button-burger" text="Account" />
+               <Button fx:id="homeBtn" ellipsisString="" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="52.0" prefWidth="234.0" styleClass="button-burger" text="Home" />
+               <Button fx:id="categoriesBtn" onAction="#setCategoriesBtn" alignment="CENTER" contentDisplay="TOP" ellipsisString="" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="52.0" prefWidth="234.0" styleClass="button-burger" text="Page" />
+               <Button fx:id="aboutBtn" alignment="CENTER" contentDisplay="TOP" ellipsisString="" layoutX="10.0" layoutY="62.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#setAboutBtn" prefHeight="52.0" prefWidth="234.0" styleClass="button-burger" text="About" />
+               <Button fx:id="accountBtn" onAction="#setAccountBtn" alignment="CENTER" contentDisplay="TOP" ellipsisString="" layoutX="10.0" layoutY="114.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="52.0" prefWidth="234.0" styleClass="button-burger" text="Account" />
                <Pane prefHeight="259.0" prefWidth="200.0" />
                <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#setLogoutButton" prefHeight="42.0" prefWidth="200.0" styleClass="logout-button" text="LOG OUT" textFill="WHITE" />
             </children>
