@@ -27,22 +27,22 @@ public class loginController {
     @FXML
     public void login() throws IOException {
         Login userData = new Login(usernameTextField.getText(), passwordTextField.getText());
-
         retrieveUserInfo retrieveUserInfoLogic = new retrieveUserInfo();
 
         try {
             if (retrieveUserInfoLogic.loginQuery(userData)) {
-                new sceneSwitch(loginScene, "readerLandingPage.fxml");
+                new sceneSwitch(loginScene, "homeREADER.fxml");
             } else {
                 notifyLabel.setText("Incorrect username or password");
             }
+
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
 
     public void signup() throws IOException {
-        new sceneSwitch(loginScene, "registrationPage.fxml");
+        new sceneSwitch(loginScene, "registrationForm.fxml");
     }
 
     public void closeApplication() {

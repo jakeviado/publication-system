@@ -1,6 +1,6 @@
 package org.transit.app.busmonitoringapp.interfaces;
 
-public interface SignupInterface {
+public interface register {
     String username();
     String password();
     String email();

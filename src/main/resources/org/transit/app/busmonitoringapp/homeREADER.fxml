@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox fx:id="homepageScene" alignment="BOTTOM_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0" prefWidth="940.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.transit.app.busmonitoringapp.controller.readerPageController">
+<VBox fx:id="homepageScene" alignment="BOTTOM_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0" prefWidth="940.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.transit.app.busmonitoringapp.controller.homepage">
    <HBox prefHeight="44.0" prefWidth="940.0">
       <children>
          <HBox alignment="CENTER" prefHeight="69.0" prefWidth="118.0">
@@ -116,7 +116,6 @@
                               </rowConstraints>
                               <children>
                                  <VBox fx:id="object" prefHeight="554.0" prefWidth="872.0" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS" />
-<!--                                 <fx:include source="cardComponent.fxml" />-->
                               </children>
                            </GridPane>
                         </content>

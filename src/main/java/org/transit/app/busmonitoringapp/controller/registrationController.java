@@ -57,10 +57,10 @@ public class registrationController {
         }
 
         Signup userData = new Signup(username, password, email, first_name, last_name);
-
         retrieveUserInfo registerUserInfoLogic = new retrieveUserInfo();
+
         try {
-            if (registerUserInfoLogic.registerUser(userData)) {
+            if (registerUserInfoLogic.registerQuery(userData)) {
                 notifyLabel.setText("Registered successfully!");
                 firstNameTextField.clear();
                 lastNameTextField.clear();
@@ -83,6 +83,6 @@ public class registrationController {
     }
 
     public void backToLogin() throws IOException {
-        new sceneSwitch(registrationScene, "loginPage.fxml");
+        new sceneSwitch(registrationScene, "loginForm.fxml");
     }
 }

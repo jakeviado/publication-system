@@ -1,8 +1,8 @@
 package org.transit.app.busmonitoringapp.model;
 
-import org.transit.app.busmonitoringapp.interfaces.SignupInterface;
+import org.transit.app.busmonitoringapp.interfaces.register;
 
-public class Signup implements SignupInterface {
+public class Signup implements register {
     private String username;
     private String password;
     private String email;
