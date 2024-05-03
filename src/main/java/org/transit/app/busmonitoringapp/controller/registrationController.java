@@ -43,7 +43,7 @@ public class registrationController {
     public PasswordField confirmPasswordTextField;
 
     @FXML
-    public void signup()  {
+    public void registerAsReader() {
         String username = usernameTextField.getText();
         String password = passwordTextField.getText();
         String email = emailTextField.getText();
@@ -54,20 +54,17 @@ public class registrationController {
         if (!password.equals(confirmPassword)) {
             notifyLabel.setText("Passwords do not match");
             return;
+        } else {
+            registerAuthorButton.setDisable(false);
         }
 
         Signup userData = new Signup(username, password, email, first_name, last_name);
         transactions registerUserInfoLogic = new transactions();
 
         try {
-            if (registerUserInfoLogic.registerQuery(userData)) {
+            if (registerUserInfoLogic.registerQuery(userData , false)) {
                 notifyLabel.setText("Registered successfully!");
-                firstNameTextField.clear();
-                lastNameTextField.clear();
-                emailTextField.clear();
-                usernameTextField.clear();
-                passwordTextField.clear();
-                confirmPasswordTextField.clear();
+                clearFields();
             } else {
                 notifyLabel.setText("Registration failed. Please check username or password.");
             }
@@ -76,6 +73,45 @@ public class registrationController {
         }
     }
 
+    @FXML
+    public void registerAsAuthor() {
+        String username = usernameTextField.getText();
+        String password = passwordTextField.getText();
+        String email = emailTextField.getText();
+        String first_name = firstNameTextField.getText();
+        String last_name = lastNameTextField.getText();
+        String confirmPassword = confirmPasswordTextField.getText();
+
+        if (!password.equals(confirmPassword)) {
+            notifyLabel.setText("Passwords do not match");
+            return;
+        } else {
+            registerAuthorButton.setDisable(false);
+        }
+
+        Signup userData = new Signup(username, password, email, first_name, last_name);
+        transactions registerUserInfoLogic = new transactions();
+
+        try {
+            if (registerUserInfoLogic.registerQuery(userData, true)) {
+                notifyLabel.setText("Registered as author successfully!");
+                clearFields();
+            } else {
+                notifyLabel.setText("Author registration failed. Please check username or password.");
+            }
+        } catch (SQLException e) {
+            notifyLabel.setText("Author registration failed.");
+        }
+    }
+
+    private void clearFields() {
+        firstNameTextField.clear();
+        lastNameTextField.clear();
+        emailTextField.clear();
+        usernameTextField.clear();
+        passwordTextField.clear();
+        confirmPasswordTextField.clear();
+    }
 
     public void enableRegisterButton() {
         registerAuthorButton.setDisable(!checkbox.isSelected());

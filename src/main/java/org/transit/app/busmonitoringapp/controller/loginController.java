@@ -13,14 +13,19 @@ import java.sql.SQLException;
 
 public class loginController {
     public Button signupButton;
+
     @FXML
     private Label notifyLabel;
+
     @FXML
     private Button closeAppButton;
+
     @FXML
     private TextField usernameTextField;
+
     @FXML
     private PasswordField passwordTextField;
+
     @FXML
     private VBox loginScene;
 
