@@ -1,6 +1,6 @@
 package org.transit.app.busmonitoringapp.interfaces;
 
-public interface ArticleInterface {
+public interface apiArticleInterface {
     String title();
     String url();
     String description();

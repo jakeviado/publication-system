@@ -15,8 +15,8 @@
 <VBox fx:id="registrationScene" alignment="CENTER" prefHeight="620.0" prefWidth="940.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.transit.app.busmonitoringapp.controller.registrationController">
   <Pane prefHeight="620.0" prefWidth="940.0">
     <Button layoutX="851.0" layoutY="22.0" mnemonicParsing="false" onAction="#backToLogin" prefHeight="38.0" prefWidth="75.0" text="BACK" textFill="WHITE" />
-      <Button fx:id="registerStartButton" disable="true" layoutX="54.0" layoutY="506.0" mnemonicParsing="false" onAction="#signup" prefHeight="47.0" prefWidth="414.0" text="REGISTER NOW" textFill="WHITE" />
-      <GridPane alignment="TOP_CENTER" layoutX="54.0" layoutY="41.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="417.0" prefWidth="413.0">
+      <Button fx:id="registerStartButton" disable="true" layoutX="41.0" layoutY="508.0" mnemonicParsing="false" onAction="#signup" prefHeight="47.0" prefWidth="414.0" text="REGISTER as a Reader" textFill="WHITE" />
+      <GridPane alignment="TOP_CENTER" layoutX="41.0" layoutY="43.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="417.0" prefWidth="413.0">
           <columnConstraints>
               <ColumnConstraints hgrow="SOMETIMES" minWidth="0.0" prefWidth="319.99999237060547" />
           </columnConstraints>
@@ -47,12 +47,13 @@
          <Label layoutX="10.0" layoutY="89.0" prefHeight="18.0" prefWidth="255.0" text="Email" GridPane.rowIndex="4" />
          <TextField fx:id="emailTextField" layoutX="10.0" layoutY="116.0" prefHeight="38.0" prefWidth="339.0" GridPane.rowIndex="5" />
       </GridPane>
-      <Label fx:id="notifyLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="88.0" layoutY="564.0" prefHeight="17.0" prefWidth="345.0" />
-      <Label layoutX="523.0" layoutY="60.0" prefHeight="70.0" prefWidth="239.0" style="-fx-font-size: 50;" styleClass="label-main-logo" text="The Gazette" />
-      <Label layoutX="523.0" layoutY="130.0" style="-fx-font-size: 20;" text="Sign Up" />
-      <CheckBox fx:id="checkbox" layoutX="141.0" layoutY="478.0" mnemonicParsing="false" onAction="#enableRegisterButton" text="I made sure I understood the agreement." />
-      <Label layoutX="738.0" layoutY="257.0" opacity="0.6" prefHeight="544.0" prefWidth="515.0" style="-fx-font-size: 400;" styleClass="label-main-logo" text="T" />
-      <Label alignment="TOP_LEFT" layoutX="523.0" layoutY="181.0" prefHeight="264.0" prefWidth="368.0" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec lectus vel risus volutpat convallis. Maecenas nec nulla ac nisl gravida laoreet non nec nulla. Fusce nec posuere odio, nec consectetur felis. Suspendisse ac velit et elit rutrum semper vel sed libero. Nam et urna et arcu tristique ultricies. Integer consectetur ex sit amet orci sodales, nec varius nulla viverra. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Phasellus varius aliquam turpis vel lobortis. Sed vulputate, urna sit amet facilisis tincidunt, leo est dapibus tellus, nec dignissim odio mauris nec velit. Sed ac velit tincidunt, dictum eros in, fermentum mauris. Quisque sed lacus arcu. Vivamus laoreet luctus quam. Donec auctor lectus ac magna dictum, et dapibus lorem ullamcorper." textOverrun="CLIP" wrapText="true" />
+      <Label fx:id="notifyLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="75.0" layoutY="566.0" prefHeight="17.0" prefWidth="345.0" />
+      <Label layoutX="521.0" layoutY="60.0" prefHeight="70.0" prefWidth="239.0" style="-fx-font-size: 50;" styleClass="label-main-logo" text="The Gazette" />
+      <Label layoutX="521.0" layoutY="130.0" style="-fx-font-size: 20;" text="Sign Up" />
+      <CheckBox fx:id="checkbox" layoutX="128.0" layoutY="480.0" mnemonicParsing="false" onAction="#enableRegisterButton" text="I made sure I understood the agreement." />
+      <Label alignment="TOP_LEFT" layoutX="521.0" layoutY="178.0" prefHeight="264.0" prefWidth="368.0" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec lectus vel risus volutpat convallis. Maecenas nec nulla ac nisl gravida laoreet non nec nulla. Fusce nec posuere odio, nec consectetur felis. Suspendisse ac velit et elit rutrum semper vel sed libero. Nam et urna et arcu tristique ultricies. Integer consectetur ex sit amet orci sodales, nec varius nulla viverra. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Phasellus varius aliquam turpis vel lobortis. Sed vulputate, urna sit amet facilisis tincidunt, leo est dapibus tellus, nec dignissim odio mauris nec velit. Sed ac velit tincidunt, dictum eros in, fermentum mauris. Quisque sed lacus arcu. Vivamus laoreet luctus quam. Donec auctor lectus ac magna dictum, et dapibus lorem ullamcorper." textOverrun="CLIP" wrapText="true" />
+      <Button fx:id="registerAuthorButton" disable="true" layoutX="500.0" layoutY="508.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="414.0" text="REGISTER as a Author" />
+      <Label layoutX="470.0" layoutY="523.0" style="-fx-font-size: 14;" text="or" />
   </Pane>
 
   <stylesheets>

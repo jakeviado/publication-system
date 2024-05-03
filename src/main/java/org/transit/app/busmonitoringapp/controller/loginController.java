@@ -27,6 +27,7 @@ public class loginController {
     @FXML
     public void login() throws IOException {
         Login userData = new Login(usernameTextField.getText(), passwordTextField.getText());
+
         retrieveUserInfo retrieveUserInfoLogic = new retrieveUserInfo();
 
         try {

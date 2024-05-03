@@ -4,7 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.OverrunStyle;
 import javafx.scene.layout.VBox;
-import org.transit.app.busmonitoringapp.model.ArticlesDetails;
+import org.transit.app.busmonitoringapp.model.apiArticles;
 
 public class cardController {
     @FXML
@@ -18,21 +18,21 @@ public class cardController {
     @FXML
     VBox container;
 
-    public VBox getView(ArticlesDetails articlesDetails) {
+    public VBox getView(apiArticles apiArticles) {
         VBox container = new VBox();
 
-        if (articlesDetails != null) {
-            articleTitleLabel = new Label(articlesDetails.title() != null ? articlesDetails.title() : "TEST");
+        if (apiArticles != null) {
+            articleTitleLabel = new Label(apiArticles.title() != null ? apiArticles.title() : "TEST");
             articleTitleLabel.setStyle("-fx-font-size: 20;");
             articleTitleLabel.setTextOverrun(OverrunStyle.CLIP);
 
-            articleAuthorLabel = new Label(articlesDetails.author() != null ? articlesDetails.author() : "TEST");
+            articleAuthorLabel = new Label(apiArticles.author() != null ? apiArticles.author() : "TEST");
             articleAuthorLabel.setTextOverrun(OverrunStyle.CLIP);
 
-            articleDescriptionLabel = new Label(articlesDetails.description() != null ? articlesDetails.description() : "TEST");
+            articleDescriptionLabel = new Label(apiArticles.description() != null ? apiArticles.description() : "TEST");
             articleDescriptionLabel.setTextOverrun(OverrunStyle.CLIP);
 
-            articlePublishedAtLabel = new Label(articlesDetails.publishedAt() != null ? articlesDetails.publishedAt() : "TEST");
+            articlePublishedAtLabel = new Label(apiArticles.publishedAt() != null ? apiArticles.publishedAt() : "TEST");
 
         } else {
             articleTitleLabel = new Label("");

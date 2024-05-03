@@ -93,6 +93,7 @@
                            <Insets right="2.0" />
                         </HBox.margin>
                      </Label>
+                     <Button fx:id="writeArticleButton" mnemonicParsing="false" onAction="#publishArticlePage" text="PUBLISH AN ARTICLE" />
                      <Label fx:id="welcomeNameLabel" prefHeight="18.0" prefWidth="563.0">
                         <HBox.margin>
                            <Insets right="2.0" />

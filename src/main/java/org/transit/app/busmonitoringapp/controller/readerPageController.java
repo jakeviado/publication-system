@@ -16,7 +16,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-import org.transit.app.busmonitoringapp.model.ArticlesDetails;
+import org.transit.app.busmonitoringapp.model.apiArticles;
 import org.transit.app.busmonitoringapp.model.sceneSwitch;
 
 import java.io.IOException;
@@ -58,16 +58,19 @@ public class readerPageController implements Initializable {
     public VBox object;
 
     @FXML
+    public Button writeArticleButton;
+
+    @FXML
     private Button exitButton;
 
     @FXML
-    private List<ArticlesDetails> fetchedArticles;
+    private List<apiArticles> fetchedArticles;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         fetchedArticles = new ArrayList<>(latestNews());
 
-        for (ArticlesDetails articles : fetchedArticles) {
+        for (apiArticles articles : fetchedArticles) {
             cardController c = new cardController();
             VBox articleCard = c.getView(articles);
             articleGrid.add(articleCard, 2, articleGrid.getRowCount());
@@ -75,8 +78,8 @@ public class readerPageController implements Initializable {
         }
     }
 
-    private List<ArticlesDetails> latestNews() {
-        List<ArticlesDetails> al = new ArrayList<>();
+    private List<apiArticles> latestNews() {
+        List<apiArticles> al = new ArrayList<>();
 
         JsonObject articlesData = (JsonObject) fetchArticles();
 
@@ -92,7 +95,7 @@ public class readerPageController implements Initializable {
                 String description = articleJsonObject.get("description").isJsonNull() ? "" : articleJsonObject.get("description").getAsString();
                 String publishedAt = articleJsonObject.get("publishedAt").isJsonNull() ? "" : articleJsonObject.get("publishedAt").getAsString();
 
-                ArticlesDetails currentArticle = new ArticlesDetails(title, description, author, publishedAt);
+                apiArticles currentArticle = new apiArticles(title, description, author, publishedAt);
 
                 al.add(currentArticle);
             }
@@ -128,5 +131,9 @@ public class readerPageController implements Initializable {
 
     public void setLogoutButton() throws IOException {
         new sceneSwitch(homepageScene, "loginPage.fxml");
+    }
+
+    public void publishArticlePage() throws IOException {
+        new sceneSwitch(homepageScene, "authorPublishingPage.fxml");
     }
 }

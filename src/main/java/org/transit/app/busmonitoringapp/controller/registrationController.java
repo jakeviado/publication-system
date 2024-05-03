@@ -14,19 +14,31 @@ import java.sql.SQLException;
 public class registrationController {
     @FXML
     public Button registerStartButton;
+
     public Label notifyLabel;
+
     public VBox registrationScene;
+
     public CheckBox checkbox;
+
     @FXML
     public TextField firstNameTextField;
+
     @FXML
     public TextField lastNameTextField;
+
     @FXML
     public TextField emailTextField;
+
+    @FXML
+    public Button registerAuthorButton;
+
     @FXML
     TextField usernameTextField;
+
     @FXML
     TextField passwordTextField;
+
     @FXML
     public PasswordField confirmPasswordTextField;
 
@@ -64,7 +76,9 @@ public class registrationController {
         }
     }
 
+
     public void enableRegisterButton() {
+        registerAuthorButton.setDisable(!checkbox.isSelected());
         registerStartButton.setDisable(!checkbox.isSelected());
     }
 

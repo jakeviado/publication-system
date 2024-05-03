@@ -1,27 +1,19 @@
 package org.transit.app.busmonitoringapp.model;
 
-import org.transit.app.busmonitoringapp.interfaces.ArticleInterface;
+import org.transit.app.busmonitoringapp.interfaces.apiArticleInterface;
 
-public class ArticlesDetails implements ArticleInterface {
+public class apiArticles implements apiArticleInterface {
     private String title;
     private String url;
     private String description;
     private String author;
     private String publishedAt;
 
-//    public ArticlesDetails(String title, String url, String description, String author, String publishedAt) {
-//        this.title = title;
-//        this.url = url;
-//        this.description = description;
-//        this.author = author;
-//        this.publishedAt = publishedAt;
-//    }
-
-    public ArticlesDetails() {
+    public apiArticles() {
 
     }
 
-    public ArticlesDetails(String title, String description, String author, String publishedAt) {
+    public apiArticles(String title, String description, String author, String publishedAt) {
         this.title = title;
         this.description = description;
         this.author = author;
