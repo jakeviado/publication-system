@@ -9,6 +9,7 @@ import static org.transit.app.busmonitoringapp.utilities.DBConnection.getConnect
 
 public class transactions {
 
+    //TODO NEED ICHECK KUNG SI ATTEMPTING USER AY AUTHOR OR SIMPLENG TAO LAMANG
     public boolean loginQuery(Login userData) throws SQLException {
         String username = userData.username();
         String password = userData.password();
@@ -25,24 +26,29 @@ public class transactions {
             return rs.next();
         }
     }
-
-    //TODO IF THE ADMIN LOGS IN, THE ADMIN MUST HAVE ACCESS TO THE ADMIN PAGE
-    public boolean adminLogin(Login userData) throws SQLException {
-        String username = userData.username();
-        String password = userData.password();
-
-        try (Connection connection = getConnection()) {
-            String query = "SELECT * from USERROLES where USER_ID = 2 AND ROLE_ID = 2";
-            assert connection != null;
-
-            PreparedStatement stmt = connection.prepareStatement(query);
-            stmt.setString(1, username);
-            stmt.setString(2, password);
-
-            ResultSet rs = stmt.executeQuery();
-            return rs.next();
-        }
-    }
+//
+//    public boolean registerQuery(Signup userData) throws SQLException {
+//        String first_name = userData.first_name();
+//        String last_name = userData.last_name();
+//        String email = userData.email();
+//        String username = userData.username();
+//        String password = userData.password();
+//
+//        try (Connection connection = getConnection()) {
+//            String query = "INSERT INTO USERS (USERNAME, PASSWORD, EMAIL, FIRST_NAME, LAST_NAME) VALUES (?, ?, ?, ?, ?)";
+//            assert connection != null;
+//            PreparedStatement stmt = connection.prepareStatement(query);
+//
+//            stmt.setString(1, username);
+//            stmt.setString(2, password);
+//            stmt.setString(3, email);
+//            stmt.setString(4, first_name);
+//            stmt.setString(5, last_name);
+//
+//            int rowsAffected = stmt.executeUpdate();
+//            return rowsAffected == 1;
+//        }
+//    }
 
     public boolean registerQuery(Signup userData, boolean isAuthor) throws SQLException {
         String first_name = userData.first_name();
@@ -52,9 +58,12 @@ public class transactions {
         String password = userData.password();
 
         try (Connection connection = getConnection()) {
-            String userQuery = "INSERT INTO Users (username, password, email, first_name, last_name) VALUES (?, ?, ?, ?, ?)";
+            String userQuery = "INSERT INTO Users (USERNAME, PASSWORD, EMAIL, FIRST_NAME, LAST_NAME) VALUES (?, ?, ?, ?, ?)";
             assert connection != null;
-            PreparedStatement userStmt = connection.prepareStatement(userQuery, Statement.RETURN_GENERATED_KEYS);
+
+            // CHECKING sa unang column ng relation na USER_ID kasi iyon ay auto increment sa db
+            PreparedStatement userStmt = connection.prepareStatement(userQuery, new int[]{1});
+
             userStmt.setString(1, username);
             userStmt.setString(2, password);
             userStmt.setString(3, email);
@@ -62,15 +71,18 @@ public class transactions {
             userStmt.setString(5, last_name);
 
             int rowsAffected = userStmt.executeUpdate();
+//            return rowsAffected == 1;
+
             if (rowsAffected == 1) {
                 ResultSet generatedKeys = userStmt.getGeneratedKeys();
-                if (generatedKeys.next()) {
-                    long userId = generatedKeys.getLong(1);
 
-                    String roleQuery = "INSERT INTO UserRoles (user_id, role_id) VALUES (?, ?)";
+                if (generatedKeys.next()) {
+                    int userId = generatedKeys.getInt(1);
+
+                    String roleQuery = "INSERT INTO UserRoles (USER_ID, ROLE_ID) VALUES (?, ?)";
                     PreparedStatement roleStmt = connection.prepareStatement(roleQuery);
                     if (isAuthor) {
-                        roleStmt.setLong(1, userId);
+                        roleStmt.setInt(1, userId);
                         roleStmt.setInt(2, 1);
                     }
 
@@ -78,10 +90,11 @@ public class transactions {
                     roleStmt.close();
 
                     if (isAuthor) {
-                        String authorQuery = "INSERT INTO Authors (author_id, name, role_id) VALUES (?, ?, 1)";
+                        String authorQuery = "INSERT INTO Authors (name, user_id, role_id) VALUES (?, ?, ?)";
                         PreparedStatement authorStmt = connection.prepareStatement(authorQuery);
-                        authorStmt.setLong(1, userId);
-                        authorStmt.setString(2, first_name + " " + last_name);
+                        authorStmt.setString(1, first_name + " " + last_name);
+                        authorStmt.setInt(2, userId);
+                        authorStmt.setInt(3, 1);
                         authorStmt.executeUpdate();
                         authorStmt.close();
                     }

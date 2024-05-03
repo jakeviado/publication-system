@@ -59,15 +59,14 @@ public class registrationController {
         }
 
         Signup userData = new Signup(username, password, email, first_name, last_name);
-        transactions registerUserInfoLogic = new transactions();
+        transactions transact = new transactions();
 
         try {
-            if (registerUserInfoLogic.registerQuery(userData , false)) {
+            if (transact.registerQuery(userData , false)) {
                 notifyLabel.setText("Registered successfully!");
                 clearFields();
-            } else {
-                notifyLabel.setText("Registration failed. Please check username or password.");
             }
+
         } catch (SQLException e) {
             notifyLabel.setText("Registration failed.");
         }
@@ -85,15 +84,13 @@ public class registrationController {
         if (!password.equals(confirmPassword)) {
             notifyLabel.setText("Passwords do not match");
             return;
-        } else {
-            registerAuthorButton.setDisable(false);
         }
 
         Signup userData = new Signup(username, password, email, first_name, last_name);
-        transactions registerUserInfoLogic = new transactions();
+        transactions transact = new transactions();
 
         try {
-            if (registerUserInfoLogic.registerQuery(userData, true)) {
+            if (transact.registerQuery(userData, true)) {
                 notifyLabel.setText("Registered as author successfully!");
                 clearFields();
             } else {
