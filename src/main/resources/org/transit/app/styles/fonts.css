@@ -1,17 +1,37 @@
 @font-face {
-    src: url(fonts/Urbanist-VariableFont_wght.ttf);
+    src: url(fonts/Lexend-Regular.ttf);
+    src: url(fonts/Chomsky-8Moa2.otf);
 }
 
-.label, .button, .hyperlink {
-    -fx-font-family: 'Urbanist';
-    -fx-font-weight: 700;
+.label, .button, .hyperlink, .toggle-button {
+    -fx-font-family: 'Lexend';
+    -fx-font-weight: 100;
 }
 
 .label, .hyperlink {
-    -fx-font-size: 13px;
+    -fx-font-size: 12px;
 }
 
-.button {
-    -fx-font-size: 16px;
+.button, .toggle-button{
+    -fx-font-size: 15px;
     -fx-font-color: white;
+}
+
+.label-main-logo {
+    -fx-font-family: 'Chomsky';
+    -fx-font-weight: 700;
+}
+
+.articleTitleLabel {
+    -fx-font-size: 28px;
+    -fx-font-weight: 700;
+}
+
+.b {
+    -fx-font-size: 28px;
+    -fx-font-weight: 700;
+}
+
+.articleAuthor, .articlePublishedAt, .articleDescription{
+    -fx-font-size: 16px;
 }
