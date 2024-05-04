@@ -36,14 +36,13 @@ public class loginController {
 
         try {
             if (retrieveUserInfoLogic.loginQuery(userData)) {
-                new sceneSwitch(loginScene, "homepage.fxml");
+                new sceneSwitch(loginScene, "mainpage.fxml");
             } else  {
                 notifyLabel.setText("Incorrect username or password");
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
     }
 
     public void signup() throws IOException {

@@ -16,7 +16,6 @@ public class Articles implements articles {
     private String category;
 
 
-
 //    public Articles(String headline, String byline, String publicationDate, String content, String category) {
 //        this.headline = headline;
 //        this.byline = byline;

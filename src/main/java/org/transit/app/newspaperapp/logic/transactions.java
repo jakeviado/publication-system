@@ -6,6 +6,8 @@ import org.transit.app.newspaperapp.model.Signup;
 
 import java.sql.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.transit.app.newspaperapp.utilities.DBConnection.getConnection;
 
@@ -141,7 +143,6 @@ public class transactions {
         return false;
     }
 
-
     // Publish article query
     public boolean publishQuery(Articles articles) {
         String headline = articles.headline();
@@ -162,12 +163,41 @@ public class transactions {
             stmt.setString(5, category);
 
             int rowsAffected = stmt.executeUpdate();
-            return rowsAffected == 1;
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return false;
     }
+
+    public List<Articles> loadArticlesQuery() {
+        List<Articles> articlesList = new ArrayList<>();
+
+        try (Connection connection = getConnection()) {
+            String query = "SELECT * FROM ARTICLESTEST";
+            assert connection != null;
+            PreparedStatement stmt = connection.prepareStatement(query);
+            ResultSet resultSet = stmt.executeQuery();
+
+            while (resultSet.next()) {
+                String headline =  resultSet.getString("HEADLINE");
+                String byline = resultSet.getString("BYLINE");
+                LocalDateTime publicationDate = resultSet.getTimestamp("PUBLICATION_DATE").toLocalDateTime();
+                String content = resultSet.getString("CONTENT");
+                String category = resultSet.getString("CATEGORY_TYPE");
+
+                Articles article = new Articles(headline, byline, content, category, publicationDate);
+                articlesList.add(article);;
+            }
+
+//            int rowsAffected = stmt.executeUpdate();
+//            return rowsAffected == 1;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return articlesList;
+    }
+
 }
 

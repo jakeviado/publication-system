@@ -2,6 +2,7 @@ package org.transit.app.newspaperapp.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.control.ToggleButton;
 
 import javafx.animation.TranslateTransition;
@@ -16,10 +17,12 @@ import org.transit.app.newspaperapp.Main;
 import org.transit.app.newspaperapp.model.sceneSwitch;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.Objects;
+import java.util.ResourceBundle;
 
 
-public class homepage {
+public class mainpage implements Initializable {
     @FXML
     public VBox homepageScene;
 
@@ -56,6 +59,16 @@ public class homepage {
     @FXML
     private Button exitButton;
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        try {
+            BorderPane about = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("home.fxml")));
+            articleContainerBorderPane.setCenter(about);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public void toggle() {
         toggleButton.setOnAction(event -> {
             TranslateTransition slide = new TranslateTransition();
@@ -85,6 +98,11 @@ public class homepage {
         new sceneSwitch(homepageScene, "loginForm.fxml");
     }
 
+    public void setHomeBtn(ActionEvent event) throws IOException {
+        BorderPane nextVbox = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("home.fxml")));
+        articleContainerBorderPane.setCenter(nextVbox);
+    }
+
     public void setCategoriesBtn(ActionEvent event) throws IOException {
         BorderPane nextVbox = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("categories.fxml")));
         articleContainerBorderPane.setCenter(nextVbox);
@@ -104,4 +122,6 @@ public class homepage {
         BorderPane about = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("account.fxml")));
         articleContainerBorderPane.setCenter(about);
     }
+
+
 }

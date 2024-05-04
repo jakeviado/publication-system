@@ -3,6 +3,11 @@
     src: url(fonts/Chomsky-8Moa2.otf);
 }
 
+@font-face {
+    -fx-font-family: 'Fraunces Medium';
+    src: url(fonts/Fraunces-Medium.ttf);
+}
+
 .label, .button, .hyperlink, .toggle-button {
     -fx-font-family: 'Lexend';
     -fx-font-weight: 100;
@@ -22,8 +27,9 @@
     -fx-font-weight: 700;
 }
 
-.articleTitleLabel {
-    -fx-font-size: 28px;
+.headlineLabel {
+    -fx-font-family: 'Fraunces Medium';
+    -fx-font-size: 33px;
     -fx-font-weight: 700;
 }
 
