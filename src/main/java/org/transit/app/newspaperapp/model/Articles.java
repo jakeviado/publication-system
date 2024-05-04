@@ -1,6 +1,6 @@
-package org.transit.app.busmonitoringapp.model;
+package org.transit.app.newspaperapp.model;
 
-import org.transit.app.busmonitoringapp.interfaces.articles;
+import org.transit.app.newspaperapp.interfaces.articles;
 
 public class Articles implements articles {
     private String headline;

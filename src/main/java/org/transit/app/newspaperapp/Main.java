@@ -1,4 +1,4 @@
-package org.transit.app.busmonitoringapp;
+package org.transit.app.newspaperapp;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

@@ -1,6 +1,6 @@
-package org.transit.app.busmonitoringapp.model;
+package org.transit.app.newspaperapp.model;
 
-import org.transit.app.busmonitoringapp.interfaces.register;
+import org.transit.app.newspaperapp.interfaces.register;
 
 public class Signup implements register {
     private String username;

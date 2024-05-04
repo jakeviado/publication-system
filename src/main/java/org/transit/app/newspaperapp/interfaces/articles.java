@@ -1,4 +1,4 @@
-package org.transit.app.busmonitoringapp.interfaces;
+package org.transit.app.newspaperapp.interfaces;
 
 public interface articles {
     String headline();

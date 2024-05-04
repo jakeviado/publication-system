@@ -1,12 +1,12 @@
-package org.transit.app.busmonitoringapp.controller;
+package org.transit.app.newspaperapp.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 
-import org.transit.app.busmonitoringapp.logic.transactions;
-import org.transit.app.busmonitoringapp.model.Signup;
-import org.transit.app.busmonitoringapp.model.sceneSwitch;
+import org.transit.app.newspaperapp.logic.transactions;
+import org.transit.app.newspaperapp.model.Signup;
+import org.transit.app.newspaperapp.model.sceneSwitch;
 
 import java.io.IOException;
 import java.sql.SQLException;

@@ -1,4 +1,4 @@
-package org.transit.app.busmonitoringapp.utilities;
+package org.transit.app.newspaperapp.utilities;
 import java.sql.*;
 
 import java.sql.DriverManager;

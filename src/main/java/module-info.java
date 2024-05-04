@@ -6,10 +6,10 @@ module org.transit.app.busmonitoringapp {
     requires com.oracle.database.jdbc;
     requires com.google.gson;
 
-    opens org.transit.app.busmonitoringapp to javafx.fxml;
-    exports org.transit.app.busmonitoringapp;
-    exports org.transit.app.busmonitoringapp.controller;
-    opens org.transit.app.busmonitoringapp.controller to javafx.fxml;
-    exports org.transit.app.busmonitoringapp.model;
-    opens org.transit.app.busmonitoringapp.model to javafx.fxml;
+    opens org.transit.app.newspaperapp to javafx.fxml;
+    exports org.transit.app.newspaperapp;
+    exports org.transit.app.newspaperapp.controller;
+    opens org.transit.app.newspaperapp.controller to javafx.fxml;
+    exports org.transit.app.newspaperapp.model;
+    opens org.transit.app.newspaperapp.model to javafx.fxml;
 }

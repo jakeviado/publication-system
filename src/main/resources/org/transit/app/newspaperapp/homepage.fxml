@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox fx:id="homepageScene" alignment="BOTTOM_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0" prefWidth="940.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.transit.app.busmonitoringapp.controller.homepage">
+<VBox fx:id="homepageScene" alignment="BOTTOM_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0" prefWidth="940.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.transit.app.newspaperapp.controller.homepage">
    <HBox alignment="CENTER" prefHeight="55.0" prefWidth="940.0" VBox.vgrow="ALWAYS">
       <children>
          <HBox alignment="CENTER_LEFT" prefHeight="57.0" prefWidth="143.0">
@@ -23,7 +23,7 @@
          </HBox>
          <HBox alignment="CENTER" prefHeight="57.0" prefWidth="661.0">
             <children>
-               <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="38.0" prefWidth="225.0" style="-fx-font-size: 35;" styleClass="label-main-logo" text="The Gazette">
+               <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="48.0" prefWidth="386.0" style="-fx-font-size: 30;" styleClass="label-main-logo" text="Editorial Quill">
                   <HBox.margin>
                      <Insets right="2.0" />
                   </HBox.margin>
@@ -94,9 +94,9 @@
                   </padding>
                </Label>
                <Button fx:id="homeBtn" ellipsisString="" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="52.0" prefWidth="234.0" styleClass="button-burger" text="Home" />
-               <Button fx:id="categoriesBtn" onAction="#setCategoriesBtn" alignment="CENTER" contentDisplay="TOP" ellipsisString="" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="52.0" prefWidth="234.0" styleClass="button-burger" text="Page" />
+               <Button fx:id="categoriesBtn" alignment="CENTER" contentDisplay="TOP" ellipsisString="" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#setCategoriesBtn" prefHeight="52.0" prefWidth="234.0" styleClass="button-burger" text="Page" />
                <Button fx:id="aboutBtn" alignment="CENTER" contentDisplay="TOP" ellipsisString="" layoutX="10.0" layoutY="62.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#setAboutBtn" prefHeight="52.0" prefWidth="234.0" styleClass="button-burger" text="About" />
-               <Button fx:id="accountBtn" onAction="#setAccountBtn" alignment="CENTER" contentDisplay="TOP" ellipsisString="" layoutX="10.0" layoutY="114.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="52.0" prefWidth="234.0" styleClass="button-burger" text="Account" />
+               <Button fx:id="accountBtn" alignment="CENTER" contentDisplay="TOP" ellipsisString="" layoutX="10.0" layoutY="114.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#setAccountBtn" prefHeight="52.0" prefWidth="234.0" styleClass="button-burger" text="Account" />
                <Pane prefHeight="259.0" prefWidth="200.0" />
                <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#setLogoutButton" prefHeight="42.0" prefWidth="200.0" styleClass="logout-button" text="LOG OUT" textFill="WHITE" />
             </children>

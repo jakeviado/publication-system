@@ -1,10 +1,10 @@
-package org.transit.app.busmonitoringapp.controller;
+package org.transit.app.newspaperapp.controller;
 
 import javafx.scene.control.*;
-import org.transit.app.busmonitoringapp.model.sceneSwitch;
+import org.transit.app.newspaperapp.model.sceneSwitch;
 import javafx.scene.layout.VBox;
-import org.transit.app.busmonitoringapp.model.Login;
-import org.transit.app.busmonitoringapp.logic.transactions;
+import org.transit.app.newspaperapp.model.Login;
+import org.transit.app.newspaperapp.logic.transactions;
 import javafx.fxml.FXML;
 import javafx.stage.Stage;
 

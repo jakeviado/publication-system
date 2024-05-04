@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="loginScene" alignment="CENTER" prefHeight="620.0" prefWidth="940.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.transit.app.busmonitoringapp.controller.loginController">
+<VBox fx:id="loginScene" alignment="CENTER" prefHeight="620.0" prefWidth="940.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.transit.app.newspaperapp.controller.loginController">
     <Pane prefHeight="620.0" prefWidth="940.0">
         <Label fx:id="notifyLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="342.0" layoutY="522.0" prefHeight="17.0" prefWidth="256.0" textFill="#f24444" />
         <Button layoutX="281.0" layoutY="410.0" onAction="#login" prefHeight="45.0" prefWidth="377.0" text="LOG IN" textFill="WHITE" />
@@ -49,12 +49,12 @@
             <Button fx:id="closeAppButton" mnemonicParsing="false" onAction="#closeApplication" prefHeight="38.0" prefWidth="75.0" styleClass="exit-button" text="EXIT" textFill="WHITE" GridPane.columnIndex="1" />
         </GridPane>
         <FlowPane layoutX="328.0" layoutY="156.0" prefHeight="62.0" prefWidth="142.0" />
-         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="193.0" layoutY="118.0" prefHeight="77.0" prefWidth="556.0" style="-fx-font-size: 70;" styleClass="label-main-logo" text="The Gazette" textAlignment="CENTER">
+         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="193.0" layoutY="118.0" prefHeight="77.0" prefWidth="556.0" style="-fx-font-size: 70;" styleClass="label-main-logo" text="Editorial Quill" textAlignment="CENTER">
              <font>
                  <Font size="43.0" />
              </font>
          </Label>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="379.0" layoutY="196.0" prefHeight="17.0" prefWidth="181.0" text="The Official Ipsum Lorem" textAlignment="CENTER" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="381.0" layoutY="196.0" prefHeight="17.0" prefWidth="181.0" style="-fx-font-size: 13;" text="The Official Gazette" textAlignment="CENTER" />
       <Label layoutX="738.0" layoutY="257.0" opacity="0.6" prefHeight="448.0" prefWidth="270.0" style="-fx-font-size: 400;" styleClass="label-main-logo" text="T" />
     </Pane>
 

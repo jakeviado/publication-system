@@ -1,6 +1,6 @@
-package org.transit.app.busmonitoringapp.model;
+package org.transit.app.newspaperapp.model;
 
-import org.transit.app.busmonitoringapp.interfaces.login;
+import org.transit.app.newspaperapp.interfaces.login;
 
 public class Login implements login {
     private String username;

@@ -1,4 +1,4 @@
-package org.transit.app.busmonitoringapp.controller;
+package org.transit.app.newspaperapp.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -7,15 +7,13 @@ import javafx.scene.control.ToggleButton;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-import org.transit.app.busmonitoringapp.Main;
-import org.transit.app.busmonitoringapp.model.sceneSwitch;
+import org.transit.app.newspaperapp.Main;
+import org.transit.app.newspaperapp.model.sceneSwitch;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -27,9 +25,6 @@ public class homepage {
 
     @FXML
     public VBox slidePanel;
-
-    @FXML
-    public Label welcomeNameLabel;
 
     @FXML
     public ToggleButton toggleButton;
@@ -59,14 +54,10 @@ public class homepage {
     public Button accountBtn;
 
     @FXML
-    public AnchorPane root;
-
-    @FXML
     private Button exitButton;
 
     public void toggle() {
         toggleButton.setOnAction(event -> {
-
             TranslateTransition slide = new TranslateTransition();
             slide.setDuration(Duration.seconds(0.3));
             slide.setNode(slidePanel);
