@@ -1,6 +1,11 @@
 @font-face {
-    src: url(fonts/Lexend-Regular.ttf);
+    -fx-font-family: 'Chomsky';
     src: url(fonts/Chomsky-8Moa2.otf);
+}
+
+@font-face {
+    -fx-font-family: 'Lexend';
+    src: url(fonts/Lexend-Regular.ttf);
 }
 
 @font-face {
