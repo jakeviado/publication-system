@@ -2,6 +2,8 @@ package org.transit.app.newspaperapp.model;
 
 import org.transit.app.newspaperapp.interfaces.articles;
 
+import java.time.LocalDateTime;
+
 public class Articles implements articles {
     private String headline;
 
@@ -11,12 +13,51 @@ public class Articles implements articles {
 
     private String content;
 
-    public Articles(String headline, String byline, String publicationDate, String content) {
+    private String category;
+
+
+
+//    public Articles(String headline, String byline, String publicationDate, String content, String category) {
+//        this.headline = headline;
+//        this.byline = byline;
+//        this.publicationDate = publicationDate;
+//        this.content = content;
+//        this.category = category;
+//    }
+
+    public Articles(String headline, String byline, String content, String category, LocalDateTime publicationDate) {
         this.headline = headline;
         this.byline = byline;
-        this.publicationDate = publicationDate;
         this.content = content;
+        this.category = category;
+        this.publicationDate = String.valueOf(publicationDate);
     }
+
+    @Override
+    public String headline() {
+        return getHeadline();
+    }
+
+    @Override
+    public String byline() {
+        return getByline();
+    }
+
+    @Override
+    public String publicationDate() {
+        return getPublicationDate();
+    }
+
+    @Override
+    public String content() {
+        return getContent();
+    }
+
+    @Override
+    public String category() {
+        return getCategory();
+    }
+
 
     public String getHeadline() {
         return headline;
@@ -50,23 +91,12 @@ public class Articles implements articles {
         this.content = content;
     }
 
-    @Override
-    public String headline() {
-        return getHeadline();
+    public String getCategory() {
+        return category;
     }
 
-    @Override
-    public String byline() {
-        return getByline();
+    public void setCategory(String category) {
+        this.category = category;
     }
 
-    @Override
-    public String publicationDate() {
-        return getPublicationDate();
-    }
-
-    @Override
-    public String content() {
-        return getContent();
-    }
 }

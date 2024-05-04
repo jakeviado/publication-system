@@ -5,4 +5,5 @@ public interface articles {
     String byline();
     String publicationDate();
     String content();
+    String category();
 }

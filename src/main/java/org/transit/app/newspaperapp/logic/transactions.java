@@ -1,9 +1,11 @@
 package org.transit.app.newspaperapp.logic;
 
+import org.transit.app.newspaperapp.model.Articles;
 import org.transit.app.newspaperapp.model.Login;
 import org.transit.app.newspaperapp.model.Signup;
 
 import java.sql.*;
+import java.time.LocalDateTime;
 
 import static org.transit.app.newspaperapp.utilities.DBConnection.getConnection;
 
@@ -139,5 +141,33 @@ public class transactions {
         return false;
     }
 
+
+    // Publish article query
+    public boolean publishQuery(Articles articles) {
+        String headline = articles.headline();
+        String byline = articles.byline();
+        String content = articles.content();
+        String category = articles.category();
+        LocalDateTime publicationDateTime = LocalDateTime.parse(articles.publicationDate());
+
+        try (Connection connection = getConnection()) {
+            String query = "INSERT INTO ARTICLESTEST (HEADLINE, BYLINE, PUBLICATION_DATE, CONTENT, CATEGORY_TYPE) VALUES (?, ?, ?, ?, ?)";
+            assert connection != null;
+            PreparedStatement stmt = connection.prepareStatement(query);
+
+            stmt.setString(1, headline);
+            stmt.setString(2, byline);
+            stmt.setObject(3, Timestamp.valueOf(publicationDateTime));
+            stmt.setString(4, content);
+            stmt.setString(5, category);
+
+            int rowsAffected = stmt.executeUpdate();
+            return rowsAffected == 1;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 }
 
