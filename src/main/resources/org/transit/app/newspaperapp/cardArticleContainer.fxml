@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane fx:id="articleCard" maxWidth="-Infinity" prefHeight="429.0" prefWidth="523.0" style="-fx-background-insets: 20;" styleClass="card" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.transit.app.newspaperapp.controller.cardComponentController">
+   <center>
+      <GridPane fx:id="gridPane" prefHeight="449.0" prefWidth="523.0" BorderPane.alignment="TOP_LEFT">
+         <columnConstraints>
+            <ColumnConstraints minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="52.79998779296875" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="47.99998168945312" minHeight="10.0" prefHeight="35.19999389648437" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="70.40000610351561" minHeight="10.0" prefHeight="42.600006103515625" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="224.80003662109374" minHeight="10.0" prefHeight="37.399987792968744" />
+            <RowConstraints maxHeight="246.1999938964844" minHeight="10.0" prefHeight="42.40001220703127" vgrow="ALWAYS" />
+         </rowConstraints>
+         <children>
+            <Label fx:id="headlineLabel" prefHeight="36.0" prefWidth="522.0" styleClass="headlineLabel" text="Headline" />
+            <Label fx:id="dateLabel" prefHeight="15.0" prefWidth="636.0" text="Published date:" GridPane.rowIndex="2" />
+            <Label fx:id="authorLabel" prefHeight="132.0" prefWidth="443.0" text="Author:" textOverrun="CLIP" GridPane.rowIndex="1" />
+            <VBox prefHeight="356.0" prefWidth="443.0" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.vgrow="ALWAYS">
+               <children>
+                  <Label fx:id="contentLabel" alignment="TOP_LEFT" contentDisplay="TOP" prefHeight="230.0" prefWidth="443.0" text="Content" textOverrun="CLIP" />
+               </children>
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+            </VBox>
+            <VBox prefHeight="178.0" prefWidth="443.0" GridPane.rowIndex="3">
+               <children>
+                  <Label fx:id="bylineLabel" prefHeight="135.0" prefWidth="443.0" text="Byline" textOverrun="CLIP" />
+               </children>
+            </VBox>
+         </children>
+         <padding>
+            <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
+         </padding>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </GridPane>
+   </center>
+   <padding>
+      <Insets />
+   </padding>
+
+   <stylesheets>
+      <URL value="@../styles/buttons.css" />
+      <URL value="@../styles/fonts.css" />
+      <URL value="@../styles/textField.css" />
+      <URL value="@../styles/components.css" />
+   </stylesheets>
+</BorderPane>
