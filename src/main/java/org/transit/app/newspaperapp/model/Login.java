@@ -39,7 +39,5 @@ public class Login implements login {
     public void setPassword(String password) {
         this.password = password;
     }
-
-
 }
 

@@ -86,6 +86,7 @@ public class transactions {
 //        }
 //    }
 
+
     public boolean registerQuery(Signup userData, boolean isAuthor) throws SQLException {
         String first_name = userData.first_name();
         String last_name = userData.last_name();
@@ -111,10 +112,8 @@ public class transactions {
 
             if (rowsAffected == 1) {
                 ResultSet generatedKeys = userStmt.getGeneratedKeys();
-
                 if (generatedKeys.next()) {
                     int userId = generatedKeys.getInt(1);
-
                     String roleQuery = "INSERT INTO UserRoles (USER_ID, ROLE_ID) VALUES (?, ?)";
                     PreparedStatement roleStmt = connection.prepareStatement(roleQuery);
                     if (isAuthor) {
@@ -138,10 +137,11 @@ public class transactions {
                 }
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
         return false;
     }
+
 
     // Publish article query
     public boolean publishQuery(Articles articles) {
@@ -162,13 +162,14 @@ public class transactions {
             stmt.setString(4, content);
             stmt.setString(5, category);
 
-            int rowsAffected = stmt.executeUpdate();
+//            int rowsAffected = stmt.executeUpdate();
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
         return false;
     }
+
 
     public List<Articles> loadArticlesQuery() {
         List<Articles> articlesList = new ArrayList<>();
@@ -194,7 +195,7 @@ public class transactions {
 //            return rowsAffected == 1;
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
         return articlesList;
     }

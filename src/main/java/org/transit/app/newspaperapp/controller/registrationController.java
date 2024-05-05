@@ -44,9 +44,7 @@ public class registrationController {
 
     @FXML
     public PasswordField confirmPasswordTextField;
-
-
-
+    
     @FXML
     public void registerAsReader() {
         String username = usernameTextField.getText();
@@ -71,7 +69,6 @@ public class registrationController {
                 notifyLabel.setText("Registered successfully!");
                 clearFields();
             }
-
         } catch (SQLException e) {
             notifyLabel.setText("Registration failed.");
         }

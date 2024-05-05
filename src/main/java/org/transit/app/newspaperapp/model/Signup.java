@@ -34,7 +34,6 @@ public class Signup implements register {
         return getLast_name();
     }
 
-
     public Signup(String username, String password, String email, String first_name, String last_name ){
         this.username = username;
         this.password = password;

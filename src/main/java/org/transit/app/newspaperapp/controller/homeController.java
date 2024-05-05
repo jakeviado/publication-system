@@ -32,13 +32,11 @@ public class homeController implements Initializable {
                 FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("cardArticleContainer.fxml"));
                 BorderPane card = fxmlLoader.load();
 
-
-
                 cardComponentController controller = fxmlLoader.getController();
                 controller.setArticleTexts(article.getHeadline(), article.getByline(), article.getContent(), article.getPublicationDate().toString());
                 articleVboxContainer.getChildren().add(card);
             } catch (IOException e) {
-                e.printStackTrace();
+                throw new RuntimeException(e);
             }
         }
     }

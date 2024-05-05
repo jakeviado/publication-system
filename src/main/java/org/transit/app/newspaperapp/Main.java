@@ -14,7 +14,7 @@ public class Main extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("loginForm.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.initStyle(StageStyle.UNDECORATED);
-        stage.setTitle("the gazette");
+        stage.setTitle("The Street Journal");
         stage.setScene(scene);
         stage.show();
     }
