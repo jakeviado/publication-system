@@ -22,7 +22,6 @@ public class homeController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         transactions loadArticlesQuery = new transactions();
-
         List<Articles> articlesList = loadArticlesQuery.loadArticlesQuery();
 
         for (Articles article : articlesList) {
@@ -38,10 +37,4 @@ public class homeController implements Initializable {
             }
         }
     }
-
-//    private List<Articles> loadArticlesQuery() {
-////        transactions loadArticlesQuery = new transactions();
-//        return List.of();
-//    }
-
 }
