@@ -162,7 +162,7 @@ public class transactions {
             stmt.setString(4, content);
             stmt.setString(5, category);
 
-            int rowsAffected = stmt.executeUpdate();
+            // int rowsAffected = stmt.executeUpdate();
 
         } catch (SQLException e) {
             e.printStackTrace();

@@ -3,12 +3,9 @@ package org.transit.app.newspaperapp.controller;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 
-import java.awt.*;
-import java.awt.geom.Rectangle2D;
 
 public class cardComponentController {
     @FXML
