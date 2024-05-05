@@ -33,7 +33,7 @@ public class publishingPage {
 
     public void initialize() {
         ObservableList<String> categories = FXCollections.observableArrayList (
-                "News", "Sports", "Entertainment", "Opinion", "Science", "Technology");
+                "News", "Sports", "Entertainment", "Opinion", "Business", "Technology");
         categoryComboBox.setItems(categories);
     }
 

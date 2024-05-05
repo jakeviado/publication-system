@@ -11,7 +11,7 @@
    <top>
       <HBox alignment="CENTER" prefHeight="40.0" prefWidth="940.0" BorderPane.alignment="CENTER">
          <children>
-            <Label alignment="CENTER" prefHeight="48.0" prefWidth="114.0" style="-fx-font-size: 17;" text="About Us" textAlignment="CENTER">
+            <Label alignment="CENTER" prefHeight="48.0" styleClass="pageLabel" prefWidth="114.0" style="-fx-font-size: 17;" text="About Us" textAlignment="CENTER">
                <font>
                   <Font size="20.0" />
                </font>

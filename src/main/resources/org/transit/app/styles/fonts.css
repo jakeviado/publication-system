@@ -30,6 +30,7 @@
 .label-main-logo {
     -fx-font-family: 'Chomsky';
     -fx-font-weight: 700;
+    -fx-text: "The Street Journal";
 }
 
 .headlineLabel {
@@ -38,11 +39,8 @@
     -fx-font-weight: 700;
 }
 
-.b {
-    -fx-font-size: 28px;
+.pageLabel {
+    -fx-font-family: 'Fraunces Medium';
+    -fx-font-size: 15px;
     -fx-font-weight: 700;
-}
-
-.articleAuthor, .articlePublishedAt, .articleDescription{
-    -fx-font-size: 16px;
 }

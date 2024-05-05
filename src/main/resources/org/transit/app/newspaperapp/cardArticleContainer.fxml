@@ -2,43 +2,60 @@
 
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:id="articleCard" maxWidth="-Infinity" prefHeight="429.0" prefWidth="523.0" style="-fx-background-insets: 20;" styleClass="card" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.transit.app.newspaperapp.controller.cardComponentController">
+<BorderPane fx:id="articleCard" maxWidth="606.0" prefHeight="722.0" prefWidth="606.0" style="-fx-background-insets: 20;" styleClass="card" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.transit.app.newspaperapp.controller.cardComponentController">
    <center>
-      <GridPane fx:id="gridPane" prefHeight="449.0" prefWidth="523.0" BorderPane.alignment="TOP_LEFT">
+      <GridPane fx:id="gridPane" maxHeight="1.7976931348623157E308" prefHeight="482.0" prefWidth="194.0" BorderPane.alignment="TOP_LEFT">
          <columnConstraints>
             <ColumnConstraints minWidth="10.0" prefWidth="100.0" />
          </columnConstraints>
          <rowConstraints>
-            <RowConstraints minHeight="10.0" prefHeight="52.79998779296875" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="47.99998168945312" minHeight="10.0" prefHeight="35.19999389648437" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="70.40000610351561" minHeight="10.0" prefHeight="42.600006103515625" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="224.80003662109374" minHeight="10.0" prefHeight="37.399987792968744" />
-            <RowConstraints maxHeight="246.1999938964844" minHeight="10.0" prefHeight="42.40001220703127" vgrow="ALWAYS" />
+            <RowConstraints maxHeight="255.9999938964844" minHeight="10.0" prefHeight="255.9999938964844" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="56.600006103515625" vgrow="ALWAYS" />
+            <RowConstraints maxHeight="113.60000610351562" minHeight="10.0" prefHeight="27.399999999999977" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="110.39998779296872" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="224.80003662109374" minHeight="10.0" prefHeight="29.399999999999977" />
+            <RowConstraints maxHeight="378.4000061035157" minHeight="10.0" prefHeight="220.60002441406243" vgrow="ALWAYS" />
          </rowConstraints>
          <children>
-            <Label fx:id="headlineLabel" prefHeight="36.0" prefWidth="522.0" styleClass="headlineLabel" text="Headline" />
-            <Label fx:id="dateLabel" prefHeight="15.0" prefWidth="636.0" text="Published date:" GridPane.rowIndex="2" />
-            <Label fx:id="authorLabel" prefHeight="132.0" prefWidth="443.0" text="Author:" textOverrun="CLIP" GridPane.rowIndex="1" />
-            <VBox prefHeight="356.0" prefWidth="443.0" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.vgrow="ALWAYS">
+            <Label fx:id="headlineLabel" prefHeight="36.0" prefWidth="522.0" styleClass="headlineLabel" text="Headline" wrapText="true" GridPane.rowIndex="1" />
+            <Label fx:id="dateLabel" prefHeight="15.0" prefWidth="636.0" text="Published date:" wrapText="true" GridPane.rowIndex="3" />
+            <Label fx:id="authorLabel" prefHeight="132.0" prefWidth="443.0" text="Author:" textOverrun="CLIP" wrapText="true" GridPane.rowIndex="2" />
+            <VBox prefHeight="328.0" prefWidth="506.0" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" GridPane.vgrow="ALWAYS">
                <children>
-                  <Label fx:id="contentLabel" alignment="TOP_LEFT" contentDisplay="TOP" prefHeight="230.0" prefWidth="443.0" text="Content" textOverrun="CLIP" />
+                  <Label fx:id="contentLabel" alignment="TOP_LEFT" contentDisplay="TOP" prefHeight="215.0" prefWidth="443.0" text="Content" textOverrun="CLIP" wrapText="true" />
                </children>
                <padding>
                   <Insets top="10.0" />
                </padding>
             </VBox>
-            <VBox prefHeight="178.0" prefWidth="443.0" GridPane.rowIndex="3">
+            <VBox prefHeight="178.0" prefWidth="443.0" GridPane.rowIndex="4">
                <children>
-                  <Label fx:id="bylineLabel" prefHeight="135.0" prefWidth="443.0" text="Byline" textOverrun="CLIP" />
+                  <Label fx:id="bylineLabel" prefHeight="135.0" prefWidth="443.0" text="Byline" textOverrun="CLIP" wrapText="true" />
                </children>
             </VBox>
+            <HBox alignment="CENTER" prefHeight="246.0" prefWidth="439.0" style="-fx-background-radius: 8;">
+               <children>
+                  <ImageView fx:id="imageView" fitHeight="274.0" fitWidth="506.0" pickOnBounds="true" preserveRatio="true" styleClass="imageView" HBox.hgrow="ALWAYS">
+                     <image>
+                        <Image url="@../styles/assets/dummy-photo.jpg" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D height="500.0" minX="400.0" minY="600.0" width="1000.0" />
+                     </viewport>
+                  </ImageView>
+               </children>
+            </HBox>
          </children>
          <padding>
             <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
