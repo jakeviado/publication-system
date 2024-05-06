@@ -12,22 +12,32 @@
          <children>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="235.0">
                <children>
-                  <Button alignment="CENTER" maxWidth="100.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="105.0" text="NEWS" />
+                  <Button alignment="CENTER" maxWidth="100.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="105.0" styleClass="button-burger" text="NEWS" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="235.0">
                <children>
-                  <Button maxWidth="110.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="100.0" text="SPORTS" />
+                  <Button maxWidth="110.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="100.0" styleClass="button-burger" text="SPORTS" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="56.0" prefWidth="235.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="100.0" text="BUSINESS" />
+                  <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="100.0" styleClass="button-burger" text="ENTERTAINMENT" wrapText="true" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="56.0" prefWidth="235.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="100.0" text="OPINION" />
+                  <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="100.0" styleClass="button-burger" text="OPINION" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="56.0" prefWidth="235.0">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="100.0" styleClass="button-burger" text="BUSINESS" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="56.0" prefWidth="235.0">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="100.0" styleClass="button-burger" text="TECHNOLOGY" wrapText="true" />
                </children>
             </HBox>
          </children>
