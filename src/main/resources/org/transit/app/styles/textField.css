@@ -1,8 +1,8 @@
-.text-field {
+.text-field, .text-area {
     -fx-background-color: #ccc9c5;
     -fx-background-radius: 0px;
 }
 
-.text-field:focused {
+.text-field:focused , .text-area:focused {
     -fx-background-color: #beb7a4;
 }
