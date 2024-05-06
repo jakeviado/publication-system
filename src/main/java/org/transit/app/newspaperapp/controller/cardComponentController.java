@@ -37,6 +37,5 @@ public class cardComponentController {
         bylineLabel.setText(byline);
         contentLabel.setText(content);
         dateLabel.setText(publishedDate);
-
     }
 }

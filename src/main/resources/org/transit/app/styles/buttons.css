@@ -12,6 +12,7 @@
 .button:hover {
     -fx-background-color: #2d2d2d;
     -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.120), 8, 0, 0, 5);
 }
 
 .sign-up-button {
@@ -34,6 +35,14 @@
      -fx-background-radius: 0px;
 }
 
+.toggle-button:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.120), 8, 0, 0, 5);
+}
+
 .logout-button:hover, .exit-button:hover {
     -fx-text-fill: #dd6a67;
+}
+
+.combo-box:focused {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.120), 8, 0, 0, 5);
 }

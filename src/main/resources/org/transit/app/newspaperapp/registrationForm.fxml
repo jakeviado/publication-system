@@ -23,10 +23,10 @@
           <rowConstraints>
               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -34,19 +34,23 @@
               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           </rowConstraints>
-          <PasswordField fx:id="confirmPasswordTextField" prefHeight="70.0" prefWidth="414.0" GridPane.rowIndex="11" />
+
+
           <Label prefHeight="18.0" prefWidth="255.0" text="First Name" />
           <TextField fx:id="firstNameTextField" prefHeight="38.0" prefWidth="339.0" GridPane.rowIndex="1" />
+          <Label layoutX="10.0" layoutY="17.0" prefHeight="18.0" prefWidth="255.0" text="Last Name" GridPane.rowIndex="2" />
+          <TextField fx:id="lastNameTextField" layoutX="10.0" layoutY="44.0" prefHeight="38.0" prefWidth="339.0" GridPane.rowIndex="3" />
+          <Label layoutX="10.0" layoutY="89.0" prefHeight="18.0" prefWidth="255.0" text="Email" GridPane.rowIndex="4" />
+          <TextField fx:id="emailTextField" layoutX="10.0" layoutY="116.0" prefHeight="38.0" prefWidth="339.0" GridPane.rowIndex="5" />
+          <Label prefHeight="18.0" prefWidth="94.0" text="Username" GridPane.rowIndex="6" />
+          <TextField fx:id="usernameTextField" prefHeight="45.0" prefWidth="366.0" GridPane.rowIndex="7" />
           <Label prefHeight="17.0" prefWidth="75.0" text="Password" GridPane.rowIndex="8" />
           <TextField fx:id="passwordTextField" prefHeight="38.0" prefWidth="264.0" GridPane.rowIndex="9" />
           <Label prefHeight="17.0" prefWidth="141.0" text="Confirm Password" GridPane.rowIndex="10" />
-          <TextField fx:id="usernameTextField" prefHeight="45.0" prefWidth="366.0" GridPane.rowIndex="7" />
-          <Label prefHeight="18.0" prefWidth="94.0" text="Username" GridPane.rowIndex="6" />
-         <Label layoutX="10.0" layoutY="17.0" prefHeight="18.0" prefWidth="255.0" text="Last Name" GridPane.rowIndex="2" />
-         <TextField fx:id="lastNameTextField" layoutX="10.0" layoutY="44.0" prefHeight="38.0" prefWidth="339.0" GridPane.rowIndex="3" />
-         <Label layoutX="10.0" layoutY="89.0" prefHeight="18.0" prefWidth="255.0" text="Email" GridPane.rowIndex="4" />
-         <TextField fx:id="emailTextField" layoutX="10.0" layoutY="116.0" prefHeight="38.0" prefWidth="339.0" GridPane.rowIndex="5" />
+          <PasswordField fx:id="confirmPasswordTextField" prefHeight="70.0" prefWidth="414.0" GridPane.rowIndex="11" />
+
       </GridPane>
+
       <Label fx:id="notifyLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="78.0" layoutY="574.0" prefHeight="26.0" prefWidth="798.0" textFill="#ff4d4d" textOverrun="CLIP" />
       <Label layoutX="517.0" layoutY="60.0" prefHeight="82.0" prefWidth="368.0" style="-fx-font-size: 40;" styleClass="label-main-logo" text="The Street Journal" />
       <Label layoutX="523.0" layoutY="142.0" style="-fx-font-size: 20;" text="Sign Up" />

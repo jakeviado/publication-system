@@ -1,6 +1,5 @@
 package org.transit.app.newspaperapp.controller;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ToggleButton;
@@ -98,30 +97,28 @@ public class mainpage implements Initializable {
         new sceneSwitch(homepageScene, "loginForm.fxml");
     }
 
-    public void setHomeBtn(ActionEvent event) throws IOException {
+    public void setHomeBtn() throws IOException {
         BorderPane nextVbox = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("home.fxml")));
         articleContainerBorderPane.setCenter(nextVbox);
     }
 
-    public void setCategoriesBtn(ActionEvent event) throws IOException {
+    public void setCategoriesBtn() throws IOException {
         BorderPane nextVbox = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("categories.fxml")));
         articleContainerBorderPane.setCenter(nextVbox);
     }
 
-    public void publishArticlePage(ActionEvent event) throws IOException {
+    public void publishArticlePage() throws IOException {
         BorderPane nextVbox = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("publishingPage.fxml")));
         articleContainerBorderPane.setCenter(nextVbox);
     }
 
-    public void setAboutBtn(ActionEvent event) throws IOException {
+    public void setAboutBtn() throws IOException {
         BorderPane about = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("about.fxml")));
         articleContainerBorderPane.setCenter(about);
     }
 
-    public void setAccountBtn(ActionEvent event) throws IOException {
+    public void setAccountBtn() throws IOException {
         BorderPane about = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("account.fxml")));
         articleContainerBorderPane.setCenter(about);
     }
-
-
 }

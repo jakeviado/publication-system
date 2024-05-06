@@ -31,8 +31,10 @@
 
 .scroll-pane .scroll-bar:vertical .thumb:hover {
     -fx-background-color: #000000;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.120), 8, 0, 0, 5);
 }
 
 .scroll-pane .scroll-bar:vertical .thumb:pressed {
     -fx-background-color: #000000;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.120), 8, 0, 0, 5);
 }
