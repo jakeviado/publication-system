@@ -1,6 +1,16 @@
 @font-face {
-    src: url(fonts/Lexend-Regular.ttf);
+    -fx-font-family: 'Chomsky';
     src: url(fonts/Chomsky-8Moa2.otf);
+}
+
+@font-face {
+    -fx-font-family: 'Lexend';
+    src: url(fonts/Lexend-Regular.ttf);
+}
+
+@font-face {
+    -fx-font-family: 'Fraunces Medium';
+    src: url(fonts/Fraunces-Medium.ttf);
 }
 
 .label, .button, .hyperlink, .toggle-button {
@@ -20,18 +30,17 @@
 .label-main-logo {
     -fx-font-family: 'Chomsky';
     -fx-font-weight: 700;
+    -fx-text: "The Street Journal";
 }
 
-.articleTitleLabel {
-    -fx-font-size: 28px;
+.headlineLabel {
+    -fx-font-family: 'Fraunces Medium';
+    -fx-font-size: 33px;
     -fx-font-weight: 700;
 }
 
-.b {
-    -fx-font-size: 28px;
+.pageLabel {
+    -fx-font-family: 'Fraunces Medium';
+    -fx-font-size: 15px;
     -fx-font-weight: 700;
-}
-
-.articleAuthor, .articlePublishedAt, .articleDescription{
-    -fx-font-size: 16px;
 }
