@@ -40,11 +40,7 @@ public class homeController implements Initializable {
                 cardComponentController controller = fxmlLoader.getController();
                 controller.setArticleTexts(article.getHeadline(), article.getByline(), article.getContent(), article.getPublicationDate());
 
-
 //                URL imageUrl = new URL(article.getImageLink());
-//
-////                Image image = loadImageFromURL(article.getImageLink());
-//                controller.setArticleImage(Image.fromPlatformImage(imageUrl));
 
                 Image image = loadImageFromURL(article.getImageLink());
                 controller.setArticleImage(image);
@@ -60,25 +56,13 @@ public class homeController implements Initializable {
 //        try {
 //            return new Image(imageURL);
 //        } catch (Exception e) {
-//            System.err.println("Error loading image from URL: " + imageURL);
+//            System.err.println("error loading image from URL: " + imageURL);
 //            throw new RuntimeException(e);
 //        }
 //    }
 
-//    private Image loadImageFromURL(String imageURL) {
-//        try {
-//            URL url = new URL(imageURL);
-//            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-//            connection.setDoInput(true);
-//            connection.connect();
-//            InputStream inputStream = connection.getInputStream();
-//            return new Image(inputStream);
-//        } catch (IOException e) {
-//            System.err.println("error loading image: " + imageURL);
-//            throw new RuntimeException(e);
-//        }
-//    }
 
+    // kuha lang sa internet
     private Image loadImageFromURL(String imageURL) {
         try {
             URL url = new URL(imageURL);

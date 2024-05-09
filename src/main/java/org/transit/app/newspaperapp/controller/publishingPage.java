@@ -63,6 +63,7 @@ public class publishingPage {
         headlineTextfield.clear();
         bylineTextfield.clear();
         contentTextArea.clear();
+        imageLinkTextfield.clear();
     }
 }
 

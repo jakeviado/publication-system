@@ -80,9 +80,9 @@
          <children>
             <HBox alignment="TOP_CENTER" prefHeight="377.0" prefWidth="308.0" style="-fx-background-radius: 8;">
                <children>
-                  <ImageView fx:id="imageView" pickOnBounds="true" preserveRatio="true" styleClass="imageView" HBox.hgrow="ALWAYS">
+                  <ImageView fx:id="imageView" pickOnBounds="true" styleClass="imageView" HBox.hgrow="ALWAYS">
                      <viewport>
-                        <Rectangle2D height="500.0" minX="300.0" minY="300.0" width="250.0" />
+                        <Rectangle2D height="500.0" minX="50.0" minY="100.0" width="300.0" />
                      </viewport>
                   </ImageView>
                </children>
