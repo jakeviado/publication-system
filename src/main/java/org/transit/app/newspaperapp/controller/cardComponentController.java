@@ -2,9 +2,11 @@ package org.transit.app.newspaperapp.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.shape.Rectangle;
 
 
 public class cardComponentController {
@@ -37,5 +39,18 @@ public class cardComponentController {
         bylineLabel.setText(byline);
         contentLabel.setText(content);
         dateLabel.setText(publishedDate);
+    }
+
+    public void setArticleImage(Image image) {
+        imageView.setImage(image);
+
+//        imageView.setFitWidth(500);
+//        imageView.setFitHeight(250);
+
+        Rectangle clipRect = new Rectangle(700, 400);
+        clipRect.setArcWidth(2);
+        clipRect.setArcHeight(2);
+
+        imageView.setClip(clipRect);
     }
 }

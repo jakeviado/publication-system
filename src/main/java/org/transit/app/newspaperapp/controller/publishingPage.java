@@ -25,11 +25,13 @@ public class publishingPage {
     public TextArea contentTextArea;
 
     @FXML
+    public TextField imageLinkTextfield;
+
+    @FXML
     public Label notifyLabel;
 
     @FXML
     public ComboBox<String> categoryComboBox;
-
 
     public void initialize() {
         ObservableList<String> categories = FXCollections.observableArrayList (
@@ -43,8 +45,9 @@ public class publishingPage {
         String content =  contentTextArea.getText();
         String category = categoryComboBox.getValue();
         LocalDateTime publicationDate = LocalDateTime.now();
+        String imageLink = imageLinkTextfield.getText();
 
-        Articles articles = new Articles(headline, byline, content, category, publicationDate);
+        Articles articles = new Articles(headline, byline, content, category, publicationDate, imageLink);
         transactions transact = new transactions();
 
         try {

@@ -150,9 +150,10 @@ public class transactions {
         String content = articles.content();
         String category = articles.category();
         LocalDateTime publicationDateTime = LocalDateTime.parse(articles.publicationDate());
+        String imageLink = articles.imageLink();
 
         try (Connection connection = getConnection()) {
-            String query = "INSERT INTO ARTICLESTEST (HEADLINE, BYLINE, PUBLICATION_DATE, CONTENT, CATEGORY_TYPE) VALUES (?, ?, ?, ?, ?)";
+            String query = "INSERT INTO ARTICLES (HEADLINE, BYLINE, PUBLICATION_DATE, CONTENT, CATEGORY_TYPE, IMAGELINK) VALUES (?, ?, ?, ?, ?, ?)";
             assert connection != null;
             PreparedStatement stmt = connection.prepareStatement(query);
 
@@ -161,13 +162,21 @@ public class transactions {
             stmt.setObject(3, Timestamp.valueOf(publicationDateTime));
             stmt.setString(4, content);
             stmt.setString(5, category);
+            stmt.setString(6, imageLink);
 
-//            int rowsAffected = stmt.executeUpdate();
+            int rowsInserted = stmt.executeUpdate();
+
+            if (rowsInserted > 0) {
+                System.out.println("successful");
+                return true;
+            } else {
+                System.out.println("failed");
+                return false;
+            }
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return false;
     }
 
 
@@ -175,7 +184,7 @@ public class transactions {
         List<Articles> articlesList = new ArrayList<>();
 
         try (Connection connection = getConnection()) {
-            String query = "SELECT * FROM ARTICLESTEST";
+            String query = "SELECT * FROM ARTICLES";
             assert connection != null;
             PreparedStatement stmt = connection.prepareStatement(query);
             ResultSet resultSet = stmt.executeQuery();
@@ -186,19 +195,16 @@ public class transactions {
                 LocalDateTime publicationDate = resultSet.getTimestamp("PUBLICATION_DATE").toLocalDateTime();
                 String content = resultSet.getString("CONTENT");
                 String category = resultSet.getString("CATEGORY_TYPE");
+                String imageLink = resultSet.getString("IMAGELINK");
 
-                Articles article = new Articles(headline, byline, content, category, publicationDate);
+                Articles article = new Articles(headline, byline, content, category, publicationDate, imageLink);
                 articlesList.add(article);;
             }
-
-//            int rowsAffected = stmt.executeUpdate();
-//            return rowsAffected == 1;
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
         return articlesList;
     }
-
 }
 

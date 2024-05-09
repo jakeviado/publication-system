@@ -9,6 +9,10 @@
     -fx-min-height: 100%;
 }
 
+.saveArticleButton {
+    -fx-text-fill: white;
+}
+
 .imageView {
     -fx-border-color: rgba(128, 128, 128, 0.33);
     -fx-border-width: 1px;

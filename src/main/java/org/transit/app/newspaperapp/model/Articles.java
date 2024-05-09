@@ -15,22 +15,18 @@ public class Articles implements articles {
 
     private String category;
 
+    private String imageLink;
 
-//    public Articles(String headline, String byline, String publicationDate, String content, String category) {
-//        this.headline = headline;
-//        this.byline = byline;
-//        this.publicationDate = publicationDate;
-//        this.content = content;
-//        this.category = category;
-//    }
 
-    public Articles(String headline, String byline, String content, String category, LocalDateTime publicationDate) {
+    public Articles(String headline, String byline, String content, String category, LocalDateTime publicationDate, String imageLink) {
         this.headline = headline;
         this.byline = byline;
         this.content = content;
         this.category = category;
         this.publicationDate = String.valueOf(publicationDate);
+        this.imageLink = imageLink;
     }
+
 
     @Override
     public String headline() {
@@ -57,6 +53,10 @@ public class Articles implements articles {
         return getCategory();
     }
 
+    @Override
+    public String imageLink() {
+        return getImageLink();
+    }
 
     public String getHeadline() {
         return headline;
@@ -98,4 +98,11 @@ public class Articles implements articles {
         this.category = category;
     }
 
+    public String getImageLink() {
+        return imageLink;
+    }
+
+    public void setImageLink(String imageLink) {
+        this.imageLink = imageLink;
+    }
 }
