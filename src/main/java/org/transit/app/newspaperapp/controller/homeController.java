@@ -74,7 +74,7 @@ public class homeController implements Initializable {
 //            InputStream inputStream = connection.getInputStream();
 //            return new Image(inputStream);
 //        } catch (IOException e) {
-//            System.err.println("Error loading image from URL: " + imageURL);
+//            System.err.println("error loading image: " + imageURL);
 //            throw new RuntimeException(e);
 //        }
 //    }
@@ -89,7 +89,7 @@ public class homeController implements Initializable {
             InputStream inputStream = connection.getInputStream();
             return new Image(inputStream);
         } catch (IOException e) {
-            System.err.println("Error loading image from URL: " + imageURL);
+            System.err.println("error loading image: " + imageURL);
             throw new RuntimeException(e);
         }
     }
