@@ -30,6 +30,13 @@
     -fx-text-fill: black;
 }
 
+.categories-button {
+    -fx-font-size: 12px;
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 0px;
+    -fx-text-fill: black;
+}
+
 .toggle-button {
      -fx-background-color: #000000;
      -fx-background-radius: 0px;
