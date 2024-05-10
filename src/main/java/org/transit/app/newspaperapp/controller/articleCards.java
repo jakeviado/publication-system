@@ -9,7 +9,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.shape.Rectangle;
 
 
-public class cardComponentController {
+public class articleCards {
     @FXML
     public Label headlineLabel;
 

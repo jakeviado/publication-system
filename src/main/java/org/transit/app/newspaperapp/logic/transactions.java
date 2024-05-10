@@ -143,7 +143,7 @@ public class transactions {
     }
 
     // Publish article query
-    public void publishQuery(Articles articles) {
+    public void publishArticleQuery(Articles articles) {
         String headline = articles.headline();
         String byline = articles.byline();
         String content = articles.content();
@@ -176,6 +176,51 @@ public class transactions {
         }
     }
 
+    //TODO: implementation
+    public void unpublishArticleQuery(Articles articles) {
+        String headline = articles.headline();
+
+        try (Connection connection = getConnection()) {
+            String query = "DELETE FROM ARTICLES WHERE HEADLINE = ?";
+            assert connection != null;
+            PreparedStatement stmt = connection.prepareStatement(query);
+
+            stmt.setString(1, headline);
+
+            int rowsDeleted = stmt.executeUpdate();
+
+            if (rowsDeleted > 0) {
+                System.out.println("article unpublished");
+            } else {
+                System.out.println("article not found");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException("Error", e);
+        }
+    }
+
+    //TODO: implementation
+    public void saveArticle(int userId, int articleId) {
+        try (Connection connection = getConnection()) {
+            String query = "INSERT INTO SAVEDARTICLES (USER_ID, ARTICLE_ID, TIMESTAMP) VALUES (?, ?, ?)";
+            assert connection != null;
+            PreparedStatement stmt = connection.prepareStatement(query);
+
+            stmt.setInt(1, userId);
+            stmt.setInt(2, articleId);
+            stmt.setTimestamp(3, Timestamp.valueOf(LocalDateTime.now()));
+
+            int rowsInserted = stmt.executeUpdate();
+
+            if (rowsInserted > 0) {
+                System.out.println("article saved");
+            } else {
+                System.out.println("failed");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException("Error", e);
+        }
+    }
 
     public List<Articles> loadArticlesQuery() {
         List<Articles> articlesList = new ArrayList<>();
@@ -203,5 +248,6 @@ public class transactions {
         }
         return articlesList;
     }
+    
 }
 

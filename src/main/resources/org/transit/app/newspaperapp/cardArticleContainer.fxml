@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:id="articleCard" maxWidth="792.0" prefHeight="529.0" prefWidth="792.0" style="-fx-background-insets: 20;" styleClass="card" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.transit.app.newspaperapp.controller.cardComponentController">
+<BorderPane fx:id="articleCard" maxWidth="792.0" prefHeight="529.0" prefWidth="792.0" style="-fx-background-insets: 20;" styleClass="card" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.transit.app.newspaperapp.controller.articleCards">
    <center>
       <GridPane fx:id="gridPane" maxHeight="1.7976931348623157E308" prefHeight="508.0" prefWidth="462.0" BorderPane.alignment="CENTER">
          <columnConstraints>

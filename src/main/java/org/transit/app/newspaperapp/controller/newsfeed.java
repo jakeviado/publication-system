@@ -39,7 +39,7 @@ public class newsfeed implements Initializable {
                 FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("cardArticleContainer.fxml"));
                 BorderPane card = fxmlLoader.load();
 
-                cardComponentController controller = fxmlLoader.getController();
+                articleCards controller = fxmlLoader.getController();
                 controller.setArticleTexts(article.getHeadline(), article.getByline(), article.getContent(), article.getPublicationDate());
 
 //                URL imageUrl = new URL(article.getImageLink());

@@ -55,7 +55,7 @@ public class publishingPage {
         transactions transact = new transactions();
 
         try {
-            transact.publishQuery(articles);
+            transact.publishArticleQuery(articles);
             registrationController.clearTextsFields.clearFields(headlineTextfield, bylineTextfield, imageLinkTextfield);
             registrationController.clearTextsFields.clearFields(contentTextArea);
             notifyLabel.setText("Published!!");
