@@ -13,6 +13,8 @@ import org.transit.app.newspaperapp.logic.transactions;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -65,15 +67,17 @@ public class homeController implements Initializable {
     // kuha lang sa internet
     private Image loadImageFromURL(String imageURL) {
         try {
-            URL url = new URL(imageURL);
+            URI uri = new URI(imageURL);
+            URL url = uri.toURL();
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setDoInput(true);
             connection.setRequestProperty("User-Agent", "Mozilla/5.0");
             connection.connect();
-            InputStream inputStream = connection.getInputStream();
-            return new Image(inputStream);
-        } catch (IOException e) {
-            System.err.println("error loading image: " + imageURL);
+            try (InputStream inputStream = connection.getInputStream()) {
+                return new Image(inputStream);
+            }
+        } catch (IOException | URISyntaxException e) {
+            System.err.println("Error loading image: " + imageURL);
             throw new RuntimeException(e);
         }
     }
