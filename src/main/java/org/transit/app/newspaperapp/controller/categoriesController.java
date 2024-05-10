@@ -1,61 +1,70 @@
 package org.transit.app.newspaperapp.controller;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import org.transit.app.newspaperapp.Main;
 
+import java.io.IOException;
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class categoriesController  implements Initializable {
 
+    @FXML
     public Button newsBtn;
 
+    @FXML
     public Button sportsBtn;
 
+    @FXML
     public Button businessBtn;
 
+    @FXML
     public Button opinionBtn;
+
+    @FXML
+    public BorderPane categoriesPane;
 
     //public Button technologyBtn;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("category-News.fxml"));
-
-        newsBtn.setOnAction(this::newsButton);
-        sportsBtn.setOnAction(this::sportsButton);
-        businessBtn.setOnAction(this::businessButton);
-        opinionBtn.setOnAction(this::opinionButton);
-        //technologyBtn.setOnAction(this::technologyButton);
-    }
-    public void newsButton(ActionEvent event) {
-        categoryFXML("category-News.fxml");
+//        loadNewsArticles();
     }
 
-    public void businessButton(ActionEvent event) {
-        categoryFXML("category-Business.fxml");
+    //TODO: Bugged
+//    public void loadNewsArticles() {
+//        BorderPane nextVbox = null;
+//        try {
+//            nextVbox = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("category-News.fxml")));
+//        } catch (IOException e) {
+//            throw new RuntimeException(e);
+//        }
+//        categoriesPane.setCenter(nextVbox);
+//    }
+
+    public void setNewsBtn() throws IOException {
+        switchScene("category-News.fxml");
     }
 
-    public void sportsButton(ActionEvent event) {
-        categoryFXML("category-Sports.fxml");
+    public void setSportsBtn() throws IOException {
+        switchScene("category-Sports.fxml");
     }
 
-    public void opinionButton(ActionEvent event) {
-        categoryFXML("category-Opinion.fxml");
+    public void setBusinessBtn() throws IOException {
+        switchScene("category-Business.fxml");
     }
 
-    //public void technologyButton(ActionEvent event){
-      //  categoryFXML("category-Technology.fxml");
-    //}
+    public void setOpinionBtn() throws IOException {
+        switchScene("category-Opinion.fxml");
+    }
 
-    public void categoryFXML(String categories) {
-        try {
-            BorderPane categoryPane = FXMLLoader.load(getClass().getResource(categories));
-        } catch (Exception e) {
-            System.out.println("Error");
-        }
+    private void switchScene(String fxmlFile) throws IOException {
+        BorderPane nextVbox = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource(fxmlFile)));
+        categoriesPane.setCenter(nextVbox);
     }
 }

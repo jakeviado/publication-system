@@ -5,8 +5,6 @@ module org.transit.app.busmonitoringapp {
     requires java.sql;
     requires com.oracle.database.jdbc;
     requires com.google.gson;
-    requires java.desktop;
-    requires jdk.jfr;
 
     opens org.transit.app.newspaperapp to javafx.fxml;
     exports org.transit.app.newspaperapp;
