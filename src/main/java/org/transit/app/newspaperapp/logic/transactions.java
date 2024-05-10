@@ -137,14 +137,13 @@ public class transactions {
                 }
             }
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException("Error registering", e);
         }
         return false;
     }
 
-
     // Publish article query
-    public boolean publishQuery(Articles articles) {
+    public void publishQuery(Articles articles) {
         String headline = articles.headline();
         String byline = articles.byline();
         String content = articles.content();
@@ -168,14 +167,12 @@ public class transactions {
 
             if (rowsInserted > 0) {
                 System.out.println("successful");
-                return true;
             } else {
                 System.out.println("failed");
-                return false;
             }
 
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException("Error publishing articles", e);
         }
     }
 
@@ -202,7 +199,7 @@ public class transactions {
             }
 
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException("Error loading the articles", e);
         }
         return articlesList;
     }

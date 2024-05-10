@@ -17,12 +17,12 @@
       <children>
          <HBox alignment="CENTER_LEFT" prefHeight="57.0" prefWidth="140.0">
             <children>
-               <ToggleButton fx:id="toggleButton" mnemonicParsing="false" onAction="#toggle" prefHeight="38.0" prefWidth="70.0" text="MORE" textFill="WHITE" />
+               <ToggleButton fx:id="toggleButton" mnemonicParsing="false" onAction="#toggle" onMouseClicked="#toggle" prefHeight="38.0" prefWidth="70.0" text="MORE" textFill="WHITE" />
             </children>
          </HBox>
          <HBox alignment="CENTER" prefHeight="57.0" prefWidth="661.0">
             <children>
-               <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="48.0" prefWidth="386.0" style="-fx-font-size: 30;" styleClass="label-main-logo" text="The Street Journal">
+               <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="48.0" prefWidth="386.0" style="-fx-font-size: 26;" styleClass="label-main-logo" text="The Street Journal">
                   <HBox.margin>
                      <Insets right="2.0" />
                   </HBox.margin>
@@ -63,7 +63,10 @@
                            </ImageView>
                         </children>
                      </HBox>
-                     <HBox alignment="CENTER" prefHeight="56.0" prefWidth="180.0" HBox.hgrow="ALWAYS" />
+                     <HBox alignment="CENTER" prefHeight="56.0" prefWidth="180.0" HBox.hgrow="ALWAYS">
+                        <children>
+                           <Label fx:id="notifyLabel" prefHeight="15.0" prefWidth="258.0" textFill="RED" />
+                        </children></HBox>
                      <HBox alignment="CENTER_RIGHT" prefHeight="56.0" prefWidth="315.0">
                         <children>
                            <Button fx:id="writeArticleButton" mnemonicParsing="false" onAction="#publishArticlePage" prefHeight="38.0" prefWidth="166.0" text="PUBLISH ARTICLE" />

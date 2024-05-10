@@ -19,7 +19,7 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class homeController implements Initializable {
+public class newsfeed implements Initializable {
 
     @FXML
     public VBox articleVboxContainer;

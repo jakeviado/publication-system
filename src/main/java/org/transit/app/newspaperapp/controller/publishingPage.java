@@ -11,7 +11,6 @@ import org.transit.app.newspaperapp.model.Articles;
 import org.transit.app.newspaperapp.logic.transactions;
 
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 
 public class publishingPage {
 
@@ -52,18 +51,12 @@ public class publishingPage {
 
         try {
             transact.publishQuery(articles);
-            clearFields();
+            registrationController.clearTextsFields.clearFields(headlineTextfield, bylineTextfield, imageLinkTextfield);
+            registrationController.clearTextsFields.clearFields(contentTextArea);
             notifyLabel.setText("Published!!");
         } catch (Exception e) {
             notifyLabel.setText("Publish Failed");
         }
-    }
-
-    private void clearFields() {
-        headlineTextfield.clear();
-        bylineTextfield.clear();
-        contentTextArea.clear();
-        imageLinkTextfield.clear();
     }
 }
 

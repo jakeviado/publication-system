@@ -2,6 +2,7 @@ package org.transit.app.newspaperapp.controller;
 
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.ToggleButton;
 
 import javafx.animation.TranslateTransition;
@@ -13,7 +14,6 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import org.transit.app.newspaperapp.Main;
-import org.transit.app.newspaperapp.model.sceneSwitch;
 
 import java.io.IOException;
 import java.net.URL;
@@ -56,12 +56,19 @@ public class mainpage implements Initializable {
     public Button accountBtn;
 
     @FXML
+    public Label notifyLabel;
+
+    @FXML
     private Button exitButton;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        loadNewsFeed();
+    }
+
+    public void loadNewsFeed() {
         try {
-            BorderPane about = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("home.fxml")));
+            BorderPane about = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("newsfeed.fxml")));
             articleContainerBorderPane.setCenter(about);
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -69,56 +76,52 @@ public class mainpage implements Initializable {
     }
 
     public void toggle() {
+        TranslateTransition slide = new TranslateTransition(Duration.seconds(0.3));
+        slide.setNode(slidePanel);
+
         toggleButton.setOnAction(event -> {
-            TranslateTransition slide = new TranslateTransition();
-            slide.setDuration(Duration.seconds(0.3));
-            slide.setNode(slidePanel);
+            double targetX = toggleButton.isSelected() ? -200 : 200;
+            String buttonText = toggleButton.isSelected() ? "MORE" : "CLOSE";
 
-            double targetX;
-
-            if (toggleButton.isSelected()) {
-                targetX = -200;
-                toggleButton.setText("MORE");
-            } else {
-                targetX = 200;
-                toggleButton.setText("CLOSE");
-            }
             slide.setToX(targetX);
+            toggleButton.setText(buttonText);
             slide.play();
         });
     }
 
+
     public void exitApp() {
-        Stage stage = (Stage) exitButton.getScene().getWindow();
+        Stage stage  = (Stage) exitButton.getScene().getWindow();
         stage.close();
     }
 
     public void setLogoutButton() throws IOException {
-        new sceneSwitch(homepageScene, "loginForm.fxml");
+        switchScene("loginForm.fxml");
     }
 
     public void setHomeBtn() throws IOException {
-        BorderPane nextVbox = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("home.fxml")));
-        articleContainerBorderPane.setCenter(nextVbox);
+        switchScene("newsfeed.fxml");
     }
 
     public void setCategoriesBtn() throws IOException {
-        BorderPane nextVbox = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("categories.fxml")));
-        articleContainerBorderPane.setCenter(nextVbox);
+        switchScene("categories.fxml");
     }
 
+    //TODO: Check user role. If author, enable this button.
     public void publishArticlePage() throws IOException {
-        BorderPane nextVbox = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("publishingPage.fxml")));
-        articleContainerBorderPane.setCenter(nextVbox);
+        switchScene("publishingPage.fxml");
     }
 
     public void setAboutBtn() throws IOException {
-        BorderPane about = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("about.fxml")));
-        articleContainerBorderPane.setCenter(about);
+        switchScene("about.fxml");
     }
 
     public void setAccountBtn() throws IOException {
-        BorderPane about = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("account.fxml")));
-        articleContainerBorderPane.setCenter(about);
+        switchScene("account.fxml");
+    }
+
+    private void switchScene(String fxmlFile) throws IOException {
+        BorderPane nextVbox = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource(fxmlFile)));
+        articleContainerBorderPane.setCenter(nextVbox);
     }
 }

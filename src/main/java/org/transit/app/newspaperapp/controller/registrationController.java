@@ -1,15 +1,17 @@
 package org.transit.app.newspaperapp.controller;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 
+import org.transit.app.newspaperapp.Main;
 import org.transit.app.newspaperapp.logic.transactions;
 import org.transit.app.newspaperapp.model.Signup;
-import org.transit.app.newspaperapp.model.sceneSwitch;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Objects;
 
 public class registrationController {
     @FXML
@@ -67,7 +69,7 @@ public class registrationController {
         try {
             if (transact.registerQuery(userData , false)) {
                 notifyLabel.setText("Registered successfully!");
-                clearFields();
+                clearTextsFields.clearFields(usernameTextField, passwordTextField, emailTextField, firstNameTextField, lastNameTextField, passwordTextField);
             }
         } catch (SQLException e) {
             notifyLabel.setText("Registration failed.");
@@ -94,7 +96,7 @@ public class registrationController {
         try {
             if (transact.registerQuery(userData, true)) {
                 notifyLabel.setText("Registered as author successfully!");
-                clearFields();
+                clearTextsFields.clearFields(usernameTextField, passwordTextField, emailTextField, firstNameTextField, lastNameTextField, passwordTextField);
             } else {
                 notifyLabel.setText("Author registration failed. Please check username or password.");
             }
@@ -103,13 +105,17 @@ public class registrationController {
         }
     }
 
-    private void clearFields() {
-        firstNameTextField.clear();
-        lastNameTextField.clear();
-        emailTextField.clear();
-        usernameTextField.clear();
-        passwordTextField.clear();
-        confirmPasswordTextField.clear();
+    public static class clearTextsFields {
+        public static void clearFields(TextField... textFields) {
+            for (TextField textField : textFields) {
+                textField.clear();
+            }
+        }
+        public static void clearFields(TextArea... textAreas) {
+            for (TextArea textArea : textAreas) {
+                textArea.clear();
+            }
+        }
     }
 
     public void enableRegisterButton() {
@@ -118,6 +124,13 @@ public class registrationController {
     }
 
     public void backToLogin() throws IOException {
-        new sceneSwitch(registrationScene, "loginForm.fxml");
+        sceneSwitch(registrationScene, "loginForm.fxml");
     }
+
+    public void sceneSwitch(VBox loginScene, String fxml) throws IOException {
+        VBox nextVbox = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource(fxml)));
+        loginScene.getChildren().removeAll();
+        loginScene.getChildren().setAll(nextVbox);
+    }
+
 }

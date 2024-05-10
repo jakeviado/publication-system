@@ -20,7 +20,7 @@
             <ColumnConstraints minWidth="10.0" prefWidth="100.0" />
          </columnConstraints>
          <rowConstraints>
-            <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="52.80000610351563" vgrow="ALWAYS" />
+            <RowConstraints fillHeight="false" minHeight="10.0" prefHeight="52.80000610351563" vgrow="ALWAYS" />
             <RowConstraints maxHeight="113.60000610351562" minHeight="10.0" prefHeight="32.79999389648437" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="110.39998779296872" minHeight="10.0" prefHeight="32.79998779296875" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="224.80003662109374" minHeight="10.0" prefHeight="26.40001220703124" />
@@ -28,7 +28,7 @@
             <RowConstraints maxHeight="378.4000061035157" minHeight="10.0" prefHeight="30.399987792968773" vgrow="ALWAYS" />
          </rowConstraints>
          <children>
-            <Label fx:id="headlineLabel" prefHeight="36.0" prefWidth="522.0" styleClass="headlineLabel" text="Headline" wrapText="true" />
+            <Label fx:id="headlineLabel" prefHeight="67.0" prefWidth="382.0" styleClass="headlineLabel" text="Headline" wrapText="true" />
             <Label fx:id="dateLabel" prefHeight="15.0" prefWidth="636.0" text="Published date:" wrapText="true" GridPane.rowIndex="2" />
             <Label fx:id="authorLabel" prefHeight="45.0" prefWidth="374.0" text="Author:" textOverrun="CLIP" wrapText="true" GridPane.rowIndex="1" />
             <VBox prefHeight="278.0" prefWidth="506.0" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.vgrow="ALWAYS">

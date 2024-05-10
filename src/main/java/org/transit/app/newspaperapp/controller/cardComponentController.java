@@ -44,9 +44,6 @@ public class cardComponentController {
     public void setArticleImage(Image image) {
         imageView.setImage(image);
 
-//        imageView.setFitWidth(500);
-//        imageView.setFitHeight(250);
-
         Rectangle clipRect = new Rectangle(700, 400);
         clipRect.setArcWidth(2);
         clipRect.setArcHeight(2);
