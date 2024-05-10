@@ -20,7 +20,7 @@ public class loginController {
     private Label notifyLabel;
 
     @FXML
-    private static Button closeAppButton;
+    private Button closeAppButton;
 
     @FXML
     private TextField usernameTextField;

@@ -46,38 +46,27 @@ public class registrationController {
 
     @FXML
     public PasswordField confirmPasswordTextField;
-    
-    @FXML
+
     public void registerAsReader() {
-        String username = usernameTextField.getText();
-        String password = passwordTextField.getText();
-        String email = emailTextField.getText();
-        String first_name = firstNameTextField.getText();
-        String last_name = lastNameTextField.getText();
-        String confirmPassword = confirmPasswordTextField.getText();
-
-        if (!password.equals(confirmPassword)) {
-            notifyLabel.setText("Passwords do not match");
-            return;
-        } else {
-            registerAuthorButton.setDisable(false);
-        }
-
-        Signup userData = new Signup(username, password, email, first_name, last_name);
-        transactions transact = new transactions();
-
         try {
-            if (transact.registerQuery(userData , false)) {
-                notifyLabel.setText("Registered successfully!");
-                clearTextsFields.clearFields(usernameTextField, passwordTextField, emailTextField, firstNameTextField, lastNameTextField, passwordTextField);
-            }
-        } catch (SQLException e) {
-            notifyLabel.setText("Registration failed.");
+            validateInput(usernameTextField.getText(), passwordTextField.getText(), firstNameTextField.getText(), lastNameTextField.getText());
+            register(false, "Registered successfully!", "Registration failed.");
+        } catch (IllegalArgumentException e) {
+            notifyLabel.setText(e.getMessage());
         }
     }
 
     @FXML
     public void registerAsAuthor() {
+        try {
+            validateInput(usernameTextField.getText(), passwordTextField.getText(), firstNameTextField.getText(), lastNameTextField.getText());
+            register(true, "Registered as author successfully!", "Author registration failed. Please check username or password.");
+        } catch (IllegalArgumentException e) {
+            notifyLabel.setText(e.getMessage());
+        }
+    }
+
+    private void register(boolean isAuthor, String success, String fail) {
         String username = usernameTextField.getText();
         String password = passwordTextField.getText();
         String email = emailTextField.getText();
@@ -94,14 +83,29 @@ public class registrationController {
         transactions transact = new transactions();
 
         try {
-            if (transact.registerQuery(userData, true)) {
-                notifyLabel.setText("Registered as author successfully!");
+            if (transact.registerQuery(userData, isAuthor)) {
+                notifyLabel.setText(success);
                 clearTextsFields.clearFields(usernameTextField, passwordTextField, emailTextField, firstNameTextField, lastNameTextField, passwordTextField);
             } else {
-                notifyLabel.setText("Author registration failed. Please check username or password.");
+                notifyLabel.setText(fail);
             }
         } catch (SQLException e) {
-            notifyLabel.setText("Author registration failed.");
+            notifyLabel.setText(fail);
+        }
+    }
+
+    private void validateInput(String username, String password, String firstName, String lastName) {
+        if (username == null || username.isEmpty()) {
+            throw new IllegalArgumentException("Username cannot be empty");
+        }
+        if (password == null || password.isEmpty()) {
+            throw new IllegalArgumentException("Password cannot be empty");
+        }
+        if (firstName == null || firstName.isEmpty()) {
+            throw new IllegalArgumentException("First Name is needed cannot be empty");
+        }
+        if (lastName == null || lastName.isEmpty()) {
+            throw new IllegalArgumentException("Last Name is needed cannot be empty");
         }
     }
 

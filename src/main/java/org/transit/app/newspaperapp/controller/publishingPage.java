@@ -33,6 +33,11 @@ public class publishingPage {
     public ComboBox<String> categoryComboBox;
 
     public void initialize() {
+        categoriesList();
+    }
+
+    //TODO: pinagiisipan ko pa
+    public void categoriesList() {
         ObservableList<String> categories = FXCollections.observableArrayList (
                 "News", "Sports", "Entertainment", "Opinion", "Business", "Technology");
         categoryComboBox.setItems(categories);

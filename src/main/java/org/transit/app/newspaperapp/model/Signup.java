@@ -35,6 +35,12 @@ public class Signup implements register {
     }
 
     public Signup(String username, String password, String email, String first_name, String last_name ){
+        if (username == null || username.isEmpty()) {
+            throw new IllegalArgumentException("Username cannot be empty");
+        }
+        if (password == null || password.isEmpty()) {
+            throw new IllegalArgumentException("Password cannot be empty");
+        }
         this.username = username;
         this.password = password;
         this.email = email;
