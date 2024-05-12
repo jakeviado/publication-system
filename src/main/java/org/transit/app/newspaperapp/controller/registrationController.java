@@ -67,7 +67,6 @@ public class registrationController {
         }
     }
 
-    @FXML
     private void register(boolean isAuthor, boolean isReader, String success, String fail) {
         String username = usernameTextField.getText();
         String password = passwordTextField.getText();

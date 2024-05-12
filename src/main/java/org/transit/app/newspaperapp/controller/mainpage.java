@@ -66,7 +66,6 @@ public class mainpage implements Initializable {
         if (loadNewsFeed()) {
             notifyLabel.setText("Today's Front Page");
         }
-
     }
 
     public boolean loadNewsFeed() {
@@ -79,10 +78,6 @@ public class mainpage implements Initializable {
         return true;
     }
 
-    public void publishArticlePage() throws IOException {
-        switchScene("publishingPage.fxml");
-        notifyLabel.setText("Author Exclusive");
-    }
 
     public void toggleMenu() {
         TranslateTransition slide = new TranslateTransition(Duration.seconds(0.2));
@@ -98,9 +93,10 @@ public class mainpage implements Initializable {
         });
     }
 
-    public void exitApp() {
-        Stage stage  = (Stage) exitButton.getScene().getWindow();
-        stage.close();
+
+    public void publishArticlePage() throws IOException {
+        switchScene("publishingPage.fxml");
+        notifyLabel.setText("Author Exclusive");
     }
 
     private void switchScene(String fxmlFile) throws IOException {
@@ -130,5 +126,10 @@ public class mainpage implements Initializable {
     public void setAccountBtn() throws IOException {
         switchScene("account.fxml");
         notifyLabel.setText("Account");
+    }
+
+    public void exitApp() {
+        Stage stage  = (Stage) exitButton.getScene().getWindow();
+        stage.close();
     }
 }

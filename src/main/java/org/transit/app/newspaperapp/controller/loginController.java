@@ -36,18 +36,12 @@ public class loginController {
     private VBox loginScene;
 
 
-    // Hindi pa sure kung nagana talaga
-    @FXML
     public void login() throws IOException {
-        auth(true, true);
-    }
-
-    public void auth(boolean isAuthor, boolean isReader) throws IOException {
         Login userData = new Login(usernameTextField.getText(), passwordTextField.getText());
         transactions transact = new transactions();
 
         try {
-            if (transact.loginQuery(userData, isAuthor, isReader)) {
+            if (transact.loginQuery(userData)) {
                 sceneSwitch(loginScene, "mainpage.fxml");
             } else {
                 notifyLabel.setText("Incorrect username or password");
@@ -56,6 +50,7 @@ public class loginController {
             throw new RuntimeException(e);
         }
     }
+
 
     public void signup() throws IOException {
         sceneSwitch(loginScene, "registrationForm.fxml");

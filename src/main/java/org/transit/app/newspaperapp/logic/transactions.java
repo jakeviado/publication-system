@@ -1,5 +1,6 @@
 package org.transit.app.newspaperapp.logic;
 
+import org.transit.app.newspaperapp.controller.mainpage;
 import org.transit.app.newspaperapp.model.Articles;
 import org.transit.app.newspaperapp.model.Login;
 import org.transit.app.newspaperapp.model.Signup;
@@ -32,11 +33,12 @@ public class transactions {
 //        }
 //    }
 
-    public boolean loginQuery(Login userData, boolean isAuthor, boolean isReader) throws SQLException {
+    public boolean loginQuery(Login userData) throws SQLException {
         String username = userData.username();
         String password = userData.password();
 
         try (Connection connection = getConnection()) {
+
             String query = "SELECT * FROM USERS WHERE USERNAME = ? AND PASSWORD = ?";
             assert connection != null;
 
@@ -45,15 +47,8 @@ public class transactions {
             stmt.setString(2, password);
 
             ResultSet rs = stmt.executeQuery();
-
-            if (rs.next()) {
-                int user_id = rs.getInt("user_id");
-                if ((isAuthor && retrieveUserRole(connection, user_id, 1)) || (isReader && retrieveUserRole(connection, user_id, 2))) {
-                    return true;
-                }
-            }
+             return rs.next();
         }
-        return false;
     }
 
 
@@ -239,5 +234,6 @@ public class transactions {
         }
         return articlesList;
     }
+
 }
 
