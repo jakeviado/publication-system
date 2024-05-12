@@ -64,7 +64,7 @@ public class mainpage implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         if (loadNewsFeed()) {
-            notifyLabel.setText("Today's Front Page");
+            notifyLabel.setText("~ Today's Front Page ~");
         }
     }
 
@@ -78,6 +78,7 @@ public class mainpage implements Initializable {
         return true;
     }
 
+    // Action Btns
     public void toggleMenu() {
         TranslateTransition slide = new TranslateTransition(Duration.seconds(0.2));
         slide.setNode(slidePanel);
@@ -95,11 +96,6 @@ public class mainpage implements Initializable {
     public void publishArticlePage() throws IOException {
         switchScene("publishingPage.fxml");
         notifyLabel.setText("Author Exclusive");
-    }
-
-    private void switchScene(String fxmlFile) throws IOException {
-        BorderPane nextVbox = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource(fxmlFile)));
-        articleContainerBorderPane.setCenter(nextVbox);
     }
 
     public void setHomeBtn() throws IOException {
@@ -128,10 +124,16 @@ public class mainpage implements Initializable {
     }
 
     public void setLogoutButton() throws IOException {
-        logout("loginForm.fxml");
+        logoutScene("loginForm.fxml");
     }
 
-    public void logout(String fxml) throws IOException {
+    // Scene Switches
+    private void switchScene(String fxmlFile) throws IOException {
+        BorderPane nextVbox = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource(fxmlFile)));
+        articleContainerBorderPane.setCenter(nextVbox);
+    }
+
+    public void logoutScene(String fxml) throws IOException {
         VBox nextVbox = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource(fxml)));
         homepageScene.getChildren().removeAll();
         homepageScene.getChildren().setAll(nextVbox);
