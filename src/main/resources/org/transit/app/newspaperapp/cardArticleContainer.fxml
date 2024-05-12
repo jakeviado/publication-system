@@ -8,32 +8,60 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:id="articleCard" maxWidth="792.0" prefHeight="529.0" prefWidth="792.0" style="-fx-background-insets: 20;" styleClass="card" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.transit.app.newspaperapp.controller.articleCards">
-   <center>
-      <GridPane fx:id="gridPane" maxHeight="1.7976931348623157E308" prefHeight="508.0" prefWidth="462.0" BorderPane.alignment="CENTER">
+<BorderPane fx:id="articleCard" maxWidth="840.0" prefHeight="529.0" prefWidth="840.0" style="-fx-background-insets: 20;" styleClass="card" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.transit.app.newspaperapp.controller.articleCards">
+   <padding>
+      <Insets />
+   </padding>
+
+   <stylesheets>
+      <URL value="@../styles/buttons.css" />
+      <URL value="@../styles/fonts.css" />
+      <URL value="@../styles/textField.css" />
+      <URL value="@../styles/components.css" />
+   </stylesheets>
+   <left>
+      <HBox alignment="TOP_CENTER" prefHeight="407.0" prefWidth="288.0" BorderPane.alignment="TOP_CENTER">
+         <children>
+            <HBox alignment="TOP_CENTER" prefHeight="377.0" prefWidth="308.0" style="-fx-background-radius: 8;">
+               <children>
+                  <ImageView fx:id="imageView" fitHeight="510.0" fitWidth="300.0" pickOnBounds="true" styleClass="imageView" HBox.hgrow="ALWAYS">
+                     <viewport>
+                        <Rectangle2D height="500.0" minX="50.0" minY="100.0" width="300.0" />
+                     </viewport>
+                  </ImageView>
+               </children>
+            </HBox>
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="50.0" left="10.0" top="50.0" />
+         </BorderPane.margin>
+      </HBox>
+   </left>
+   <right>
+      <GridPane fx:id="gridPane" alignment="TOP_CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="508.0" prefWidth="538.0" BorderPane.alignment="CENTER">
          <columnConstraints>
             <ColumnConstraints minWidth="10.0" prefWidth="100.0" />
          </columnConstraints>
          <rowConstraints>
-            <RowConstraints fillHeight="false" minHeight="10.0" prefHeight="52.80000610351563" vgrow="ALWAYS" />
+            <RowConstraints />
             <RowConstraints maxHeight="113.60000610351562" minHeight="10.0" prefHeight="32.79999389648437" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="110.39998779296872" minHeight="10.0" prefHeight="32.79998779296875" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="224.80003662109374" minHeight="10.0" prefHeight="26.40001220703124" />
-            <RowConstraints maxHeight="378.4000061035157" minHeight="10.0" prefHeight="252.00001220703126" vgrow="ALWAYS" />
+            <RowConstraints maxHeight="224.80003662109374" minHeight="10.0" prefHeight="32.99998779296874" />
+            <RowConstraints maxHeight="378.4000061035157" minHeight="10.0" prefHeight="207.40001220703124" vgrow="ALWAYS" />
             <RowConstraints maxHeight="378.4000061035157" minHeight="10.0" prefHeight="30.399987792968773" vgrow="ALWAYS" />
          </rowConstraints>
          <children>
-            <Label fx:id="headlineLabel" prefHeight="67.0" prefWidth="382.0" styleClass="headlineLabel" text="Headline" wrapText="true" />
             <Label fx:id="dateLabel" prefHeight="15.0" prefWidth="636.0" text="Published date:" wrapText="true" GridPane.rowIndex="2" />
             <Label fx:id="authorLabel" prefHeight="45.0" prefWidth="374.0" text="Author:" textOverrun="CLIP" wrapText="true" GridPane.rowIndex="1" />
             <VBox prefHeight="278.0" prefWidth="506.0" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.vgrow="ALWAYS">
                <children>
-                  <Label fx:id="contentLabel" alignment="TOP_LEFT" contentDisplay="TOP" prefHeight="264.0" prefWidth="394.0" text="Content" textOverrun="CLIP" wrapText="true" />
+                  <Label fx:id="contentLabel" alignment="TOP_LEFT" contentDisplay="TOP" maxWidth="-Infinity" prefHeight="214.0" prefWidth="468.0" text="Content" textOverrun="CLIP" wrapText="true" />
                </children>
                <padding>
                   <Insets top="10.0" />
@@ -56,41 +84,15 @@
                   <Insets top="10.0" />
                </padding>
             </HBox>
+            <FlowPane alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" orientation="VERTICAL" prefHeight="11.0" prefWidth="382.0" rowValignment="TOP" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
+               <children>
+                  <Label fx:id="headlineLabel" centerShape="false" contentDisplay="TOP" nodeOrientation="LEFT_TO_RIGHT" prefHeight="43.0" prefWidth="443.0" styleClass="headlineLabel" text="Headline Headline Headline Headline Headline Headline Headline" wrapText="true" />
+               </children>
+            </FlowPane>
          </children>
          <padding>
             <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
          </padding>
-         <BorderPane.margin>
-            <Insets />
-         </BorderPane.margin>
       </GridPane>
-   </center>
-   <padding>
-      <Insets />
-   </padding>
-
-   <stylesheets>
-      <URL value="@../styles/buttons.css" />
-      <URL value="@../styles/fonts.css" />
-      <URL value="@../styles/textField.css" />
-      <URL value="@../styles/components.css" />
-   </stylesheets>
-   <left>
-      <HBox alignment="TOP_CENTER" prefHeight="407.0" prefWidth="288.0" BorderPane.alignment="TOP_CENTER">
-         <children>
-            <HBox alignment="TOP_CENTER" prefHeight="377.0" prefWidth="308.0" style="-fx-background-radius: 8;">
-               <children>
-                  <ImageView fx:id="imageView" pickOnBounds="true" styleClass="imageView" HBox.hgrow="ALWAYS">
-                     <viewport>
-                        <Rectangle2D height="500.0" minX="50.0" minY="100.0" width="300.0" />
-                     </viewport>
-                  </ImageView>
-               </children>
-            </HBox>
-         </children>
-         <BorderPane.margin>
-            <Insets bottom="50.0" left="10.0" top="50.0" />
-         </BorderPane.margin>
-      </HBox>
-   </left>
+   </right>
 </BorderPane>
