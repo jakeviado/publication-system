@@ -9,6 +9,7 @@ public class Signup implements register {
     private String first_name;
     private String last_name;
 
+
     @Override
     public String username() {
         return getUsername();
@@ -33,6 +34,7 @@ public class Signup implements register {
     public String last_name() {
         return getLast_name();
     }
+
 
     public Signup(String username, String password, String email, String first_name, String last_name ){
         if (username == null || username.isEmpty()) {

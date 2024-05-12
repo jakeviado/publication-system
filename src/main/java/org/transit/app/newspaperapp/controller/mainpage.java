@@ -63,20 +63,29 @@ public class mainpage implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        loadNewsFeed();
+        if (loadNewsFeed()) {
+            notifyLabel.setText("Today's Front Page");
+        }
+
     }
 
-    public void loadNewsFeed() {
+    public boolean loadNewsFeed() {
         try {
             BorderPane about = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("newsfeed.fxml")));
             articleContainerBorderPane.setCenter(about);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+        return true;
     }
 
-    public void toggle() {
-        TranslateTransition slide = new TranslateTransition(Duration.seconds(0.3));
+    public void publishArticlePage() throws IOException {
+        switchScene("publishingPage.fxml");
+        notifyLabel.setText("Author Exclusive");
+    }
+
+    public void toggleMenu() {
+        TranslateTransition slide = new TranslateTransition(Duration.seconds(0.2));
         slide.setNode(slidePanel);
 
         toggleButton.setOnAction(event -> {
@@ -89,10 +98,14 @@ public class mainpage implements Initializable {
         });
     }
 
-
     public void exitApp() {
         Stage stage  = (Stage) exitButton.getScene().getWindow();
         stage.close();
+    }
+
+    private void switchScene(String fxmlFile) throws IOException {
+        BorderPane nextVbox = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource(fxmlFile)));
+        articleContainerBorderPane.setCenter(nextVbox);
     }
 
     public void setLogoutButton() throws IOException {
@@ -101,27 +114,21 @@ public class mainpage implements Initializable {
 
     public void setHomeBtn() throws IOException {
         switchScene("newsfeed.fxml");
+        notifyLabel.setText("Today's Front Page");
     }
 
     public void setCategoriesBtn() throws IOException {
         switchScene("categories.fxml");
-    }
-
-    //TODO: Check user role. If author, enable this button.
-    public void publishArticlePage() throws IOException {
-        switchScene("publishingPage.fxml");
+        notifyLabel.setText("Categories");
     }
 
     public void setAboutBtn() throws IOException {
         switchScene("about.fxml");
+        notifyLabel.setText("About Us");
     }
 
     public void setAccountBtn() throws IOException {
         switchScene("account.fxml");
-    }
-
-    private void switchScene(String fxmlFile) throws IOException {
-        BorderPane nextVbox = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource(fxmlFile)));
-        articleContainerBorderPane.setCenter(nextVbox);
+        notifyLabel.setText("Account");
     }
 }

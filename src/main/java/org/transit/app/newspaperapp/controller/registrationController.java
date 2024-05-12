@@ -47,10 +47,11 @@ public class registrationController {
     @FXML
     public PasswordField confirmPasswordTextField;
 
+    @FXML
     public void registerAsReader() {
         try {
             validateInput(usernameTextField.getText(), passwordTextField.getText(), firstNameTextField.getText(), lastNameTextField.getText());
-            register(false, "Registered successfully!", "Registration failed.");
+            register(false, true, "Registered successfully!", "Registration failed.");
         } catch (IllegalArgumentException e) {
             notifyLabel.setText(e.getMessage());
         }
@@ -60,13 +61,14 @@ public class registrationController {
     public void registerAsAuthor() {
         try {
             validateInput(usernameTextField.getText(), passwordTextField.getText(), firstNameTextField.getText(), lastNameTextField.getText());
-            register(true, "Registered as author successfully!", "Author registration failed. Please check username or password.");
+            register(true, false, "Registered as author successfully!", "Author registration failed. Please check username or password.");
         } catch (IllegalArgumentException e) {
             notifyLabel.setText(e.getMessage());
         }
     }
 
-    private void register(boolean isAuthor, String success, String fail) {
+    @FXML
+    private void register(boolean isAuthor, boolean isReader, String success, String fail) {
         String username = usernameTextField.getText();
         String password = passwordTextField.getText();
         String email = emailTextField.getText();
@@ -83,7 +85,7 @@ public class registrationController {
         transactions transact = new transactions();
 
         try {
-            if (transact.registerQuery(userData, isAuthor)) {
+            if (transact.registerQuery(userData, isAuthor, isReader)) {
                 notifyLabel.setText(success);
                 clearTextsFields.clearFields(usernameTextField, passwordTextField, emailTextField, firstNameTextField, lastNameTextField, passwordTextField);
             } else {

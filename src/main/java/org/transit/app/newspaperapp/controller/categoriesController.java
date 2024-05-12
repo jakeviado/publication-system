@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
 import org.transit.app.newspaperapp.Main;
 
 import java.io.IOException;
@@ -13,7 +14,7 @@ import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-public class categoriesController  implements Initializable {
+public class categoriesController implements Initializable {
 
     @FXML
     public Button newsBtn;
@@ -30,22 +31,24 @@ public class categoriesController  implements Initializable {
     @FXML
     public BorderPane categoriesPane;
 
+    @FXML
+    public VBox categoriesContainer;
+
     //public Button technologyBtn;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-//        loadNewsArticles();
+        loadNewsArticles();
     }
 
-    //TODO: Bugged
-//    public void loadNewsArticles() {
-//        BorderPane nextVbox = null;
-//        try {
-//            nextVbox = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("category-News.fxml")));
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
-//        categoriesPane.setCenter(nextVbox);
-//    }
+    public void loadNewsArticles() {
+        BorderPane nextVbox = null;
+        try {
+            nextVbox = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("category-News.fxml")));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        categoriesContainer.getChildren().add(nextVbox);
+    }
 
     public void setNewsBtn() throws IOException {
         switchScene("category-News.fxml");

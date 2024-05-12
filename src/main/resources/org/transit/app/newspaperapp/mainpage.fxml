@@ -5,8 +5,6 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ToggleButton?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
@@ -17,7 +15,7 @@
       <children>
          <HBox alignment="CENTER_LEFT" prefHeight="57.0" prefWidth="140.0">
             <children>
-               <ToggleButton fx:id="toggleButton" mnemonicParsing="false" onAction="#toggle" onMouseClicked="#toggle" prefHeight="38.0" prefWidth="70.0" text="MORE" textFill="WHITE" />
+               <ToggleButton fx:id="toggleButton" mnemonicParsing="false" onAction="#toggleMenu" onMouseClicked="#toggleMenu" prefHeight="38.0" prefWidth="70.0" text="MORE" textFill="WHITE" />
             </children>
          </HBox>
          <HBox alignment="CENTER" prefHeight="57.0" prefWidth="661.0">
@@ -51,23 +49,12 @@
                      <Insets left="9.0" right="9.0" />
                   </padding>
                   <children>
-                     <HBox alignment="CENTER_LEFT" prefHeight="56.0" prefWidth="328.0">
-                        <children>
-                           <ImageView fitHeight="27.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
-                              <HBox.margin>
-                                 <Insets bottom="10.0" left="5.0" right="10.0" top="10.0" />
-                              </HBox.margin>
-                              <image>
-                                 <Image url="@../styles/assets/search-icon.png" />
-                              </image>
-                           </ImageView>
-                        </children>
-                     </HBox>
+                     <HBox alignment="CENTER_LEFT" prefHeight="56.0" prefWidth="200.0" />
                      <HBox alignment="CENTER" prefHeight="56.0" prefWidth="180.0" HBox.hgrow="ALWAYS">
                         <children>
-                           <Label fx:id="notifyLabel" prefHeight="15.0" prefWidth="258.0" textFill="RED" />
+                           <Label fx:id="notifyLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="41.0" prefWidth="258.0" styleClass="pageLabel" />
                         </children></HBox>
-                     <HBox alignment="CENTER_RIGHT" prefHeight="56.0" prefWidth="315.0">
+                     <HBox alignment="CENTER_RIGHT" prefHeight="56.0" prefWidth="200.0">
                         <children>
                            <Button fx:id="writeArticleButton" mnemonicParsing="false" onAction="#publishArticlePage" prefHeight="38.0" prefWidth="166.0" text="PUBLISH ARTICLE" />
                         </children>

@@ -6,15 +6,10 @@ import java.time.LocalDateTime;
 
 public class Articles implements articles {
     private String headline;
-
     private String byline;
-
     private String publicationDate;
-
     private String content;
-
     private String category;
-
     private String imageLink;
 
 
@@ -57,6 +52,8 @@ public class Articles implements articles {
     public String imageLink() {
         return getImageLink();
     }
+
+
 
     public String getHeadline() {
         return headline;
