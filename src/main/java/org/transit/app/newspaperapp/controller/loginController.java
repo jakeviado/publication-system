@@ -2,6 +2,7 @@ package org.transit.app.newspaperapp.controller;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
+import javafx.scene.layout.BorderPane;
 import org.transit.app.newspaperapp.Main;
 import javafx.scene.layout.VBox;
 import org.transit.app.newspaperapp.model.Login;
@@ -38,7 +39,7 @@ public class loginController {
 
         try {
             if (transact.loginQuery(userData)) {
-                sceneSwitch(loginScene, "mainpage.fxml");
+                sceneSwitch("mainpage.fxml");
             } else {
                 notifyLabel.setText("Incorrect username or password");
             }
@@ -49,7 +50,7 @@ public class loginController {
 
 
     public void signup() throws IOException {
-        sceneSwitch(loginScene, "registrationForm.fxml");
+        sceneSwitch("registrationForm.fxml");
     }
 
     public void closeApplication() {
@@ -57,9 +58,11 @@ public class loginController {
         stage.close();
     }
 
-    public void sceneSwitch(VBox loginScene, String fxml) throws IOException {
+    public void sceneSwitch(String fxml) throws IOException {
+//        VBox nextVbox = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource(fxml)));
+//        loginScene.getChildren().removeAll();
+//        loginScene.getChildren().setAll(nextVbox);
         VBox nextVbox = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource(fxml)));
-        loginScene.getChildren().removeAll();
         loginScene.getChildren().setAll(nextVbox);
     }
 }

@@ -78,7 +78,6 @@ public class mainpage implements Initializable {
         return true;
     }
 
-
     public void toggleMenu() {
         TranslateTransition slide = new TranslateTransition(Duration.seconds(0.2));
         slide.setNode(slidePanel);
@@ -93,7 +92,6 @@ public class mainpage implements Initializable {
         });
     }
 
-
     public void publishArticlePage() throws IOException {
         switchScene("publishingPage.fxml");
         notifyLabel.setText("Author Exclusive");
@@ -102,10 +100,6 @@ public class mainpage implements Initializable {
     private void switchScene(String fxmlFile) throws IOException {
         BorderPane nextVbox = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource(fxmlFile)));
         articleContainerBorderPane.setCenter(nextVbox);
-    }
-
-    public void setLogoutButton() throws IOException {
-        switchScene("loginForm.fxml");
     }
 
     public void setHomeBtn() throws IOException {
@@ -131,5 +125,15 @@ public class mainpage implements Initializable {
     public void exitApp() {
         Stage stage  = (Stage) exitButton.getScene().getWindow();
         stage.close();
+    }
+
+    public void setLogoutButton() throws IOException {
+        logout("loginForm.fxml");
+    }
+
+    public void logout(String fxml) throws IOException {
+        VBox nextVbox = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource(fxml)));
+        homepageScene.getChildren().removeAll();
+        homepageScene.getChildren().setAll(nextVbox);
     }
 }

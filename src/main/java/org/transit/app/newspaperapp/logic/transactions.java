@@ -212,7 +212,7 @@ public class transactions {
         List<Articles> articlesList = new ArrayList<>();
 
         try (Connection connection = getConnection()) {
-            String query = "SELECT * FROM ARTICLES";
+            String query = "SELECT * FROM ARTICLES ORDER BY PUBLICATION_DATE DESC";
             assert connection != null;
             PreparedStatement stmt = connection.prepareStatement(query);
             ResultSet resultSet = stmt.executeQuery();
