@@ -47,7 +47,7 @@ public class transactions {
             stmt.setString(2, password);
 
             ResultSet rs = stmt.executeQuery();
-             return rs.next();
+            return rs.next();
         }
     }
 
@@ -234,6 +234,5 @@ public class transactions {
         }
         return articlesList;
     }
-
 }
 
