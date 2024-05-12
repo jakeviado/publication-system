@@ -76,6 +76,7 @@ public class mainpage implements Initializable {
             throw new RuntimeException(e);
         }
         return true;
+
     }
 
     // Action Btns
@@ -100,7 +101,7 @@ public class mainpage implements Initializable {
 
     public void setHomeBtn() throws IOException {
         switchScene("newsfeed.fxml");
-        notifyLabel.setText("Today's Front Page");
+        notifyLabel.setText("~ Today's Front Page ~");
     }
 
     public void setCategoriesBtn() throws IOException {

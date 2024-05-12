@@ -186,6 +186,27 @@ public class transactions {
     }
 
     //TODO: implementation
+    public void searchQuery(Articles articles) {
+        String headline = articles.headline();
+        try (Connection connection = getConnection()) {
+            String query = "SELECT * FROM Articles WHERE HEADLINE LIKE ?";
+            assert connection != null;
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setString(1, "%" + headline + "%");
+
+            try (ResultSet resultSet = stmt.executeQuery()) {
+                if (resultSet.next()) {
+                    System.out.println("result: " + resultSet.getString("HEADLINE"));
+                } else {
+                    System.out.println("not found");
+                }
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException("Error", e);
+        }
+    }
+
+    //TODO: implementation
     public void saveArticle(int userId, int articleId) {
         try (Connection connection = getConnection()) {
             String query = "INSERT INTO SavedArticles (USER_ID, ARTICLE_ID, TIMESTAMP) VALUES (?, ?, ?)";
@@ -207,6 +228,7 @@ public class transactions {
             throw new RuntimeException("Error", e);
         }
     }
+
 
     public List<Articles> loadArticlesQuery() {
         List<Articles> articlesList = new ArrayList<>();
