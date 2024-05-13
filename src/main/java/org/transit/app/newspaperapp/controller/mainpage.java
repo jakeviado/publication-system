@@ -76,9 +76,7 @@ public class mainpage implements Initializable {
             throw new RuntimeException(e);
         }
         return true;
-
     }
-
 
     public void toggleMenu() {
         TranslateTransition slide = new TranslateTransition(Duration.seconds(0.2));

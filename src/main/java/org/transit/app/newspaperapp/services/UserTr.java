@@ -1,4 +1,4 @@
-package org.transit.app.newspaperapp.logic;
+package org.transit.app.newspaperapp.services;
 
 import org.transit.app.newspaperapp.model.Login;
 import org.transit.app.newspaperapp.model.Signup;

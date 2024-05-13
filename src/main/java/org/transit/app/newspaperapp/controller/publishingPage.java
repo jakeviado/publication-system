@@ -7,8 +7,8 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import org.transit.app.newspaperapp.services.ArticleTr;
 import org.transit.app.newspaperapp.model.Articles;
-import org.transit.app.newspaperapp.logic.transactions;
 
 import java.time.LocalDateTime;
 
@@ -52,10 +52,10 @@ public class publishingPage {
         String imageLink = imageLinkTextfield.getText();
 
         Articles articles = new Articles(headline, byline, content, category, publicationDate, imageLink);
-        transactions transact = new transactions();
+        ArticleTr publish = new ArticleTr();
 
         try {
-            transact.publishArticleQuery(articles);
+            publish.publishArticleQuery(articles);
             registrationController.clearTextsFields.clearFields(headlineTextfield, bylineTextfield, imageLinkTextfield);
             registrationController.clearTextsFields.clearFields(contentTextArea);
             notifyLabel.setText("Published!!");

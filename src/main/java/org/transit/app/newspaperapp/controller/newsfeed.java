@@ -4,13 +4,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.image.Image;
-import javafx.scene.layout.Border;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
 import org.transit.app.newspaperapp.Main;
+import org.transit.app.newspaperapp.services.ArticleTr;
 import org.transit.app.newspaperapp.model.Articles;
-import org.transit.app.newspaperapp.logic.transactions;
+import org.transit.app.newspaperapp.services.UserTr;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -33,8 +32,9 @@ public class newsfeed implements Initializable {
 
 
     private void loadArticlesList() {
-        transactions loadArticlesQuery = new transactions();
-        List<Articles> articlesList = loadArticlesQuery.loadArticlesQuery();
+        ArticleTr load = new ArticleTr();
+
+        List<Articles> articlesList = load.loadArticlesQuery();
 
         for (Articles article : articlesList) {
             try {
