@@ -44,6 +44,9 @@ public class UserTr {
             ResultSet rs = stmt.executeQuery();
             return rs.next();
         }
+        catch (SQLException e) {
+            throw new IllegalArgumentException("fail to login in db hehe", e);
+        }
     }
 
 
@@ -118,7 +121,7 @@ public class UserTr {
                 }
             }
         } catch (SQLException e) {
-            throw new RuntimeException("Error registering", e);
+            throw new IllegalArgumentException("Error registering", e);
         }
         return false;
     }

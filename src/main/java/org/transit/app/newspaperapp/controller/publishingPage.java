@@ -7,6 +7,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import org.transit.app.newspaperapp.model.Categories;
 import org.transit.app.newspaperapp.services.ArticleTr;
 import org.transit.app.newspaperapp.model.Articles;
 
@@ -36,15 +37,16 @@ public class publishingPage {
         categoriesList();
     }
 
-    //TODO: pinagiisipan ko pa
     public void categoriesList() {
-        ObservableList<String> categories = FXCollections.observableArrayList (
-                "News", "Sports", "Entertainment", "Opinion", "Business", "Technology");
+        ObservableList<String> categories = FXCollections.observableArrayList(
+                Categories.NEWS, Categories.SPORTS, Categories.ENTERTAINMENT,
+                Categories.OPINION, Categories.BUSINESS, Categories.TECHNOLOGY);
         categoryComboBox.setItems(categories);
     }
 
+    @FXML
     public void getWrittenArticle() {
-        String headline =   headlineTextfield.getText();
+        String headline = headlineTextfield.getText();
         String byline =  bylineTextfield.getText();
         String content =  contentTextArea.getText();
         String category = categoryComboBox.getValue();
@@ -60,7 +62,7 @@ public class publishingPage {
             registrationController.clearTextsFields.clearFields(contentTextArea);
             notifyLabel.setText("Published!!");
         } catch (Exception e) {
-            notifyLabel.setText("Publish Failed");
+            notifyLabel.setText("Failed");
         }
     }
 }

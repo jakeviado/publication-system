@@ -104,17 +104,17 @@ public class mainpage implements Initializable {
 
     public void setCategoriesBtn() throws IOException {
         switchScene("categories.fxml");
-        notifyLabel.setText("Categories");
+        notifyLabel.setText("~ Categories ~");
     }
 
     public void setAboutBtn() throws IOException {
         switchScene("about.fxml");
-        notifyLabel.setText("About Us");
+        notifyLabel.setText("~ About Us ~");
     }
 
     public void setAccountBtn() throws IOException {
         switchScene("account.fxml");
-        notifyLabel.setText("Account");
+        notifyLabel.setText("~ Account ~");
     }
 
     public void exitApp() {
