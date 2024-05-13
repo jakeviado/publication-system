@@ -79,7 +79,7 @@ public class mainpage implements Initializable {
 
     }
 
-    // Action Btns
+
     public void toggleMenu() {
         TranslateTransition slide = new TranslateTransition(Duration.seconds(0.2));
         slide.setNode(slidePanel);
@@ -128,7 +128,7 @@ public class mainpage implements Initializable {
         logoutScene("loginForm.fxml");
     }
 
-    // Scene Switches
+
     private void switchScene(String fxmlFile) throws IOException {
         BorderPane nextVbox = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource(fxmlFile)));
         articleContainerBorderPane.setCenter(nextVbox);

@@ -47,25 +47,6 @@ public class registrationController {
     @FXML
     public PasswordField confirmPasswordTextField;
 
-    @FXML
-    public void registerAsReader() {
-        try {
-            validateInput(usernameTextField.getText(), passwordTextField.getText(), firstNameTextField.getText(), lastNameTextField.getText());
-            register(false, true, "Registered successfully!", "Registration failed.");
-        } catch (IllegalArgumentException e) {
-            notifyLabel.setText(e.getMessage());
-        }
-    }
-
-    @FXML
-    public void registerAsAuthor() {
-        try {
-            validateInput(usernameTextField.getText(), passwordTextField.getText(), firstNameTextField.getText(), lastNameTextField.getText());
-            register(true, false, "Registered as author successfully!", "Author registration failed. Please check username or password.");
-        } catch (IllegalArgumentException e) {
-            notifyLabel.setText(e.getMessage());
-        }
-    }
 
     private void register(boolean isAuthor, boolean isReader, String success, String fail) {
         String username = usernameTextField.getText();
@@ -95,6 +76,29 @@ public class registrationController {
         }
     }
 
+
+    @FXML
+    public void registerAsReader() {
+        try {
+            validateInput(usernameTextField.getText(), passwordTextField.getText(), firstNameTextField.getText(), lastNameTextField.getText());
+            register(false, true, "Registered successfully!", "Registration failed.");
+        } catch (IllegalArgumentException e) {
+            notifyLabel.setText(e.getMessage());
+        }
+    }
+
+
+    @FXML
+    public void registerAsAuthor() {
+        try {
+            validateInput(usernameTextField.getText(), passwordTextField.getText(), firstNameTextField.getText(), lastNameTextField.getText());
+            register(true, false, "Registered as author successfully!", "Author registration failed. Please check username or password.");
+        } catch (IllegalArgumentException e) {
+            notifyLabel.setText(e.getMessage());
+        }
+    }
+
+
     private void validateInput(String username, String password, String firstName, String lastName) {
         if (username == null || username.isEmpty()) {
             throw new IllegalArgumentException("Username cannot be empty");
@@ -110,6 +114,7 @@ public class registrationController {
         }
     }
 
+
     public static class clearTextsFields {
         public static void clearFields(TextField... textFields) {
             for (TextField textField : textFields) {
@@ -122,6 +127,7 @@ public class registrationController {
             }
         }
     }
+
 
     public void enableRegisterButton() {
         registerAuthorButton.setDisable(!checkbox.isSelected());

@@ -75,25 +75,29 @@
                   <Insets top="10.0" />
                </padding>
             </VBox>
-            <FlowPane alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" orientation="VERTICAL" prefHeight="11.0" prefWidth="382.0" rowValignment="TOP" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
+            <Label fx:id="contentLabel" alignment="TOP_LEFT" contentDisplay="TOP" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="468.0" text="Content" textOverrun="CLIP" wrapText="true" GridPane.rowIndex="4">
+               <GridPane.margin>
+                  <Insets bottom="10.0" top="10.0" />
+               </GridPane.margin>
+            </Label>
+            <FlowPane maxHeight="-Infinity" prefWidth="347.0">
                <children>
-                  <Label fx:id="headlineLabel" centerShape="false" contentDisplay="TOP" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" nodeOrientation="LEFT_TO_RIGHT" prefWidth="395.0" styleClass="headlineLabel" text="Headline" wrapText="true">
+                  <Label fx:id="headlineLabel" centerShape="false" contentDisplay="TOP" maxHeight="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefWidth="395.0" styleClass="headlineLabel" text="Headline" wrapText="true">
                      <padding>
                         <Insets bottom="10.0" top="10.0" />
                      </padding>
                   </Label>
                </children>
             </FlowPane>
-            <Label fx:id="contentLabel" alignment="TOP_LEFT" contentDisplay="TOP" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="468.0" text="Content" textOverrun="CLIP" wrapText="true" GridPane.rowIndex="4">
-               <GridPane.margin>
-                  <Insets bottom="10.0" top="10.0" />
-               </GridPane.margin>
-            </Label>
-            <Label fx:id="bylineLabel" maxHeight="-Infinity" prefWidth="443.0" text="Byline" textOverrun="CLIP" wrapText="true" GridPane.rowIndex="3">
-               <padding>
-                  <Insets bottom="10.0" top="10.0" />
-               </padding>
-            </Label>
+            <FlowPane maxHeight="-Infinity" prefHeight="36.0" prefWidth="351.0" GridPane.rowIndex="3">
+               <children>
+                  <Label fx:id="bylineLabel" maxHeight="-Infinity" prefWidth="347.0" text="Byline" textOverrun="CLIP" wrapText="true">
+                     <padding>
+                        <Insets bottom="10.0" top="10.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </FlowPane>
          </children>
          <padding>
             <Insets left="40.0" right="40.0" top="40.0" />
@@ -112,7 +116,7 @@
          <children>
             <HBox alignment="CENTER_RIGHT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="63.0" prefWidth="820.0">
                <children>
-                  <HBox alignment="CENTER_RIGHT" prefHeight="70.0" prefWidth="319.0">
+                  <HBox alignment="CENTER_RIGHT" prefHeight="66.0" prefWidth="319.0">
                      <children>
                         <ToggleButton mnemonicParsing="false" prefHeight="35.0" prefWidth="75.0" style="-fx-background-radius: 20;" styleClass="saveArticleButton" text="Save">
                            <HBox.margin>

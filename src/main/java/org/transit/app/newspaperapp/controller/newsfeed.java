@@ -67,6 +67,7 @@ public class newsfeed implements Initializable {
 
 
     // kuha lang sa internet
+    //TODO: bug occurs kapag hindi link ang nakalagay
     private Image loadImageFromURL(String imageURL) {
         try {
             URI uri = new URI(imageURL);
