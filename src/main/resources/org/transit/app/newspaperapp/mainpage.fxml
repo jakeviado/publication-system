@@ -20,7 +20,7 @@
          </HBox>
          <HBox alignment="CENTER" prefHeight="57.0" prefWidth="661.0">
             <children>
-               <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="48.0" prefWidth="386.0" style="-fx-font-size: 26;" styleClass="label-main-logo" text="The Street Journal">
+               <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="48.0" prefWidth="386.0" style="-fx-font-size: 26;" styleClass="label-main-logo" text="The Street Journal" textAlignment="CENTER">
                   <HBox.margin>
                      <Insets right="2.0" />
                   </HBox.margin>
@@ -52,7 +52,7 @@
                      <HBox alignment="CENTER_LEFT" prefHeight="56.0" prefWidth="200.0" />
                      <HBox alignment="CENTER" prefHeight="56.0" prefWidth="180.0" HBox.hgrow="ALWAYS">
                         <children>
-                           <Label fx:id="notifyLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="41.0" prefWidth="258.0" styleClass="pageLabel" />
+                           <Label fx:id="notifyLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="41.0" prefWidth="258.0" styleClass="pageLabel" textAlignment="CENTER" />
                         </children></HBox>
                      <HBox alignment="CENTER_RIGHT" prefHeight="56.0" prefWidth="200.0" />
                   </children>
@@ -68,11 +68,12 @@
          </BorderPane>
          <VBox fx:id="slidePanel" alignment="TOP_CENTER" layoutX="-200.0" layoutY="2.0" prefHeight="563.0" prefWidth="200.0" styleClass="menu-panel">
             <children>
-               <Button fx:id="homeBtn" ellipsisString="" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#setHomeBtn" prefHeight="52.0" prefWidth="234.0" styleClass="button-burger" text="HOME" />
-               <Button fx:id="categoriesBtn" alignment="CENTER" contentDisplay="TOP" ellipsisString="" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#setCategoriesBtn" prefHeight="52.0" prefWidth="234.0" styleClass="button-burger" text="CATEGORIES" />
-               <Button fx:id="aboutBtn" alignment="CENTER" contentDisplay="TOP" ellipsisString="" layoutX="10.0" layoutY="62.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#setAboutBtn" prefHeight="52.0" prefWidth="234.0" styleClass="button-burger" text="ABOUT" />
-               <Button fx:id="accountBtn" alignment="CENTER" contentDisplay="TOP" ellipsisString="" layoutX="10.0" layoutY="114.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#setAccountBtn" prefHeight="52.0" prefWidth="234.0" styleClass="button-burger" text="ACCOUNT" />
-               <Button fx:id="writeArticleButton" mnemonicParsing="false" onAction="#publishArticlePage" prefHeight="52.0" prefWidth="215.0" styleClass="button-burger" text="PUBLISH ARTICLE" />
+               <HBox prefHeight="31.0" prefWidth="200.0" />
+               <Button fx:id="homeBtn" ellipsisString="" maxHeight="-Infinity" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#setHomeBtn" prefHeight="50.0" prefWidth="234.0" styleClass="button-burger" text="HOME" />
+               <Button fx:id="categoriesBtn" alignment="CENTER" contentDisplay="TOP" ellipsisString="" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#setCategoriesBtn" prefHeight="50.0" prefWidth="234.0" styleClass="button-burger" text="CATEGORIES" />
+               <Button fx:id="aboutBtn" alignment="CENTER" contentDisplay="TOP" ellipsisString="" layoutX="10.0" layoutY="62.0" maxHeight="-Infinity" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#setAboutBtn" prefHeight="50.0" prefWidth="234.0" styleClass="button-burger" text="ABOUT" />
+               <Button fx:id="accountBtn" alignment="CENTER" contentDisplay="TOP" ellipsisString="" layoutX="10.0" layoutY="114.0" maxHeight="-Infinity" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#setAccountBtn" prefHeight="50.0" prefWidth="234.0" styleClass="button-burger" text="ACCOUNT" />
+               <Button fx:id="writeArticleButton" maxHeight="-Infinity" mnemonicParsing="false" onAction="#publishArticlePage" prefHeight="50.0" prefWidth="215.0" styleClass="button-burger" text="PUBLISH ARTICLE" />
                <Pane prefHeight="259.0" prefWidth="200.0" style="-fx-background-color: transparent;" />
                <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#setLogoutButton" prefHeight="42.0" prefWidth="200.0" styleClass="logout-button" text="LOG OUT" textFill="WHITE" />
             </children>
