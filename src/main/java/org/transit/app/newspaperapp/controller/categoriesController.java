@@ -20,7 +20,7 @@ public class categoriesController  implements Initializable {
 
     public Button opinionBtn;
 
-    //public Button technologyBtn;
+    public Button technologyBtn;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("category-News.fxml"));
@@ -48,7 +48,7 @@ public class categoriesController  implements Initializable {
     }
 
     //public void technologyButton(ActionEvent event){
-      //  categoryFXML("category-Technology.fxml");
+      //categoryFXML("category-Technology.fxml");
     //}
 
     public void categoryFXML(String categories) {
