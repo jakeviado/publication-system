@@ -76,7 +76,6 @@ public class registrationController {
         }
     }
 
-
     @FXML
     public void registerAsReader() {
         try {
@@ -86,7 +85,6 @@ public class registrationController {
             notifyLabel.setText(e.getMessage());
         }
     }
-
 
     @FXML
     public void registerAsAuthor() {
@@ -98,7 +96,6 @@ public class registrationController {
         }
     }
 
-
     private void validateInput() {
         String username = usernameTextField.getText();
         String password = passwordTextField.getText();
@@ -109,7 +106,6 @@ public class registrationController {
             throw new IllegalArgumentException("All fields are required");
         }
     }
-
 
     public static class clearTextsFields {
         public static void clearFields(TextField... textFields) {
@@ -123,7 +119,6 @@ public class registrationController {
             }
         }
     }
-
 
     @FXML
     public void enableRegisterButton() {

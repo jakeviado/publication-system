@@ -1,6 +1,6 @@
 .button {
     -fx-background-color: #000000;
-    -fx-background-radius: 0;
+    -fx-background-radius: 3;
     -fx-text-fill: white;
 }
 
@@ -40,7 +40,7 @@
 
 .toggle-button {
      -fx-background-color: black;
-     -fx-background-radius: 0px;
+     -fx-background-radius: 3px;
 }
 
 .toggle-button:hover {
@@ -49,6 +49,10 @@
 
 .logout-button:hover, .exit-button:hover {
     -fx-text-fill: #dd6a67;
+}
+
+.logout-button {
+    -fx-background-radius: 0px;
 }
 
 .combo-box:focused {

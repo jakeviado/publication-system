@@ -16,18 +16,6 @@ import java.util.ResourceBundle;
 public class categoriesController implements Initializable {
 
     @FXML
-    public Button newsBtn;
-
-    @FXML
-    public Button sportsBtn;
-
-    @FXML
-    public Button businessBtn;
-
-    @FXML
-    public Button opinionBtn;
-
-    @FXML
     public BorderPane categoriesPane;
 
     @FXML

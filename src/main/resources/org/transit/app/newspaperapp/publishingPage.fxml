@@ -15,27 +15,6 @@
 <?import javafx.scene.layout.VBox?>
 
 <BorderPane prefWidth="943.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.transit.app.newspaperapp.controller.publishingPage">
-   <left>
-      <VBox prefHeight="619.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <children>
-            <VBox prefHeight="406.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
-               <children>
-                  <HBox prefHeight="136.0" prefWidth="200.0" />
-                  <VBox alignment="CENTER" prefHeight="88.0" prefWidth="200.0">
-                     <children>
-                        <ComboBox fx:id="categoryComboBox" prefHeight="41.0" prefWidth="179.0" promptText="Select Category" style="-fx-background-radius: 0; -fx-border-width: 0; -fx-background-color: #ccc9c5;" />
-                     </children>
-                     <padding>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                     </padding>
-                  </VBox>
-                  <Label fx:id="notifyLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="46.0" prefWidth="200.0" textAlignment="CENTER" textFill="#ff3b3b" />
-               </children>
-            </VBox>
-            <Button mnemonicParsing="false" onAction="#getWrittenArticle" prefHeight="42.0" prefWidth="200.0" text="PUBLISH NOW" />
-         </children>
-      </VBox>
-   </left>
    <center>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
@@ -59,12 +38,9 @@
                   <Label text="Content" GridPane.rowIndex="4" />
                   <TextField fx:id="headlineTextfield" prefHeight="52.0" prefWidth="726.0" GridPane.rowIndex="1" />
                   <TextField fx:id="bylineTextfield" prefHeight="52.0" prefWidth="726.0" GridPane.rowIndex="3" />
-                  <TextArea fx:id="contentTextArea" prefHeight="313.0" prefWidth="726.0" wrapText="true" GridPane.rowIndex="5">
-                     <padding>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </padding></TextArea>
+                  <TextArea fx:id="contentTextArea" prefHeight="313.0" prefWidth="726.0" wrapText="true" GridPane.rowIndex="5" />
                   <Label text="Link to Image" GridPane.rowIndex="6" />
-                  <TextField fx:id="imageLinkTextfield" prefHeight="46.0" prefWidth="722.0" GridPane.rowIndex="7" />
+                  <TextField fx:id="imageLinkTextfield" prefHeight="82.0" prefWidth="687.0" GridPane.rowIndex="7" />
                </children>
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -73,6 +49,37 @@
          </children>
       </VBox>
    </center>
+
+
+
+   <right>
+      <VBox prefHeight="619.0" prefWidth="235.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox prefHeight="515.0" prefWidth="214.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <HBox prefHeight="136.0" prefWidth="200.0" />
+                  <VBox alignment="CENTER" prefHeight="88.0" prefWidth="200.0">
+                     <children>
+                        <ComboBox fx:id="categoryComboBox" prefHeight="42.0" prefWidth="208.0" promptText="Select Category" style="-fx-background-radius: 0; -fx-border-width: 0; -fx-background-color: #ccc9c5;" />
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </VBox>
+                  <Label fx:id="notifyLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="46.0" prefWidth="235.0" textAlignment="CENTER" textFill="#ff3b3b" />
+               </children>
+            </VBox>
+            <HBox alignment="CENTER" prefHeight="102.0" prefWidth="214.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#getWrittenArticle" prefHeight="42.0" prefWidth="200.0" text="PUBLISH NOW" />
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </VBox>
+   </right>
 
 
    <stylesheets>

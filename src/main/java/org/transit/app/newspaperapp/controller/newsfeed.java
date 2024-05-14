@@ -9,7 +9,6 @@ import javafx.scene.layout.VBox;
 import org.transit.app.newspaperapp.Main;
 import org.transit.app.newspaperapp.services.ArticleTr;
 import org.transit.app.newspaperapp.model.Articles;
-import org.transit.app.newspaperapp.services.UserTr;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -18,6 +17,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.List;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class newsfeed implements Initializable {
@@ -30,44 +30,44 @@ public class newsfeed implements Initializable {
         loadArticlesList();
     }
 
-
     private void loadArticlesList() {
         ArticleTr load = new ArticleTr();
-
         List<Articles> articlesList = load.loadArticlesQuery();
 
         for (Articles article : articlesList) {
-            try {
-                FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("cardArticleContainer.fxml"));
-                BorderPane card = fxmlLoader.load();
-
-                articleCards controller = fxmlLoader.getController();
-                controller.setArticleTexts(article.getHeadline(), article.getByline(), article.getContent(), article.getPublicationDate());
-
-//                URL imageUrl = new URL(article.getImageLink());
-
-                Image image = loadImageFromURL(article.getImageLink());
-                controller.setArticleImage(image);
-
+            BorderPane card = loadArticleCard(article);
+            if (card != null) {
                 articleVboxContainer.getChildren().add(card);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
             }
         }
     }
 
-//    private Image loadImageFromURL(String imageURL) {
-//        try {
-//            return new Image(imageURL);
-//        } catch (Exception e) {
-//            System.err.println("error loading image from URL: " + imageURL);
-//            throw new RuntimeException(e);
-//        }
-//    }
+    private BorderPane loadArticleCard(Articles article) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("cardArticleContainer.fxml"));
+            BorderPane card = fxmlLoader.load();
 
+            articleCards controller = fxmlLoader.getController();
+            setArticleController(controller, article);
 
-    // kuha lang sa internet
-    //TODO: bug occurs kapag hindi link ang nakalagay
+            return card;
+        } catch (IOException e) {
+            System.err.println("Error loading article: " + e.getMessage());
+            return null;
+        }
+    }
+
+    private void setArticleController(articleCards controller, Articles article) {
+        controller.setArticleTexts(article.getHeadline(), article.getByline(), article.getContent(), article.getPublicationDate());
+
+        try {
+            Image image = loadImageFromURL(article.getImageLink());
+            controller.setArticleImage(image);
+        } catch (IllegalArgumentException e) {
+            System.err.println("Error loading image: " + e.getMessage());
+        }
+    }
+
     private Image loadImageFromURL(String imageURL) {
         try {
             URI uri = new URI(imageURL);
@@ -81,7 +81,7 @@ public class newsfeed implements Initializable {
             }
         } catch (IOException | URISyntaxException e) {
             System.err.println("Error loading image: " + imageURL);
-            throw new RuntimeException(e);
+            throw new IllegalArgumentException(e.getMessage());
         }
     }
 }
