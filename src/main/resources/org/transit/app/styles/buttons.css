@@ -38,12 +38,33 @@
     -fx-text-fill: black;
 }
 
-.toggle-button {
-     -fx-background-color: black;
+.toggle-button{
      -fx-background-radius: 3px;
 }
 
-.toggle-button:hover {
+.categories-button {
+    -fx-border-color: transparent;
+    -fx-background-color: transparent;
+    -fx-background-radius: 50;
+    -fx-border-radius: 50;
+    -fx-text-fill: black;
+}
+
+.categories-button :focused {
+    -fx-border-color: transparent;
+    -fx-background-color: #000000;
+    -fx-background-radius: 50;
+    -fx-border-radius: 50;
+    -fx-text-fill: #fefefe;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.120), 8, 0, 0, 5);
+}
+
+.menu-tgl-btn {
+     -fx-background-radius: 3px;
+     -fx-background-color: #000000;
+}
+
+.menu-tgl-btn:hover {
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.120), 8, 0, 0, 5);
 }
 

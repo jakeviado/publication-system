@@ -15,7 +15,7 @@
       <children>
          <HBox alignment="CENTER_LEFT" prefHeight="57.0" prefWidth="140.0">
             <children>
-               <ToggleButton fx:id="toggleButton" mnemonicParsing="false" onAction="#toggleMenu" onMouseClicked="#toggleMenu" prefHeight="38.0" prefWidth="70.0" text="MORE" textFill="WHITE" />
+               <ToggleButton fx:id="toggleButton" mnemonicParsing="false" onAction="#toggleMenu" onMouseClicked="#toggleMenu" prefHeight="38.0" prefWidth="70.0" styleClass="menu-tgl-btn" text="MORE" textFill="WHITE" />
             </children>
          </HBox>
          <HBox alignment="CENTER" prefHeight="57.0" prefWidth="661.0">
