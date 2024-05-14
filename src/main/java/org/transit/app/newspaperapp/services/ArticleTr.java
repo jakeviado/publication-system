@@ -67,6 +67,7 @@ public class ArticleTr {
         }
     }
 
+    //TODO: pwede pa maimprove antok lang ako haha
     public List<Articles> loadArticlesQuery() {
         List<Articles> articlesList = new ArrayList<>();
 

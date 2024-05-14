@@ -13,16 +13,16 @@
 <VBox fx:id="homepageScene" alignment="BOTTOM_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0" prefWidth="940.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.transit.app.newspaperapp.controller.mainpage">
    <HBox alignment="CENTER" prefHeight="55.0" prefWidth="940.0" VBox.vgrow="ALWAYS">
       <children>
-         <HBox alignment="CENTER_LEFT" prefHeight="57.0" prefWidth="140.0">
+         <HBox alignment="CENTER_LEFT" prefHeight="69.0" prefWidth="140.0">
             <children>
                <ToggleButton fx:id="toggleButton" mnemonicParsing="false" onAction="#toggleMenu" onMouseClicked="#toggleMenu" prefHeight="38.0" prefWidth="70.0" styleClass="menu-tgl-btn" text="MORE" textFill="WHITE" />
             </children>
          </HBox>
          <HBox alignment="CENTER" prefHeight="57.0" prefWidth="661.0">
             <children>
-               <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="48.0" prefWidth="386.0" style="-fx-font-size: 26;" styleClass="label-main-logo" text="The Street Journal" textAlignment="CENTER">
+               <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="48.0" prefWidth="558.0" style="-fx-font-size: 26;" styleClass="label-main-logo" text="The Street Journal" textAlignment="CENTER">
                   <HBox.margin>
-                     <Insets right="2.0" />
+                     <Insets />
                   </HBox.margin>
                </Label>
             </children>
@@ -52,7 +52,7 @@
                      <HBox alignment="CENTER_LEFT" prefHeight="56.0" prefWidth="200.0" />
                      <HBox alignment="CENTER" prefHeight="56.0" prefWidth="180.0" HBox.hgrow="ALWAYS">
                         <children>
-                           <Label fx:id="notifyLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="41.0" prefWidth="258.0" styleClass="pageLabel" textAlignment="CENTER" />
+                           <Label fx:id="notifyLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="42.0" prefWidth="359.0" styleClass="pageLabel" textAlignment="CENTER" wrapText="true" HBox.hgrow="ALWAYS" />
                         </children></HBox>
                      <HBox alignment="CENTER_RIGHT" prefHeight="56.0" prefWidth="200.0" />
                   </children>
