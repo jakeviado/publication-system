@@ -1,15 +1,17 @@
 package org.transit.app.newspaperapp.controller;
 
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
-import org.transit.app.newspaperapp.model.sceneSwitch;
+import org.transit.app.newspaperapp.Main;
 import javafx.scene.layout.VBox;
 import org.transit.app.newspaperapp.model.Login;
-import org.transit.app.newspaperapp.logic.transactions;
+import org.transit.app.newspaperapp.services.UserTr;
 import javafx.fxml.FXML;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Objects;
 
 public class loginController {
     public Button signupButton;
@@ -29,15 +31,14 @@ public class loginController {
     @FXML
     private VBox loginScene;
 
-    @FXML
     public void login() throws IOException {
         Login userData = new Login(usernameTextField.getText(), passwordTextField.getText());
-        transactions retrieveUserInfoLogic = new transactions();
+        UserTr transact = new UserTr();
 
         try {
-            if (retrieveUserInfoLogic.loginQuery(userData)) {
-                new sceneSwitch(loginScene, "mainpage.fxml");
-            } else  {
+            if (transact.loginQuery(userData)) {
+                sceneSwitch("mainpage.fxml");
+            } else {
                 notifyLabel.setText("Incorrect username or password");
             }
         } catch (SQLException e) {
@@ -46,11 +47,16 @@ public class loginController {
     }
 
     public void signup() throws IOException {
-        new sceneSwitch(loginScene, "registrationForm.fxml");
+        sceneSwitch("registrationForm.fxml");
     }
 
     public void closeApplication() {
         Stage stage  = (Stage) closeAppButton.getScene().getWindow();
         stage.close();
+    }
+
+    public void sceneSwitch(String fxml) throws IOException {
+        VBox nextVbox = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource(fxml)));
+        loginScene.getChildren().setAll(nextVbox);
     }
 }

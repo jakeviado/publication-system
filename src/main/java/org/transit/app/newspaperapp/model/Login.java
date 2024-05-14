@@ -6,6 +6,7 @@ public class Login implements login {
     private String username;
     private String password;
 
+
     @Override
     public String username() {
         return getUsername();
@@ -16,6 +17,7 @@ public class Login implements login {
         return getPassword();
     }
 
+
     public Login(String username, String password) {
         this.username = username;
         this.password = password;
@@ -23,6 +25,7 @@ public class Login implements login {
 
     public Login() {
     }
+
 
     public String getUsername() {
         return username;

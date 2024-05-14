@@ -1,8 +1,8 @@
 package org.transit.app.newspaperapp.controller;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.ToggleButton;
 
 import javafx.animation.TranslateTransition;
@@ -14,7 +14,6 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import org.transit.app.newspaperapp.Main;
-import org.transit.app.newspaperapp.model.sceneSwitch;
 
 import java.io.IOException;
 import java.net.URL;
@@ -57,71 +56,85 @@ public class mainpage implements Initializable {
     public Button accountBtn;
 
     @FXML
+    public Label notifyLabel;
+
+    @FXML
     private Button exitButton;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        if (loadNewsFeed()) {
+            notifyLabel.setText("~ Today's Front Page ~");
+        }
+    }
+
+    public boolean loadNewsFeed() {
         try {
-            BorderPane about = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("home.fxml")));
+            BorderPane about = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("newsfeed.fxml")));
             articleContainerBorderPane.setCenter(about);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+        return true;
     }
 
-    public void toggle() {
+    public void toggleMenu() {
+        TranslateTransition slide = new TranslateTransition(Duration.seconds(0.2));
+        slide.setNode(slidePanel);
+
         toggleButton.setOnAction(event -> {
-            TranslateTransition slide = new TranslateTransition();
-            slide.setDuration(Duration.seconds(0.3));
-            slide.setNode(slidePanel);
+            double targetX = toggleButton.isSelected() ? -200 : 200;
+            String buttonText = toggleButton.isSelected() ? "MORE" : "CLOSE";
 
-            double targetX;
-
-            if (toggleButton.isSelected()) {
-                targetX = -200;
-                toggleButton.setText("MORE");
-            } else {
-                targetX = 200;
-                toggleButton.setText("CLOSE");
-            }
             slide.setToX(targetX);
+            toggleButton.setText(buttonText);
             slide.play();
         });
     }
 
+    public void publishArticlePage() throws IOException {
+        switchScene("publishingPage.fxml");
+        notifyLabel.setText("Author Exclusive");
+    }
+
+    public void setHomeBtn() throws IOException {
+        switchScene("newsfeed.fxml");
+        notifyLabel.setText("~ Today's Front Page ~");
+    }
+
+    public void setCategoriesBtn() throws IOException {
+        switchScene("categories.fxml");
+        notifyLabel.setText("~ Categories ~");
+    }
+
+    public void setAboutBtn() throws IOException {
+        switchScene("about.fxml");
+        notifyLabel.setText("~ About Us ~");
+    }
+
+    public void setAccountBtn() throws IOException {
+        switchScene("account.fxml");
+        notifyLabel.setText("~ Account ~");
+    }
+
     public void exitApp() {
-        Stage stage = (Stage) exitButton.getScene().getWindow();
+        Stage stage  = (Stage) exitButton.getScene().getWindow();
         stage.close();
     }
 
     public void setLogoutButton() throws IOException {
-        new sceneSwitch(homepageScene, "loginForm.fxml");
+        logoutScene("loginForm.fxml");
     }
 
-    public void setHomeBtn(ActionEvent event) throws IOException {
-        BorderPane nextVbox = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("home.fxml")));
+
+    private void switchScene(String fxmlFile) throws IOException {
+        BorderPane nextVbox = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource(fxmlFile)));
         articleContainerBorderPane.setCenter(nextVbox);
     }
 
-    public void setCategoriesBtn(ActionEvent event) throws IOException {
-        BorderPane nextVbox = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("categories.fxml")));
-        articleContainerBorderPane.setCenter(nextVbox);
+    public void logoutScene(String fxml) throws IOException {
+        VBox nextVbox = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource(fxml)));
+        homepageScene.getChildren().removeAll();
+        homepageScene.getChildren().setAll(nextVbox);
     }
-
-    public void publishArticlePage(ActionEvent event) throws IOException {
-        BorderPane nextVbox = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("publishingPage.fxml")));
-        articleContainerBorderPane.setCenter(nextVbox);
-    }
-
-    public void setAboutBtn(ActionEvent event) throws IOException {
-        BorderPane about = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("about.fxml")));
-        articleContainerBorderPane.setCenter(about);
-    }
-
-    public void setAccountBtn(ActionEvent event) throws IOException {
-        BorderPane about = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("account.fxml")));
-        articleContainerBorderPane.setCenter(about);
-    }
-
-
 }

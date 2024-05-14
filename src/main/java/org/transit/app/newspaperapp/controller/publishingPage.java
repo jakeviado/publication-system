@@ -7,11 +7,11 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import org.transit.app.newspaperapp.model.Categories;
+import org.transit.app.newspaperapp.services.ArticleTr;
 import org.transit.app.newspaperapp.model.Articles;
-import org.transit.app.newspaperapp.logic.transactions;
 
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 
 public class publishingPage {
 
@@ -25,41 +25,45 @@ public class publishingPage {
     public TextArea contentTextArea;
 
     @FXML
+    public TextField imageLinkTextfield;
+
+    @FXML
     public Label notifyLabel;
 
     @FXML
     public ComboBox<String> categoryComboBox;
 
-
     public void initialize() {
-        ObservableList<String> categories = FXCollections.observableArrayList (
-                "News", "Sports", "Entertainment", "Opinion", "Business", "Technology");
+        categoriesList();
+    }
+
+    public void categoriesList() {
+        ObservableList<String> categories = FXCollections.observableArrayList(
+                Categories.NEWS, Categories.SPORTS, Categories.ENTERTAINMENT,
+                Categories.OPINION, Categories.BUSINESS, Categories.TECHNOLOGY);
         categoryComboBox.setItems(categories);
     }
 
+    @FXML
     public void getWrittenArticle() {
-        String headline =   headlineTextfield.getText();
+        String headline = headlineTextfield.getText();
         String byline =  bylineTextfield.getText();
         String content =  contentTextArea.getText();
         String category = categoryComboBox.getValue();
         LocalDateTime publicationDate = LocalDateTime.now();
+        String imageLink = imageLinkTextfield.getText();
 
-        Articles articles = new Articles(headline, byline, content, category, publicationDate);
-        transactions transact = new transactions();
+        Articles articles = new Articles(headline, byline, content, category, publicationDate, imageLink);
+        ArticleTr publish = new ArticleTr();
 
         try {
-            transact.publishQuery(articles);
-            clearFields();
+            publish.publishArticleQuery(articles);
+            registrationController.clearTextsFields.clearFields(headlineTextfield, bylineTextfield, imageLinkTextfield);
+            registrationController.clearTextsFields.clearFields(contentTextArea);
             notifyLabel.setText("Published!!");
         } catch (Exception e) {
-            notifyLabel.setText("Publish Failed");
+            notifyLabel.setText("Failed");
         }
-    }
-
-    private void clearFields() {
-        headlineTextfield.clear();
-        bylineTextfield.clear();
-        contentTextArea.clear();
     }
 }
 

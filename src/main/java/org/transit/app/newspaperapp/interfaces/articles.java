@@ -6,4 +6,5 @@ public interface articles {
     String publicationDate();
     String content();
     String category();
+    String imageLink();
 }

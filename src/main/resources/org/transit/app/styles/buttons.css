@@ -1,6 +1,6 @@
 .button {
     -fx-background-color: #000000;
-    -fx-background-radius: 0px;
+    -fx-background-radius: 0;
     -fx-text-fill: white;
 }
 
@@ -12,10 +12,11 @@
 .button:hover {
     -fx-background-color: #2d2d2d;
     -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.120), 8, 0, 0, 5);
 }
 
 .sign-up-button {
-    -fx-background-color: #b5b5b5;
+    -fx-background-color: transparent;
     -fx-text-fill: black;
 }
 
@@ -24,16 +25,33 @@
 }
 
 .button-burger {
-    -fx-background-color: #ffffff;
+    -fx-background-color: transparent;
+    -fx-background-radius: 0px;
+    -fx-text-fill: black;
+    -fx-font-size: 10;
+}
+
+.categories-button {
+    -fx-font-size: 12px;
+    -fx-background-color: transparent;
     -fx-background-radius: 0px;
     -fx-text-fill: black;
 }
 
 .toggle-button {
-     -fx-background-color: #000000;
+     -fx-background-color: black;
      -fx-background-radius: 0px;
+}
+
+.toggle-button:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.120), 8, 0, 0, 5);
 }
 
 .logout-button:hover, .exit-button:hover {
     -fx-text-fill: #dd6a67;
 }
+
+.combo-box:focused {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.120), 8, 0, 0, 5);
+}
+

@@ -29,9 +29,10 @@
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </padding>
                   </VBox>
+                  <Label fx:id="notifyLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="46.0" prefWidth="200.0" textAlignment="CENTER" textFill="#ff3b3b" />
                </children>
             </VBox>
-            <Button mnemonicParsing="false" onAction="#getWrittenArticle" prefHeight="46.0" prefWidth="200.0" text="PUBLISH NOW" />
+            <Button mnemonicParsing="false" onAction="#getWrittenArticle" prefHeight="42.0" prefWidth="200.0" text="PUBLISH NOW" />
          </children>
       </VBox>
    </left>
@@ -48,28 +49,27 @@
                   <RowConstraints maxHeight="128.80001678466795" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
                   <RowConstraints maxHeight="217.60000457763675" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
                   <RowConstraints maxHeight="290.40000610351564" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="437.0000061035156" minHeight="10.0" prefHeight="110.99998779296874" vgrow="ALWAYS" />
+                  <RowConstraints maxHeight="437.0000061035156" minHeight="10.0" prefHeight="213.40001220703127" vgrow="ALWAYS" />
+                  <RowConstraints maxHeight="437.0000061035156" minHeight="10.0" prefHeight="39.79998779296875" vgrow="ALWAYS" />
+                  <RowConstraints maxHeight="437.0000061035156" minHeight="10.0" prefHeight="55.99998779296874" vgrow="ALWAYS" />
                </rowConstraints>
                <children>
-                  <Label text="HEADLINE" />
-                  <Label text="BYLINE" GridPane.rowIndex="2" />
-                  <Label text="CONTENT" GridPane.rowIndex="4" />
+                  <Label text="Headline" />
+                  <Label text="Byline" GridPane.rowIndex="2" />
+                  <Label text="Content" GridPane.rowIndex="4" />
                   <TextField fx:id="headlineTextfield" prefHeight="52.0" prefWidth="726.0" GridPane.rowIndex="1" />
                   <TextField fx:id="bylineTextfield" prefHeight="52.0" prefWidth="726.0" GridPane.rowIndex="3" />
                   <TextArea fx:id="contentTextArea" prefHeight="313.0" prefWidth="726.0" wrapText="true" GridPane.rowIndex="5">
                      <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </padding></TextArea>
+                  <Label text="Link to Image" GridPane.rowIndex="6" />
+                  <TextField fx:id="imageLinkTextfield" prefHeight="46.0" prefWidth="722.0" GridPane.rowIndex="7" />
                </children>
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
             </GridPane>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
-               <children>
-                  <Label fx:id="notifyLabel" prefHeight="66.0" prefWidth="254.0" textFill="#ff3b3b" />
-               </children>
-            </VBox>
          </children>
       </VBox>
    </center>

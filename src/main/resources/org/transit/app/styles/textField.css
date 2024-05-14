@@ -5,4 +5,5 @@
 
 .text-field:focused , .text-area:focused {
     -fx-background-color: #beb7a4;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.120), 8, 0, 0, 5);
 }
