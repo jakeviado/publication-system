@@ -67,7 +67,7 @@ public class ArticleTr {
         }
     }
 
-    //TODO: pwede pa maimprove antok lang ako haha
+    //TODO: pwede pa maimprove antok lang ako haha kasama si load sports article dahil sa repetition ng code
     public List<Articles> loadArticlesQuery() {
         List<Articles> articlesList = new ArrayList<>();
 
