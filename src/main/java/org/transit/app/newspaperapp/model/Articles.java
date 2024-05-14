@@ -102,4 +102,5 @@ public class Articles implements articles {
     public void setImageLink(String imageLink) {
         this.imageLink = imageLink;
     }
+
 }

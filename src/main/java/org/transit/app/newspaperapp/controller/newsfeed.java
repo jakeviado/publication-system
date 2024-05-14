@@ -20,68 +20,13 @@ import java.util.List;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-public class newsfeed implements Initializable {
-
+public class newsfeed extends articleLoader implements Initializable {
     @FXML
     public VBox articleVboxContainer;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        loadArticlesList();
-    }
-
-    private void loadArticlesList() {
-        ArticleTr load = new ArticleTr();
-        List<Articles> articlesList = load.loadArticlesQuery();
-
-        for (Articles article : articlesList) {
-            BorderPane card = loadArticleCard(article);
-            if (card != null) {
-                articleVboxContainer.getChildren().add(card);
-            }
-        }
-    }
-
-    private BorderPane loadArticleCard(Articles article) {
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("cardArticleContainer.fxml"));
-            BorderPane card = fxmlLoader.load();
-
-            articleCards controller = fxmlLoader.getController();
-            setArticleController(controller, article);
-
-            return card;
-        } catch (IOException e) {
-            System.err.println("Error loading article: " + e.getMessage());
-            return null;
-        }
-    }
-
-    private void setArticleController(articleCards controller, Articles article) {
-        controller.setArticleTexts(article.getHeadline(), article.getByline(), article.getContent(), article.getPublicationDate());
-
-        try {
-            Image image = loadImageFromURL(article.getImageLink());
-            controller.setArticleImage(image);
-        } catch (IllegalArgumentException e) {
-            System.err.println("Error loading image: " + e.getMessage());
-        }
-    }
-
-    private Image loadImageFromURL(String imageURL) {
-        try {
-            URI uri = new URI(imageURL);
-            URL url = uri.toURL();
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-            connection.setDoInput(true);
-            connection.setRequestProperty("User-Agent", "Mozilla/5.0");
-            connection.connect();
-            try (InputStream inputStream = connection.getInputStream()) {
-                return new Image(inputStream);
-            }
-        } catch (IOException | URISyntaxException e) {
-            System.err.println("Error loading image: " + imageURL);
-            throw new IllegalArgumentException(e.getMessage());
-        }
+        ArticleTr load  = new ArticleTr();
+        loadArticlesList(load, articleVboxContainer);
     }
 }
