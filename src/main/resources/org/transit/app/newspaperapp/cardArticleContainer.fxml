@@ -122,7 +122,7 @@
                <children>
                   <HBox alignment="CENTER_RIGHT" prefHeight="66.0" prefWidth="319.0">
                      <children>
-                        <ToggleButton mnemonicParsing="false" prefHeight="41.0" prefWidth="104.0" styleClass="saveArticleButton" text="Save">
+                        <ToggleButton fx:id="saveArticleBtn" mnemonicParsing="false" prefHeight="41.0" prefWidth="104.0" styleClass="saveArticleButton" text="Save">
                            <HBox.margin>
                               <Insets right="40.0" />
                            </HBox.margin>
