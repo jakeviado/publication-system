@@ -10,6 +10,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.shape.Rectangle;
 
 import javafx.geometry.NodeOrientation;
+import org.transit.app.newspaperapp.services.ArticleTr;
 
 import java.net.URL;
 import java.util.Random;
@@ -71,6 +72,16 @@ public class articleCards implements Initializable {
             articleCard.setNodeOrientation(NodeOrientation.LEFT_TO_RIGHT);
         } else {
             articleCard.setNodeOrientation(NodeOrientation.RIGHT_TO_LEFT);
+        }
+    }
+
+    private void saveArticle(int userId, int articleId) {
+        try {
+            ArticleTr articleTr =  new ArticleTr();
+            articleTr.saveArticle(userId, articleId);
+            System.out.println("Article saved successfully!");
+        } catch (Exception e) {
+            System.err.println("Failed to save article: " + e.getMessage());
         }
     }
 }

@@ -14,6 +14,7 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import org.transit.app.newspaperapp.Main;
+import org.transit.app.newspaperapp.model.User;
 
 import java.io.IOException;
 import java.net.URL;
@@ -123,7 +124,10 @@ public class mainpage implements Initializable {
     }
 
     public void setLogoutButton() throws IOException {
+        User user = new User();
         logoutScene("loginForm.fxml");
+        user.setUsername(null);
+        user.setPassword(null);
     }
 
 

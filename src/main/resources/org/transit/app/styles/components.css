@@ -12,16 +12,12 @@
 .saveArticleButton {
     -fx-border-color: transparent;
     -fx-background-color: transparent;
-    -fx-background-radius: 10;
-    -fx-border-radius: 10;
     -fx-text-fill: black;
 }
 
 .saveArticleButton:focused {
     -fx-border-color: #000000;
     -fx-background-color: #000000;
-    -fx-background-radius: 10;
-    -fx-border-radius: 10;
     -fx-text-fill: #fefefe;
 }
 

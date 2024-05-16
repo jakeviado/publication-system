@@ -4,7 +4,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import org.transit.app.newspaperapp.Main;
 import javafx.scene.layout.VBox;
-import org.transit.app.newspaperapp.model.Login;
+import org.transit.app.newspaperapp.model.User;
 import org.transit.app.newspaperapp.services.UserTr;
 import javafx.fxml.FXML;
 import javafx.stage.Stage;
@@ -32,11 +32,15 @@ public class loginController {
     private VBox loginScene;
 
     public void login() throws IOException {
-        Login userData = new Login(usernameTextField.getText(), passwordTextField.getText());
+        User userData = new User(usernameTextField.getText(), passwordTextField.getText());
         UserTr transact = new UserTr();
 
         try {
             if (transact.loginQuery(userData)) {
+                //hindi ko pa alam ito
+                User user  = new User();
+                user.setUsername(user.username());
+
                 sceneSwitch("mainpage.fxml");
             } else {
                 notifyLabel.setText("Incorrect username or password");

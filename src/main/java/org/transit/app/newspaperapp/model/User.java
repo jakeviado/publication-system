@@ -2,7 +2,7 @@ package org.transit.app.newspaperapp.model;
 
 import org.transit.app.newspaperapp.interfaces.login;
 
-public class Login implements login {
+public class User implements login {
     private String username;
     private String password;
 
@@ -18,12 +18,12 @@ public class Login implements login {
     }
 
 
-    public Login(String username, String password) {
+    public User(String username, String password) {
         this.username = username;
         this.password = password;
     }
 
-    public Login() {
+    public User() {
     }
 
 
