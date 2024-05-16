@@ -2,11 +2,10 @@ package org.transit.app.newspaperapp.controller;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
-import javafx.scene.layout.BorderPane;
 import org.transit.app.newspaperapp.Main;
 import javafx.scene.layout.VBox;
 import org.transit.app.newspaperapp.model.Login;
-import org.transit.app.newspaperapp.logic.transactions;
+import org.transit.app.newspaperapp.services.UserTr;
 import javafx.fxml.FXML;
 import javafx.stage.Stage;
 
@@ -32,10 +31,9 @@ public class loginController {
     @FXML
     private VBox loginScene;
 
-
     public void login() throws IOException {
         Login userData = new Login(usernameTextField.getText(), passwordTextField.getText());
-        transactions transact = new transactions();
+        UserTr transact = new UserTr();
 
         try {
             if (transact.loginQuery(userData)) {
@@ -48,7 +46,6 @@ public class loginController {
         }
     }
 
-
     public void signup() throws IOException {
         sceneSwitch("registrationForm.fxml");
     }
@@ -59,9 +56,6 @@ public class loginController {
     }
 
     public void sceneSwitch(String fxml) throws IOException {
-//        VBox nextVbox = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource(fxml)));
-//        loginScene.getChildren().removeAll();
-//        loginScene.getChildren().setAll(nextVbox);
         VBox nextVbox = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource(fxml)));
         loginScene.getChildren().setAll(nextVbox);
     }

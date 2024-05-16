@@ -5,6 +5,7 @@
 <?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -14,10 +15,99 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:id="articleCard" maxWidth="840.0" prefHeight="529.0" prefWidth="840.0" style="-fx-background-insets: 20;" styleClass="card" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.transit.app.newspaperapp.controller.articleCards">
+<BorderPane fx:id="articleCard" maxHeight="-Infinity" maxWidth="840.0" nodeOrientation="RIGHT_TO_LEFT" prefWidth="840.0" style="-fx-background-insets: 0;" styleClass="card" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.transit.app.newspaperapp.controller.articleCards">
    <padding>
       <Insets />
    </padding>
+
+
+   <left>
+      <HBox alignment="TOP_CENTER" prefHeight="407.0" prefWidth="393.0" BorderPane.alignment="TOP_CENTER">
+         <children>
+            <HBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" style="-fx-background-radius: 8;">
+               <children>
+                  <ImageView fx:id="imageView" fitHeight="417.0" fitWidth="322.0" pickOnBounds="true" preserveRatio="true" styleClass="imageView" HBox.hgrow="ALWAYS">
+                     <viewport>
+                        <Rectangle2D height="800.0" width="600.0" />
+                     </viewport>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </ImageView>
+               </children>
+               <HBox.margin>
+                  <Insets left="40.0" right="40.0" />
+               </HBox.margin>
+            </HBox>
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="20.0" top="50.0" />
+         </BorderPane.margin>
+      </HBox>
+   </left>
+   <right>
+      <GridPane fx:id="gridPane" alignment="TOP_CENTER" maxHeight="-Infinity" minHeight="400.0" nodeOrientation="LEFT_TO_RIGHT" prefWidth="466.0" BorderPane.alignment="CENTER">
+         <columnConstraints>
+            <ColumnConstraints minWidth="10.0" prefWidth="100.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints maxHeight="-Infinity" minHeight="70.0" />
+            <RowConstraints maxHeight="-Infinity" minHeight="0.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="7.199999999999989" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="17.60002441406249" />
+            <RowConstraints maxHeight="-Infinity" minHeight="10.0" vgrow="ALWAYS" />
+         </rowConstraints>
+         <children>
+            <Label fx:id="dateLabel" prefHeight="15.0" prefWidth="636.0" text="Published date:" wrapText="true" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
+            </Label>
+            <Label fx:id="authorLabel" maxHeight="-Infinity" prefHeight="15.0" prefWidth="398.0" text="Author:" textOverrun="CLIP" wrapText="true" GridPane.rowIndex="1">
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
+            </Label>
+            <VBox maxHeight="-Infinity" prefWidth="506.0" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.vgrow="ALWAYS">
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+            </VBox>
+            <Label fx:id="contentLabel" alignment="TOP_LEFT" contentDisplay="TOP" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="468.0" text="Content" textOverrun="CLIP" wrapText="true" GridPane.rowIndex="4">
+               <GridPane.margin>
+                  <Insets bottom="10.0" top="10.0" />
+               </GridPane.margin>
+            </Label>
+            <FlowPane maxHeight="-Infinity" prefWidth="347.0">
+               <children>
+                  <Label fx:id="headlineLabel" centerShape="false" contentDisplay="TOP" maxHeight="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefWidth="395.0" styleClass="headlineLabel" text="Headline" wrapText="true">
+                     <padding>
+                        <Insets bottom="10.0" top="10.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </FlowPane>
+            <FlowPane maxHeight="-Infinity" prefHeight="36.0" prefWidth="351.0" GridPane.rowIndex="3">
+               <children>
+                  <Label fx:id="bylineLabel" maxHeight="-Infinity" prefWidth="347.0" text="Byline" textOverrun="CLIP" wrapText="true">
+                     <padding>
+                        <Insets bottom="10.0" top="10.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </FlowPane>
+         </children>
+         <padding>
+            <Insets left="30.0" right="30.0" top="40.0" />
+         </padding>
+         <BorderPane.margin>
+            <Insets bottom="10.0" />
+         </BorderPane.margin>
+      </GridPane>
+   </right>
 
    <stylesheets>
       <URL value="@../styles/buttons.css" />
@@ -25,74 +115,39 @@
       <URL value="@../styles/textField.css" />
       <URL value="@../styles/components.css" />
    </stylesheets>
-   <left>
-      <HBox alignment="TOP_CENTER" prefHeight="407.0" prefWidth="288.0" BorderPane.alignment="TOP_CENTER">
+   <bottom>
+      <HBox prefHeight="47.0" prefWidth="820.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox alignment="TOP_CENTER" prefHeight="377.0" prefWidth="308.0" style="-fx-background-radius: 8;">
+            <HBox alignment="CENTER_RIGHT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="63.0" prefWidth="820.0">
                <children>
-                  <ImageView fx:id="imageView" fitHeight="510.0" fitWidth="300.0" pickOnBounds="true" styleClass="imageView" HBox.hgrow="ALWAYS">
-                     <viewport>
-                        <Rectangle2D height="500.0" minX="50.0" minY="100.0" width="300.0" />
-                     </viewport>
-                  </ImageView>
-               </children>
-            </HBox>
-         </children>
-         <BorderPane.margin>
-            <Insets bottom="50.0" left="10.0" top="50.0" />
-         </BorderPane.margin>
-      </HBox>
-   </left>
-   <right>
-      <GridPane fx:id="gridPane" alignment="TOP_CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="508.0" prefWidth="538.0" BorderPane.alignment="CENTER">
-         <columnConstraints>
-            <ColumnConstraints minWidth="10.0" prefWidth="100.0" />
-         </columnConstraints>
-         <rowConstraints>
-            <RowConstraints />
-            <RowConstraints maxHeight="113.60000610351562" minHeight="10.0" prefHeight="32.79999389648437" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="110.39998779296872" minHeight="10.0" prefHeight="32.79998779296875" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="224.80003662109374" minHeight="10.0" prefHeight="32.99998779296874" />
-            <RowConstraints maxHeight="378.4000061035157" minHeight="10.0" prefHeight="207.40001220703124" vgrow="ALWAYS" />
-            <RowConstraints maxHeight="378.4000061035157" minHeight="10.0" prefHeight="30.399987792968773" vgrow="ALWAYS" />
-         </rowConstraints>
-         <children>
-            <Label fx:id="dateLabel" prefHeight="15.0" prefWidth="636.0" text="Published date:" wrapText="true" GridPane.rowIndex="2" />
-            <Label fx:id="authorLabel" prefHeight="45.0" prefWidth="374.0" text="Author:" textOverrun="CLIP" wrapText="true" GridPane.rowIndex="1" />
-            <VBox prefHeight="278.0" prefWidth="506.0" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.vgrow="ALWAYS">
-               <children>
-                  <Label fx:id="contentLabel" alignment="TOP_LEFT" contentDisplay="TOP" maxWidth="-Infinity" prefHeight="214.0" prefWidth="468.0" text="Content" textOverrun="CLIP" wrapText="true" />
-               </children>
-               <padding>
-                  <Insets top="10.0" />
-               </padding>
-            </VBox>
-            <VBox prefHeight="178.0" prefWidth="443.0" GridPane.rowIndex="3">
-               <children>
-                  <Label fx:id="bylineLabel" prefHeight="135.0" prefWidth="443.0" text="Byline" textOverrun="CLIP" wrapText="true" />
-               </children>
-            </VBox>
-            <HBox alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="346.0" GridPane.rowIndex="5">
-               <children>
-                  <HBox alignment="CENTER_RIGHT" prefHeight="43.0" prefWidth="102.0">
+                  <HBox alignment="CENTER_RIGHT" prefHeight="66.0" prefWidth="319.0">
                      <children>
-                        <ToggleButton mnemonicParsing="false" prefHeight="35.0" prefWidth="75.0" styleClass="saveArticleButton" text="Save" />
+                        <ToggleButton mnemonicParsing="false" prefHeight="41.0" prefWidth="104.0" styleClass="saveArticleButton" text="Save">
+                           <HBox.margin>
+                              <Insets right="40.0" />
+                           </HBox.margin>
+                           <graphic>
+                              <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../styles/assets/bookmark.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </ToggleButton>
                      </children>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
                   </HBox>
                </children>
-               <padding>
-                  <Insets top="10.0" />
-               </padding>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
             </HBox>
-            <FlowPane alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" orientation="VERTICAL" prefHeight="11.0" prefWidth="382.0" rowValignment="TOP" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
-               <children>
-                  <Label fx:id="headlineLabel" centerShape="false" contentDisplay="TOP" nodeOrientation="LEFT_TO_RIGHT" prefHeight="43.0" prefWidth="443.0" styleClass="headlineLabel" text="Headline Headline Headline Headline Headline Headline Headline" wrapText="true" />
-               </children>
-            </FlowPane>
          </children>
-         <padding>
-            <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
-         </padding>
-      </GridPane>
-   </right>
+      </HBox>
+   </bottom>
 </BorderPane>

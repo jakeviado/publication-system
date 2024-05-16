@@ -6,7 +6,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 
 import org.transit.app.newspaperapp.Main;
-import org.transit.app.newspaperapp.logic.transactions;
+import org.transit.app.newspaperapp.services.UserTr;
 import org.transit.app.newspaperapp.model.Signup;
 
 import java.io.IOException;
@@ -47,25 +47,6 @@ public class registrationController {
     @FXML
     public PasswordField confirmPasswordTextField;
 
-    @FXML
-    public void registerAsReader() {
-        try {
-            validateInput(usernameTextField.getText(), passwordTextField.getText(), firstNameTextField.getText(), lastNameTextField.getText());
-            register(false, true, "Registered successfully!", "Registration failed.");
-        } catch (IllegalArgumentException e) {
-            notifyLabel.setText(e.getMessage());
-        }
-    }
-
-    @FXML
-    public void registerAsAuthor() {
-        try {
-            validateInput(usernameTextField.getText(), passwordTextField.getText(), firstNameTextField.getText(), lastNameTextField.getText());
-            register(true, false, "Registered as author successfully!", "Author registration failed. Please check username or password.");
-        } catch (IllegalArgumentException e) {
-            notifyLabel.setText(e.getMessage());
-        }
-    }
 
     private void register(boolean isAuthor, boolean isReader, String success, String fail) {
         String username = usernameTextField.getText();
@@ -81,7 +62,7 @@ public class registrationController {
         }
 
         Signup userData = new Signup(username, password, email, first_name, last_name);
-        transactions transact = new transactions();
+        UserTr transact = new UserTr();
 
         try {
             if (transact.registerQuery(userData, isAuthor, isReader)) {
@@ -95,18 +76,34 @@ public class registrationController {
         }
     }
 
-    private void validateInput(String username, String password, String firstName, String lastName) {
-        if (username == null || username.isEmpty()) {
-            throw new IllegalArgumentException("Username cannot be empty");
+    @FXML
+    public void registerAsReader() {
+        try {
+            validateInput();
+            register(false, true, "Registered successfully!", "Registration failed.");
+        } catch (IllegalArgumentException e) {
+            notifyLabel.setText(e.getMessage());
         }
-        if (password == null || password.isEmpty()) {
-            throw new IllegalArgumentException("Password cannot be empty");
+    }
+
+    @FXML
+    public void registerAsAuthor() {
+        try {
+            validateInput();
+            register(true, false, "Registered as author successfully!", "Author registration failed. Please check username or password.");
+        } catch (IllegalArgumentException e) {
+            notifyLabel.setText(e.getMessage());
         }
-        if (firstName == null || firstName.isEmpty()) {
-            throw new IllegalArgumentException("First Name is needed cannot be empty");
-        }
-        if (lastName == null || lastName.isEmpty()) {
-            throw new IllegalArgumentException("Last Name is needed cannot be empty");
+    }
+
+    private void validateInput() {
+        String username = usernameTextField.getText();
+        String password = passwordTextField.getText();
+        String firstName = firstNameTextField.getText();
+        String lastName = lastNameTextField.getText();
+
+        if (username.isEmpty() || password.isEmpty() || firstName.isEmpty() || lastName.isEmpty()) {
+            throw new IllegalArgumentException("All fields are required");
         }
     }
 
@@ -123,16 +120,17 @@ public class registrationController {
         }
     }
 
+    @FXML
     public void enableRegisterButton() {
         registerAuthorButton.setDisable(!checkbox.isSelected());
         registerStartButton.setDisable(!checkbox.isSelected());
     }
 
     public void backToLogin() throws IOException {
-        sceneSwitch(registrationScene, "loginForm.fxml");
+        SceneSwitch(registrationScene, "loginForm.fxml");
     }
 
-    public void sceneSwitch(VBox loginScene, String fxml) throws IOException {
+    public void SceneSwitch(VBox loginScene, String fxml) throws IOException {
         VBox nextVbox = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource(fxml)));
         loginScene.getChildren().removeAll();
         loginScene.getChildren().setAll(nextVbox);

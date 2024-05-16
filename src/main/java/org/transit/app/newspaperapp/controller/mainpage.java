@@ -78,7 +78,6 @@ public class mainpage implements Initializable {
         return true;
     }
 
-    // Action Btns
     public void toggleMenu() {
         TranslateTransition slide = new TranslateTransition(Duration.seconds(0.2));
         slide.setNode(slidePanel);
@@ -100,22 +99,22 @@ public class mainpage implements Initializable {
 
     public void setHomeBtn() throws IOException {
         switchScene("newsfeed.fxml");
-        notifyLabel.setText("Today's Front Page");
+        notifyLabel.setText("~ Today's Front Page ~");
     }
 
     public void setCategoriesBtn() throws IOException {
         switchScene("categories.fxml");
-        notifyLabel.setText("Categories");
+        notifyLabel.setText("~ Categories ~");
     }
 
     public void setAboutBtn() throws IOException {
         switchScene("about.fxml");
-        notifyLabel.setText("About Us");
+        notifyLabel.setText("~ About Us ~");
     }
 
     public void setAccountBtn() throws IOException {
         switchScene("account.fxml");
-        notifyLabel.setText("Account");
+        notifyLabel.setText("~ Account ~");
     }
 
     public void exitApp() {
@@ -127,7 +126,7 @@ public class mainpage implements Initializable {
         logoutScene("loginForm.fxml");
     }
 
-    // Scene Switches
+
     private void switchScene(String fxmlFile) throws IOException {
         BorderPane nextVbox = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource(fxmlFile)));
         articleContainerBorderPane.setCenter(nextVbox);

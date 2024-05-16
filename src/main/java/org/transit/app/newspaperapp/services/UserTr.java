@@ -1,18 +1,13 @@
-package org.transit.app.newspaperapp.logic;
+package org.transit.app.newspaperapp.services;
 
-import org.transit.app.newspaperapp.controller.mainpage;
-import org.transit.app.newspaperapp.model.Articles;
 import org.transit.app.newspaperapp.model.Login;
 import org.transit.app.newspaperapp.model.Signup;
 
 import java.sql.*;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 import static org.transit.app.newspaperapp.utilities.DBConnection.getConnection;
 
-public class transactions {
+public class UserTr {
 
 //    //TODO: NEED ICHECK KUNG SI ATTEMPTING USER AY AUTHOR OR SIMPLENG TAO LAMANG
 //    public boolean loginQuery(Login userData) throws SQLException {
@@ -48,6 +43,9 @@ public class transactions {
 
             ResultSet rs = stmt.executeQuery();
             return rs.next();
+        }
+        catch (SQLException e) {
+            throw new IllegalArgumentException("fail to login in db hehe", e);
         }
     }
 
@@ -123,116 +121,9 @@ public class transactions {
                 }
             }
         } catch (SQLException e) {
-            throw new RuntimeException("Error registering", e);
+            throw new IllegalArgumentException("Error registering", e);
         }
         return false;
-    }
-
-    // Publish article query
-    public void publishArticleQuery(Articles articles) {
-        String headline = articles.headline();
-        String byline = articles.byline();
-        String content = articles.content();
-        String category = articles.category();
-        LocalDateTime publicationDateTime = LocalDateTime.parse(articles.publicationDate());
-        String imageLink = articles.imageLink();
-
-        try (Connection connection = getConnection()) {
-            String query = "INSERT INTO ARTICLES (HEADLINE, BYLINE, PUBLICATION_DATE, CONTENT, CATEGORY_TYPE, IMAGELINK) VALUES (?, ?, ?, ?, ?, ?)";
-            assert connection != null;
-            PreparedStatement stmt = connection.prepareStatement(query);
-
-            stmt.setString(1, headline);
-            stmt.setString(2, byline);
-            stmt.setObject(3, Timestamp.valueOf(publicationDateTime));
-            stmt.setString(4, content);
-            stmt.setString(5, category);
-            stmt.setString(6, imageLink);
-
-            int rowsInserted = stmt.executeUpdate();
-
-            if (rowsInserted > 0) {
-                System.out.println("successful");
-            } else {
-                System.out.println("failed");
-            }
-
-        } catch (SQLException e) {
-            throw new RuntimeException("Error publishing articles", e);
-        }
-    }
-
-    //TODO: implementation
-    public void unpublishArticleQuery(Articles articles) {
-        String headline = articles.headline();
-
-        try (Connection connection = getConnection()) {
-            String query = "DELETE FROM Articles WHERE HEADLINE = ?";
-            assert connection != null;
-            PreparedStatement stmt = connection.prepareStatement(query);
-
-            stmt.setString(1, headline);
-
-            int rowsDeleted = stmt.executeUpdate();
-
-            if (rowsDeleted > 0) {
-                System.out.println("article unpublished");
-            } else {
-                System.out.println("article not found");
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException("Error", e);
-        }
-    }
-
-    //TODO: implementation
-    public void saveArticle(int userId, int articleId) {
-        try (Connection connection = getConnection()) {
-            String query = "INSERT INTO SavedArticles (USER_ID, ARTICLE_ID, TIMESTAMP) VALUES (?, ?, ?)";
-            assert connection != null;
-            PreparedStatement stmt = connection.prepareStatement(query);
-
-            stmt.setInt(1, userId);
-            stmt.setInt(2, articleId);
-            stmt.setTimestamp(3, Timestamp.valueOf(LocalDateTime.now()));
-
-            int rowsInserted = stmt.executeUpdate();
-
-            if (rowsInserted > 0) {
-                System.out.println("article saved");
-            } else {
-                System.out.println("failed");
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException("Error", e);
-        }
-    }
-
-    public List<Articles> loadArticlesQuery() {
-        List<Articles> articlesList = new ArrayList<>();
-
-        try (Connection connection = getConnection()) {
-            String query = "SELECT * FROM ARTICLES ORDER BY PUBLICATION_DATE DESC";
-            assert connection != null;
-            PreparedStatement stmt = connection.prepareStatement(query);
-            ResultSet resultSet = stmt.executeQuery();
-
-            while (resultSet.next()) {
-                String headline =  resultSet.getString("HEADLINE");
-                String byline = resultSet.getString("BYLINE");
-                LocalDateTime publicationDate = resultSet.getTimestamp("PUBLICATION_DATE").toLocalDateTime();
-                String content = resultSet.getString("CONTENT");
-                String category = resultSet.getString("CATEGORY_TYPE");
-                String imageLink = resultSet.getString("IMAGELINK");
-
-                Articles article = new Articles(headline, byline, content, category, publicationDate, imageLink);
-                articlesList.add(article);;
-            }
-
-        } catch (SQLException e) {
-            throw new RuntimeException("Error loading the articles", e);
-        }
-        return articlesList;
     }
 }
 

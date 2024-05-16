@@ -7,8 +7,9 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import org.transit.app.newspaperapp.model.Categories;
+import org.transit.app.newspaperapp.services.ArticleTr;
 import org.transit.app.newspaperapp.model.Articles;
-import org.transit.app.newspaperapp.logic.transactions;
 
 import java.time.LocalDateTime;
 
@@ -36,15 +37,16 @@ public class publishingPage {
         categoriesList();
     }
 
-    //TODO: pinagiisipan ko pa
     public void categoriesList() {
-        ObservableList<String> categories = FXCollections.observableArrayList (
-                "News", "Sports", "Entertainment", "Opinion", "Business", "Technology");
+        ObservableList<String> categories = FXCollections.observableArrayList(
+                Categories.NEWS, Categories.SPORTS, Categories.ENTERTAINMENT,
+                Categories.OPINION, Categories.BUSINESS, Categories.TECHNOLOGY);
         categoryComboBox.setItems(categories);
     }
 
+    @FXML
     public void getWrittenArticle() {
-        String headline =   headlineTextfield.getText();
+        String headline = headlineTextfield.getText();
         String byline =  bylineTextfield.getText();
         String content =  contentTextArea.getText();
         String category = categoryComboBox.getValue();
@@ -52,15 +54,29 @@ public class publishingPage {
         String imageLink = imageLinkTextfield.getText();
 
         Articles articles = new Articles(headline, byline, content, category, publicationDate, imageLink);
-        transactions transact = new transactions();
+        ArticleTr publish = new ArticleTr();
 
         try {
-            transact.publishArticleQuery(articles);
+            validateInput();
+
+            publish.publishArticleQuery(articles);
             registrationController.clearTextsFields.clearFields(headlineTextfield, bylineTextfield, imageLinkTextfield);
             registrationController.clearTextsFields.clearFields(contentTextArea);
             notifyLabel.setText("Published!!");
-        } catch (Exception e) {
-            notifyLabel.setText("Publish Failed");
+        } catch (IllegalArgumentException e) {
+            notifyLabel.setText(e.getMessage());
+        }
+    }
+
+    private void validateInput() {
+        String headline = headlineTextfield.getText();
+        String byline =  bylineTextfield.getText();
+        String content =  contentTextArea.getText();
+        String category = categoryComboBox.getValue();
+        String imageLink = imageLinkTextfield.getText();
+
+        if (headline.isEmpty() || byline.isEmpty() || content.isEmpty() || category.isEmpty() || imageLink.isEmpty()) {
+            throw new IllegalArgumentException("All fields are required");
         }
     }
 }

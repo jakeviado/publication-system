@@ -1,6 +1,5 @@
 package org.transit.app.newspaperapp.controller;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -8,6 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import org.transit.app.newspaperapp.Main;
+import org.transit.app.newspaperapp.services.ArticleTr;
 
 import java.io.IOException;
 import java.net.URL;
@@ -15,18 +15,6 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class categoriesController implements Initializable {
-
-    @FXML
-    public Button newsBtn;
-
-    @FXML
-    public Button sportsBtn;
-
-    @FXML
-    public Button businessBtn;
-
-    @FXML
-    public Button opinionBtn;
 
     @FXML
     public BorderPane categoriesPane;
@@ -37,10 +25,10 @@ public class categoriesController implements Initializable {
     //public Button technologyBtn;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        loadNewsArticles();
+        loadFirst();
     }
 
-    public void loadNewsArticles() {
+    public void loadFirst() {
         BorderPane nextVbox = null;
         try {
             nextVbox = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("category-News.fxml")));
