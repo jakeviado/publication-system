@@ -10,11 +10,11 @@ import java.util.ResourceBundle;
 
 public class ctgSportsController extends articleLoader implements Initializable {
     @FXML
-    public VBox ctgSportsController;
+    public VBox ctgSportsContainer;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         ArticleTr load  = new ArticleTr();
-        loadSportsArticles(load, ctgSportsController);
+        loadSportsArticles(load, ctgSportsContainer);
     }
 }

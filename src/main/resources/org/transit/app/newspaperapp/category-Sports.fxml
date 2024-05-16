@@ -8,7 +8,7 @@
    <center>
       <ScrollPane prefHeight="200.0" prefWidth="200.0" vbarPolicy="ALWAYS" BorderPane.alignment="CENTER">
          <content>
-            <VBox fx:id="ctgSportsController" alignment="CENTER" maxHeight="-Infinity" prefWidth="918.0" />
+            <VBox fx:id="ctgSportsContainer" alignment="CENTER" maxHeight="-Infinity" prefWidth="918.0" />
          </content></ScrollPane>
    </center>
 </BorderPane>
