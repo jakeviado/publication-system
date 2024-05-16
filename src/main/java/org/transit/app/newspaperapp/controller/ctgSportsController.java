@@ -15,6 +15,6 @@ public class ctgSportsController extends articleLoader implements Initializable 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         ArticleTr load  = new ArticleTr();
-        loadSports(load, ctgSportsController);
+        loadSportsArticles(load, ctgSportsController);
     }
 }

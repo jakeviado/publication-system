@@ -7,6 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import org.transit.app.newspaperapp.Main;
+import org.transit.app.newspaperapp.services.ArticleTr;
 
 import java.io.IOException;
 import java.net.URL;
@@ -24,10 +25,10 @@ public class categoriesController implements Initializable {
     //public Button technologyBtn;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        loadNewsArticles();
+        loadFirst();
     }
 
-    public void loadNewsArticles() {
+    public void loadFirst() {
         BorderPane nextVbox = null;
         try {
             nextVbox = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("category-News.fxml")));

@@ -30,7 +30,7 @@ public abstract class articleLoader implements Initializable {
         }
     }
 
-    protected void loadSports(ArticleTr articleService, VBox container) {
+    protected void loadSportsArticles(ArticleTr articleService, VBox container) {
         List<Articles> articlesList = articleService.loadSportsArticle();
 
         for (Articles article : articlesList) {
