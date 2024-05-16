@@ -57,12 +57,26 @@ public class publishingPage {
         ArticleTr publish = new ArticleTr();
 
         try {
+            validateInput();
+
             publish.publishArticleQuery(articles);
             registrationController.clearTextsFields.clearFields(headlineTextfield, bylineTextfield, imageLinkTextfield);
             registrationController.clearTextsFields.clearFields(contentTextArea);
             notifyLabel.setText("Published!!");
-        } catch (Exception e) {
-            notifyLabel.setText("Failed");
+        } catch (IllegalArgumentException e) {
+            notifyLabel.setText(e.getMessage());
+        }
+    }
+
+    private void validateInput() {
+        String headline = headlineTextfield.getText();
+        String byline =  bylineTextfield.getText();
+        String content =  contentTextArea.getText();
+        String category = categoryComboBox.getValue();
+        String imageLink = imageLinkTextfield.getText();
+
+        if (headline.isEmpty() || byline.isEmpty() || content.isEmpty() || category.isEmpty() || imageLink.isEmpty()) {
+            throw new IllegalArgumentException("All fields are required");
         }
     }
 }
