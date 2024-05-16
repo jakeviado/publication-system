@@ -22,7 +22,7 @@ public class categoriesController implements Initializable {
     @FXML
     public VBox categoriesContainer;
 
-    //public Button technologyBtn;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loadFirst();
@@ -52,6 +52,14 @@ public class categoriesController implements Initializable {
 
     public void setOpinionBtn() throws IOException {
         switchScene("category-Opinion.fxml");
+    }
+
+    public void setTechnologyBtn() throws IOException {
+        switchScene("category-Technology.fxml");
+    }
+
+    public void setEntertainmentBtn() throws IOException{
+        switchScene("category-Entertainment.fxml");
     }
 
     private void switchScene(String fxmlFile) throws IOException {

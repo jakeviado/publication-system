@@ -41,6 +41,50 @@ public abstract class articleLoader implements Initializable {
         }
     }
 
+    protected void loadBusinessArticles(ArticleTr articleService, VBox container) {
+        List<Articles> articlesList = articleService.loadSportsArticle();
+
+        for (Articles article : articlesList) {
+            BorderPane card = loadArticleCard(article);
+            if (card != null) {
+                container.getChildren().add(card);
+            }
+        }
+    }
+
+    protected void loadEntertainmentArticles(ArticleTr articleService, VBox container) {
+        List<Articles> articlesList = articleService.loadSportsArticle();
+
+        for (Articles article : articlesList) {
+            BorderPane card = loadArticleCard(article);
+            if (card != null) {
+                container.getChildren().add(card);
+            }
+        }
+    }
+
+    protected void loadOpinionArticles(ArticleTr articleService, VBox container) {
+        List<Articles> articlesList = articleService.loadSportsArticle();
+
+        for (Articles article : articlesList) {
+            BorderPane card = loadArticleCard(article);
+            if (card != null) {
+                container.getChildren().add(card);
+            }
+        }
+    }
+
+    protected void loadTechnologyArticles(ArticleTr articleService, VBox container) {
+        List<Articles> articlesList = articleService.loadSportsArticle();
+
+        for (Articles article : articlesList) {
+            BorderPane card = loadArticleCard(article);
+            if (card != null) {
+                container.getChildren().add(card);
+            }
+        }
+    }
+
     protected BorderPane loadArticleCard(Articles article) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("cardArticleContainer.fxml"));
@@ -57,7 +101,7 @@ public abstract class articleLoader implements Initializable {
     }
 
     protected void setArticleController(articleCards controller, Articles article) {
-        controller.setArticleTexts(article.getHeadline(), article.getByline(), article.getContent(), article.getPublicationDate());
+        controller.setArticleTexts(article.getHeadline(), article.getByline(), article.getContent(), article.getPublicationDate(), article.getCategory());
 
         try {
             Image image = loadImageFromURL(article.getImageLink());

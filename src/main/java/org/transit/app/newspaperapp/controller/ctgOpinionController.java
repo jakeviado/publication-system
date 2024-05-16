@@ -8,13 +8,13 @@ import org.transit.app.newspaperapp.services.ArticleTr;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ctgSportsController extends articleLoader implements Initializable {
+public class ctgOpinionController extends articleLoader implements Initializable {
     @FXML
-    public VBox ctgSportsContainer;
+    public VBox ctgOpinionContainer;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         ArticleTr load  = new ArticleTr();
-        loadSportsArticles(load, ctgSportsContainer);
+        loadOpinionArticles(load, ctgOpinionContainer);
     }
 }

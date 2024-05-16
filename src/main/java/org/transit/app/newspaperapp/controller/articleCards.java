@@ -3,7 +3,6 @@ package org.transit.app.newspaperapp.controller;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
-import javafx.scene.control.ToggleButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
@@ -11,10 +10,8 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.shape.Rectangle;
 
 import javafx.geometry.NodeOrientation;
-import org.transit.app.newspaperapp.services.ArticleTr;
 
 import java.net.URL;
-import java.sql.SQLException;
 import java.util.Random;
 import java.util.ResourceBundle;
 
@@ -44,18 +41,20 @@ public class articleCards implements Initializable {
     @FXML
     public ImageView imageView;
 
-    public ToggleButton saveArticleBtn;
+    @FXML
+    public Label ctgryLbl;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         randomOrientation();
     }
 
-    public void setArticleTexts(String headline, String byline, String content, String publishedDate) {
+    public void setArticleTexts(String headline, String byline, String content, String publishedDate, String category) {
         headlineLabel.setText(headline);
         bylineLabel.setText(byline);
         contentLabel.setText(content);
         dateLabel.setText(publishedDate);
+        ctgryLbl.setText(category);
     }
 
     public void setArticleImage(Image image) {
@@ -73,19 +72,5 @@ public class articleCards implements Initializable {
         } else {
             articleCard.setNodeOrientation(NodeOrientation.RIGHT_TO_LEFT);
         }
-    }
-
-    public void saveArticleButton(){
-//        ArticleTr article = new ArticleTr();
-//
-//        try {
-//            if (article.saveArticle("")) {
-//
-//            } else {
-//
-//            }
-//        } catch (SQLException e) {
-//            throw new RuntimeException(e);
-//        }
     }
 }
