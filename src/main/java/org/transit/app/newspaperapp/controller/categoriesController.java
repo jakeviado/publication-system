@@ -22,7 +22,7 @@ public class categoriesController implements Initializable {
     @FXML
     public VBox categoriesContainer;
 
-    //public Button technologyBtn;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loadFirst();

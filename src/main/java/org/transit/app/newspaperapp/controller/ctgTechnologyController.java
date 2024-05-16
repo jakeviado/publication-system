@@ -10,11 +10,11 @@ import java.util.ResourceBundle;
 
 public class ctgTechnologyController extends articleLoader implements Initializable {
     @FXML
-    public VBox ctgryTechnologyContainer;
+    public VBox ctgTechnologyContainer;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         ArticleTr load  = new ArticleTr();
-        loadTechnologyArticles(load, ctgryTechnologyContainer);
+        loadTechnologyArticles(load, ctgTechnologyContainer);
     }
 }

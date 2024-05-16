@@ -10,11 +10,11 @@ import java.util.ResourceBundle;
 
 public class ctgOpinionController extends articleLoader implements Initializable {
     @FXML
-    public VBox ctgryOpinionContainer;
+    public VBox ctgOpinionContainer;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         ArticleTr load  = new ArticleTr();
-        loadOpinionArticles(load, ctgryOpinionContainer);
+        loadOpinionArticles(load, ctgOpinionContainer);
     }
 }
