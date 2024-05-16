@@ -41,16 +41,20 @@ public class articleCards implements Initializable {
     @FXML
     public ImageView imageView;
 
+    @FXML
+    public Label ctgryLbl;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         randomOrientation();
     }
 
-    public void setArticleTexts(String headline, String byline, String content, String publishedDate) {
+    public void setArticleTexts(String headline, String byline, String content, String publishedDate, String category) {
         headlineLabel.setText(headline);
         bylineLabel.setText(byline);
         contentLabel.setText(content);
         dateLabel.setText(publishedDate);
+        ctgryLbl.setText(category);
     }
 
     public void setArticleImage(Image image) {

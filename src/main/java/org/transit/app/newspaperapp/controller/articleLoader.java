@@ -101,7 +101,7 @@ public abstract class articleLoader implements Initializable {
     }
 
     protected void setArticleController(articleCards controller, Articles article) {
-        controller.setArticleTexts(article.getHeadline(), article.getByline(), article.getContent(), article.getPublicationDate());
+        controller.setArticleTexts(article.getHeadline(), article.getByline(), article.getContent(), article.getPublicationDate(), article.getCategory());
 
         try {
             Image image = loadImageFromURL(article.getImageLink());
