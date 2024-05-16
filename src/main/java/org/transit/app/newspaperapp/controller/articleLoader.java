@@ -42,7 +42,7 @@ public abstract class articleLoader implements Initializable {
     }
 
     protected void loadBusinessArticles(ArticleTr articleService, VBox container) {
-        List<Articles> articlesList = articleService.loadSportsArticle();
+        List<Articles> articlesList = articleService.loadBusinessArticles();
 
         for (Articles article : articlesList) {
             BorderPane card = loadArticleCard(article);
@@ -53,7 +53,7 @@ public abstract class articleLoader implements Initializable {
     }
 
     protected void loadEntertainmentArticles(ArticleTr articleService, VBox container) {
-        List<Articles> articlesList = articleService.loadSportsArticle();
+        List<Articles> articlesList = articleService.loadEntertainmentArticles();
 
         for (Articles article : articlesList) {
             BorderPane card = loadArticleCard(article);
@@ -64,8 +64,7 @@ public abstract class articleLoader implements Initializable {
     }
 
     protected void loadOpinionArticles(ArticleTr articleService, VBox container) {
-        List<Articles> articlesList = articleService.loadSportsArticle();
-
+        List<Articles> articlesList = articleService.loadOpinionArticles();
         for (Articles article : articlesList) {
             BorderPane card = loadArticleCard(article);
             if (card != null) {
@@ -75,7 +74,7 @@ public abstract class articleLoader implements Initializable {
     }
 
     protected void loadTechnologyArticles(ArticleTr articleService, VBox container) {
-        List<Articles> articlesList = articleService.loadSportsArticle();
+        List<Articles> articlesList = articleService.loadTechnologyArticles();
 
         for (Articles article : articlesList) {
             BorderPane card = loadArticleCard(article);
