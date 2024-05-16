@@ -65,6 +65,14 @@ public class categoriesController implements Initializable {
         switchScene("category-Opinion.fxml");
     }
 
+    public void setTechnologyBtn() throws IOException {
+        switchScene("category-Technology.fxml");
+    }
+
+    public void setEntertainmentBtn() throws IOException{
+        switchScene("category-Entertainment.fxml");
+    }
+
     private void switchScene(String fxmlFile) throws IOException {
         BorderPane nextVbox = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource(fxmlFile)));
         categoriesPane.setCenter(nextVbox);

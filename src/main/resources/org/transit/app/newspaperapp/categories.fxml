@@ -23,7 +23,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="56.0" prefWidth="272.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="220.0" style="-fx-font-size: 13;" styleClass="categories-button" text="ENTERTAINMENT" wrapText="true" HBox.hgrow="ALWAYS" />
+                  <Button mnemonicParsing="false" onAction="#setEntertainmentBtn" prefHeight="38.0" prefWidth="220.0" style="-fx-font-size: 13;" styleClass="categories-button" text="ENTERTAINMENT" wrapText="true" HBox.hgrow="ALWAYS" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="56.0" prefWidth="235.0">
@@ -38,7 +38,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="56.0" prefWidth="235.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="214.0" style="-fx-font-size: 13;" styleClass="categories-button" text="TECHNOLOGY" wrapText="true" HBox.hgrow="ALWAYS" />
+                  <Button mnemonicParsing="false" onAction="#setTechnologyBtn" prefHeight="38.0" prefWidth="214.0" style="-fx-font-size: 13;" styleClass="categories-button" text="TECHNOLOGY" wrapText="true" HBox.hgrow="ALWAYS" />
                </children>
             </HBox>
          </children>
