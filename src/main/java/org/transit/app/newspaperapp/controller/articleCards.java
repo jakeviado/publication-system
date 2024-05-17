@@ -7,6 +7,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.shape.Rectangle;
 
 import javafx.geometry.NodeOrientation;
@@ -72,6 +73,14 @@ public class articleCards implements Initializable {
             articleCard.setNodeOrientation(NodeOrientation.LEFT_TO_RIGHT);
         } else {
             articleCard.setNodeOrientation(NodeOrientation.RIGHT_TO_LEFT);
+        }
+    }
+
+    public void removeArticleImage() {
+//        imageView.setImage(null);
+        HBox parentPane = (HBox) imageView.getParent();
+        if (parentPane != null) {
+            parentPane.getChildren().remove(imageView);
         }
     }
 

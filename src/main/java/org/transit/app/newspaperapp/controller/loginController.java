@@ -31,24 +31,67 @@ public class loginController {
     @FXML
     private VBox loginScene;
 
+//    public void login() throws IOException {
+//        User userData = new User(usernameTextField.getText(), passwordTextField.getText());
+//        UserTr transact = new UserTr();
+//
+//        try {
+//            if (transact.loginQuery(userData)) {
+//                //hindi ko pa alam ito
+//                User user = new User();
+//                user.setUsername(user.username());
+//
+//                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+//                alert.setTitle("Login Successful");
+//                alert.setHeaderText(null);
+//                alert.setContentText("Welcome, " + User.getUsername() + "!");
+//                alert.showAndWait();
+//
+//                sceneSwitch("mainpage.fxml");
+//            } else {
+//                notifyLabel.setText("Incorrect username or password");
+//            }
+//        } catch (SQLException e) {
+//            throw new RuntimeException(e);
+//        }
+//    }
+
+    public void initialize(){
+        User loggedInUser = User.getLoggedInUser();
+        if (loggedInUser != null) {
+            notifyLabel.setText("Welcome, " + loggedInUser.getUsername() + "!");
+        }
+    }
+
+    // ensure that the user is properly logged in not just switching scenes.
     public void login() throws IOException {
         User userData = new User(usernameTextField.getText(), passwordTextField.getText());
         UserTr transact = new UserTr();
 
         try {
             if (transact.loginQuery(userData)) {
-                //hindi ko pa alam ito
-                User user  = new User();
-                user.setUsername(user.username());
+                User.setLoggedInUser(userData);
+
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Login Successful");
+                alert.setHeaderText(null);
+                alert.setContentText("Welcome, " + User.getLoggedInUser().getUsername() + "!");
+                alert.showAndWait();
 
                 sceneSwitch("mainpage.fxml");
             } else {
+
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setHeaderText(null);
+                alert.setContentText("Incorrect username or password, Try Again");
+                alert.showAndWait();
                 notifyLabel.setText("Incorrect username or password");
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
+
 
     public void signup() throws IOException {
         sceneSwitch("registrationForm.fxml");

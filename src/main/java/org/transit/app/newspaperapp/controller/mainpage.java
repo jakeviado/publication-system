@@ -67,6 +67,8 @@ public class mainpage implements Initializable {
         if (loadNewsFeed()) {
             notifyLabel.setText("~ Today's Front Page ~");
         }
+
+        roleAuth();
     }
 
     public boolean loadNewsFeed() {
@@ -130,6 +132,9 @@ public class mainpage implements Initializable {
         user.setPassword(null);
     }
 
+    public void roleAuth() {
+        writeArticleButton.setDisable(true);
+    }
 
     private void switchScene(String fxmlFile) throws IOException {
         BorderPane nextVbox = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource(fxmlFile)));

@@ -26,7 +26,9 @@ public class newsfeed extends articleLoader implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        ArticleTr load  = new ArticleTr();
-        loadArticlesList(load, articleVboxContainer);
+//        ArticleTr load  = new ArticleTr();
+//        loadArticlesList(load, articleVboxContainer);
+        ArticleTr articleService = new ArticleTr();
+        loadArticlesByCategory(articleService, articleVboxContainer, "All");
     }
 }

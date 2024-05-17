@@ -1,8 +1,9 @@
-package org.transit.app.newspaperapp.controller;
+package org.transit.app.newspaperapp.controller.ctg;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.VBox;
+import org.transit.app.newspaperapp.controller.articleLoader;
 import org.transit.app.newspaperapp.services.ArticleTr;
 
 import java.net.URL;
@@ -14,7 +15,9 @@ public class ctgOpinionController extends articleLoader implements Initializable
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        ArticleTr load  = new ArticleTr();
-        loadOpinionArticles(load, ctgOpinionContainer);
+//        ArticleTr load  = new ArticleTr();
+//        loadOpinionArticles(load, ctgOpinionContainer);
+        ArticleTr articleService = new ArticleTr();
+        loadArticlesByCategory(articleService, ctgOpinionContainer, "Opinion");
     }
 }

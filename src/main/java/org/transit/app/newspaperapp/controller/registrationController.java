@@ -82,6 +82,10 @@ public class registrationController {
             validateInput();
             register(false, true, "Registered successfully!", "Registration failed.");
         } catch (IllegalArgumentException e) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setHeaderText(null);
+            alert.setContentText(e.getMessage());
+            alert.showAndWait();
             notifyLabel.setText(e.getMessage());
         }
     }
@@ -92,6 +96,10 @@ public class registrationController {
             validateInput();
             register(true, false, "Registered as author successfully!", "Author registration failed. Please check username or password.");
         } catch (IllegalArgumentException e) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setHeaderText(null);
+            alert.setContentText(e.getMessage());
+            alert.showAndWait();
             notifyLabel.setText(e.getMessage());
         }
     }

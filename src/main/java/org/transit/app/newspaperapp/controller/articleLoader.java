@@ -19,67 +19,23 @@ import java.util.List;
 
 public abstract class articleLoader implements Initializable {
 
-    protected void loadArticlesList(ArticleTr articleService, VBox container) {
-        List<Articles> articlesList = articleService.loadArticlesQuery();
+    protected void loadArticlesByCategory(ArticleTr articleService, VBox container, String category) {
+        List<Articles> articlesList = switch (category) {
+            case "All" -> articleService.loadArticlesQuery();
+            case "Sports" -> articleService.loadSportsArticle();
+            case "Business" -> articleService.loadBusinessArticle();
+            case "Entertainment" -> articleService.loadEntertainmentArticle();
+            case "Opinion" -> articleService.loadOpinionArticle();
+            case "Technology" -> articleService.loadTechnologyArticle();
+            default -> throw new IllegalArgumentException("Invalid category: " + category);
+        };
 
-        for (Articles article : articlesList) {
-            BorderPane card = loadArticleCard(article);
-            if (card != null) {
-                container.getChildren().add(card);
-            }
-        }
-    }
-
-    protected void loadSportsArticles(ArticleTr articleService, VBox container) {
-        List<Articles> articlesList = articleService.loadSportsArticle();
-
-        for (Articles article : articlesList) {
-            BorderPane card = loadArticleCard(article);
-            if (card != null) {
-                container.getChildren().add(card);
-            }
-        }
-    }
-
-    protected void loadBusinessArticles(ArticleTr articleService, VBox container) {
-        List<Articles> articlesList = articleService.loadBusinessArticle();
-
-        for (Articles article : articlesList) {
-            BorderPane card = loadArticleCard(article);
-            if (card != null) {
-                container.getChildren().add(card);
-            }
-        }
-    }
-
-    protected void loadEntertainmentArticles(ArticleTr articleService, VBox container) {
-        List<Articles> articlesList = articleService.loadEntertainmentArticle();
-
-        for (Articles article : articlesList) {
-            BorderPane card = loadArticleCard(article);
-            if (card != null) {
-                container.getChildren().add(card);
-            }
-        }
-    }
-
-    protected void loadOpinionArticles(ArticleTr articleService, VBox container) {
-        List<Articles> articlesList = articleService.loadOpinionArticle();
-        for (Articles article : articlesList) {
-            BorderPane card = loadArticleCard(article);
-            if (card != null) {
-                container.getChildren().add(card);
-            }
-        }
-    }
-
-    protected void loadTechnologyArticles(ArticleTr articleService, VBox container) {
-        List<Articles> articlesList = articleService.loadTechnologyArticle();
-
-        for (Articles article : articlesList) {
-            BorderPane card = loadArticleCard(article);
-            if (card != null) {
-                container.getChildren().add(card);
+        if (articlesList != null) {
+            for (Articles article : articlesList) {
+                BorderPane card = loadArticleCard(article);
+                if (card != null) {
+                    container.getChildren().add(card);
+                }
             }
         }
     }
@@ -94,7 +50,7 @@ public abstract class articleLoader implements Initializable {
 
             return card;
         } catch (IOException e) {
-            System.err.println("Error loading article: " + e.getMessage());
+            handleLoadError("Error loading article: " + e.getMessage());
             return null;
         }
     }
@@ -103,10 +59,15 @@ public abstract class articleLoader implements Initializable {
         controller.setArticleTexts(article.getHeadline(), article.getByline(), article.getContent(), article.getPublicationDate(), article.getCategory());
 
         try {
-            Image image = loadImageFromURL(article.getImageLink());
-            controller.setArticleImage(image);
+            if (article.getImageLink() == null || article.getImageLink().isEmpty()) {
+                controller.removeArticleImage();
+            } else {
+                Image image = loadImageFromURL(article.getImageLink());
+                controller.setArticleImage(image);
+            }
         } catch (IllegalArgumentException e) {
-            System.err.println("Error loading image: " + e.getMessage());
+            handleLoadError("Error loading image: " + e.getMessage());
+            controller.removeArticleImage();
         }
     }
 
@@ -122,8 +83,11 @@ public abstract class articleLoader implements Initializable {
                 return new Image(inputStream);
             }
         } catch (IOException | URISyntaxException e) {
-            System.err.println("Error loading image: " + imageURL);
             throw new IllegalArgumentException(e.getMessage());
         }
+    }
+
+    protected void handleLoadError(String errorMessage) {
+        System.err.println(errorMessage);
     }
 }
