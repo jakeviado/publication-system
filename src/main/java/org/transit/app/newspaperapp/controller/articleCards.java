@@ -10,6 +10,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.shape.Rectangle;
 
 import javafx.geometry.NodeOrientation;
+import org.transit.app.newspaperapp.services.ArticleTr;
 
 import java.net.URL;
 import java.util.Random;
@@ -72,5 +73,9 @@ public class articleCards implements Initializable {
         } else {
             articleCard.setNodeOrientation(NodeOrientation.RIGHT_TO_LEFT);
         }
+    }
+
+    public void setArticleCard(){
+        ArticleTr article = new ArticleTr();
     }
 }
