@@ -132,6 +132,7 @@ public class mainpage implements Initializable {
         user.setPassword(null);
     }
 
+    //TODO
     public void roleAuth() {
         writeArticleButton.setDisable(true);
     }
