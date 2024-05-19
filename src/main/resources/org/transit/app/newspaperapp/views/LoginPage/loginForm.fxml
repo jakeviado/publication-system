@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -11,11 +12,10 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<?import javafx.scene.layout.VBox?>
-<?import java.net.URL?>
-<VBox fx:controller="org.transit.app.newspaperapp.controller.loginController" fx:id="loginScene" prefHeight="620.0" prefWidth="940.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<VBox fx:id="loginScene" prefHeight="620.0" prefWidth="940.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.transit.app.newspaperapp.controller.loginController">
       <Pane prefHeight="620.0" prefWidth="940.0" BorderPane.alignment="CENTER">
          <children>
             <Label fx:id="notifyLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="342.0" layoutY="522.0" prefHeight="17.0" prefWidth="256.0" textFill="#f24444" />
@@ -61,6 +61,7 @@
                </font>
             </Label>
             <Label alignment="CENTER" contentDisplay="CENTER" layoutX="381.0" layoutY="196.0" prefHeight="17.0" prefWidth="181.0" style="-fx-font-size: 13;" text="The Official Gazette" textAlignment="CENTER" />
+         <Button fx:id="showUser" layoutX="24.0" layoutY="554.0" mnemonicParsing="false" onAction="#setShowUser" text="Show User: FOR TESTING " />
          </children>
       </Pane>
 

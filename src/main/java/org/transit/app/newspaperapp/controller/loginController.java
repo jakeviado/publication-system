@@ -1,7 +1,9 @@
 package org.transit.app.newspaperapp.controller;
 
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.layout.BorderPane;
 import org.transit.app.newspaperapp.Main;
 import javafx.scene.layout.VBox;
 import org.transit.app.newspaperapp.model.User;
@@ -10,11 +12,16 @@ import javafx.fxml.FXML;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.SQLException;
 import java.util.Objects;
+import java.util.ResourceBundle;
 
 public class loginController {
     public Button signupButton;
+
+    @FXML
+    public Button showUser;
 
     @FXML
     private Label notifyLabel;
@@ -99,5 +106,16 @@ public class loginController {
     public void sceneSwitch(String fxml) throws IOException {
         VBox nextVbox = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource(fxml)));
         loginScene.getChildren().setAll(nextVbox);
+    }
+
+
+    // testing purposes
+    public void setShowUser() {
+        User loggedInUser = User.getLoggedInUser();
+        if (loggedInUser != null && loggedInUser.getUsername() != null) {
+            notifyLabel.setText(loggedInUser.getUsername());
+        } else {
+            notifyLabel.setText("No user");
+        }
     }
 }

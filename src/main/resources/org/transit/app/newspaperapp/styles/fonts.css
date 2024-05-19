@@ -13,6 +13,16 @@
     src: url(fonts/Fraunces-Medium.ttf);
 }
 
+@font-face {
+    -fx-font-family: 'Josefin Sans';
+    src: url(fonts/JosefinSans-Regular.ttf);
+}
+
+@font-face {
+    -fx-font-family: 'Merriweather';
+    src: url(fonts/Merriweather-Regular.ttf);
+}
+
 .label, .button, .hyperlink, .toggle-button {
     -fx-font-family: 'Lexend';
     -fx-font-weight: 100;
@@ -47,4 +57,10 @@
 
 .article-texts {
     -fx-font-size: 12;
+    -fx-text-fill: #4c4c4c;
+}
+
+.welcomeUserLbl {
+    -fx-font-size: 14px;
+    -fx-text-fill: #4c4c4c;
 }

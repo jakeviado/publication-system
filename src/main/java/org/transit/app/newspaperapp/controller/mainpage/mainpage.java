@@ -1,10 +1,11 @@
 package org.transit.app.newspaperapp.controller.mainpage;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.ToggleButton;
-
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -12,15 +13,12 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-
 import org.transit.app.newspaperapp.Main;
 import org.transit.app.newspaperapp.model.User;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
-
 
 public class mainpage implements Initializable {
     @FXML
@@ -60,6 +58,9 @@ public class mainpage implements Initializable {
     public Label notifyLabel;
 
     @FXML
+    public Label welcomeUserLbl;
+
+    @FXML
     private Button exitButton;
 
     @Override
@@ -67,7 +68,7 @@ public class mainpage implements Initializable {
         if (loadNewsFeed()) {
             notifyLabel.setText("~ Today's Front Page ~");
         }
-
+        setWelcomeUserLbl();
         roleAuth();
     }
 
@@ -79,6 +80,17 @@ public class mainpage implements Initializable {
             throw new RuntimeException(e);
         }
         return true;
+    }
+
+    public void setWelcomeUserLbl() {
+        welcomeUserLbl.setText("Welcome " + User.getLoggedInUser().getUsername() + "!");
+
+        Timeline timeline = new Timeline(new KeyFrame(
+                Duration.seconds(10),
+                event -> welcomeUserLbl.setVisible(false)
+        ));
+        timeline.setCycleCount(1);
+        timeline.play();
     }
 
     public void toggleMenu() {
@@ -120,9 +132,15 @@ public class mainpage implements Initializable {
         notifyLabel.setText("~ Account ~");
     }
 
-    public void exitApp() {
+    public void exitApp() throws IOException {
+        exitSession(User.getLoggedInUser());
+    }
+
+    public void exitSession(User user) throws IOException {
         Stage stage  = (Stage) exitButton.getScene().getWindow();
         stage.close();
+        user.setUsername(null);
+        user.setPassword(null);
     }
 
     public void setLogoutButton() throws IOException {
@@ -135,7 +153,6 @@ public class mainpage implements Initializable {
         user.setPassword(null);
     }
 
-    //TODO
     public void roleAuth() {
         writeArticleButton.setDisable(false);
     }
