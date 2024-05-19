@@ -22,9 +22,9 @@
 
 
    <stylesheets>
-      <URL value="@../../../../styles/buttons.css" />
-      <URL value="@../../../../styles/fonts.css" />
-      <URL value="@../../../../styles/textField.css" />
+      <URL value="@../../../styles/buttons.css" />
+      <URL value="@../../../styles/fonts.css" />
+      <URL value="@../../../styles/textField.css" />
    </stylesheets>
    <center>
       <HBox alignment="CENTER" prefHeight="462.0" prefWidth="981.0" BorderPane.alignment="CENTER">

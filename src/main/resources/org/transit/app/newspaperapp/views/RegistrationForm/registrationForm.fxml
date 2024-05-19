@@ -61,8 +61,8 @@
   </Pane>
 
   <stylesheets>
-    <URL value="@../../../styles/buttons.css" />
-    <URL value="@../../../styles/fonts.css" />
-    <URL value="@../../../styles/textField.css" />
+    <URL value="@../../styles/buttons.css" />
+    <URL value="@../../styles/fonts.css" />
+    <URL value="@../../styles/textField.css" />
   </stylesheets>
 </VBox>

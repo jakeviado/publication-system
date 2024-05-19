@@ -20,7 +20,7 @@
             <HBox alignment="CENTER" prefHeight="215.0" prefWidth="302.0">
                <children>
                   <ImageView fitHeight="120.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
-                     <Image url="@../../../../styles/assets/profile.png" />
+                     <Image url="@../../../assets/profile.png" />
                   </ImageView>
                </children>
             </HBox>
@@ -82,8 +82,8 @@
    </center>
 
    <stylesheets>
-      <URL value="@../../../../styles/buttons.css" />
-      <URL value="@../../../../styles/fonts.css" />
-      <URL value="@../../../../styles/textField.css" />
+      <URL value="@../../../styles/buttons.css" />
+      <URL value="@../../../styles/fonts.css" />
+      <URL value="@../../../styles/textField.css" />
    </stylesheets>
 </BorderPane>
