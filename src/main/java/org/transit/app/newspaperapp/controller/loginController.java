@@ -56,12 +56,6 @@ public class loginController {
 //        }
 //    }
 
-    public void initialize(){
-        User loggedInUser = User.getLoggedInUser();
-        if (loggedInUser != null) {
-            notifyLabel.setText("Welcome, " + loggedInUser.getUsername() + "!");
-        }
-    }
 
     // ensure that the user is properly logged in not just switching scenes.
     public void login() throws IOException {
@@ -78,7 +72,7 @@ public class loginController {
                 alert.setContentText("Welcome, " + User.getLoggedInUser().getUsername() + "!");
                 alert.showAndWait();
 
-                sceneSwitch("mainpage.fxml");
+                sceneSwitch("views/Mainpage/mainpage.fxml");
             } else {
 
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -93,8 +87,8 @@ public class loginController {
     }
 
 
-    public void signup() throws IOException {
-        sceneSwitch("registrationForm.fxml");
+    public void registerPage() throws IOException {
+        sceneSwitch("views/RegistrationForm/registrationForm.fxml");
     }
 
     public void closeApplication() {

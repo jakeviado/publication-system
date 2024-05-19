@@ -135,7 +135,7 @@ public class registrationController {
     }
 
     public void backToLogin() throws IOException {
-        SceneSwitch(registrationScene, "loginForm.fxml");
+        SceneSwitch(registrationScene, "views/LoginPage/loginForm.fxml");
     }
 
     public void SceneSwitch(VBox loginScene, String fxml) throws IOException {

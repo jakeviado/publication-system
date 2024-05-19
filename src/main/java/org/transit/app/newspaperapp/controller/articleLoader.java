@@ -42,7 +42,7 @@ public abstract class articleLoader implements Initializable {
 
     protected BorderPane loadArticleCard(Articles article) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("cardArticleContainer.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("views/components/cardArticleContainer.fxml"));
             BorderPane card = fxmlLoader.load();
 
             articleCards controller = fxmlLoader.getController();
