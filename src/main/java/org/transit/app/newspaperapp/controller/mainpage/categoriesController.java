@@ -35,27 +35,27 @@ public class categoriesController implements Initializable {
     }
 
     public void setNewsBtn() throws IOException {
-        switchScene("views/Mainpage/Categories/categoryComponents/category-News.fxml");
+        switchScene("views/categoryComponents/category-News.fxml");
     }
 
     public void setSportsBtn() throws IOException {
-        switchScene("views/Mainpage/Categories/categoryComponents/category-Sports.fxml");
+        switchScene("views/categoryComponents/category-Sports.fxml");
     }
 
     public void setBusinessBtn() throws IOException {
-        switchScene("views/Mainpage/Categories/categoryComponents/category-Business.fxml");
+        switchScene("views/categoryComponents/category-Business.fxml");
     }
 
     public void setOpinionBtn() throws IOException {
-        switchScene("views/Mainpage/Categories/categoryComponents/category-Opinion.fxml");
+        switchScene("views/categoryComponents/category-Opinion.fxml");
     }
 
     public void setTechnologyBtn() throws IOException {
-        switchScene("views/Mainpage/Categories/categoryComponents/category-Technology.fxml");
+        switchScene("views/categoryComponents/category-Technology.fxml");
     }
 
     public void setEntertainmentBtn() throws IOException{
-        switchScene("views/Mainpage/Categories/categoryComponents/category-Entertainment.fxml");
+        switchScene("views/categoryComponents/category-Entertainment.fxml");
     }
 
     private void switchScene(String fxmlFile) throws IOException {
