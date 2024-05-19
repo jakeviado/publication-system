@@ -1,4 +1,4 @@
-package org.transit.app.newspaperapp.controller.mainpage.account;
+package org.transit.app.newspaperapp.controller.mainpage;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;

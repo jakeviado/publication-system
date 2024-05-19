@@ -1,4 +1,4 @@
-package org.transit.app.newspaperapp.controller.mainpage.newsfeed;
+package org.transit.app.newspaperapp.controller.categoryComponents;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -9,15 +9,15 @@ import org.transit.app.newspaperapp.services.ArticleTr;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class newsfeed extends articleLoader implements Initializable {
+public class ctgBusinessController extends articleLoader implements Initializable {
     @FXML
-    public VBox articleVboxContainer;
+    public VBox ctgBusinessContainer;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 //        ArticleTr load  = new ArticleTr();
-//        loadArticlesList(load, articleVboxContainer);
+//        loadBusinessArticles(load, ctgBusinessContainer);
         ArticleTr articleService = new ArticleTr();
-        loadArticlesByCategory(articleService, articleVboxContainer, "All");
+        loadArticlesByCategory(articleService, ctgBusinessContainer, "Business");
     }
 }

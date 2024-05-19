@@ -12,16 +12,8 @@ module org.transit.app.busmonitoringapp {
     opens org.transit.app.newspaperapp.controller to javafx.fxml;
     exports org.transit.app.newspaperapp.model;
     opens org.transit.app.newspaperapp.model to javafx.fxml;
-    exports org.transit.app.newspaperapp.controller.mainpage.categories.categoryComponents;
-    opens org.transit.app.newspaperapp.controller.mainpage.categories.categoryComponents to javafx.fxml;
-    exports org.transit.app.newspaperapp.controller.mainpage.author;
-    opens org.transit.app.newspaperapp.controller.mainpage.author to javafx.fxml;
+    exports org.transit.app.newspaperapp.controller.categoryComponents;
+    opens org.transit.app.newspaperapp.controller.categoryComponents to javafx.fxml;
     exports org.transit.app.newspaperapp.controller.mainpage;
     opens org.transit.app.newspaperapp.controller.mainpage to javafx.fxml;
-    exports org.transit.app.newspaperapp.controller.mainpage.categories;
-    opens org.transit.app.newspaperapp.controller.mainpage.categories to javafx.fxml;
-    exports org.transit.app.newspaperapp.controller.mainpage.newsfeed;
-    opens org.transit.app.newspaperapp.controller.mainpage.newsfeed to javafx.fxml;
-    exports org.transit.app.newspaperapp.controller.mainpage.account;
-    opens org.transit.app.newspaperapp.controller.mainpage.account to javafx.fxml;
 }

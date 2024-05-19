@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:id="categoriesPane" prefHeight="453.0" prefWidth="766.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.transit.app.newspaperapp.controller.mainpage.categories.categoriesController">
+<BorderPane fx:id="categoriesPane" prefHeight="453.0" prefWidth="766.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.transit.app.newspaperapp.controller.mainpage.categoriesController">
    <top>
       <HBox prefHeight="48.0" prefWidth="766.0" BorderPane.alignment="CENTER">
          <children>

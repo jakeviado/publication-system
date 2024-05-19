@@ -1,4 +1,4 @@
-package org.transit.app.newspaperapp.controller.mainpage.author;
+package org.transit.app.newspaperapp.controller.mainpage;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
