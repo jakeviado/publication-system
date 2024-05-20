@@ -2,6 +2,8 @@ package org.transit.app.newspaperapp.controller;
 
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import org.transit.app.newspaperapp.Main;
@@ -104,8 +106,15 @@ public class loginController {
     }
 
     public void sceneSwitch(String fxml) throws IOException {
-        VBox nextVbox = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource(fxml)));
-        loginScene.getChildren().setAll(nextVbox);
+//        VBox nextVbox = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource(fxml)));
+//        loginScene.getChildren().setAll(nextVbox);
+
+        Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource(fxml)));
+        Stage stage = (Stage) loginScene.getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.sizeToScene();
+        stage.centerOnScreen();
     }
 
 

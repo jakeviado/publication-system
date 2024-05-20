@@ -1,12 +1,12 @@
 package org.transit.app.newspaperapp.controller.mainpage;
 
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
+import javafx.animation.*;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ToggleButton;
-import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
@@ -70,6 +70,7 @@ public class mainpage implements Initializable {
         }
         setWelcomeUserLbl();
         roleAuth();
+        toggleMenu();
     }
 
     public boolean loadNewsFeed() {
@@ -83,27 +84,72 @@ public class mainpage implements Initializable {
     }
 
     public void setWelcomeUserLbl() {
-        welcomeUserLbl.setText("Welcome " + User.getLoggedInUser().getUsername() + "!");
+        welcomeUserLbl.setText("Welcome " + "@" + User.getLoggedInUser().getUsername() + "!");
 
-        Timeline timeline = new Timeline(new KeyFrame(
-                Duration.seconds(10),
-                event -> welcomeUserLbl.setVisible(false)
-        ));
-        timeline.setCycleCount(1);
-        timeline.play();
+//        Timeline timeline = new Timeline(new KeyFrame(
+//                Duration.seconds(10),
+//                event -> welcomeUserLbl.setVisible(false)
+//        ));
+//        timeline.setCycleCount(1);
+//        timeline.play();
     }
 
+//    public void toggleMenu() {
+//        TranslateTransition slide = new TranslateTransition(Duration.seconds(0.2));
+//        slide.setNode(slidePanel);
+//
+//        toggleButton.setOnAction(event -> {
+//            double targetX = toggleButton.isSelected() ? -200 : 200;
+//            String buttonText = toggleButton.isSelected() ? "MORE" : "CLOSE";
+//
+//            slide.setToX(targetX);
+//            toggleButton.setText(buttonText);
+//            slide.play();
+//        });
+//    }
+
+//    public void toggleMenu() {
+//        toggleButton.setOnAction(event -> {
+//            boolean isSelected = toggleButton.isSelected();
+//
+//            double targetX = isSelected ? -240 : 0;
+//            double targetWidth = isSelected ? 0 : 240;
+//            String buttonText = isSelected ? "MORE" : "CLOSE";
+//
+//            Timeline timeline = new Timeline();
+//
+//            KeyValue translateX = new KeyValue(slidePanel.translateXProperty(), targetX);
+//
+//            KeyValue resizeWidth = new KeyValue(slidePanel.prefWidthProperty(), targetWidth);
+//
+//            KeyFrame keyFrame = new KeyFrame(Duration.seconds(0.2), translateX, resizeWidth);
+//
+//            timeline.getKeyFrames().add(keyFrame);
+//            timeline.play();
+//
+//            toggleButton.setText(buttonText);
+//        });
+//    }
+
     public void toggleMenu() {
-        TranslateTransition slide = new TranslateTransition(Duration.seconds(0.2));
-        slide.setNode(slidePanel);
-
         toggleButton.setOnAction(event -> {
-            double targetX = toggleButton.isSelected() ? -200 : 200;
-            String buttonText = toggleButton.isSelected() ? "MORE" : "CLOSE";
+            boolean isSelected = toggleButton.isSelected();
 
-            slide.setToX(targetX);
+            double targetX = isSelected ? -240 : 0;
+            double targetWidth = isSelected ? 0 : 240;
+            String buttonText = isSelected ? "MORE" : "CLOSE";
+
+            Timeline timeline = new Timeline();
+
+            KeyValue translateX = new KeyValue(slidePanel.translateXProperty(), targetX, Interpolator.EASE_OUT);
+            KeyValue resizeWidth = new KeyValue(slidePanel.prefWidthProperty(), targetWidth, Interpolator.EASE_OUT);
+
+            KeyFrame keyFrame = new KeyFrame(Duration.seconds(0.2), translateX, resizeWidth);
+
+            timeline.getKeyFrames().add(keyFrame);
+            timeline.play();
+
             toggleButton.setText(buttonText);
-            slide.play();
         });
     }
 
@@ -163,8 +209,15 @@ public class mainpage implements Initializable {
     }
 
     public void logoutScene(String fxml) throws IOException {
-        VBox nextVbox = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource(fxml)));
-        homepageScene.getChildren().removeAll();
-        homepageScene.getChildren().setAll(nextVbox);
+//        VBox nextVbox = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource(fxml)));
+//        homepageScene.getChildren().removeAll();
+//        homepageScene.getChildren().setAll(nextVbox);
+
+        Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource(fxml)));
+        Stage stage = (Stage) homepageScene.getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.sizeToScene();
+        stage.centerOnScreen();
     }
 }

@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:id="articleCard" maxHeight="-Infinity" maxWidth="840.0" nodeOrientation="RIGHT_TO_LEFT" prefWidth="840.0" style="-fx-background-insets: 0;" styleClass="card" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.transit.app.newspaperapp.controller.articleCards">
+<BorderPane fx:id="articleCard" maxHeight="-Infinity" maxWidth="-Infinity" nodeOrientation="RIGHT_TO_LEFT" style="-fx-background-insets: 0;" styleClass="card" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.transit.app.newspaperapp.controller.articleCards">
    <padding>
       <Insets />
    </padding>
@@ -45,7 +45,7 @@
       </VBox>
    </left>
    <right>
-      <VBox prefWidth="430.0" BorderPane.alignment="CENTER">
+      <VBox prefWidth="504.0" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets bottom="10.0" />
          </BorderPane.margin>
@@ -75,7 +75,7 @@
                   </VBox>
                   <FlowPane maxHeight="-Infinity" prefWidth="347.0" GridPane.rowIndex="1">
                      <children>
-                        <Label fx:id="headlineLabel" centerShape="false" contentDisplay="TOP" maxHeight="-Infinity" maxWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefWidth="365.0" styleClass="headlineLabel" text="Headline" wrapText="true">
+                        <Label fx:id="headlineLabel" centerShape="false" contentDisplay="TOP" maxHeight="-Infinity" maxWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefWidth="444.0" styleClass="headlineLabel" text="Headline" wrapText="true">
                            <padding>
                               <Insets bottom="10.0" top="10.0" />
                            </padding>
@@ -84,7 +84,7 @@
                   </FlowPane>
                   <FlowPane maxHeight="-Infinity" prefWidth="351.0" styleClass="article-texts" GridPane.rowIndex="4">
                      <children>
-                        <Label fx:id="bylineLabel" maxHeight="-Infinity" prefWidth="365.0" styleClass="article-texts" textOverrun="CLIP" wrapText="true">
+                        <Label fx:id="bylineLabel" maxHeight="-Infinity" prefWidth="444.0" styleClass="article-texts" textOverrun="CLIP" wrapText="true">
                            <padding>
                               <Insets bottom="10.0" top="10.0" />
                            </padding>
@@ -93,7 +93,7 @@
                   </FlowPane>
                   <FlowPane maxHeight="-Infinity" prefWidth="200.0" GridPane.rowIndex="2">
                      <children>
-                        <Label fx:id="authorLabel" maxHeight="-Infinity" prefWidth="365.0" styleClass="article-texts" text="Author:" textOverrun="CLIP" wrapText="true">
+                        <Label fx:id="authorLabel" maxHeight="-Infinity" prefWidth="444.0" styleClass="article-texts" text="Author:" textOverrun="CLIP" wrapText="true">
                            <padding>
                               <Insets bottom="10.0" top="10.0" />
                            </padding>
@@ -102,12 +102,12 @@
                   </FlowPane>
                   <FlowPane maxHeight="-Infinity" prefWidth="200.0" GridPane.rowIndex="5">
                      <children>
-                        <Label fx:id="contentLabel" alignment="TOP_LEFT" contentDisplay="TOP" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="365.0" styleClass="article-texts" textAlignment="JUSTIFY" textOverrun="CLIP" wrapText="true" />
+                        <Label fx:id="contentLabel" alignment="TOP_LEFT" contentDisplay="TOP" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="444.0" styleClass="article-texts" textAlignment="JUSTIFY" textOverrun="CLIP" wrapText="true" />
                      </children>
                   </FlowPane>
                   <FlowPane maxHeight="-Infinity" prefWidth="366.0" GridPane.rowIndex="3">
                      <children>
-                        <Label fx:id="dateLabel" maxHeight="-Infinity" prefWidth="365.0" styleClass="article-texts" wrapText="true">
+                        <Label fx:id="dateLabel" maxHeight="-Infinity" prefWidth="444.0" styleClass="article-texts" wrapText="true">
                            <padding>
                               <Insets bottom="10.0" top="10.0" />
                            </padding>
@@ -136,8 +136,11 @@
                <children>
                   <HBox alignment="CENTER_RIGHT" prefHeight="47.0" prefWidth="358.0">
                      <children>
-                        <HBox alignment="CENTER" prefHeight="47.0" prefWidth="114.0" />
-                        <HBox alignment="CENTER" prefHeight="47.0" prefWidth="120.0">
+                        <HBox alignment="CENTER" prefHeight="47.0" prefWidth="110.0">
+                           <children>
+                              <Button mnemonicParsing="false" prefHeight="29.0" prefWidth="98.0" text="Comment" />
+                           </children></HBox>
+                        <HBox alignment="CENTER" prefHeight="47.0" prefWidth="86.0">
                            <children>
                               <Button mnemonicParsing="false" styleClass="saveArticleButton" text="SAVE" />
                            </children>
