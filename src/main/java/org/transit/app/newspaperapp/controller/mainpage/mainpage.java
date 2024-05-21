@@ -94,42 +94,6 @@ public class mainpage implements Initializable {
 //        timeline.play();
     }
 
-//    public void toggleMenu() {
-//        TranslateTransition slide = new TranslateTransition(Duration.seconds(0.2));
-//        slide.setNode(slidePanel);
-//
-//        toggleButton.setOnAction(event -> {
-//            double targetX = toggleButton.isSelected() ? -200 : 200;
-//            String buttonText = toggleButton.isSelected() ? "MORE" : "CLOSE";
-//
-//            slide.setToX(targetX);
-//            toggleButton.setText(buttonText);
-//            slide.play();
-//        });
-//    }
-
-//    public void toggleMenu() {
-//        toggleButton.setOnAction(event -> {
-//            boolean isSelected = toggleButton.isSelected();
-//
-//            double targetX = isSelected ? -240 : 0;
-//            double targetWidth = isSelected ? 0 : 240;
-//            String buttonText = isSelected ? "MORE" : "CLOSE";
-//
-//            Timeline timeline = new Timeline();
-//
-//            KeyValue translateX = new KeyValue(slidePanel.translateXProperty(), targetX);
-//
-//            KeyValue resizeWidth = new KeyValue(slidePanel.prefWidthProperty(), targetWidth);
-//
-//            KeyFrame keyFrame = new KeyFrame(Duration.seconds(0.2), translateX, resizeWidth);
-//
-//            timeline.getKeyFrames().add(keyFrame);
-//            timeline.play();
-//
-//            toggleButton.setText(buttonText);
-//        });
-//    }
 
     public void toggleMenu() {
         toggleButton.setOnAction(event -> {
@@ -144,7 +108,10 @@ public class mainpage implements Initializable {
             KeyValue translateX = new KeyValue(slidePanel.translateXProperty(), targetX, Interpolator.EASE_OUT);
             KeyValue resizeWidth = new KeyValue(slidePanel.prefWidthProperty(), targetWidth, Interpolator.EASE_OUT);
 
-            KeyFrame keyFrame = new KeyFrame(Duration.seconds(0.2), translateX, resizeWidth);
+            KeyValue slidePanelWidth = new KeyValue(slidePanel.minWidthProperty(), targetWidth, Interpolator.EASE_OUT);
+            KeyValue slidePanelMaxWidth = new KeyValue(slidePanel.maxWidthProperty(), targetWidth, Interpolator.EASE_OUT);
+
+            KeyFrame keyFrame = new KeyFrame(Duration.seconds(0.2), translateX, resizeWidth, slidePanelWidth, slidePanelMaxWidth);
 
             timeline.getKeyFrames().add(keyFrame);
             timeline.play();

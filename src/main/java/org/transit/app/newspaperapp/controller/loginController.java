@@ -115,6 +115,7 @@ public class loginController {
         stage.setScene(scene);
         stage.sizeToScene();
         stage.centerOnScreen();
+//        stage.setFullScreen(true);
     }
 
 

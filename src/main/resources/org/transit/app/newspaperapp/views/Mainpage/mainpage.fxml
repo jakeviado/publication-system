@@ -13,11 +13,11 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="766.0" prefWidth="1353.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.transit.app.newspaperapp.controller.mainpage.mainpage">
    <center>
-      <VBox fx:id="homepageScene" alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1116.0" BorderPane.alignment="TOP_CENTER">
+      <VBox fx:id="homepageScene" alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" BorderPane.alignment="TOP_CENTER">
          <children>
-            <BorderPane fx:id="articleContainerBorderPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="660.0" prefWidth="1116.0" VBox.vgrow="ALWAYS">
+            <BorderPane fx:id="articleContainerBorderPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
                <center>
-                  <VBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="642.0" prefWidth="1116.0" BorderPane.alignment="CENTER" />
+                  <VBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" BorderPane.alignment="CENTER" />
                </center>
             </BorderPane>
          </children>
@@ -26,7 +26,7 @@
       </VBox>
    </center>
    <left>
-      <VBox fx:id="slidePanel" alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="704.0" prefWidth="240.0" styleClass="menu-panel" BorderPane.alignment="CENTER">
+      <VBox fx:id="slidePanel" alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="240.0" styleClass="menu-panel" BorderPane.alignment="CENTER">
          <children>
             <HBox alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="93.0" prefWidth="240.0">
                <children>
@@ -52,19 +52,14 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-            <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="69.0" prefWidth="238.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS" />
+            <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="240.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS" />
             <Button fx:id="logoutButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#setLogoutButton" prefHeight="42.0" prefWidth="200.0" styleClass="logout-button" text="LOG OUT" textFill="WHITE" />
          </children>
       </VBox>
    </left>
 
 
-   <stylesheets>
-      <URL value="@../../styles/buttons.css" />
-      <URL value="@../../styles/fonts.css" />
-      <URL value="@../../styles/textField.css" />
-      <URL value="@../../styles/components.css" />
-   </stylesheets>
+
    <top>
       <VBox BorderPane.alignment="CENTER">
          <children>
@@ -78,7 +73,7 @@
                         <Insets left="10.0" />
                      </padding>
                   </HBox>
-                  <HBox alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="66.0" prefWidth="817.0" HBox.hgrow="ALWAYS">
+                  <HBox alignment="CENTER" maxWidth="1.7976931348623157E308" HBox.hgrow="ALWAYS">
                      <children>
                         <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="36.0" prefWidth="558.0" style="-fx-font-size: 26;" styleClass="label-main-logo" text="The Street Journal" textAlignment="CENTER">
                            <HBox.margin>
@@ -124,4 +119,12 @@
          </children>
       </VBox>
    </top>
+
+
+   <stylesheets>
+      <URL value="@../../styles/buttons.css" />
+      <URL value="@../../styles/fonts.css" />
+      <URL value="@../../styles/textField.css" />
+      <URL value="@../../styles/components.css" />
+   </stylesheets>
 </BorderPane>
