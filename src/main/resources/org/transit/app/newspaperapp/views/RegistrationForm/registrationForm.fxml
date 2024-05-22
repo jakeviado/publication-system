@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox fx:id="registrationScene" alignment="CENTER" prefHeight="620.0" prefWidth="940.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.transit.app.newspaperapp.controller.registrationController">
+  <Pane prefHeight="620.0" prefWidth="940.0">
+    <Button layoutX="851.0" layoutY="22.0" mnemonicParsing="false" onAction="#backToLogin" prefHeight="38.0" prefWidth="75.0" text="BACK" textFill="WHITE" />
+      <Button fx:id="registerStartButton" disable="true" layoutX="41.0" layoutY="514.0" mnemonicParsing="false" onAction="#registerAsReader" prefHeight="47.0" prefWidth="414.0" text="REGISTER as a Reader" textFill="WHITE" />
+      <GridPane alignment="TOP_CENTER" layoutX="41.0" layoutY="43.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="417.0" prefWidth="413.0">
+          <columnConstraints>
+              <ColumnConstraints hgrow="SOMETIMES" minWidth="0.0" prefWidth="319.99999237060547" />
+          </columnConstraints>
+          <rowConstraints>
+              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          </rowConstraints>
+
+
+          <Label prefHeight="18.0" prefWidth="255.0" text="First Name" />
+          <TextField fx:id="firstNameTextField" prefHeight="38.0" prefWidth="339.0" GridPane.rowIndex="1" />
+          <Label layoutX="10.0" layoutY="17.0" prefHeight="18.0" prefWidth="255.0" text="Last Name" GridPane.rowIndex="2" />
+          <TextField fx:id="lastNameTextField" layoutX="10.0" layoutY="44.0" prefHeight="38.0" prefWidth="339.0" GridPane.rowIndex="3" />
+          <Label layoutX="10.0" layoutY="89.0" prefHeight="18.0" prefWidth="255.0" text="Email" GridPane.rowIndex="4" />
+          <TextField fx:id="emailTextField" layoutX="10.0" layoutY="116.0" prefHeight="38.0" prefWidth="339.0" GridPane.rowIndex="5" />
+          <Label prefHeight="18.0" prefWidth="94.0" text="Username" GridPane.rowIndex="6" />
+          <TextField fx:id="usernameTextField" prefHeight="45.0" prefWidth="366.0" GridPane.rowIndex="7" />
+          <Label prefHeight="17.0" prefWidth="75.0" text="Password" GridPane.rowIndex="8" />
+          <TextField fx:id="passwordTextField" prefHeight="38.0" prefWidth="264.0" GridPane.rowIndex="9" />
+          <Label prefHeight="17.0" prefWidth="141.0" text="Confirm Password" GridPane.rowIndex="10" />
+          <PasswordField fx:id="confirmPasswordTextField" prefHeight="70.0" prefWidth="414.0" GridPane.rowIndex="11" />
+
+      </GridPane>
+
+      <Label fx:id="notifyLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="78.0" layoutY="574.0" prefHeight="26.0" prefWidth="798.0" textFill="#ff4d4d" textOverrun="CLIP" />
+      <Label layoutX="517.0" layoutY="60.0" prefHeight="82.0" prefWidth="368.0" style="-fx-font-size: 40;" styleClass="label-main-logo" text="The Street Journal" />
+      <Label layoutX="523.0" layoutY="142.0" style="-fx-font-size: 20;" text="Sign Up" />
+      <CheckBox fx:id="checkbox" layoutX="578.0" layoutY="435.0" mnemonicParsing="false" onAction="#enableRegisterButton" style="-fx-font-size: 13;" text="I made sure I understood the agreement." />
+      <Label alignment="TOP_LEFT" layoutX="523.0" layoutY="179.0" prefHeight="221.0" prefWidth="368.0" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec lectus vel risus volutpat convallis. Maecenas nec nulla ac nisl gravida laoreet non nec nulla. Fusce nec posuere odio, nec consectetur felis. Suspendisse ac velit et elit rutrum semper vel sed libero. Nam et urna et arcu tristique ultricies. Integer consectetur ex sit amet orci sodales, nec varius nulla viverra. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Phasellus varius aliquam turpis vel lobortis. Sed vulputate, urna sit amet facilisis tincidunt, leo est dapibus tellus, nec dignissim odio mauris nec velit. Sed ac velit tincidunt, dictum eros in, fermentum mauris. Quisque sed lacus arcu. Vivamus laoreet luctus quam. Donec auctor lectus ac magna dictum, et dapibus lorem ullamcorper." textOverrun="CLIP" wrapText="true" />
+      <Button fx:id="registerAuthorButton" disable="true" layoutX="500.0" layoutY="514.0" mnemonicParsing="false" onAction="#registerAsAuthor" prefHeight="47.0" prefWidth="414.0" text="REGISTER as a Author" />
+      <Label layoutX="470.0" layoutY="529.0" style="-fx-font-size: 14;" text="or" />
+  </Pane>
+
+  <stylesheets>
+    <URL value="@../../styles/buttons.css" />
+    <URL value="@../../styles/fonts.css" />
+    <URL value="@../../styles/textField.css" />
+  </stylesheets>
+</VBox>

@@ -1,20 +1,29 @@
 package org.transit.app.newspaperapp.controller;
 
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.layout.BorderPane;
 import org.transit.app.newspaperapp.Main;
 import javafx.scene.layout.VBox;
-import org.transit.app.newspaperapp.model.Login;
+import org.transit.app.newspaperapp.model.User;
 import org.transit.app.newspaperapp.services.UserTr;
 import javafx.fxml.FXML;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.SQLException;
 import java.util.Objects;
+import java.util.ResourceBundle;
 
 public class loginController {
     public Button signupButton;
+
+    @FXML
+    public Button showUser;
 
     @FXML
     private Label notifyLabel;
@@ -31,14 +40,54 @@ public class loginController {
     @FXML
     private VBox loginScene;
 
+//    public void login() throws IOException {
+//        User userData = new User(usernameTextField.getText(), passwordTextField.getText());
+//        UserTr transact = new UserTr();
+//
+//        try {
+//            if (transact.loginQuery(userData)) {
+//                //hindi ko pa alam ito
+//                User user = new User();
+//                user.setUsername(user.username());
+//
+//                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+//                alert.setTitle("Login Successful");
+//                alert.setHeaderText(null);
+//                alert.setContentText("Welcome, " + User.getUsername() + "!");
+//                alert.showAndWait();
+//
+//                sceneSwitch("mainpage.fxml");
+//            } else {
+//                notifyLabel.setText("Incorrect username or password");
+//            }
+//        } catch (SQLException e) {
+//            throw new RuntimeException(e);
+//        }
+//    }
+
+
+    // ensure that the user is properly logged in not just switching scenes.
     public void login() throws IOException {
-        Login userData = new Login(usernameTextField.getText(), passwordTextField.getText());
+        User userData = new User(usernameTextField.getText(), passwordTextField.getText());
         UserTr transact = new UserTr();
 
         try {
             if (transact.loginQuery(userData)) {
-                sceneSwitch("mainpage.fxml");
+                User.setLoggedInUser(userData);
+
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Login Successful");
+                alert.setHeaderText(null);
+                alert.setContentText("Welcome, " + User.getLoggedInUser().getUsername() + "!");
+                alert.showAndWait();
+
+                sceneSwitch("views/Mainpage/mainpage.fxml");
             } else {
+
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setHeaderText(null);
+                alert.setContentText("Incorrect username or password, Try Again");
+                alert.showAndWait();
                 notifyLabel.setText("Incorrect username or password");
             }
         } catch (SQLException e) {
@@ -46,8 +95,9 @@ public class loginController {
         }
     }
 
-    public void signup() throws IOException {
-        sceneSwitch("registrationForm.fxml");
+
+    public void registerPage() throws IOException {
+        sceneSwitch("views/RegistrationForm/registrationForm.fxml");
     }
 
     public void closeApplication() {
@@ -56,7 +106,26 @@ public class loginController {
     }
 
     public void sceneSwitch(String fxml) throws IOException {
-        VBox nextVbox = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource(fxml)));
-        loginScene.getChildren().setAll(nextVbox);
+//        VBox nextVbox = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource(fxml)));
+//        loginScene.getChildren().setAll(nextVbox);
+
+        Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource(fxml)));
+        Stage stage = (Stage) loginScene.getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.sizeToScene();
+        stage.centerOnScreen();
+//        stage.setFullScreen(true);
+    }
+
+
+    // testing purposes
+    public void setShowUser() {
+        User loggedInUser = User.getLoggedInUser();
+        if (loggedInUser != null && loggedInUser.getUsername() != null) {
+            notifyLabel.setText(loggedInUser.getUsername());
+        } else {
+            notifyLabel.setText("No user");
+        }
     }
 }

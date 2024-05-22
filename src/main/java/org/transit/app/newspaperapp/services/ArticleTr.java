@@ -67,187 +67,57 @@ public class ArticleTr {
         }
     }
 
-    //TODO: pwede pa maimprove antok lang ako haha kasama si load sports article dahil sa repetition ng code
+
     public List<Articles> loadArticlesQuery() {
-        List<Articles> articlesList = new ArrayList<>();
-
-        try (Connection connection = getConnection()) {
-            String query = "SELECT * FROM ARTICLES ORDER BY PUBLICATION_DATE DESC";
-            assert connection != null;
-            PreparedStatement stmt = connection.prepareStatement(query);
-            ResultSet resultSet = stmt.executeQuery();
-
-            while (resultSet.next()) {
-                String headline =  resultSet.getString("HEADLINE");
-                String byline = resultSet.getString("BYLINE");
-                LocalDateTime publicationDate = resultSet.getTimestamp("PUBLICATION_DATE").toLocalDateTime();
-                String content = resultSet.getString("CONTENT");
-                String category = resultSet.getString("CATEGORY_TYPE");
-                String imageLink = resultSet.getString("IMAGELINK");
-
-                Articles article = new Articles(headline, byline, content, category, publicationDate, imageLink);
-                articlesList.add(article);
-            }
-
-        } catch (SQLException e) {
-            throw new RuntimeException("Error loading the articles", e);
-        }
-        return articlesList;
+        return loadArticlesByCategory(null);
     }
 
     public List<Articles> loadSportsArticle() {
-        List<Articles> articlesList = new ArrayList<>();
-
-        try (Connection connection = getConnection()) {
-            String query = "SELECT * FROM ARTICLES WHERE CATEGORY_TYPE LIKE '%Sports%'";
-            assert connection != null;
-            PreparedStatement stmt = connection.prepareStatement(query);
-            ResultSet resultSet = stmt.executeQuery();
-
-            while (resultSet.next()) {
-                String headline =  resultSet.getString("HEADLINE");
-                String byline = resultSet.getString("BYLINE");
-                LocalDateTime publicationDate = resultSet.getTimestamp("PUBLICATION_DATE").toLocalDateTime();
-                String content = resultSet.getString("CONTENT");
-                String category = resultSet.getString("CATEGORY_TYPE");
-                String imageLink = resultSet.getString("IMAGELINK");
-
-                Articles article = new Articles(headline, byline, content, category, publicationDate, imageLink);
-                articlesList.add(article);
-            }
-
-        } catch (SQLException e) {
-            throw new RuntimeException("Error loading the articles", e);
-        }
-        return articlesList;
+        return loadArticlesByCategory("Sports");
     }
 
-    public List<Articles> loadBusinessArticles() {
-        List<Articles> articlesList = new ArrayList<>();
-
-        try (Connection connection = getConnection()) {
-            String query = "SELECT * FROM ARTICLES WHERE CATEGORY_TYPE LIKE '%Business%'";
-            assert connection != null;
-            PreparedStatement stmt = connection.prepareStatement(query);
-            ResultSet resultSet = stmt.executeQuery();
-
-            while (resultSet.next()) {
-                String headline =  resultSet.getString("HEADLINE");
-                String byline = resultSet.getString("BYLINE");
-                LocalDateTime publicationDate = resultSet.getTimestamp("PUBLICATION_DATE").toLocalDateTime();
-                String content = resultSet.getString("CONTENT");
-                String category = resultSet.getString("CATEGORY_TYPE");
-                String imageLink = resultSet.getString("IMAGELINK");
-
-                Articles article = new Articles(headline, byline, content, category, publicationDate, imageLink);
-                articlesList.add(article);
-            }
-
-        } catch (SQLException e) {
-            throw new RuntimeException("Error loading the articles", e);
-        }
-        return articlesList;
+    public List<Articles> loadTechnologyArticle() {
+        return loadArticlesByCategory("Technology");
     }
 
-    public List<Articles> loadEntertainmentArticles() {
-        List<Articles> articlesList = new ArrayList<>();
-
-        try (Connection connection = getConnection()) {
-            String query = "SELECT * FROM ARTICLES WHERE CATEGORY_TYPE LIKE '%Entertainment%'";
-            assert connection != null;
-            PreparedStatement stmt = connection.prepareStatement(query);
-            ResultSet resultSet = stmt.executeQuery();
-
-            while (resultSet.next()) {
-                String headline =  resultSet.getString("HEADLINE");
-                String byline = resultSet.getString("BYLINE");
-                LocalDateTime publicationDate = resultSet.getTimestamp("PUBLICATION_DATE").toLocalDateTime();
-                String content = resultSet.getString("CONTENT");
-                String category = resultSet.getString("CATEGORY_TYPE");
-                String imageLink = resultSet.getString("IMAGELINK");
-
-                Articles article = new Articles(headline, byline, content, category, publicationDate, imageLink);
-                articlesList.add(article);
-            }
-
-        } catch (SQLException e) {
-            throw new RuntimeException("Error loading the articles", e);
-        }
-        return articlesList;
+    public List<Articles> loadBusinessArticle() {
+        return loadArticlesByCategory("Business");
     }
 
-    public List<Articles> loadArticlesList() {
-        List<Articles> articlesList = new ArrayList<>();
-
-        try (Connection connection = getConnection()) {
-            String query = "SELECT * FROM ARTICLES WHERE CATEGORY_TYPE LIKE '%News%'";
-            assert connection != null;
-            PreparedStatement stmt = connection.prepareStatement(query);
-            ResultSet resultSet = stmt.executeQuery();
-
-            while (resultSet.next()) {
-                String headline =  resultSet.getString("HEADLINE");
-                String byline = resultSet.getString("BYLINE");
-                LocalDateTime publicationDate = resultSet.getTimestamp("PUBLICATION_DATE").toLocalDateTime();
-                String content = resultSet.getString("CONTENT");
-                String category = resultSet.getString("CATEGORY_TYPE");
-                String imageLink = resultSet.getString("IMAGELINK");
-
-                Articles article = new Articles(headline, byline, content, category, publicationDate, imageLink);
-                articlesList.add(article);
-            }
-
-        } catch (SQLException e) {
-            throw new RuntimeException("Error loading the articles", e);
-        }
-        return articlesList;
+    public List<Articles> loadOpinionArticle() {
+        return loadArticlesByCategory("Opinion");
     }
 
-    public List<Articles> loadOpinionArticles() {
-        List<Articles> articlesList = new ArrayList<>();
-
-        try (Connection connection = getConnection()) {
-            String query = "SELECT * FROM ARTICLES WHERE CATEGORY_TYPE LIKE '%Opinion%'";
-            assert connection != null;
-            PreparedStatement stmt = connection.prepareStatement(query);
-            ResultSet resultSet = stmt.executeQuery();
-
-            while (resultSet.next()) {
-                String headline =  resultSet.getString("HEADLINE");
-                String byline = resultSet.getString("BYLINE");
-                LocalDateTime publicationDate = resultSet.getTimestamp("PUBLICATION_DATE").toLocalDateTime();
-                String content = resultSet.getString("CONTENT");
-                String category = resultSet.getString("CATEGORY_TYPE");
-                String imageLink = resultSet.getString("IMAGELINK");
-
-                Articles article = new Articles(headline, byline, content, category, publicationDate, imageLink);
-                articlesList.add(article);
-            }
-
-        } catch (SQLException e) {
-            throw new RuntimeException("Error loading the articles", e);
-        }
-        return articlesList;
+    public List<Articles> loadEntertainmentArticle() {
+        return loadArticlesByCategory("Entertainment");
     }
 
-    public List<Articles> loadTechnologyArticles() {
+    private List<Articles> loadArticlesByCategory(String category) {
         List<Articles> articlesList = new ArrayList<>();
 
+        String query = "SELECT * FROM ARTICLES";
+        if (category != null && !category.isEmpty()) {
+            query += " WHERE CATEGORY_TYPE LIKE ?";
+        }
+        query += " ORDER BY PUBLICATION_DATE DESC";
+
         try (Connection connection = getConnection()) {
-            String query = "SELECT * FROM ARTICLES WHERE CATEGORY_TYPE LIKE '%Technology%'";
             assert connection != null;
             PreparedStatement stmt = connection.prepareStatement(query);
+            if (category != null && !category.isEmpty()) {
+                stmt.setString(1, "%" + category + "%");
+            }
             ResultSet resultSet = stmt.executeQuery();
 
             while (resultSet.next()) {
-                String headline =  resultSet.getString("HEADLINE");
+                String headline = resultSet.getString("HEADLINE");
                 String byline = resultSet.getString("BYLINE");
                 LocalDateTime publicationDate = resultSet.getTimestamp("PUBLICATION_DATE").toLocalDateTime();
                 String content = resultSet.getString("CONTENT");
-                String category = resultSet.getString("CATEGORY_TYPE");
+                String categoryType = resultSet.getString("CATEGORY_TYPE");
                 String imageLink = resultSet.getString("IMAGELINK");
 
-                Articles article = new Articles(headline, byline, content, category, publicationDate, imageLink);
+                Articles article = new Articles(headline, byline, content, categoryType, publicationDate, imageLink);
                 articlesList.add(article);
             }
 

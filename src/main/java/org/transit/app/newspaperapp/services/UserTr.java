@@ -1,6 +1,6 @@
 package org.transit.app.newspaperapp.services;
 
-import org.transit.app.newspaperapp.model.Login;
+import org.transit.app.newspaperapp.model.User;
 import org.transit.app.newspaperapp.model.Signup;
 
 import java.sql.*;
@@ -28,25 +28,49 @@ public class UserTr {
 //        }
 //    }
 
-    public boolean loginQuery(Login userData) throws SQLException {
-        String username = userData.username();
-        String password = userData.password();
+//    public boolean loginQuery(User userData) throws SQLException {
+//        String username = userData.getUsername();
+//        String password = userData.getPassword();
+//
+//        try (Connection connection = getConnection()) {
+//
+//            String query = "SELECT * FROM USERS WHERE USERNAME = ? AND PASSWORD = ?";
+//            assert connection != null;
+//
+//            PreparedStatement stmt = connection.prepareStatement(query);
+//            stmt.setString(1, username);
+//            stmt.setString(2, password);
+//
+//            ResultSet rs = stmt.executeQuery();
+//            return rs.next();
+//        }
+//        catch (SQLException e) {
+//            throw new IllegalArgumentException("fail to login in db hehe", e);
+//        }
+//    }
 
+    public User getUserByUsername(String username) throws SQLException {
         try (Connection connection = getConnection()) {
-
-            String query = "SELECT * FROM USERS WHERE USERNAME = ? AND PASSWORD = ?";
+            String query = "SELECT * FROM USERS WHERE USERNAME = ?";
             assert connection != null;
-
             PreparedStatement stmt = connection.prepareStatement(query);
             stmt.setString(1, username);
-            stmt.setString(2, password);
 
             ResultSet rs = stmt.executeQuery();
-            return rs.next();
+            if (rs.next()) {
+                String password = rs.getString("PASSWORD");
+                return new User(username, password);
+            } else {
+                return null;
+            }
+        } catch (SQLException e) {
+            throw new IllegalArgumentException("Failed", e);
         }
-        catch (SQLException e) {
-            throw new IllegalArgumentException("fail to login in db hehe", e);
-        }
+    }
+
+    public boolean loginQuery(User userData) throws SQLException {
+        User dbUser = getUserByUsername(userData.getUsername());
+        return dbUser != null && dbUser.checkPassword(userData.getPassword());
     }
 
 

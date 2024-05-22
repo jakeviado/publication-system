@@ -7,10 +7,10 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.shape.Rectangle;
 
 import javafx.geometry.NodeOrientation;
-import org.transit.app.newspaperapp.services.ArticleTr;
 
 import java.net.URL;
 import java.util.Random;
@@ -48,6 +48,7 @@ public class articleCards implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         randomOrientation();
+        setArticleImage(null);
     }
 
     public void setArticleTexts(String headline, String byline, String content, String publishedDate, String category) {
@@ -75,7 +76,25 @@ public class articleCards implements Initializable {
         }
     }
 
-    public void setArticleCard(){
-        ArticleTr article = new ArticleTr();
+    public void removeArticleImage() {
+//        imageView.setImage(null);
+        HBox parentPane = (HBox) imageView.getParent();
+        if (parentPane != null) {
+            parentPane.getChildren().remove(imageView);
+        }
     }
+
+//    private void saveArticle(User userId, Articles articleId) {
+//        try {
+//            ArticleTr articleTr = new ArticleTr();
+//            articleTr.saveArticle();
+//            System.out.println("Article saved successfully!");
+//        } catch (RuntimeException e) {
+//            System.err.println("Failed to save article: " + e.getMessage());
+//        }
+//    }
+//
+//    public void saveArticleAction(ActionEvent event) {
+//        saveArticle();
+//    }
 }
