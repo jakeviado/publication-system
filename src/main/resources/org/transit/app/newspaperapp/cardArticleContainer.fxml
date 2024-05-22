@@ -51,6 +51,7 @@
             <ColumnConstraints minWidth="10.0" prefWidth="100.0" />
          </columnConstraints>
          <rowConstraints>
+            <RowConstraints maxHeight="65.60001220703126" minHeight="26.399992370605474" prefHeight="26.399992370605474" />
             <RowConstraints maxHeight="-Infinity" minHeight="70.0" />
             <RowConstraints maxHeight="-Infinity" minHeight="0.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="-Infinity" minHeight="7.199999999999989" vgrow="SOMETIMES" />
@@ -58,7 +59,7 @@
             <RowConstraints maxHeight="-Infinity" minHeight="10.0" vgrow="ALWAYS" />
          </rowConstraints>
          <children>
-            <Label fx:id="dateLabel" prefHeight="15.0" prefWidth="636.0" text="Published date:" wrapText="true" GridPane.rowIndex="2">
+            <Label fx:id="dateLabel" prefHeight="15.0" prefWidth="636.0" text="Published date:" wrapText="true" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets />
                </GridPane.margin>
@@ -66,22 +67,22 @@
                   <Insets bottom="10.0" top="10.0" />
                </padding>
             </Label>
-            <Label fx:id="authorLabel" maxHeight="-Infinity" prefHeight="15.0" prefWidth="398.0" text="Author:" textOverrun="CLIP" wrapText="true" GridPane.rowIndex="1">
+            <Label fx:id="authorLabel" maxHeight="-Infinity" prefHeight="15.0" prefWidth="398.0" text="Author:" textOverrun="CLIP" wrapText="true" GridPane.rowIndex="2">
                <padding>
                   <Insets bottom="10.0" top="10.0" />
                </padding>
             </Label>
-            <VBox maxHeight="-Infinity" prefWidth="506.0" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.vgrow="ALWAYS">
+            <VBox maxHeight="-Infinity" prefWidth="506.0" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" GridPane.vgrow="ALWAYS">
                <padding>
                   <Insets top="10.0" />
                </padding>
             </VBox>
-            <Label fx:id="contentLabel" alignment="TOP_LEFT" contentDisplay="TOP" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="468.0" text="Content" textOverrun="CLIP" wrapText="true" GridPane.rowIndex="4">
+            <Label fx:id="contentLabel" alignment="TOP_LEFT" contentDisplay="TOP" maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="468.0" text="Content" textOverrun="CLIP" wrapText="true" GridPane.rowIndex="5">
                <GridPane.margin>
                   <Insets bottom="10.0" top="10.0" />
                </GridPane.margin>
             </Label>
-            <FlowPane maxHeight="-Infinity" prefWidth="347.0">
+            <FlowPane maxHeight="-Infinity" prefWidth="347.0" GridPane.rowIndex="1">
                <children>
                   <Label fx:id="headlineLabel" centerShape="false" contentDisplay="TOP" maxHeight="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefWidth="395.0" styleClass="headlineLabel" text="Headline" wrapText="true">
                      <padding>
@@ -90,7 +91,7 @@
                   </Label>
                </children>
             </FlowPane>
-            <FlowPane maxHeight="-Infinity" prefHeight="36.0" prefWidth="351.0" GridPane.rowIndex="3">
+            <FlowPane maxHeight="-Infinity" prefHeight="36.0" prefWidth="351.0" GridPane.rowIndex="4">
                <children>
                   <Label fx:id="bylineLabel" maxHeight="-Infinity" prefWidth="347.0" text="Byline" textOverrun="CLIP" wrapText="true">
                      <padding>
@@ -99,6 +100,8 @@
                   </Label>
                </children>
             </FlowPane>
+            <FlowPane maxHeight="-Infinity" prefWidth="200.0" />
+            <Label fx:id="ctgryLbl" text="Category" />
          </children>
          <padding>
             <Insets left="30.0" right="30.0" top="40.0" />
@@ -122,7 +125,7 @@
                <children>
                   <HBox alignment="CENTER_RIGHT" prefHeight="66.0" prefWidth="319.0">
                      <children>
-                        <ToggleButton mnemonicParsing="false" prefHeight="41.0" prefWidth="104.0" styleClass="saveArticleButton" text="Save">
+                        <ToggleButton fx:id="saveArticleBtn" mnemonicParsing="false" prefHeight="41.0" prefWidth="104.0" styleClass="saveArticleButton" text="Save">
                            <HBox.margin>
                               <Insets right="40.0" />
                            </HBox.margin>
