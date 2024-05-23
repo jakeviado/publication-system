@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import org.transit.app.newspaperapp.model.User;
+import org.transit.app.newspaperapp.model.UserSession;
 
 public class accountController {
 
@@ -22,10 +23,10 @@ public class accountController {
     }
 
     public void setNameLabel() {
-        usernameLabel.setText(User.getLoggedInUser().getFirstName() + " " + User.getLoggedInUser().getLastName());
+        usernameLabel.setText(UserSession.getInstance().getLoggedInUser().getFirstName()+ " " + UserSession.getInstance().getLoggedInUser().getLastName());
     }
 
     public void setUsernameLabel() {
-        nameLabel.setText("@" + User.getLoggedInUser().getUsername());
+        nameLabel.setText("@" + UserSession.getInstance().getLoggedInUser().getUsername());
     }
 }

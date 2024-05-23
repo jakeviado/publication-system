@@ -4,6 +4,8 @@ import org.transit.app.newspaperapp.model.User;
 import org.transit.app.newspaperapp.model.Signup;
 
 import java.sql.*;
+import java.util.HashSet;
+import java.util.Set;
 
 import static org.transit.app.newspaperapp.utilities.DBConnection.getConnection;
 
@@ -88,15 +90,16 @@ public class UserTr {
 //    }
 
     public Signup authenticate(String username, String password) throws SQLException {
-        String query = "SELECT * FROM users WHERE username = ? AND password = ?";
-        try (Connection conn = getConnection()) {
-            assert conn != null;
-            try (PreparedStatement pstmt = conn.prepareStatement(query)) {
+        String query = "SELECT * FROM Users WHERE username = ? AND password = ?";
+        try (Connection connection = getConnection()) {
+            assert connection != null;
+            try (PreparedStatement pstmt = connection.prepareStatement(query)) {
                 pstmt.setString(1, username);
                 pstmt.setString(2, password);
                 ResultSet rs = pstmt.executeQuery();
                 if (rs.next()) {
-                    return new Signup(rs.getString("username"), rs.getString("password"), rs.getString("email"),
+                    int userId = rs.getInt("user_id");
+                    return new Signup(userId, rs.getString("username"), rs.getString("password"), rs.getString("email"),
                             rs.getString("first_name"), rs.getString("last_name"));
                 }
             }
@@ -111,11 +114,28 @@ public class UserTr {
 
     private boolean retrieveUserRole(Connection connection, int userId, int roleId) throws SQLException {
         String checkUserRoles = "SELECT * FROM UserRoles WHERE user_id = ? AND role_id = ?";
-        PreparedStatement roleStmt = connection.prepareStatement(checkUserRoles);
-        roleStmt.setInt(1, userId);
-        roleStmt.setInt(2, roleId);
-        ResultSet rs = roleStmt.executeQuery();
-        return rs.next();
+        try (PreparedStatement roleStmt = connection.prepareStatement(checkUserRoles)) {
+            roleStmt.setInt(1, userId);
+            roleStmt.setInt(2, roleId);
+            ResultSet rs = roleStmt.executeQuery();
+            return rs.next();
+        }
+    }
+
+    public Set<Integer> getUserRoles(int userId) throws SQLException {
+        Set<Integer> roles = new HashSet<>();
+        String query = "SELECT role_id FROM USERROLES WHERE user_id = ?";
+        try (Connection connection = getConnection()) {
+            assert connection != null;
+            try (PreparedStatement stmt = connection.prepareStatement(query)) {
+                stmt.setInt(1, userId);
+                ResultSet rs = stmt.executeQuery();
+                while (rs.next()) {
+                    roles.add(rs.getInt("role_id"));
+                }
+            }
+        }
+        return roles;
     }
 
 

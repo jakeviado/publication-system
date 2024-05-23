@@ -15,10 +15,13 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.transit.app.newspaperapp.Main;
 import org.transit.app.newspaperapp.model.User;
+import org.transit.app.newspaperapp.model.UserSession;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
+import java.util.Set;
 
 public class mainpage implements Initializable {
     @FXML
@@ -65,11 +68,24 @@ public class mainpage implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        UserSession session = UserSession.getInstance();
+        Set<Integer> roles = session.getRoles();
+
+        int roleIdToCheck = 1;
+
+        if (!roles.contains(roleIdToCheck)) {
+            writeArticleButton.setDisable(true);
+            writeArticleButton.setOpacity(0);
+        } else {
+            writeArticleButton.setDisable(false);
+            writeArticleButton.setOpacity(1);
+        }
+
+
         if (loadNewsFeed()) {
             notifyLabel.setText("~ Today's Front Page ~");
         }
         setWelcomeUserLbl();
-        roleAuth();
         toggleMenu();
     }
 
@@ -84,14 +100,7 @@ public class mainpage implements Initializable {
     }
 
     public void setWelcomeUserLbl() {
-        welcomeUserLbl.setText("Welcome " + "@" + User.getLoggedInUser().getUsername() + "!");
-
-//        Timeline timeline = new Timeline(new KeyFrame(
-//                Duration.seconds(10),
-//                event -> welcomeUserLbl.setVisible(false)
-//        ));
-//        timeline.setCycleCount(1);
-//        timeline.play();
+        welcomeUserLbl.setText("Welcome " + "@" + UserSession.getInstance().getLoggedInUser().getUsername() + "!");
     }
 
 
@@ -146,7 +155,7 @@ public class mainpage implements Initializable {
     }
 
     public void exitApp() throws IOException {
-        exitSession(User.getLoggedInUser());
+        exitSession(UserSession.getInstance().getLoggedInUser());
     }
 
     public void exitSession(User user) throws IOException {
@@ -157,7 +166,7 @@ public class mainpage implements Initializable {
     }
 
     public void setLogoutButton() throws IOException {
-        logoutSession(User.getLoggedInUser());
+        logoutSession(UserSession.getInstance().getLoggedInUser());
     }
 
     public void logoutSession(User user) throws IOException {
@@ -166,9 +175,6 @@ public class mainpage implements Initializable {
         user.setPassword(null);
     }
 
-    public void roleAuth() {
-        writeArticleButton.setDisable(false);
-    }
 
     private void switchScene(String fxmlFile) throws IOException {
         BorderPane nextVbox = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource(fxmlFile)));

@@ -3,6 +3,8 @@ package org.transit.app.newspaperapp.model;
 import org.transit.app.newspaperapp.interfaces.register;
 
 public class Signup implements register {
+    private int userId;
+    private int roleId;
     private String username;
     private String password;
     private String email;
@@ -44,12 +46,38 @@ public class Signup implements register {
         return getLastName();
     }
 
-    public Signup(String username, String password, String email, String firstName, String lastName) {
+
+    public Signup(int userId, String username, String password, String email, String first_name, String last_name) {
+        this.userId = userId;
         this.username = username;
         this.password = password;
         this.email = email;
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.firstName = first_name;
+        this.lastName = last_name;
+    }
+
+    public Signup(String username, String password, String email, String first_name, String last_name) {
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.firstName = first_name;
+        this.lastName = last_name;
+    }
+
+    public int getRoleId() {
+        return roleId;
+    }
+
+    public void setRoleId(int roleId) {
+        this.roleId = roleId;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public Signup() {}
