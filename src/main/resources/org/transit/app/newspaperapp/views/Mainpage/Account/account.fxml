@@ -43,8 +43,8 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label prefHeight="15.0" prefWidth="68.0" text="Username" />
-                  <Label prefHeight="15.0" prefWidth="51.0" text="Name" GridPane.rowIndex="1" />
+                  <Label fx:id="usernameLabel" prefHeight="15.0" prefWidth="68.0" text="Username" />
+                  <Label fx:id="nameLabel" prefHeight="15.0" prefWidth="51.0" text="Name" GridPane.rowIndex="1" />
                   <Label prefHeight="15.0" prefWidth="58.0" text="Age" GridPane.rowIndex="2" />
                </children>
                <padding>
@@ -86,4 +86,7 @@
          </children>
       </VBox>
    </left>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
 </BorderPane>

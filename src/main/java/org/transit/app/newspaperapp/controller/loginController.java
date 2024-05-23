@@ -8,6 +8,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import org.transit.app.newspaperapp.Main;
 import javafx.scene.layout.VBox;
+import org.transit.app.newspaperapp.model.Signup;
 import org.transit.app.newspaperapp.model.User;
 import org.transit.app.newspaperapp.services.UserTr;
 import javafx.fxml.FXML;
@@ -67,13 +68,44 @@ public class loginController {
 
 
     // ensure that the user is properly logged in not just switching scenes.
+//    public void login() throws IOException {
+//        User userData = new User(usernameTextField.getText(), passwordTextField.getText());
+//        UserTr transact = new UserTr();
+//
+//        try {
+//            if (transact.loginQuery(userData)) {
+//                User.setLoggedInUser(userData);
+//
+//                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+//                alert.setTitle("Login Successful");
+//                alert.setHeaderText(null);
+//                alert.setContentText("Welcome, " + User.getLoggedInUser().getUsername() + "!");
+//                alert.showAndWait();
+//
+//                sceneSwitch("views/Mainpage/mainpage.fxml");
+//            } else {
+//
+//                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+//                alert.setHeaderText(null);
+//                alert.setContentText("Incorrect username or password, Try Again");
+//                alert.showAndWait();
+//                notifyLabel.setText("Incorrect username or password");
+//            }
+//        } catch (SQLException e) {
+//            throw new RuntimeException(e);
+//        }
+//    }
+
     public void login() throws IOException {
         User userData = new User(usernameTextField.getText(), passwordTextField.getText());
         UserTr transact = new UserTr();
 
         try {
-            if (transact.loginQuery(userData)) {
-                User.setLoggedInUser(userData);
+            Signup dbUser = transact.authenticate(userData.getUsername(), userData.getPassword());
+            if (dbUser != null) {
+
+                User.setLoggedInUser(new User(dbUser.getUsername(), dbUser.getPassword(), dbUser.getEmail(),
+                        dbUser.getFirstName(), dbUser.getLastName()));
 
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Login Successful");
@@ -83,7 +115,6 @@ public class loginController {
 
                 sceneSwitch("views/Mainpage/mainpage.fxml");
             } else {
-
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setHeaderText(null);
                 alert.setContentText("Incorrect username or password, Try Again");

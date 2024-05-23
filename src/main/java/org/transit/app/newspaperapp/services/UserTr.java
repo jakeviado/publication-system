@@ -68,11 +68,46 @@ public class UserTr {
         }
     }
 
-    public boolean loginQuery(User userData) throws SQLException {
-        User dbUser = getUserByUsername(userData.getUsername());
-        return dbUser != null && dbUser.checkPassword(userData.getPassword());
+//    public boolean loginQuery(User userData) throws SQLException {
+//        User dbUser = getUserByUsername(userData.getUsername());
+//        return dbUser != null && dbUser.checkPassword(userData.getPassword());
+//    }
+//
+//    private static Signup authenticate(Connection conn, String username, String password) throws SQLException {
+//        String query = "SELECT * FROM users WHERE username = ? AND password = ?";
+//        try (PreparedStatement pstmt = conn.prepareStatement(query)) {
+//            pstmt.setString(1, username);
+//            pstmt.setString(2, password);
+//            ResultSet rs = pstmt.executeQuery();
+//            if (rs.next()) {
+//                return new Signup(rs.getString("username"), rs.getString("password"), rs.getString("email"),
+//                        rs.getString("first_name"), rs.getString("last_name"));
+//            }
+//        }
+//        return null;
+//    }
+
+    public Signup authenticate(String username, String password) throws SQLException {
+        String query = "SELECT * FROM users WHERE username = ? AND password = ?";
+        try (Connection conn = getConnection()) {
+            assert conn != null;
+            try (PreparedStatement pstmt = conn.prepareStatement(query)) {
+                pstmt.setString(1, username);
+                pstmt.setString(2, password);
+                ResultSet rs = pstmt.executeQuery();
+                if (rs.next()) {
+                    return new Signup(rs.getString("username"), rs.getString("password"), rs.getString("email"),
+                            rs.getString("first_name"), rs.getString("last_name"));
+                }
+            }
+        }
+        return null;
     }
 
+    public boolean loginQuery(User userData) throws SQLException {
+        Signup dbUser = authenticate(userData.getUsername(), userData.getPassword());
+        return dbUser != null && dbUser.getPassword().equals(userData.getPassword());
+    }
 
     private boolean retrieveUserRole(Connection connection, int userId, int roleId) throws SQLException {
         String checkUserRoles = "SELECT * FROM UserRoles WHERE user_id = ? AND role_id = ?";
@@ -149,5 +184,7 @@ public class UserTr {
         }
         return false;
     }
+
+
 }
 
