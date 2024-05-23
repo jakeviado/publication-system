@@ -65,7 +65,7 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-            <Button fx:id="writeArticleButton" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#publishArticlePage" prefHeight="50.0" prefWidth="215.0" styleClass="button-burger" text="PUBLISH ARTICLE" textOverrun="CLIP">
+            <Button fx:id="writeArticleButton" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#publishArticlePage" prefHeight="50.0" prefWidth="215.0" styleClass="button-burger" text="POST ARTICLE" textOverrun="CLIP">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>

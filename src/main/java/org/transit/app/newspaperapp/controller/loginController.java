@@ -94,7 +94,7 @@ public class loginController {
                 alert.setTitle("Login Successful");
                 alert.setHeaderText(null);
                 alert.setContentText("Welcome, " + UserSession.getInstance().getLoggedInUser().getUsername() + "!");
-                alert.showAndWait();
+                alert.show();
 
                 sceneSwitch("views/Mainpage/mainpage.fxml");
             } else {
@@ -108,10 +108,6 @@ public class loginController {
             throw new RuntimeException(e);
         }
     }
-
-
-
-
 
 
 //    public void login() throws IOException {

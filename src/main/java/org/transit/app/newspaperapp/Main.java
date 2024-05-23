@@ -18,6 +18,7 @@ public class    Main extends Application {
         stage.setTitle("The Street Journal");
         stage.setScene(scene);
         stage.show();
+        stage.centerOnScreen();
     }
 
     public static void main(String[] args) {

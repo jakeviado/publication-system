@@ -14,6 +14,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.transit.app.newspaperapp.Main;
+import org.transit.app.newspaperapp.controller.articleCards;
 import org.transit.app.newspaperapp.model.User;
 import org.transit.app.newspaperapp.model.UserSession;
 
@@ -126,6 +127,7 @@ public class mainpage implements Initializable {
             toggleButton.setText(buttonText);
         });
     }
+
 
     public void publishArticlePage() throws IOException {
         switchScene("views/Mainpage/PublishArticle/publishingPage.fxml");

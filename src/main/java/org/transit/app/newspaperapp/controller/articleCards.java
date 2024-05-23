@@ -5,6 +5,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -17,6 +19,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.geometry.NodeOrientation;
 import javafx.stage.Stage;
 import org.transit.app.newspaperapp.Main;
+import org.transit.app.newspaperapp.controller.mainpage.mainpage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -86,12 +89,7 @@ public class articleCards implements Initializable {
     }
 
     public void articleHyperlinkClick(ActionEvent event) throws IOException {
-        articleCard(event);
-    }
-
-    private void articleCard(ActionEvent event) throws IOException {
-        BorderPane nextVbox = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("views/components/cardArticleModal.fxml")));
-        articleCard.getChildren().setAll(nextVbox);
+//        mainpage.setArticleContent(headlineLabel.getText(), bylineLabel.getText(), contentLabel.getText(), dateLabel.getText(), ctgryLbl.getText(), authorLabel.getText());
     }
 
     public void removeArticleImage() {

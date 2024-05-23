@@ -3,9 +3,12 @@ package org.transit.app.newspaperapp.controller;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import org.transit.app.newspaperapp.Main;
 import org.transit.app.newspaperapp.services.ArticleTr;
 import org.transit.app.newspaperapp.model.Articles;
@@ -103,7 +106,6 @@ public abstract class articleLoader implements Initializable {
             controller.removeArticleImage();
         }
     }
-
 
 
 //    protected Image loadImageFromURL(String imageURL) {
