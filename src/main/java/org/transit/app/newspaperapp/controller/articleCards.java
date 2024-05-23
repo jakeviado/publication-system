@@ -1,7 +1,11 @@
 package org.transit.app.newspaperapp.controller;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -11,15 +15,19 @@ import javafx.scene.layout.HBox;
 import javafx.scene.shape.Rectangle;
 
 import javafx.geometry.NodeOrientation;
+import javafx.stage.Stage;
+import org.transit.app.newspaperapp.Main;
 
+import java.io.IOException;
 import java.net.URL;
+import java.util.Objects;
 import java.util.Random;
 import java.util.ResourceBundle;
 
 
 public class articleCards implements Initializable {
     @FXML
-    public Label headlineLabel;
+    public Hyperlink headlineLabel;
 
     @FXML
     public Label bylineLabel;
@@ -76,12 +84,26 @@ public class articleCards implements Initializable {
         }
     }
 
+    public void articleHyperlinkClick(ActionEvent event) throws IOException {
+        articleCard(event);
+    }
+
+    private void articleCard(ActionEvent event) throws IOException {
+        BorderPane nextVbox = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("views/components/cardArticleModal.fxml")));
+        articleCard.getChildren().setAll(nextVbox);
+    }
+
     public void removeArticleImage() {
-//        imageView.setImage(null);
         HBox parentPane = (HBox) imageView.getParent();
         if (parentPane != null) {
             parentPane.getChildren().remove(imageView);
         }
+    }
+
+    public void closeModal(ActionEvent event) {
+        Node source = (Node) event.getSource();
+        Stage stage = (Stage) source.getScene().getWindow();
+        stage.close();
     }
 
 //    private void saveArticle(User userId, Articles articleId) {

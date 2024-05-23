@@ -47,6 +47,8 @@
     -fx-font-family: 'Fraunces Medium';
     -fx-font-size: 33px;
     -fx-font-weight: 700;
+    -fx-padding: 0;
+    -fx-text-fill: black;
 }
 
 .pageLabel {
