@@ -2,9 +2,12 @@ package org.transit.app.newspaperapp.controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 
+import javafx.stage.Stage;
 import org.transit.app.newspaperapp.Main;
 import org.transit.app.newspaperapp.services.UserTr;
 import org.transit.app.newspaperapp.model.Signup;
@@ -66,6 +69,8 @@ public class registrationController {
 
         try {
             if (transact.registerQuery(userData, isAuthor, isReader)) {
+                Signup.setLoggedInUser(userData);
+
                 notifyLabel.setText(success);
                 clearTextsFields.clearFields(usernameTextField, passwordTextField, emailTextField, firstNameTextField, lastNameTextField, passwordTextField);
             } else {
@@ -139,9 +144,16 @@ public class registrationController {
     }
 
     public void SceneSwitch(VBox loginScene, String fxml) throws IOException {
-        VBox nextVbox = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource(fxml)));
-        loginScene.getChildren().removeAll();
-        loginScene.getChildren().setAll(nextVbox);
+//        VBox nextVbox = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource(fxml)));
+//        loginScene.getChildren().removeAll();
+//        loginScene.getChildren().setAll(nextVbox);
+
+        Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource(fxml)));
+        Stage stage = (Stage) loginScene.getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.sizeToScene();
+        stage.centerOnScreen();
     }
 
 }

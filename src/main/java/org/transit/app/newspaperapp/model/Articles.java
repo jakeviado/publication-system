@@ -11,6 +11,7 @@ public class Articles implements articles {
     private String content;
     private String category;
     private String imageLink;
+    private String author_name;
 
 
     public Articles(String headline, String byline, String content, String category, LocalDateTime publicationDate, String imageLink) {
@@ -20,6 +21,16 @@ public class Articles implements articles {
         this.category = category;
         this.publicationDate = String.valueOf(publicationDate);
         this.imageLink = imageLink;
+    }
+
+    public Articles(String headline, String byline, String content, String category, LocalDateTime publicationDate, String imageLink, String author_name) {
+        this.headline = headline;
+        this.byline = byline;
+        this.content = content;
+        this.category = category;
+        this.publicationDate = String.valueOf(publicationDate);
+        this.imageLink = imageLink;
+        this.author_name = author_name;
     }
 
 
@@ -103,4 +114,11 @@ public class Articles implements articles {
         this.imageLink = imageLink;
     }
 
+    public String getAuthor_name() {
+        return author_name;
+    }
+
+    public void setAuthor_name(String author_name) {
+        this.author_name = author_name;
+    }
 }

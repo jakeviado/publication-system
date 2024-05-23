@@ -13,6 +13,16 @@
     src: url(fonts/Fraunces-Medium.ttf);
 }
 
+@font-face {
+    -fx-font-family: 'Josefin Sans';
+    src: url(fonts/JosefinSans-Regular.ttf);
+}
+
+@font-face {
+    -fx-font-family: 'Merriweather';
+    src: url(fonts/Merriweather-Regular.ttf);
+}
+
 .label, .button, .hyperlink, .toggle-button {
     -fx-font-family: 'Lexend';
     -fx-font-weight: 100;
@@ -37,6 +47,8 @@
     -fx-font-family: 'Fraunces Medium';
     -fx-font-size: 33px;
     -fx-font-weight: 700;
+    -fx-padding: 0;
+    -fx-text-fill: black;
 }
 
 .pageLabel {
@@ -47,4 +59,11 @@
 
 .article-texts {
     -fx-font-size: 12;
+    -fx-text-fill: #4c4c4c;
+}
+
+.welcomeUserLbl {
+    -fx-font-family: 'Fraunces Medium';
+    -fx-font-size: 23px;
+    -fx-text-fill: #4c4c4c;
 }
