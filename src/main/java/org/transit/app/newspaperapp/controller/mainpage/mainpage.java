@@ -74,18 +74,20 @@ public class mainpage implements Initializable {
         int roleIdToCheck = 1;
 
         if (!roles.contains(roleIdToCheck)) {
+            welcomeUserLbl.setText("Welcome " + "@" + UserSession.getInstance().getLoggedInUser().getUsername() + "!");
             writeArticleButton.setDisable(true);
             writeArticleButton.setOpacity(0);
         } else {
+            welcomeUserLbl.setText("Welcome Author! " + "@" + UserSession.getInstance().getLoggedInUser().getUsername() + "!");
             writeArticleButton.setDisable(false);
             writeArticleButton.setOpacity(1);
         }
 
 
+
         if (loadNewsFeed()) {
             notifyLabel.setText("~ Today's Front Page ~");
         }
-        setWelcomeUserLbl();
         toggleMenu();
     }
 
@@ -98,11 +100,6 @@ public class mainpage implements Initializable {
         }
         return true;
     }
-
-    public void setWelcomeUserLbl() {
-        welcomeUserLbl.setText("Welcome " + "@" + UserSession.getInstance().getLoggedInUser().getUsername() + "!");
-    }
-
 
     public void toggleMenu() {
         toggleButton.setOnAction(event -> {
