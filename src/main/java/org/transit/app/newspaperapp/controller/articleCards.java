@@ -59,12 +59,13 @@ public class articleCards implements Initializable {
         setArticleImage(null);
     }
 
-    public void setArticleTexts(String headline, String byline, String content, String publishedDate, String category) {
+    public void setArticleTexts(String headline, String byline, String content, String publishedDate, String category, String author_name) {
         headlineLabel.setText(headline);
         bylineLabel.setText(byline);
         contentLabel.setText(content);
         dateLabel.setText(publishedDate);
         ctgryLbl.setText(category);
+        authorLabel.setText("By: " + author_name);
     }
 
     public void setArticleImage(Image image) {

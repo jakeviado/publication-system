@@ -89,7 +89,7 @@ public abstract class articleLoader implements Initializable {
 //    }
 
     protected void setArticleController(articleCards controller, Articles article) {
-        controller.setArticleTexts(article.getHeadline(), article.getByline(), article.getContent(), article.getPublicationDate(), article.getCategory());
+        controller.setArticleTexts(article.getHeadline(), article.getByline(), article.getContent(), article.getPublicationDate(), article.getCategory(), article.getAuthor_name());
 
         try {
             if (article.getImageLink() == null || article.getImageLink().isEmpty()) {

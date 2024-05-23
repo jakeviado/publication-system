@@ -63,6 +63,7 @@
 }
 
 .welcomeUserLbl {
-    -fx-font-size: 14px;
+    -fx-font-family: 'Fraunces Medium';
+    -fx-font-size: 23px;
     -fx-text-fill: #4c4c4c;
 }

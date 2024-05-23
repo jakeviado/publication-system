@@ -34,9 +34,6 @@ public class mainpage implements Initializable {
     public ToggleButton toggleButton;
 
     @FXML
-    public BorderPane MainBorderPanel;
-
-    @FXML
     public Button logoutButton;
 
     @FXML
@@ -64,6 +61,9 @@ public class mainpage implements Initializable {
     public Label welcomeUserLbl;
 
     @FXML
+    public Label roleLbl;
+
+    @FXML
     private Button exitButton;
 
     @Override
@@ -74,15 +74,16 @@ public class mainpage implements Initializable {
         int roleIdToCheck = 1;
 
         if (!roles.contains(roleIdToCheck)) {
-            welcomeUserLbl.setText("Welcome " + "@" + UserSession.getInstance().getLoggedInUser().getUsername() + "!");
+            welcomeUserLbl.setText("@" + UserSession.getInstance().getLoggedInUser().getUsername() + "!");
+            roleLbl.setText("READER");
             writeArticleButton.setDisable(true);
             writeArticleButton.setOpacity(0);
         } else {
-            welcomeUserLbl.setText("Welcome Author! " + "@" + UserSession.getInstance().getLoggedInUser().getUsername() + "!");
+            welcomeUserLbl.setText("@" + UserSession.getInstance().getLoggedInUser().getUsername() + "!");
+            roleLbl.setText("AUTHOR");
             writeArticleButton.setDisable(false);
             writeArticleButton.setOpacity(1);
         }
-
 
 
         if (loadNewsFeed()) {
