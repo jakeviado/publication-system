@@ -29,6 +29,7 @@ import org.transit.app.newspaperapp.services.CommentService;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
 import java.util.Random;
@@ -120,7 +121,10 @@ public class articleCards implements Initializable {
     private void handleSubmitComment() {
         String commentText = newCommentField.getText();
         if (!commentText.isEmpty()) {
-            Comment newComment = new Comment(UserSession.getInstance().getLoggedInUser().getUsername(), commentText);
+            int userId = (UserSession.getInstance().getLoggedInUser().getUserID());
+            int articleId = getArticleId();
+            LocalDateTime createdAt = LocalDateTime.now();
+            Comment newComment = new Comment(articleId, userId, commentText, createdAt);
             commentService.addComment(newComment);
             displayComments();
             newCommentField.clear();
@@ -131,13 +135,21 @@ public class articleCards implements Initializable {
         commentsList.getChildren().clear();
         List<Comment> comments = commentService.getComments();
         for (Comment comment : comments) {
-            Label commentLabel = new Label(comment.getAuthor() + ": " + comment.getText());
+            Label commentLabel = new Label(getUsername(comment.getUserId()) + ": " + comment.getContent());
             commentsList.getChildren().add(commentLabel);
         }
     }
 
     private void loadComments() {
         displayComments();
+    }
+
+    private int getArticleId() {
+        return 1;
+    }
+
+    private String getUsername(int userId) {
+        return UserSession.getInstance().getLoggedInUser().getUsername();
     }
 
 
