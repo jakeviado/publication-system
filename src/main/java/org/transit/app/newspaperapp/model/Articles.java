@@ -12,19 +12,8 @@ public class Articles implements articles {
     private String category;
     private String imageLink;
     private String author_name;
-    private int article_id;
+    private static int articleId;
 
-
-    public Articles(String headline, String byline, String publicationDate, String content, String category, String imageLink, String author_name, int article_id) {
-        this.headline = headline;
-        this.byline = byline;
-        this.publicationDate = publicationDate;
-        this.content = content;
-        this.category = category;
-        this.imageLink = imageLink;
-        this.author_name = author_name;
-        this.article_id = article_id;
-    }
 
     public Articles(String headline, String byline, String content, String category, LocalDateTime publicationDate, String imageLink) {
         this.headline = headline;
@@ -35,14 +24,14 @@ public class Articles implements articles {
         this.imageLink = imageLink;
     }
 
-    public Articles(String headline, String byline, String content, String category, LocalDateTime publicationDate, String imageLink, String author_name) {
+
+    public Articles(String headline, String byline, String content, String categoryType, LocalDateTime publicationDate, String imageLink, int articleId) {
         this.headline = headline;
         this.byline = byline;
         this.content = content;
-        this.category = category;
         this.publicationDate = String.valueOf(publicationDate);
         this.imageLink = imageLink;
-        this.author_name = author_name;
+        Articles.articleId = articleId;
     }
 
 
@@ -135,11 +124,11 @@ public class Articles implements articles {
         this.author_name = author_name;
     }
 
-    public int getArticle_id() {
-        return article_id;
+    public static int getArticleId() {
+        return articleId;
     }
 
-    public void setArticle_id(int article_id) {
-        this.article_id = article_id;
+    public void setArticleId(int articleId) {
+        Articles.articleId = articleId;
     }
 }

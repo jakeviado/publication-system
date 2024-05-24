@@ -48,7 +48,6 @@ public class CommentService {
                 }
             }
         } catch (SQLException e) {
-            // Log detailed error message and stack trace
             e.printStackTrace();
             throw new RuntimeException("Error adding the comment: " + e.getMessage(), e);
         }

@@ -58,7 +58,7 @@
                <children>
                   <VBox fx:id="commentsSection" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" nodeOrientation="LEFT_TO_RIGHT" prefHeight="168.0" prefWidth="787.0" spacing="10" HBox.hgrow="ALWAYS">
                      <HBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" nodeOrientation="LEFT_TO_RIGHT" prefHeight="53.0" prefWidth="906.0" spacing="5" VBox.vgrow="ALWAYS">
-                        <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="73.0" styleClass="articleContainerBtns" text="Save" />
+                        <Button fx:id="saveArticleAction" mnemonicParsing="false" onAction="#saveArticleAction" prefHeight="26.0" prefWidth="73.0" styleClass="articleContainerBtns" text="Save" />
                         <TextField fx:id="newCommentField" maxWidth="1.7976931348623157E308" prefHeight="40.0" prefWidth="726.0" promptText="Add a comment..." HBox.hgrow="ALWAYS" />
                         <Button onAction="#handleSubmitComment" prefHeight="39.0" prefWidth="74.0" text="Submit" />
                         <padding>

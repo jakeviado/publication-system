@@ -23,8 +23,11 @@ import javafx.geometry.NodeOrientation;
 import javafx.stage.Stage;
 import org.transit.app.newspaperapp.Main;
 import org.transit.app.newspaperapp.controller.mainpage.mainpage;
+import org.transit.app.newspaperapp.model.Articles;
 import org.transit.app.newspaperapp.model.Comment;
+import org.transit.app.newspaperapp.model.User;
 import org.transit.app.newspaperapp.model.UserSession;
+import org.transit.app.newspaperapp.services.ArticleTr;
 import org.transit.app.newspaperapp.services.CommentService;
 
 import java.io.IOException;
@@ -72,6 +75,9 @@ public class articleCards implements Initializable {
 
     @FXML
     public TextField newCommentField;
+
+    @FXML
+    public Button saveArticleAction;
 
     private final CommentService commentService = new CommentService();
 
@@ -145,7 +151,7 @@ public class articleCards implements Initializable {
     }
 
     private int getArticleId() {
-        return 1;
+        return Articles.getArticleId();
     }
 
     private String getUsername(int userId) {
@@ -153,17 +159,17 @@ public class articleCards implements Initializable {
     }
 
 
-//    private void saveArticle(User userId, Articles articleId) {
-//        try {
-//            ArticleTr articleTr = new ArticleTr();
-//            articleTr.saveArticle();
-//            System.out.println("Article saved successfully!");
-//        } catch (RuntimeException e) {
-//            System.err.println("Failed to save article: " + e.getMessage());
-//        }
-//    }
-//
-//    public void saveArticleAction(ActionEvent event) {
-//        saveArticle();
-//    }
+    private void saveArticle() {
+        try {
+            ArticleTr articleTr = new ArticleTr();
+            articleTr.saveArticle(UserSession.getInstance().getUserId(), Articles.getArticleId());
+            System.out.println("Article saved successfully!");
+        } catch (RuntimeException e) {
+            System.err.println("Failed to save article: " + e.getMessage());
+        }
+    }
+
+    public void saveArticleAction(ActionEvent event) {
+        saveArticle();
+    }
 }
