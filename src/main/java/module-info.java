@@ -18,4 +18,6 @@ module org.transit.app.busmonitoringapp {
     opens org.transit.app.newspaperapp.controller.mainpage to javafx.fxml;
     exports org.transit.app.newspaperapp.controller.mainpage.Account;
     opens org.transit.app.newspaperapp.controller.mainpage.Account to javafx.fxml;
+    exports org.transit.app.newspaperapp.services;
+    opens org.transit.app.newspaperapp.services to javafx.fxml;
 }
