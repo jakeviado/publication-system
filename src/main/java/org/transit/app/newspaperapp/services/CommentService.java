@@ -1,7 +1,9 @@
 package org.transit.app.newspaperapp.services;
 
 import org.transit.app.newspaperapp.interfaces.CommentServiceInterface;
+import org.transit.app.newspaperapp.model.Articles;
 import org.transit.app.newspaperapp.model.Comment;
+import org.transit.app.newspaperapp.model.UserSession;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -34,8 +36,8 @@ public class CommentService {
         try (Connection connection = getConnection()) {
             assert connection != null;
             try (PreparedStatement stmt = connection.prepareStatement(query)) {
-                stmt.setInt(1, comment.getArticleId());
-                stmt.setInt(2, comment.getUserId());
+                stmt.setInt(1, Articles.getArticleId());
+                stmt.setInt(2, UserSession.getInstance().getUserId());
                 stmt.setString(3, comment.getContent());
                 stmt.setTimestamp(4, Timestamp.valueOf(comment.getCreatedAt()));
 
