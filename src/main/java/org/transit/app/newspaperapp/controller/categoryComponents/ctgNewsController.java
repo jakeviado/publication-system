@@ -15,8 +15,6 @@ public class ctgNewsController extends articleLoader implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-//        ArticleTr load  = new ArticleTr();
-//        loadArticlesList(load, ctgryNewsContainer);
         ArticleTr articleService = new ArticleTr();
         loadArticlesByCategory(articleService, ctgryNewsContainer, "All");
     }

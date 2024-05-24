@@ -11,45 +11,6 @@ import static org.transit.app.newspaperapp.utilities.DBConnection.getConnection;
 
 public class UserTr {
 
-//    //TODO: NEED ICHECK KUNG SI ATTEMPTING USER AY AUTHOR OR SIMPLENG TAO LAMANG
-//    public boolean loginQuery(Login userData) throws SQLException {
-//        String username = userData.username();
-//        String password = userData.password();
-//
-//        try (Connection connection = getConnection()) {
-//            String query = "SELECT * FROM USERS WHERE USERNAME = ? AND PASSWORD = ?";
-//            assert connection != null;
-//
-//            PreparedStatement stmt = connection.prepareStatement(query);
-//            stmt.setString(1, username);
-//            stmt.setString(2, password);
-//
-//            ResultSet rs = stmt.executeQuery();
-//            return rs.next();
-//
-//        }
-//    }
-
-//    public boolean loginQuery(User userData) throws SQLException {
-//        String username = userData.getUsername();
-//        String password = userData.getPassword();
-//
-//        try (Connection connection = getConnection()) {
-//
-//            String query = "SELECT * FROM USERS WHERE USERNAME = ? AND PASSWORD = ?";
-//            assert connection != null;
-//
-//            PreparedStatement stmt = connection.prepareStatement(query);
-//            stmt.setString(1, username);
-//            stmt.setString(2, password);
-//
-//            ResultSet rs = stmt.executeQuery();
-//            return rs.next();
-//        }
-//        catch (SQLException e) {
-//            throw new IllegalArgumentException("fail to login in db hehe", e);
-//        }
-//    }
 
     public User getUserByUsername(String username) throws SQLException {
         try (Connection connection = getConnection()) {
@@ -107,20 +68,6 @@ public class UserTr {
         return null;
     }
 
-    public boolean loginQuery(User userData) throws SQLException {
-        Signup dbUser = authenticate(userData.getUsername(), userData.getPassword());
-        return dbUser != null && dbUser.getPassword().equals(userData.getPassword());
-    }
-
-    private boolean retrieveUserRole(Connection connection, int userId, int roleId) throws SQLException {
-        String checkUserRoles = "SELECT * FROM UserRoles WHERE user_id = ? AND role_id = ?";
-        try (PreparedStatement roleStmt = connection.prepareStatement(checkUserRoles)) {
-            roleStmt.setInt(1, userId);
-            roleStmt.setInt(2, roleId);
-            ResultSet rs = roleStmt.executeQuery();
-            return rs.next();
-        }
-    }
 
     public Set<Integer> getUserRoles(int userId) throws SQLException {
         Set<Integer> roles = new HashSet<>();

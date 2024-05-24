@@ -15,8 +15,6 @@ public class ctgOpinionController extends articleLoader implements Initializable
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-//        ArticleTr load  = new ArticleTr();
-//        loadOpinionArticles(load, ctgOpinionContainer);
         ArticleTr articleService = new ArticleTr();
         loadArticlesByCategory(articleService, ctgOpinionContainer, "Opinion");
     }

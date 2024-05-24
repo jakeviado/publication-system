@@ -15,8 +15,6 @@ public class ctgTechnologyController extends articleLoader implements Initializa
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-//        ArticleTr load  = new ArticleTr();
-//        loadTechnologyArticles(load, ctgTechnologyContainer);
         ArticleTr articleService = new ArticleTr();
         loadArticlesByCategory(articleService, ctgTechnologyContainer, "Technology");
     }

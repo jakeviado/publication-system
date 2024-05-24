@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:id="articleCard" maxHeight="-Infinity" maxWidth="-Infinity" nodeOrientation="RIGHT_TO_LEFT" style="-fx-background-insets: 0;" styleClass="card" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.transit.app.newspaperapp.controller.articleCards">
+<BorderPane fx:id="articleCard" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" nodeOrientation="RIGHT_TO_LEFT" style="-fx-background-insets: 0;" styleClass="card" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.transit.app.newspaperapp.controller.articleCards">
    <padding>
       <Insets />
    </padding>
@@ -45,7 +45,46 @@
          </children>
       </VBox>
    </left>
-   <right>
+
+   <stylesheets>
+      <URL value="@../../styles/buttons.css" />
+      <URL value="@../../styles/fonts.css" />
+      <URL value="@../../styles/textField.css" />
+      <URL value="@../../styles/components.css" />
+   </stylesheets>
+   <bottom>
+      <HBox nodeOrientation="RIGHT_TO_LEFT" prefHeight="47.0" prefWidth="820.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER_RIGHT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="63.0" prefWidth="820.0">
+               <children>
+                  <HBox alignment="CENTER_RIGHT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="47.0" prefWidth="358.0">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="47.0" prefWidth="110.0">
+                           <children>
+                              <Button mnemonicParsing="false" prefHeight="29.0" prefWidth="98.0" styleClass="articleContainerBtns" text="Comment" />
+                           </children></HBox>
+                        <HBox alignment="CENTER" prefHeight="47.0" prefWidth="86.0">
+                           <children>
+                              <Button mnemonicParsing="false" styleClass="articleContainerBtns" text="Save" />
+                           </children>
+                        </HBox>
+                     </children>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </HBox>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </HBox>
+         </children>
+      </HBox>
+   </bottom>
+   <center>
       <VBox prefWidth="504.0" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets bottom="10.0" />
@@ -76,7 +115,7 @@
                   </VBox>
                   <FlowPane maxHeight="-Infinity" prefWidth="347.0" GridPane.rowIndex="1">
                      <children>
-                        <Hyperlink onAction="#articleHyperlinkClick" fx:id="headlineLabel" maxHeight="-Infinity" prefWidth="444.0" styleClass="headlineLabel" text="Headline" textOverrun="CLIP" wrapText="true" />
+                        <Hyperlink fx:id="headlineLabel" maxHeight="-Infinity" onAction="#articleHyperlinkClick" prefWidth="444.0" styleClass="headlineLabel" text="Headline" textOverrun="CLIP" wrapText="true" />
 <!--                        <Label fx:id="headlineLabel" centerShape="false" contentDisplay="TOP" maxHeight="-Infinity" maxWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefWidth="444.0" styleClass="headlineLabel" text="Headline" wrapText="true">-->
 <!--                           <padding>-->
 <!--                              <Insets bottom="10.0" top="10.0" />-->
@@ -123,44 +162,5 @@
             </GridPane>
          </children>
       </VBox>
-   </right>
-
-   <stylesheets>
-      <URL value="@../../styles/buttons.css" />
-      <URL value="@../../styles/fonts.css" />
-      <URL value="@../../styles/textField.css" />
-      <URL value="@../../styles/components.css" />
-   </stylesheets>
-   <bottom>
-      <HBox prefHeight="47.0" prefWidth="820.0" BorderPane.alignment="CENTER">
-         <children>
-            <HBox alignment="CENTER_RIGHT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="63.0" prefWidth="820.0">
-               <children>
-                  <HBox alignment="CENTER_RIGHT" prefHeight="47.0" prefWidth="358.0">
-                     <children>
-                        <HBox alignment="CENTER" prefHeight="47.0" prefWidth="110.0">
-                           <children>
-                              <Button mnemonicParsing="false" prefHeight="29.0" prefWidth="98.0" text="Comment" />
-                           </children></HBox>
-                        <HBox alignment="CENTER" prefHeight="47.0" prefWidth="86.0">
-                           <children>
-                              <Button mnemonicParsing="false" styleClass="saveArticleButton" text="SAVE" />
-                           </children>
-                        </HBox>
-                     </children>
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                  </HBox>
-               </children>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
-            </HBox>
-         </children>
-      </HBox>
-   </bottom>
+   </center>
 </BorderPane>

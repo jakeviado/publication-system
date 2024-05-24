@@ -48,16 +48,6 @@ public abstract class articleLoader implements Initializable {
         }
     }
 
-    protected void showSpecificArticle(ArticleTr articleService, VBox container, String category) {
-        List<Articles> articlesList = new ArrayList<>();
-
-        for (Articles article : articlesList) {
-            BorderPane card = loadArticleCard(article);
-            if (card != null) {
-                container.getChildren().add(card);
-            }
-        }
-    }
 
     protected BorderPane loadArticleCard(Articles article) {
         try {
