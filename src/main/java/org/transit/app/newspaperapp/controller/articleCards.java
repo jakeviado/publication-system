@@ -76,7 +76,7 @@ public class articleCards implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        randomOrientation();
+//        randomOrientation();
         setArticleImage(null);
         loadComments();
     }
@@ -96,16 +96,16 @@ public class articleCards implements Initializable {
         imageView.setClip(clipRect);
     }
 
-    public void randomOrientation() {
-        Random random = new Random();
-        int randomNumber = random.nextInt(2);
-
-        if (randomNumber == 0) {
-            articleCard.setNodeOrientation(NodeOrientation.LEFT_TO_RIGHT);
-        } else {
-            articleCard.setNodeOrientation(NodeOrientation.RIGHT_TO_LEFT);
-        }
-    }
+//    public void randomOrientation() {
+//        Random random = new Random();
+//        int randomNumber = random.nextInt(2);
+//
+//        if (randomNumber == 0) {
+//            articleCard.setNodeOrientation(NodeOrientation.LEFT_TO_RIGHT);
+//        } else {
+//            articleCard.setNodeOrientation(NodeOrientation.RIGHT_TO_LEFT);
+//        }
+//    }
 
 
     public void removeArticleImage() {
