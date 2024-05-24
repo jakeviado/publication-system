@@ -17,9 +17,13 @@ public class accountController {
     @FXML
     public Label nameLabel;
 
+    @FXML
+    private Button accSettingBtn;
+
     public void initialize() {
         setNameLabel();
         setUsernameLabel();
+//        setAccSettingBtn();
     }
 
     public void setNameLabel() {
@@ -29,4 +33,8 @@ public class accountController {
     public void setUsernameLabel() {
         nameLabel.setText("@" + UserSession.getInstance().getLoggedInUser().getUsername());
     }
+
+//    public void setAccSettingBtn() {
+//        this.accSettingBtn = accSettingBtn;
+//    }
 }
