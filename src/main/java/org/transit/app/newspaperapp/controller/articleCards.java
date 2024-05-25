@@ -127,35 +127,32 @@ public class articleCards implements Initializable {
     private void handleSubmitComment() {
         String commentText = newCommentField.getText();
         if (!commentText.isEmpty()) {
-            int userId = (UserSession.getInstance().getLoggedInUser().getUserID());
+            int userId = UserSession.getInstance().getLoggedInUser().getUserID();
             int articleId = getArticleId();
             LocalDateTime createdAt = LocalDateTime.now();
             Comment newComment = new Comment(articleId, userId, commentText, createdAt);
             commentService.addComment(newComment);
-            displayComments();
+            displayComments(articleId);
             newCommentField.clear();
         }
     }
 
-    private void displayComments() {
+    private void displayComments(int articleId) {
         commentsList.getChildren().clear();
         List<Comment> comments = commentService.getComments();
         for (Comment comment : comments) {
-            Label commentLabel = new Label(getUsername(comment.getUserId()) + ": " + comment.getContent());
+            Label commentLabel = new Label(comment.getContent());
             commentsList.getChildren().add(commentLabel);
         }
     }
 
     private void loadComments() {
-        displayComments();
+        int articleId = getArticleId();
+        displayComments(articleId);
     }
 
     private int getArticleId() {
         return Articles.getArticleId();
-    }
-
-    private String getUsername(int userId) {
-        return UserSession.getInstance().getLoggedInUser().getUsername();
     }
 
 
