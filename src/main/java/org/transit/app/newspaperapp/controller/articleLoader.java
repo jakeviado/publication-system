@@ -64,23 +64,6 @@ public abstract class articleLoader implements Initializable {
         }
     }
 
-
-//    protected void setArticleController(articleCards controller, Articles article) {
-//        controller.setArticleTexts(article.getHeadline(), article.getByline(), article.getContent(), article.getPublicationDate(), article.getCategory());
-//
-//        try {
-//            if (article.getImageLink() == null || article.getImageLink().isEmpty()) {
-//                controller.removeArticleImage();
-//            } else {
-//                Image image = loadImageFromURL(article.getImageLink());
-//                controller.setArticleImage(image);
-//            }
-//        } catch (IllegalArgumentException e) {
-//            handleLoadError("Error loading image: " + e.getMessage());
-//            controller.removeArticleImage();
-//        }
-//    }
-
     protected void setArticleController(articleCards controller, Articles article) {
         controller.setArticleTexts(article.getHeadline(), article.getByline(), article.getContent(), article.getPublicationDate(), article.getCategory(), article.getAuthor_name());
 
@@ -96,23 +79,6 @@ public abstract class articleLoader implements Initializable {
             controller.removeArticleImage();
         }
     }
-
-
-//    protected Image loadImageFromURL(String imageURL) {
-//        try {
-//            URI uri = new URI(imageURL);
-//            URL url = uri.toURL();
-//            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-//            connection.setDoInput(true);
-//            connection.setRequestProperty("User-Agent", "Mozilla/5.0");
-//            connection.connect();
-//            try (InputStream inputStream = connection.getInputStream()) {
-//                return new Image(inputStream);
-//            }
-//        } catch (IOException | URISyntaxException e) {
-//            throw new IllegalArgumentException(e.getMessage());
-//        }
-//    }
 
     private final Map<String, Image> imageCache = new HashMap<>();
 
