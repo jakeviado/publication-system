@@ -111,7 +111,7 @@ public class mainpage implements Initializable {
 
             double targetX = isSelected ? -240 : 0;
             double targetWidth = isSelected ? 0 : 240;
-            String buttonText = isSelected ? "MORE" : "CLOSE";
+            String buttonText = isSelected ? "MENU" : "CLOSE";
 
             Timeline timeline = new Timeline();
 

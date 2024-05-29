@@ -14,6 +14,10 @@ public class Articles implements articles {
     private String author_name;
     private static int articleId;
 
+    private int commentId;
+    private int userId;
+    private String commentContent;
+    private LocalDateTime commentCreatedAt;
 
     public Articles(String headline, String byline, String content, String category, LocalDateTime publicationDate, String imageLink) {
         this.headline = headline;
@@ -34,6 +38,16 @@ public class Articles implements articles {
         Articles.articleId = articleId;
         this.author_name = String.valueOf(authorId);
     }
+
+    public Articles(int commentId, int articleId, int userId, String content, LocalDateTime createdAt) {
+        this.commentId = commentId;
+        Articles.articleId = articleId;
+        this.userId = userId;
+        this.content = content;
+        this.commentCreatedAt = createdAt;
+    }
+
+
 
 
     @Override
@@ -64,6 +78,39 @@ public class Articles implements articles {
     @Override
     public String imageLink() {
         return getImageLink();
+    }
+
+
+    public int getCommentId() {
+        return commentId;
+    }
+
+    public void setCommentId(int commentId) {
+        this.commentId = commentId;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public String getCommentContent() {
+        return commentContent;
+    }
+
+    public void setCommentContent(String commentContent) {
+        this.commentContent = commentContent;
+    }
+
+    public LocalDateTime getCommentCreatedAt() {
+        return commentCreatedAt;
+    }
+
+    public void setCommentCreatedAt(LocalDateTime commentCreatedAt) {
+        this.commentCreatedAt = commentCreatedAt;
     }
 
     public String getHeadline() {

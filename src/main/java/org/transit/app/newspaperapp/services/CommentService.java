@@ -1,8 +1,6 @@
 package org.transit.app.newspaperapp.services;
 
-import org.transit.app.newspaperapp.interfaces.CommentServiceInterface;
 import org.transit.app.newspaperapp.model.Articles;
-import org.transit.app.newspaperapp.model.Comment;
 import org.transit.app.newspaperapp.model.UserSession;
 
 import java.sql.*;
@@ -12,18 +10,18 @@ import java.util.List;
 import static org.transit.app.newspaperapp.utilities.DBConnection.getConnection;
 
 public class CommentService {
-    private final List<Comment> comments = new ArrayList<>();
+    private final List<Articles> comments = new ArrayList<>();
 
-    public void addComment(Comment comment) {
+    public void addComment(Articles comment) {
         addCommentToDB(comment);
         comments.add(comment);
     }
 
-    public List<Comment> getComments() {
+    public List<Articles> getComments() {
         return getCommentsFromDB();
     }
 
-    public void updateComment(Comment comment) {
+    public void updateComment(Articles comment) {
         updateCommentInDB(comment);
     }
 
@@ -31,15 +29,15 @@ public class CommentService {
         deleteCommentFromDB(commentId);
     }
 
-    private void addCommentToDB(Comment comment) {
+    private void addCommentToDB(Articles articles) {
         String query = "INSERT INTO Comments (article_id, user_id, content, created_at) VALUES (?, ?, ?, ?)";
         try (Connection connection = getConnection()) {
             assert connection != null;
             try (PreparedStatement stmt = connection.prepareStatement(query)) {
                 stmt.setInt(1, Articles.getArticleId());
                 stmt.setInt(2, UserSession.getInstance().getUserId());
-                stmt.setString(3, comment.getContent());
-                stmt.setTimestamp(4, Timestamp.valueOf(comment.getCreatedAt()));
+                stmt.setString(3, articles.getContent());
+                stmt.setTimestamp(4, Timestamp.valueOf(articles.getCommentCreatedAt()));
 
                 int rowsInserted = stmt.executeUpdate();
 
@@ -55,8 +53,8 @@ public class CommentService {
         }
     }
 
-    private List<Comment> getCommentsFromDB() {
-        List<Comment> commentList = new ArrayList<>();
+    private List<Articles> getCommentsFromDB() {
+        List<Articles> commentList = new ArrayList<>();
         String query = "SELECT * FROM Comments";
         try (Connection connection = getConnection()) {
             assert connection != null;
@@ -68,7 +66,8 @@ public class CommentService {
                     int userId = resultSet.getInt("user_id");
                     String content = resultSet.getString("content");
                     Timestamp createdAt = resultSet.getTimestamp("created_at");
-                    Comment comment = new Comment(commentId, articleId, userId, content, createdAt.toLocalDateTime());
+
+                    Articles comment = new Articles(commentId, articleId, userId, content, createdAt.toLocalDateTime());
                     commentList.add(comment);
                 }
             }
@@ -78,15 +77,15 @@ public class CommentService {
         return commentList;
     }
 
-    private void updateCommentInDB(Comment comment) {
+    private void updateCommentInDB(Articles comment) {
         String query = "UPDATE Comments SET article_id = ?, user_id = ?, content = ?, created_at = ? WHERE comment_id = ?";
         try (Connection connection = getConnection()) {
             assert connection != null;
             try (PreparedStatement stmt = connection.prepareStatement(query)) {
-                stmt.setInt(1, comment.getArticleId());
+                stmt.setInt(1, Articles.getArticleId());
                 stmt.setInt(2, comment.getUserId());
                 stmt.setString(3, comment.getContent());
-                stmt.setTimestamp(4, Timestamp.valueOf(comment.getCreatedAt()));
+                stmt.setTimestamp(4, Timestamp.valueOf(comment.getCommentCreatedAt()));
                 stmt.setInt(5, comment.getCommentId());
                 stmt.executeUpdate();
             }
@@ -97,10 +96,12 @@ public class CommentService {
 
     private void deleteCommentFromDB(int commentId) {
         String query = "DELETE FROM Comments WHERE comment_id = ?";
-        try (Connection connection = getConnection();
-             PreparedStatement stmt = connection.prepareStatement(query)) {
-            stmt.setInt(1, commentId);
-            stmt.executeUpdate();
+        try (Connection connection = getConnection()) {
+            assert connection != null;
+            try (PreparedStatement stmt = connection.prepareStatement(query)) {
+                stmt.setInt(1, commentId);
+                stmt.executeUpdate();
+            }
         } catch (SQLException e) {
             throw new RuntimeException("Error deleting the comment", e);
         }

@@ -3,25 +3,19 @@ package org.transit.app.newspaperapp.controller;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 import org.transit.app.newspaperapp.Main;
-import org.transit.app.newspaperapp.model.Comment;
 import org.transit.app.newspaperapp.services.ArticleTr;
 import org.transit.app.newspaperapp.model.Articles;
 
-import java.awt.*;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -67,7 +61,7 @@ public abstract class articleLoader implements Initializable {
     }
 
     protected void setArticleController(articleCards controller, Articles article) {
-        controller.setArticleTexts(article.getHeadline(), article.getByline(), article.getContent(), article.getPublicationDate(), article.getCategory(), article.getAuthor_name());
+        controller.setArticleTexts(article.getHeadline(), article.getByline(), article.getContent(), article.getPublicationDate(), article.getCategory(), article.getAuthor_name(), Articles.getArticleId());
 
         try {
             if (article.getImageLink() == null || article.getImageLink().isEmpty()) {
@@ -81,6 +75,7 @@ public abstract class articleLoader implements Initializable {
             controller.removeArticleImage();
         }
     }
+
 
     private final Map<String, Image> imageCache = new HashMap<>();
 

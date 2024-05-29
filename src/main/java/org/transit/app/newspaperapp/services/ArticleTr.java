@@ -12,42 +12,6 @@ import static org.transit.app.newspaperapp.utilities.DBConnection.getConnection;
 
 public class ArticleTr {
 
-//    public void publishArticleQuery(Articles articles) {
-//        String headline = articles.headline();
-//        String byline = articles.byline();
-//        String content = articles.content();
-//        String category = articles.category();
-//        LocalDateTime publicationDateTime = LocalDateTime.parse(articles.publicationDate());
-//        String imageLink = articles.imageLink();
-//        int author_id = UserSession.getInstance().getUserId();
-//
-//        try (Connection connection = getConnection()) {
-//            String query = "INSERT INTO ARTICLES (HEADLINE, BYLINE, PUBLICATION_DATE, CONTENT, CATEGORY_TYPE, IMAGELINK, AUTHOR_ID) VALUES (?, ?, ?, ?, ?, ?, ?)";
-//            assert connection != null;
-//            PreparedStatement stmt = connection.prepareStatement(query);
-//
-//
-//            stmt.setString(1, headline);
-//            stmt.setString(2, byline);
-//            stmt.setObject(3, Timestamp.valueOf(publicationDateTime));
-//            stmt.setString(4, content);
-//            stmt.setString(5, category);
-//            stmt.setString(6, imageLink);
-//            stmt.setInt(7, author_id);
-//
-//            int rowsInserted = stmt.executeUpdate();
-//
-//            if (rowsInserted > 0) {
-//                System.out.println("successful");
-//            } else {
-//                System.out.println("failed");
-//            }
-//
-//        } catch (SQLException e) {
-//            throw new RuntimeException("Error publishing articles", e);
-//        }
-//    }
-
     public void publishArticleQuery(Articles articles) {
         String headline = articles.headline();
         String byline = articles.byline();

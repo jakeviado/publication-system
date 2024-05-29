@@ -14,9 +14,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
-
 import org.transit.app.newspaperapp.model.Articles;
-import org.transit.app.newspaperapp.model.Comment;
 import org.transit.app.newspaperapp.model.UserSession;
 import org.transit.app.newspaperapp.services.ArticleTr;
 import org.transit.app.newspaperapp.services.CommentService;
@@ -25,7 +23,6 @@ import java.net.URL;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.ResourceBundle;
-
 
 public class articleCards implements Initializable {
     @FXML
@@ -68,20 +65,23 @@ public class articleCards implements Initializable {
     public Button saveArticleAction;
 
     private final CommentService commentService = new CommentService();
+    private int articleId;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         setArticleImage(null);
-        loadComments();
     }
 
-    public void setArticleTexts(String headline, String byline, String content, String publishedDate, String category, String author_name) {
+    public void setArticleTexts(String headline, String byline, String content, String publishedDate, String category, String authorName, int articleId) {
+        this.articleId = Articles.getArticleId();
         headlineLabel.setText(headline);
         bylineLabel.setText(byline);
         contentLabel.setText(content);
         dateLabel.setText(publishedDate);
         ctgryLbl.setText(category);
-        authorLabel.setText("By: " + author_name);
+        authorLabel.setText("By: " + authorName);
+
+        loadCommentsForArticle();
     }
 
     public void setArticleImage(Image image) {
@@ -97,51 +97,40 @@ public class articleCards implements Initializable {
         }
     }
 
+    private void loadCommentsForArticle() {
+        commentsList.getChildren().clear();
+        List<Articles> comments = commentService.getComments().stream()
+                .filter(comment -> Articles.getArticleId() == Articles.getArticleId())
+                .toList();
+
+        for (Articles comment : comments) {
+            Label commentLabel = new Label(comment.getUserId() + " " + comment.getContent());
+            commentsList.getChildren().add(commentLabel);
+        }
+    }
 
     @FXML
     private void handleSubmitComment() {
         String commentText = newCommentField.getText();
         if (!commentText.isEmpty()) {
-            int userId = UserSession.getInstance().getLoggedInUser().getUserID();
-            int articleId = getArticleId();
-            LocalDateTime createdAt = LocalDateTime.now();
-            Comment newComment = new Comment(articleId, userId, commentText, createdAt);
-            commentService.addComment(newComment);
-            displayComments(articleId);
+            Articles comment = new Articles(0, Articles.getArticleId(), UserSession.getInstance().getUserId(), commentText, LocalDateTime.now());
+            commentService.addComment(comment);
             newCommentField.clear();
-        }
-    }
-
-    private void displayComments(int articleId) {
-        commentsList.getChildren().clear();
-        List<Comment> comments = commentService.getComments();
-        for (Comment comment : comments) {
-            Label commentLabel = new Label(comment.getContent());
-            commentsList.getChildren().add(commentLabel);
-        }
-    }
-
-    private void loadComments() {
-        int articleId = getArticleId();
-        displayComments(articleId);
-    }
-
-    private int getArticleId() {
-        return Articles.getArticleId();
-    }
-
-
-    private void saveArticle() {
-        try {
-            ArticleTr articleTr = new ArticleTr();
-            articleTr.saveArticle(UserSession.getInstance().getUserId(), Articles.getArticleId());
-            System.out.println("Article saved successfully!");
-        } catch (RuntimeException e) {
-            System.err.println("Failed to save article: " + e.getMessage());
+            loadCommentsForArticle();
         }
     }
 
     public void saveArticleAction(ActionEvent event) {
         saveArticle();
+    }
+
+    private void saveArticle() {
+        try {
+            ArticleTr articleTr = new ArticleTr();
+            articleTr.saveArticle(UserSession.getInstance().getUserId(), articleId);
+            System.out.println("Article saved successfully!");
+        } catch (RuntimeException e) {
+            System.err.println("Failed to save article: " + e.getMessage());
+        }
     }
 }

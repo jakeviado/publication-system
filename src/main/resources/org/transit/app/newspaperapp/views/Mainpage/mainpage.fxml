@@ -84,7 +84,7 @@
                <children>
                   <HBox alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" prefHeight="46.0" prefWidth="147.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <ToggleButton fx:id="toggleButton" mnemonicParsing="false" onAction="#toggleMenu" onMouseClicked="#toggleMenu" prefHeight="38.0" prefWidth="70.0" styleClass="menu-tgl-btn" text="MORE" textFill="WHITE" />
+                        <ToggleButton fx:id="toggleButton" mnemonicParsing="false" onAction="#toggleMenu" onMouseClicked="#toggleMenu" prefHeight="38.0" prefWidth="70.0" styleClass="menu-tgl-btn" text="CLOSE" textFill="WHITE" />
                      </children>
                      <padding>
                         <Insets left="10.0" />
