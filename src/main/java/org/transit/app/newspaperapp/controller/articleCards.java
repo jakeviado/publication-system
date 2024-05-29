@@ -2,11 +2,7 @@ package org.transit.app.newspaperapp.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
@@ -19,24 +15,15 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
 
-import javafx.geometry.NodeOrientation;
-import javafx.stage.Stage;
-import org.transit.app.newspaperapp.Main;
-import org.transit.app.newspaperapp.controller.mainpage.mainpage;
 import org.transit.app.newspaperapp.model.Articles;
 import org.transit.app.newspaperapp.model.Comment;
-import org.transit.app.newspaperapp.model.User;
 import org.transit.app.newspaperapp.model.UserSession;
 import org.transit.app.newspaperapp.services.ArticleTr;
 import org.transit.app.newspaperapp.services.CommentService;
 
-import java.io.IOException;
 import java.net.URL;
-import java.security.cert.PolicyNode;
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Objects;
-import java.util.Random;
 import java.util.ResourceBundle;
 
 
@@ -84,7 +71,6 @@ public class articleCards implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-//        randomOrientation();
         setArticleImage(null);
         loadComments();
     }
@@ -103,18 +89,6 @@ public class articleCards implements Initializable {
         Rectangle clipRect = new Rectangle(1000, 600);
         imageView.setClip(clipRect);
     }
-
-//    public void randomOrientation() {
-//        Random random = new Random();
-//        int randomNumber = random.nextInt(2);
-//
-//        if (randomNumber == 0) {
-//            articleCard.setNodeOrientation(NodeOrientation.LEFT_TO_RIGHT);
-//        } else {
-//            articleCard.setNodeOrientation(NodeOrientation.RIGHT_TO_LEFT);
-//        }
-//    }
-
 
     public void removeArticleImage() {
         HBox parentPane = (HBox) imageView.getParent();
