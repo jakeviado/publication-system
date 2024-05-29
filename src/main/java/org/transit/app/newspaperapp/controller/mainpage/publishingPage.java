@@ -57,7 +57,7 @@ public class publishingPage {
         int author_id = UserSession.getInstance().getUserId();
 
         Articles articles = new Articles(headline, byline, content, category, publicationDate, imageLink);
-//        articles.setAuthor_name(String.valueOf(author_id));
+        articles.setAuthor_name(String.valueOf(author_id));
 
         ArticleTr publish = new ArticleTr();
 

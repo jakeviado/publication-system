@@ -25,15 +25,15 @@ public class Articles implements articles {
     }
 
 
-    public Articles(String headline, String byline, String content, String categoryType, LocalDateTime publicationDate, String imageLink, int articleId) {
+    public Articles(String headline, String byline, String content, String categoryType, LocalDateTime publicationDate, String imageLink, int articleId, String authorId) {
         this.headline = headline;
         this.byline = byline;
         this.content = content;
         this.publicationDate = String.valueOf(publicationDate);
         this.imageLink = imageLink;
         Articles.articleId = articleId;
+        this.author_name = String.valueOf(authorId);
     }
-
 
 
     @Override
@@ -65,8 +65,6 @@ public class Articles implements articles {
     public String imageLink() {
         return getImageLink();
     }
-
-
 
     public String getHeadline() {
         return headline;

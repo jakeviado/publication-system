@@ -10,9 +10,11 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.transit.app.newspaperapp.Main;
+import org.transit.app.newspaperapp.model.Comment;
 import org.transit.app.newspaperapp.services.ArticleTr;
 import org.transit.app.newspaperapp.model.Articles;
 
+import java.awt.*;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
