@@ -29,15 +29,15 @@ public class Articles implements articles {
     }
 
 
-    public Articles(String headline, String byline, String content, String categoryType, LocalDateTime publicationDate, String imageLink, int articleId, String authorId) {
-        this.headline = headline;
-        this.byline = byline;
-        this.content = content;
-        this.publicationDate = String.valueOf(publicationDate);
-        this.imageLink = imageLink;
-        Articles.articleId = articleId;
-        this.author_name = String.valueOf(authorId);
-    }
+//    public Articles(String headline, String byline, String content, String categoryType, LocalDateTime formattedPublicationDate, String imageLink, int articleId, String authorId) {
+//        this.headline = headline;
+//        this.byline = byline;
+//        this.content = content;
+//        this.publicationDate = String.valueOf(formattedPublicationDate);
+//        this.imageLink = imageLink;
+//        Articles.articleId = articleId;
+//        this.author_name = String.valueOf(authorId);
+//    }
 
     public Articles(int commentId, int articleId, int userId, String content, LocalDateTime createdAt) {
         this.commentId = commentId;
@@ -47,7 +47,15 @@ public class Articles implements articles {
         this.commentCreatedAt = createdAt;
     }
 
-
+    public Articles(String headline, String byline, String content, String categoryType, String formattedPublicationDate, String imageLink, int articleId, String authorId) {
+        this.headline = headline;
+        this.byline = byline;
+        this.content = content;
+        this.publicationDate = String.valueOf(formattedPublicationDate);
+        this.imageLink = imageLink;
+        Articles.articleId = articleId;
+        this.author_name = String.valueOf(authorId);
+    }
 
 
     @Override

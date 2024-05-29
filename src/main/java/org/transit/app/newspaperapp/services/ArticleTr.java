@@ -5,6 +5,7 @@ import org.transit.app.newspaperapp.model.UserSession;
 
 import java.sql.*;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -107,6 +108,8 @@ public class ArticleTr {
         return loadArticlesByCategory("Entertainment");
     }
 
+    private static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("MMM d, yyyy hh:mm a");
+
     private List<Articles> loadArticlesByCategory(String category) {
         List<Articles> articlesList = new ArrayList<>();
 
@@ -136,7 +139,9 @@ public class ArticleTr {
                 int article_id = resultSet.getInt("ARTICLE_ID");
                 String author_id = resultSet.getString("AUTHOR_NAME");
 
-                Articles article = new Articles(headline, byline, content, categoryType, publicationDate, imageLink, article_id, author_id);
+                String formattedPublicationDate = publicationDate.format(DATE_TIME_FORMATTER);
+
+                Articles article = new Articles(headline, byline, content, categoryType, formattedPublicationDate, imageLink, article_id, author_id);
                 articlesList.add(article);
             }
 
