@@ -21,10 +21,9 @@ import org.transit.app.newspaperapp.services.CommentService;
 
 import java.net.URL;
 import java.time.LocalDateTime;
-import java.util.List;
 import java.util.ResourceBundle;
 
-public class articleCards implements Initializable {
+public class articleCards extends articleLoader implements Initializable {
     @FXML
     public Hyperlink headlineLabel;
 
@@ -74,7 +73,7 @@ public class articleCards implements Initializable {
     }
 
     public void setArticleTexts(String headline, String byline, String content, String publishedDate, String category, String authorName, int articleId) {
-        this.articleId = Articles.getArticleId();
+        this.articleId = articleId;
         headlineLabel.setText(headline);
         bylineLabel.setText(byline);
         contentLabel.setText(content);
@@ -99,22 +98,14 @@ public class articleCards implements Initializable {
     }
 
     private void loadCommentsForArticle() {
-        commentsList.getChildren().clear();
-        List<Articles> comments = commentService.getComments().stream()
-                .filter(comment -> Articles.getArticleId() == articleId)
-                .toList();
-
-        for (Articles comment : comments) {
-            Label commentLabel = new Label(comment.getUserId() + " " + comment.getContent());
-            commentsList.getChildren().add(commentLabel);
-        }
+        loadComments(commentsList, articleId);
     }
 
     @FXML
     private void handleSubmitComment() {
         String commentText = newCommentField.getText();
         if (!commentText.isEmpty()) {
-            Articles comment = new Articles(0, Articles.getArticleId(), UserSession.getInstance().getUserId(), commentText, LocalDateTime.now());
+            Articles comment = new Articles(0, articleId, UserSession.getInstance().getUserId(), commentText, LocalDateTime.now());
             commentService.addComment(comment);
             newCommentField.clear();
             loadCommentsForArticle();

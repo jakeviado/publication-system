@@ -7,6 +7,8 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 import javafx.scene.Node;
+import org.transit.app.newspaperapp.Main;
+
 import java.io.IOException;
 
 public class accountController {
@@ -22,7 +24,7 @@ public class accountController {
 
     private void loadSavedArticlesScene(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("views/Account/savedArticle.fxml"));
+            FXMLLoader loader = new FXMLLoader(Main.class.getResource("views/Mainpage/Account/savedArticles.fxml"));
             Parent root = loader.load();
             Scene scene = new Scene(root);
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -35,7 +37,7 @@ public class accountController {
 
     private void loadAccountSettingsScene(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("views/Account/accountSettings.fxml"));
+            FXMLLoader loader = new FXMLLoader(Main.class.getResource("views/Mainpage/Account/accountSettings.fxml"));
             Parent root = loader.load();
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));

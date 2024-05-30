@@ -10,7 +10,9 @@ import javafx.scene.layout.VBox;
 import org.transit.app.newspaperapp.Main;
 import org.transit.app.newspaperapp.services.ArticleTr;
 import org.transit.app.newspaperapp.model.Articles;
+import org.transit.app.newspaperapp.services.CommentService;
 
+import javax.xml.stream.events.Comment;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -24,6 +26,7 @@ import java.util.function.Consumer;
 
 public abstract class articleLoader implements Initializable {
     private final Map<String, Image> imageCache = new HashMap<>();
+    private final CommentService commentService = new CommentService();
 
     protected void loadArticlesByCategory(ArticleTr articleService, VBox container, String category) {
         List<Articles> articlesList = switch (category) {
@@ -43,6 +46,19 @@ public abstract class articleLoader implements Initializable {
                     container.getChildren().add(card);
                 }
             }
+        }
+    }
+
+
+    protected void loadComments(VBox commentsList, int articleId) {
+        commentsList.getChildren().clear();
+        List<Articles> comments = this.commentService.getComments().stream()
+                .filter(comment -> Articles.getArticleId() == articleId)
+                .toList();
+
+        for (Articles comment : comments) {
+            Label commentLabel = new Label(comment.getUserId() + ": " + comment.getContent());
+            commentsList.getChildren().add(commentLabel);
         }
     }
 
