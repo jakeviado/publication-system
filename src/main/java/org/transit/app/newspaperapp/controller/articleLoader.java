@@ -49,7 +49,6 @@ public abstract class articleLoader implements Initializable {
         }
     }
 
-
     protected void loadComments(VBox commentsList, int articles) {
         commentsList.getChildren().clear();
         List<Comments> comments = commentService.getComments(articles);
@@ -59,7 +58,6 @@ public abstract class articleLoader implements Initializable {
             commentsList.getChildren().add(commentLabel);
         }).forEach(System.out::println);
     }
-
 
 
     protected BorderPane loadArticleCard(Articles article) {

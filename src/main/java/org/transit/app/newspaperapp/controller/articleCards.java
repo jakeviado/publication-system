@@ -82,7 +82,7 @@ public class articleCards extends articleLoader implements Initializable {
     public void setArticleTexts(String headline, String byline, String content, String publishedDate, String category, String authorName, int articleId) {
         this.articleId = articleId;
         headlineLabel.setText(headline);
-        bylineLabel.setText(String.valueOf(articleId)); // place holder ko muna ng article id ito orig line: bylineLabel.setText(byline);
+        bylineLabel.setText(byline);
         contentLabel.setText(content);
         dateLabel.setText(publishedDate);
         ctgryLbl.setText(category);

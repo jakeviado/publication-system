@@ -9,18 +9,6 @@
     -fx-min-height: 100%;
 }
 
-.articleContainerBtns{
-    -fx-border-color: transparent;
-    -fx-background-color: transparent;
-    -fx-text-fill: black;
-}
-
-.articleContainerBtns:focused {
-    -fx-border-color: #000000;
-    -fx-background-color: #000000;
-    -fx-text-fill: #fefefe;
-}
-
 .imageView {
     -fx-border-color: rgba(128, 128, 128, 0.33);
     -fx-border-width: 1px;

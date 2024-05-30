@@ -45,6 +45,36 @@
     -fx-text-fill: black;
 }
 
+.commentSectionButtons{
+    -fx-font-size: 8;
+    -fx-text-fill: #444444;
+
+}
+
+.saveBtn{
+   -fx-background-color: transparent;
+   -fx-background-radius: 20px;
+   -fx-border-radius: 20px;
+}
+
+.saveBtn:focused {
+    -fx-border-color: #000000;
+    -fx-background-color: #000000;
+    -fx-text-fill: #fefefe;
+}
+
+.commentsBtn {
+    -fx-background-color: transparent;
+    -fx-background-radius: 20px;
+    -fx-border-radius: 20px;
+}
+
+.submitBtn {
+    -fx-background-color: transparent;
+    -fx-background-radius: 20px;
+    -fx-border-radius: 20px;
+}
+
 .toggle-button{
      -fx-background-radius: 3px;
 }
