@@ -28,7 +28,14 @@
     -fx-background-color: transparent;
     -fx-background-radius: 0px;
     -fx-text-fill: black;
-    -fx-font-size: 10;
+    -fx-font-size: 14px;
+}
+
+.button-burger-bottom {
+    -fx-background-color: transparent;
+    -fx-background-radius: 0px;
+    -fx-text-fill: black;
+    -fx-font-size: 14px;
 }
 
 .categories-button {

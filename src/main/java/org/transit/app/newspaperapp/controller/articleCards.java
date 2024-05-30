@@ -65,6 +65,7 @@ public class articleCards implements Initializable {
     public Button saveArticleAction;
 
     private final CommentService commentService = new CommentService();
+
     private int articleId;
 
     @Override
@@ -100,7 +101,7 @@ public class articleCards implements Initializable {
     private void loadCommentsForArticle() {
         commentsList.getChildren().clear();
         List<Articles> comments = commentService.getComments().stream()
-                .filter(comment -> Articles.getArticleId() == Articles.getArticleId())
+                .filter(comment -> Articles.getArticleId() == articleId)
                 .toList();
 
         for (Articles comment : comments) {

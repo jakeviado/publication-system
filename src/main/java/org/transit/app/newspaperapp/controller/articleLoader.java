@@ -3,6 +3,7 @@ package org.transit.app.newspaperapp.controller;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
@@ -22,6 +23,7 @@ import java.util.Map;
 import java.util.function.Consumer;
 
 public abstract class articleLoader implements Initializable {
+    private final Map<String, Image> imageCache = new HashMap<>();
 
     protected void loadArticlesByCategory(ArticleTr articleService, VBox container, String category) {
         List<Articles> articlesList = switch (category) {
@@ -43,7 +45,6 @@ public abstract class articleLoader implements Initializable {
             }
         }
     }
-
 
     protected BorderPane loadArticleCard(Articles article) {
         try {
@@ -75,9 +76,6 @@ public abstract class articleLoader implements Initializable {
             controller.removeArticleImage();
         }
     }
-
-
-    private final Map<String, Image> imageCache = new HashMap<>();
 
     // optimizations for lazy load image
     protected void loadImageAsync(String imageURL, Consumer<Image> callback) {

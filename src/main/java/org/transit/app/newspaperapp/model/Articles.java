@@ -28,17 +28,6 @@ public class Articles implements articles {
         this.imageLink = imageLink;
     }
 
-
-//    public Articles(String headline, String byline, String content, String categoryType, LocalDateTime formattedPublicationDate, String imageLink, int articleId, String authorId) {
-//        this.headline = headline;
-//        this.byline = byline;
-//        this.content = content;
-//        this.publicationDate = String.valueOf(formattedPublicationDate);
-//        this.imageLink = imageLink;
-//        Articles.articleId = articleId;
-//        this.author_name = String.valueOf(authorId);
-//    }
-
     public Articles(int commentId, int articleId, int userId, String content, LocalDateTime createdAt) {
         this.commentId = commentId;
         Articles.articleId = articleId;

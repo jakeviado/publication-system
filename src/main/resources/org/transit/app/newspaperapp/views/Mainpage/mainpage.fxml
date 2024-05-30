@@ -49,27 +49,63 @@
                <padding>
                   <Insets bottom="10.0" left="10.0" right="5.0" top="10.0" />
                </padding></HBox>
-            <Button fx:id="homeBtn" ellipsisString="" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#setHomeBtn" prefHeight="50.0" prefWidth="234.0" styleClass="button-burger" text="HOME" textOverrun="CLIP">
+            <Button fx:id="homeBtn" alignment="CENTER_RIGHT" contentDisplay="CENTER" ellipsisString="" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#setHomeBtn" prefHeight="50.0" prefWidth="234.0" style="-fx-font-size: 13;" styleClass="button-burger" text="HOME" textOverrun="CLIP">
                <cursor>
                   <Cursor fx:constant="HAND" />
-               </cursor></Button>
-            <Button fx:id="categoriesBtn" ellipsisString="" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#setCategoriesBtn" prefHeight="50.0" prefWidth="234.0" styleClass="button-burger" text="CATEGORIES" textOverrun="CLIP">
+               </cursor>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <padding>
+                  <Insets right="15.0" />
+               </padding></Button>
+            <Button fx:id="categoriesBtn" alignment="CENTER_RIGHT" ellipsisString="" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#setCategoriesBtn" prefHeight="50.0" prefWidth="234.0" style="-fx-font-size: 13;" styleClass="button-burger" text="CATEGORIES" textOverrun="CLIP">
                <cursor>
                   <Cursor fx:constant="HAND" />
-               </cursor></Button>
-            <Button fx:id="aboutBtn" ellipsisString="" layoutX="10.0" layoutY="62.0" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#setAboutBtn" prefHeight="50.0" prefWidth="234.0" styleClass="button-burger" text="ABOUT" textOverrun="CLIP">
+               </cursor>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <padding>
+                  <Insets right="15.0" />
+               </padding></Button>
+            <Button fx:id="writeArticleButton" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#publishArticlePage" prefHeight="50.0" prefWidth="215.0" style="-fx-font-size: 13;" styleClass="button-burger" text="POST ARTICLE" textOverrun="CLIP">
                <cursor>
                   <Cursor fx:constant="HAND" />
-               </cursor></Button>
-            <Button fx:id="accountBtn" ellipsisString="" layoutX="10.0" layoutY="114.0" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#setAccountBtn" prefHeight="50.0" prefWidth="234.0" styleClass="button-burger" text="ACCOUNT" textOverrun="CLIP">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor></Button>
-            <Button fx:id="writeArticleButton" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#publishArticlePage" prefHeight="50.0" prefWidth="215.0" styleClass="button-burger" text="POST ARTICLE" textOverrun="CLIP">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor></Button>
+               </cursor>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <padding>
+                  <Insets right="15.0" />
+               </padding></Button>
             <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="240.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS" />
+            <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="240.0">
+               <children>
+                  <Button fx:id="aboutBtn" alignment="CENTER_RIGHT" ellipsisString="" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#setAboutBtn" prefHeight="50.0" prefWidth="234.0" style="-fx-font-size: 13;" styleClass="button-burger-bottom" text="ABOUT US" textOverrun="CLIP">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets right="15.0" />
+                     </padding>
+                  </Button>
+                  <Button fx:id="accountBtn" alignment="CENTER_RIGHT" ellipsisString="" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#setAccountBtn" prefHeight="50.0" prefWidth="234.0" style="-fx-font-size: 13;" styleClass="button-burger-bottom" text="ACCOUNT" textOverrun="CLIP">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets right="15.0" />
+                     </padding>
+                  </Button>
+               </children>
+            </VBox>
             <Button fx:id="logoutButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#setLogoutButton" prefHeight="42.0" prefWidth="200.0" styleClass="logout-button" text="LOG OUT" textFill="WHITE" />
          </children>
       </VBox>
