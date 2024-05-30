@@ -22,7 +22,7 @@ public class accountController {
 
     private void loadSavedArticlesScene(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("savedArticle.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("views/Account/savedArticle.fxml"));
             Parent root = loader.load();
             Scene scene = new Scene(root);
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -35,7 +35,7 @@ public class accountController {
 
     private void loadAccountSettingsScene(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("accountSettings.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("views/Account/accountSettings.fxml"));
             Parent root = loader.load();
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
