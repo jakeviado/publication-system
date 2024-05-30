@@ -80,7 +80,7 @@
                   <Insets right="15.0" />
                </padding></Button>
             <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="240.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS" />
-            <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="240.0">
+            <VBox alignment="CENTER_LEFT" prefHeight="113.0" prefWidth="240.0">
                <children>
                   <Button fx:id="aboutBtn" alignment="CENTER_RIGHT" ellipsisString="" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#setAboutBtn" prefHeight="50.0" prefWidth="234.0" style="-fx-font-size: 13;" styleClass="button-burger-bottom" text="ABOUT US" textOverrun="CLIP">
                      <cursor>
