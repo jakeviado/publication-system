@@ -8,11 +8,11 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import org.transit.app.newspaperapp.Main;
+import org.transit.app.newspaperapp.model.Comments;
 import org.transit.app.newspaperapp.services.ArticleTr;
 import org.transit.app.newspaperapp.model.Articles;
 import org.transit.app.newspaperapp.services.CommentService;
 
-import javax.xml.stream.events.Comment;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -50,17 +50,17 @@ public abstract class articleLoader implements Initializable {
     }
 
 
-    protected void loadComments(VBox commentsList, int articleId) {
+    protected void loadComments(VBox commentsList, int articles) {
         commentsList.getChildren().clear();
-        List<Articles> comments = this.commentService.getComments().stream()
-                .filter(comment -> Articles.getArticleId() == articleId)
-                .toList();
+        List<Comments> comments = commentService.getComments(articles);
 
-        for (Articles comment : comments) {
-            Label commentLabel = new Label(comment.getUserId() + ": " + comment.getContent());
+        comments.stream().peek(comment -> {
+            Label commentLabel = new Label(comment.getUsername() + ": " + comment.getContent());
             commentsList.getChildren().add(commentLabel);
-        }
+        }).forEach(System.out::println);
     }
+
+
 
     protected BorderPane loadArticleCard(Articles article) {
         try {
@@ -78,7 +78,7 @@ public abstract class articleLoader implements Initializable {
     }
 
     protected void setArticleController(articleCards controller, Articles article) {
-        controller.setArticleTexts(article.getHeadline(), article.getByline(), article.getContent(), article.getPublicationDate(), article.getCategory(), article.getAuthor_name(), Articles.getArticleId());
+        controller.setArticleTexts(article.getHeadline(), article.getByline(), article.getContent(), article.getPublicationDate(), article.getCategory(), article.getAuthor_name(), article.getArticleId());
 
         try {
             if (article.getImageLink() == null || article.getImageLink().isEmpty()) {

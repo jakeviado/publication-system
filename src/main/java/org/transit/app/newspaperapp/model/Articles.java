@@ -12,13 +12,9 @@ public class Articles implements articles {
     private String category;
     private String imageLink;
     private String author_name;
-    private static int articleId;
+    private int articleId;
 
-    private int commentId;
-    private int userId;
-    private String commentContent;
-    private LocalDateTime commentCreatedAt;
-
+    // publishing
     public Articles(String headline, String byline, String content, String category, LocalDateTime publicationDate, String imageLink) {
         this.headline = headline;
         this.byline = byline;
@@ -28,24 +24,19 @@ public class Articles implements articles {
         this.imageLink = imageLink;
     }
 
-    public Articles(int commentId, int articleId, int userId, String content, LocalDateTime createdAt) {
-        this.commentId = commentId;
-        Articles.articleId = articleId;
-        this.userId = userId;
-        this.content = content;
-        this.commentCreatedAt = createdAt;
-    }
-
     public Articles(String headline, String byline, String content, String categoryType, String formattedPublicationDate, String imageLink, int articleId, String authorId) {
         this.headline = headline;
         this.byline = byline;
         this.content = content;
         this.publicationDate = String.valueOf(formattedPublicationDate);
         this.imageLink = imageLink;
-        Articles.articleId = articleId;
+        this.articleId = articleId;
         this.author_name = String.valueOf(authorId);
     }
 
+    public Articles() {
+
+    }
 
     @Override
     public String headline() {
@@ -75,39 +66,6 @@ public class Articles implements articles {
     @Override
     public String imageLink() {
         return getImageLink();
-    }
-
-
-    public int getCommentId() {
-        return commentId;
-    }
-
-    public void setCommentId(int commentId) {
-        this.commentId = commentId;
-    }
-
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
-
-    public String getCommentContent() {
-        return commentContent;
-    }
-
-    public void setCommentContent(String commentContent) {
-        this.commentContent = commentContent;
-    }
-
-    public LocalDateTime getCommentCreatedAt() {
-        return commentCreatedAt;
-    }
-
-    public void setCommentCreatedAt(LocalDateTime commentCreatedAt) {
-        this.commentCreatedAt = commentCreatedAt;
     }
 
     public String getHeadline() {
@@ -166,11 +124,11 @@ public class Articles implements articles {
         this.author_name = author_name;
     }
 
-    public static int getArticleId() {
+    public int getArticleId() {
         return articleId;
     }
 
     public void setArticleId(int articleId) {
-        Articles.articleId = articleId;
+        this.articleId = articleId;
     }
 }
