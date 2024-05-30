@@ -47,6 +47,8 @@
     -fx-font-family: 'Fraunces Medium';
     -fx-font-size: 33px;
     -fx-font-weight: 700;
+    -fx-padding: 0;
+    -fx-text-fill: black;
 }
 
 .pageLabel {
@@ -61,6 +63,7 @@
 }
 
 .welcomeUserLbl {
-    -fx-font-size: 14px;
+    -fx-font-family: 'Fraunces Medium';
+    -fx-font-size: 23px;
     -fx-text-fill: #4c4c4c;
 }

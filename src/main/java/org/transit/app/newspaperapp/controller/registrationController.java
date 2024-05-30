@@ -69,6 +69,8 @@ public class registrationController {
 
         try {
             if (transact.registerQuery(userData, isAuthor, isReader)) {
+                Signup.setLoggedInUser(userData);
+
                 notifyLabel.setText(success);
                 clearTextsFields.clearFields(usernameTextField, passwordTextField, emailTextField, firstNameTextField, lastNameTextField, passwordTextField);
             } else {

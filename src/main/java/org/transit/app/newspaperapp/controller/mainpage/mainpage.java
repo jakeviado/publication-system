@@ -15,10 +15,13 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.transit.app.newspaperapp.Main;
 import org.transit.app.newspaperapp.model.User;
+import org.transit.app.newspaperapp.model.UserSession;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
+import java.util.Set;
 
 public class mainpage implements Initializable {
     @FXML
@@ -29,9 +32,6 @@ public class mainpage implements Initializable {
 
     @FXML
     public ToggleButton toggleButton;
-
-    @FXML
-    public BorderPane MainBorderPanel;
 
     @FXML
     public Button logoutButton;
@@ -61,15 +61,37 @@ public class mainpage implements Initializable {
     public Label welcomeUserLbl;
 
     @FXML
+    public Label roleLbl;
+
+    @FXML
+    public VBox mainpageEnvironmentVbox;
+
+    @FXML
     private Button exitButton;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        UserSession session = UserSession.getInstance();
+        Set<Integer> roles = session.getRoles();
+
+        int roleIdToCheck = 1;
+
+        if (!roles.contains(roleIdToCheck)) {
+            welcomeUserLbl.setText("@" + UserSession.getInstance().getLoggedInUser().getUsername() + "!");
+            roleLbl.setText("READER");
+            writeArticleButton.setDisable(true);
+            writeArticleButton.setOpacity(0);
+        } else {
+            welcomeUserLbl.setText("@" + UserSession.getInstance().getLoggedInUser().getUsername() + "!");
+            roleLbl.setText("AUTHOR");
+            writeArticleButton.setDisable(false);
+            writeArticleButton.setOpacity(1);
+        }
+
+
         if (loadNewsFeed()) {
             notifyLabel.setText("~ Today's Front Page ~");
         }
-        setWelcomeUserLbl();
-        roleAuth();
         toggleMenu();
     }
 
@@ -82,18 +104,6 @@ public class mainpage implements Initializable {
         }
         return true;
     }
-
-    public void setWelcomeUserLbl() {
-        welcomeUserLbl.setText("Welcome " + "@" + User.getLoggedInUser().getUsername() + "!");
-
-//        Timeline timeline = new Timeline(new KeyFrame(
-//                Duration.seconds(10),
-//                event -> welcomeUserLbl.setVisible(false)
-//        ));
-//        timeline.setCycleCount(1);
-//        timeline.play();
-    }
-
 
     public void toggleMenu() {
         toggleButton.setOnAction(event -> {
@@ -119,6 +129,7 @@ public class mainpage implements Initializable {
             toggleButton.setText(buttonText);
         });
     }
+
 
     public void publishArticlePage() throws IOException {
         switchScene("views/Mainpage/PublishArticle/publishingPage.fxml");
@@ -146,7 +157,7 @@ public class mainpage implements Initializable {
     }
 
     public void exitApp() throws IOException {
-        exitSession(User.getLoggedInUser());
+        exitSession(UserSession.getInstance().getLoggedInUser());
     }
 
     public void exitSession(User user) throws IOException {
@@ -157,7 +168,7 @@ public class mainpage implements Initializable {
     }
 
     public void setLogoutButton() throws IOException {
-        logoutSession(User.getLoggedInUser());
+        logoutSession(UserSession.getInstance().getLoggedInUser());
     }
 
     public void logoutSession(User user) throws IOException {
@@ -166,9 +177,6 @@ public class mainpage implements Initializable {
         user.setPassword(null);
     }
 
-    public void roleAuth() {
-        writeArticleButton.setDisable(false);
-    }
 
     private void switchScene(String fxmlFile) throws IOException {
         BorderPane nextVbox = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource(fxmlFile)));

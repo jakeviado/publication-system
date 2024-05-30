@@ -116,8 +116,9 @@ public class ArticleTr {
                 String content = resultSet.getString("CONTENT");
                 String categoryType = resultSet.getString("CATEGORY_TYPE");
                 String imageLink = resultSet.getString("IMAGELINK");
+                int article_id = Integer.parseInt(resultSet.getString("ARTICLE_ID"));
 
-                Articles article = new Articles(headline, byline, content, categoryType, publicationDate, imageLink);
+                Articles article = new Articles(headline, byline, content, categoryType, publicationDate, imageLink, article_id);
                 articlesList.add(article);
             }
 

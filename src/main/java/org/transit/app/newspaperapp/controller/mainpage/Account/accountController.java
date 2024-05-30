@@ -4,7 +4,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 import javafx.scene.Node;
@@ -13,17 +12,6 @@ import java.io.IOException;
 public class accountController {
 
     @FXML
-    public Button savedArticlesBtn;
-
-    @FXML
-    public Button accountSettingsBtn;
-
-    @FXML
-    public void initialize() {
-        savedArticlesBtn.setOnAction(this::savedArticlesBtnAction);
-        accountSettingsBtn.setOnAction(this::accountSettingsBtnAction);
-    }
-
     public void savedArticlesBtnAction(ActionEvent event) {
         loadSavedArticlesScene(event);
     }
@@ -37,7 +25,7 @@ public class accountController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("savedArticle.fxml"));
             Parent root = loader.load();
             Scene scene = new Scene(root);
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow(); // Get the current stage
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {

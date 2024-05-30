@@ -9,6 +9,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import org.transit.app.newspaperapp.controller.registrationController;
 import org.transit.app.newspaperapp.model.Categories;
+import org.transit.app.newspaperapp.model.UserSession;
 import org.transit.app.newspaperapp.services.ArticleTr;
 import org.transit.app.newspaperapp.model.Articles;
 
@@ -53,8 +54,11 @@ public class publishingPage {
         String category = categoryComboBox.getValue();
         LocalDateTime publicationDate = LocalDateTime.now();
         String imageLink = imageLinkTextfield.getText();
+        int author_id = UserSession.getInstance().getUserId();
 
         Articles articles = new Articles(headline, byline, content, category, publicationDate, imageLink);
+//        articles.setAuthor_name(String.valueOf(author_id));
+
         ArticleTr publish = new ArticleTr();
 
         try {

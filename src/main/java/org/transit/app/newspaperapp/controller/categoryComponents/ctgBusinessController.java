@@ -15,8 +15,6 @@ public class ctgBusinessController extends articleLoader implements Initializabl
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-//        ArticleTr load  = new ArticleTr();
-//        loadBusinessArticles(load, ctgBusinessContainer);
         ArticleTr articleService = new ArticleTr();
         loadArticlesByCategory(articleService, ctgBusinessContainer, "Business");
     }
