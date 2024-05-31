@@ -15,8 +15,6 @@ public class ctgEntertainmentController extends articleLoader implements Initial
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-//        ArticleTr load  = new ArticleTr();
-//        loadEntertainmentArticles(load, ctgEntertainmentContainer);
         ArticleTr articleService = new ArticleTr();
         loadArticlesByCategory(articleService, ctgEntertainmentContainer, "Entertainment");
     }

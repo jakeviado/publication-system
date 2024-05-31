@@ -7,22 +7,33 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
 
 import javafx.geometry.NodeOrientation;
 import javafx.stage.Stage;
 import org.transit.app.newspaperapp.Main;
 import org.transit.app.newspaperapp.controller.mainpage.mainpage;
+import org.transit.app.newspaperapp.model.Articles;
+import org.transit.app.newspaperapp.model.Comment;
+import org.transit.app.newspaperapp.model.User;
+import org.transit.app.newspaperapp.model.UserSession;
+import org.transit.app.newspaperapp.services.ArticleTr;
+import org.transit.app.newspaperapp.services.CommentService;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Objects;
 import java.util.Random;
 import java.util.ResourceBundle;
@@ -56,10 +67,25 @@ public class articleCards implements Initializable {
     @FXML
     public Label ctgryLbl;
 
+    @FXML
+    public VBox commentsSection;
+
+    @FXML
+    public VBox commentsList;
+
+    @FXML
+    public TextField newCommentField;
+
+    @FXML
+    public Button saveArticleAction;
+
+    private final CommentService commentService = new CommentService();
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        randomOrientation();
+//        randomOrientation();
         setArticleImage(null);
+        loadComments();
     }
 
     public void setArticleTexts(String headline, String byline, String content, String publishedDate, String category, String author_name) {
@@ -77,20 +103,17 @@ public class articleCards implements Initializable {
         imageView.setClip(clipRect);
     }
 
-    public void randomOrientation() {
-        Random random = new Random();
-        int randomNumber = random.nextInt(2);
+//    public void randomOrientation() {
+//        Random random = new Random();
+//        int randomNumber = random.nextInt(2);
+//
+//        if (randomNumber == 0) {
+//            articleCard.setNodeOrientation(NodeOrientation.LEFT_TO_RIGHT);
+//        } else {
+//            articleCard.setNodeOrientation(NodeOrientation.RIGHT_TO_LEFT);
+//        }
+//    }
 
-        if (randomNumber == 0) {
-            articleCard.setNodeOrientation(NodeOrientation.LEFT_TO_RIGHT);
-        } else {
-            articleCard.setNodeOrientation(NodeOrientation.RIGHT_TO_LEFT);
-        }
-    }
-
-    public void articleHyperlinkClick(ActionEvent event) throws IOException {
-//        mainpage.setArticleContent(headlineLabel.getText(), bylineLabel.getText(), contentLabel.getText(), dateLabel.getText(), ctgryLbl.getText(), authorLabel.getText());
-    }
 
     public void removeArticleImage() {
         HBox parentPane = (HBox) imageView.getParent();
@@ -99,23 +122,51 @@ public class articleCards implements Initializable {
         }
     }
 
-    public void closeModal(ActionEvent event) {
-        Node source = (Node) event.getSource();
-        Stage stage = (Stage) source.getScene().getWindow();
-        stage.close();
+
+    @FXML
+    private void handleSubmitComment() {
+        String commentText = newCommentField.getText();
+        if (!commentText.isEmpty()) {
+            int userId = UserSession.getInstance().getLoggedInUser().getUserID();
+            int articleId = getArticleId();
+            LocalDateTime createdAt = LocalDateTime.now();
+            Comment newComment = new Comment(articleId, userId, commentText, createdAt);
+            commentService.addComment(newComment);
+            displayComments(articleId);
+            newCommentField.clear();
+        }
     }
 
-//    private void saveArticle(User userId, Articles articleId) {
-//        try {
-//            ArticleTr articleTr = new ArticleTr();
-//            articleTr.saveArticle();
-//            System.out.println("Article saved successfully!");
-//        } catch (RuntimeException e) {
-//            System.err.println("Failed to save article: " + e.getMessage());
-//        }
-//    }
-//
-//    public void saveArticleAction(ActionEvent event) {
-//        saveArticle();
-//    }
+    private void displayComments(int articleId) {
+        commentsList.getChildren().clear();
+        List<Comment> comments = commentService.getComments();
+        for (Comment comment : comments) {
+            Label commentLabel = new Label(comment.getContent());
+            commentsList.getChildren().add(commentLabel);
+        }
+    }
+
+    private void loadComments() {
+        int articleId = getArticleId();
+        displayComments(articleId);
+    }
+
+    private int getArticleId() {
+        return Articles.getArticleId();
+    }
+
+
+    private void saveArticle() {
+        try {
+            ArticleTr articleTr = new ArticleTr();
+            articleTr.saveArticle(UserSession.getInstance().getUserId(), Articles.getArticleId());
+            System.out.println("Article saved successfully!");
+        } catch (RuntimeException e) {
+            System.err.println("Failed to save article: " + e.getMessage());
+        }
+    }
+
+    public void saveArticleAction(ActionEvent event) {
+        saveArticle();
+    }
 }

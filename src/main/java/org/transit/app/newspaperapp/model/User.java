@@ -3,6 +3,7 @@ package org.transit.app.newspaperapp.model;
 import org.transit.app.newspaperapp.interfaces.UserInterface;
 
 public class User implements UserInterface {
+    private int userID;
     private String username;
     private String password;
     private String email;
@@ -16,6 +17,15 @@ public class User implements UserInterface {
     }
 
     public User(String username, String password, String email, String firstName, String lastName) {
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+    public User(int userID, String username, String password, String email, String firstName, String lastName) {
+        this.userID = userID;
         this.username = username;
         this.password = password;
         this.email = email;
@@ -51,6 +61,14 @@ public class User implements UserInterface {
     @Override
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public int getUserID() {
+        return userID;
+    }
+
+    public void setUserID(int userID) {
+        this.userID = userID;
     }
 
     public String getEmail() {
