@@ -69,12 +69,15 @@ public class articleCards extends articleLoader implements Initializable {
 
     private final CommentService commentService = new CommentService();
 
+    @FXML
+    public Label numberOfCommentsLbl;
+
     private int articleId;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         setArticleImage(null);
-        loadCommentsForArticle(articleId);
+
     }
 
     public void setArticleTexts(String headline, String byline, String content, String publishedDate, String category, String authorName, int articleId) {
@@ -86,6 +89,8 @@ public class articleCards extends articleLoader implements Initializable {
         ctgryLbl.setText(category);
         authorLabel.setText("By: " + authorName);
 
+//        loadCommentsForArticle(articleId);
+        loadNumberOfComments(articleId);
     }
 
     public void setArticleImage(Image image) {
@@ -101,8 +106,14 @@ public class articleCards extends articleLoader implements Initializable {
         }
     }
 
-    private void loadCommentsForArticle(int articles) {
-        loadComments(commentsList, articles);
+    private void loadCommentsForArticle(int articleId) {
+        loadComments(commentsList, articleId);
+    }
+
+    private void loadNumberOfComments(int articleId) {
+        List<Comments> comments = commentService.getComments(articleId);
+        numberOfCommentsLbl.setText("Comments (" + comments.size() + ")");
+        numberOfCommentsLbl.setStyle("-fx-font-size: 14px; -fx-font-weight: bold;");
     }
 
     @FXML
