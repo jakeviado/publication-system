@@ -64,7 +64,7 @@ public abstract class articleLoader implements Initializable {
 
         String username = comment.getUsername() + ":   ";
         String content = comment.getContent();
-        String style = "-fx-font-size: 15px; -fx-text-fill: #3c3f41;";
+        String style = "-fx-font-size: 14px; -fx-text-fill: #3c3f41;";
 
         commentLbl.setText(username + content);
         commentLbl.setStyle(style);

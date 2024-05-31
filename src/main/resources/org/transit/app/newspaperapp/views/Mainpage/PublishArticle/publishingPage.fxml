@@ -43,7 +43,7 @@
                   <TextField fx:id="imageLinkTextfield" prefHeight="82.0" prefWidth="687.0" GridPane.rowIndex="7" />
                </children>
                <padding>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                  <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
                </padding>
             </GridPane>
          </children>
@@ -69,10 +69,13 @@
                   <Label fx:id="notifyLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="46.0" prefWidth="235.0" textAlignment="CENTER" textFill="#ff3b3b" />
                </children>
             </VBox>
-            <HBox alignment="CENTER" prefHeight="102.0" prefWidth="214.0">
+            <HBox alignment="BOTTOM_CENTER" prefHeight="102.0" prefWidth="214.0">
                <children>
                   <Button mnemonicParsing="false" onAction="#getWrittenArticle" prefHeight="42.0" prefWidth="200.0" text="PUBLISH NOW" />
                </children>
+               <padding>
+                  <Insets bottom="10.0" />
+               </padding>
             </HBox>
          </children>
          <padding>
