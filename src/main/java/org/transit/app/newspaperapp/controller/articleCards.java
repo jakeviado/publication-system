@@ -59,9 +59,7 @@ public class articleCards extends articleLoader implements Initializable {
     public VBox commentsList;
 
     @FXML
-    public Button commentsBtn;
-
-    private List<Comments> comments;
+    public VBox commentsListContainer;
 
     @FXML
     public TextField newCommentField;

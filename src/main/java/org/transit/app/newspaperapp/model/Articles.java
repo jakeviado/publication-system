@@ -28,6 +28,7 @@ public class Articles implements articles {
         this.headline = headline;
         this.byline = byline;
         this.content = content;
+        this.category = categoryType;
         this.publicationDate = String.valueOf(formattedPublicationDate);
         this.imageLink = imageLink;
         this.articleId = articleId;
