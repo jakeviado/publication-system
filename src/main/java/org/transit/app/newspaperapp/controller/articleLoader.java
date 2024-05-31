@@ -54,7 +54,7 @@ public abstract class articleLoader implements Initializable {
         List<Comments> comments = commentService.getComments(articles);
 
         comments.stream().peek(comment -> {
-            Label commentLabel = new Label(comment.getUsername() + ": " + comment.getContent());
+            Label commentLabel = new Label("@" + comment.getUsername() + ": " + comment.getContent());
             commentsList.getChildren().add(commentLabel);
         }).forEach(System.out::println);
     }
