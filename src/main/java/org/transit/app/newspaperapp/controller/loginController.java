@@ -43,32 +43,6 @@ public class loginController {
     @FXML
     private VBox loginScene;
 
-//    public void login() throws IOException {
-//        User userData = new User(usernameTextField.getText(), passwordTextField.getText());
-//        UserTr transact = new UserTr();
-//
-//        try {
-//            if (transact.loginQuery(userData)) {
-//                //hindi ko pa alam ito
-//                User user = new User();
-//                user.setUsername(user.username());
-//
-//                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-//                alert.setTitle("Login Successful");
-//                alert.setHeaderText(null);
-//                alert.setContentText("Welcome, " + User.getUsername() + "!");
-//                alert.showAndWait();
-//
-//                sceneSwitch("mainpage.fxml");
-//            } else {
-//                notifyLabel.setText("Incorrect username or password");
-//            }
-//        } catch (SQLException e) {
-//            throw new RuntimeException(e);
-//        }
-//    }
-
-
     // ensure that the user is properly logged in not just switching scenes.
     public void login() throws IOException {
         User userData = new User(usernameTextField.getText(), passwordTextField.getText());

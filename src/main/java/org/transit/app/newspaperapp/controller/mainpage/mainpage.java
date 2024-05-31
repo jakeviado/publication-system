@@ -71,6 +71,16 @@ public class mainpage implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        determineRoleSession();
+
+        if (loadNewsFeed()) {
+            notifyLabel.setText("~ Today's Front Page ~");
+        }
+
+        initializeSlidePanel();
+    }
+
+    public void determineRoleSession() {
         UserSession session = UserSession.getInstance();
         Set<Integer> roles = session.getRoles();
 
@@ -87,12 +97,6 @@ public class mainpage implements Initializable {
             writeArticleButton.setDisable(false);
             writeArticleButton.setOpacity(1);
         }
-
-
-        if (loadNewsFeed()) {
-            notifyLabel.setText("~ Today's Front Page ~");
-        }
-        toggleMenu();
     }
 
     public boolean loadNewsFeed() {
@@ -103,6 +107,16 @@ public class mainpage implements Initializable {
             throw new RuntimeException(e);
         }
         return true;
+    }
+
+    private void initializeSlidePanel() {
+        slidePanel.setTranslateX(-240);
+        slidePanel.setMinWidth(0);
+        slidePanel.setMaxWidth(0);
+        toggleButton.setText("MENU");
+        toggleButton.setSelected(false);
+
+        toggleMenu();
     }
 
     public void toggleMenu() {

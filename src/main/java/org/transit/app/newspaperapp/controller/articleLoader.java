@@ -3,6 +3,8 @@ package org.transit.app.newspaperapp.controller;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
@@ -55,18 +57,32 @@ public abstract class articleLoader implements Initializable {
 
         comments.forEach(comment -> {
             Label commentLbl = styledComment(comment);
-            commentsList.getChildren().add(commentLbl);
+            VBox commentVBox = wrapInVBox(commentLbl, comment.getUsername() + "     " + comment.getTimeAgo());
+            commentsList.getChildren().add(commentVBox);
         });
+    }
+
+    private VBox wrapInVBox(Node node, String username) {
+        Label usernameLbl = new Label(username);
+        VBox.setMargin(usernameLbl, new Insets(0, 0, 5, 0));
+
+        String style = "-fx-font-size: 10px; -fx-text-fill: #3c3f41;";
+
+        usernameLbl.setStyle(style);
+
+        VBox vbox = new VBox(usernameLbl, node);
+        vbox.setSpacing(5);
+        vbox.setStyle("-fx-background-color: #f0f0f0; -fx-padding: 10; -fx-background-radius: 5;");
+        return vbox;
     }
 
     private Label styledComment(Comments comment) {
         Label commentLbl = new Label();
 
-        String username = comment.getUsername() + ":   ";
         String content = comment.getContent();
         String style = "-fx-font-size: 14px; -fx-text-fill: #3c3f41;";
 
-        commentLbl.setText(username + content);
+        commentLbl.setText(content);
         commentLbl.setStyle(style);
 
         return commentLbl;

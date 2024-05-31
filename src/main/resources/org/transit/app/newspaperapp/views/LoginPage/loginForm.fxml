@@ -22,17 +22,17 @@
                     <Font size="43.0" />
                 </font>
             <VBox.margin>
-               <Insets top="55.0" />
+               <Insets top="50.0" />
             </VBox.margin>
             </Label>
             <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="181.0" style="-fx-font-size: 13;" text="The Official Gazette" textAlignment="CENTER" />
-         <VBox alignment="CENTER" prefHeight="232.0" prefWidth="940.0">
+         <VBox alignment="CENTER" prefHeight="252.0" prefWidth="1010.0">
             <children>
-               <HBox alignment="CENTER" prefHeight="251.0" prefWidth="940.0" VBox.vgrow="ALWAYS">
+               <HBox alignment="CENTER" prefHeight="294.0" prefWidth="1010.0" VBox.vgrow="ALWAYS">
                   <children>
-                     <VBox alignment="CENTER" prefHeight="235.0" prefWidth="479.0">
+                     <VBox alignment="CENTER" prefHeight="284.0" prefWidth="479.0">
                         <children>
-                              <GridPane prefHeight="160.0" prefWidth="479.0">
+                              <GridPane prefHeight="245.0" prefWidth="479.0" VBox.vgrow="ALWAYS">
                                   <columnConstraints>
                                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                   </columnConstraints>
@@ -41,18 +41,24 @@
                                       <RowConstraints maxHeight="49.4" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                       <RowConstraints maxHeight="36.60001220703124" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
                                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                   </rowConstraints>
                                   <children>
                                       <Label alignment="BOTTOM_LEFT" contentDisplay="CENTER" text="Username" />
                                       <TextField fx:id="usernameTextField" prefHeight="45.0" prefWidth="377.0" GridPane.rowIndex="1" />
                                       <Label text="Password" GridPane.rowIndex="2" />
                                       <PasswordField fx:id="passwordTextField" prefHeight="45.0" prefWidth="377.0" GridPane.rowIndex="3" />
+                                 <HBox alignment="CENTER" prefHeight="60.0" prefWidth="479.0" GridPane.rowIndex="4">
+                                    <children>
+                                          <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="280.0" text="Don't have an account yet? Register now" />
+                                    </children>
+                                 </HBox>
                                   </children>
                               </GridPane>
-                           <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
+                           <HBox alignment="TOP_CENTER" prefHeight="87.0" prefWidth="479.0" spacing="5.0">
                               <children>
                                     <Button alignment="CENTER" maxWidth="1.7976931348623157E308" onAction="#login" prefHeight="46.0" prefWidth="317.0" text="LOG IN" textFill="WHITE" />
-                                      <Button fx:id="signupButton" maxWidth="-Infinity" mnemonicParsing="false" onAction="#registerPage" prefHeight="46.0" prefWidth="312.0" style="-fx-background-color: #e9e9e9;" styleClass="sign-up-button" text="SIGN UP" />
+                                      <Button fx:id="signupButton" maxWidth="-Infinity" mnemonicParsing="false" onAction="#registerPage" prefHeight="46.0" prefWidth="312.0" style="-fx-background-color: #e9e9e9;" styleClass="sign-up-button" text="REGISTER NOW" />
                               </children>
                            </HBox>
                         </children>
@@ -61,11 +67,6 @@
                </HBox>
             </children>
          </VBox>
-         <HBox alignment="CENTER" prefHeight="30.0" prefWidth="1010.0">
-            <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="280.0" text="Don't have an account yet? Register now" />
-            </children>
-         </HBox>
             <Label fx:id="notifyLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="256.0" textFill="#f24444">
             <VBox.margin>
                <Insets top="20.0" />

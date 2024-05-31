@@ -4,6 +4,8 @@ import org.transit.app.newspaperapp.model.Comments;
 import org.transit.app.newspaperapp.model.UserSession;
 
 import java.sql.*;
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -77,10 +79,28 @@ public class CommentService {
             while (resultSet.next()) {
                 int commentId = resultSet.getInt("comment_id");
                 String content = resultSet.getString("content");
-                Timestamp createdAt = resultSet.getTimestamp("created_at");
+                LocalDateTime createdAt = resultSet.getTimestamp("created_at").toLocalDateTime();
                 String username = resultSet.getString("username");
 
-                Comments comment = new Comments(commentId, articles, username, content, createdAt.toLocalDateTime());
+                LocalDateTime now = LocalDateTime.now();
+                long daysAgo = ChronoUnit.DAYS.between(createdAt, now);
+
+                String timeAgo;
+                if (daysAgo == 0) {
+                    // Less than a day
+                    long hoursAgo = ChronoUnit.HOURS.between(createdAt, now);
+                    if (hoursAgo == 0) {
+                        // Less than an hour
+                        long minutesAgo = ChronoUnit.MINUTES.between(createdAt, now);
+                        timeAgo = minutesAgo + " minutes ago";
+                    } else {
+                        timeAgo = hoursAgo + " hours ago";
+                    }
+                } else {
+                    timeAgo = daysAgo + " day/ s ago";
+                }
+
+                Comments comment = new Comments(commentId, articles, username, content, createdAt , timeAgo);
                 commentList.add(comment);
             }
         } catch (SQLException e) {
@@ -91,6 +111,7 @@ public class CommentService {
 
         return commentList;
     }
+
 
 
     private void updateCommentInDB(Comments comment) {

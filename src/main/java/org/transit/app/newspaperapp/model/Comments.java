@@ -9,6 +9,7 @@ public class Comments {
     private String content;
     private String username;
     private LocalDateTime createdAt;
+    private String timeAgo;
 
     public Comments(int commentId, int articleId, int userId, String username, String content, LocalDateTime createdAt) {
         this.commentId = commentId;
@@ -27,12 +28,21 @@ public class Comments {
         this.createdAt = createdAt;
     }
 
-    public Comments(int commentId, int articles, String username, String content, LocalDateTime createdAt) {
+    public Comments(int commentId, int articles, String username, String content, LocalDateTime createdAt, String timeAgo) {
         this.commentId = commentId;
         this.articleId = articles;
         this.username = username;
         this.content = content;
         this.createdAt = createdAt;
+        this.timeAgo = timeAgo;
+    }
+
+    public String getTimeAgo() {
+        return timeAgo;
+    }
+
+    public void setTimeAgo(String timeAgo) {
+        this.timeAgo = timeAgo;
     }
 
     public String getUsername() {
