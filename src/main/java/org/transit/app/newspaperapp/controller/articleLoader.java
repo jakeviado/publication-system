@@ -49,14 +49,27 @@ public abstract class articleLoader implements Initializable {
         }
     }
 
-    protected void loadComments(VBox commentsList, int articles) {
+    protected void loadComments(VBox commentsList, int articleId) {
         commentsList.getChildren().clear();
-        List<Comments> comments = commentService.getComments(articles);
+        List<Comments> comments = commentService.getComments(articleId);
 
-        comments.stream().peek(comment -> {
-            Label commentLabel = new Label("@" + comment.getUsername() + ": " + comment.getContent());
-            commentsList.getChildren().add(commentLabel);
-        }).forEach(System.out::println);
+        comments.forEach(comment -> {
+            Label commentLbl = styledComment(comment);
+            commentsList.getChildren().add(commentLbl);
+        });
+    }
+
+    private Label styledComment(Comments comment) {
+        Label commentLbl = new Label();
+
+        String username = comment.getUsername() + ":   ";
+        String content = comment.getContent();
+        String style = "-fx-font-size: 15px; -fx-text-fill: #3c3f41;";
+
+        commentLbl.setText(username + content);
+        commentLbl.setStyle(style);
+
+        return commentLbl;
     }
 
 
