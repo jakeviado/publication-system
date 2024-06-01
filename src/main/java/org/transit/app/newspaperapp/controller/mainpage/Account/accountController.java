@@ -68,6 +68,7 @@ public class accountController implements Initializable {
         }
     }
 
+
     public record User(String username, String name, String email, String role) {
     }
 
