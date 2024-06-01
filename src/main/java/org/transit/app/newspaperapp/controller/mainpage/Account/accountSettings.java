@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.VBox;
 import javafx.util.Duration;
+//import javafx.scene.control.Button;
 
 public class accountSettings {
 
@@ -17,7 +18,37 @@ public class accountSettings {
         @FXML
         private ToggleButton changeUsernameBtn;
 
+    @FXML
+    private VBox inputPasswordField;
+
+    @FXML
+    private ToggleButton changePasswordBtn;
+
+//    @FXML
+//    private Button deleteAccountBtn;
+
+
         public void initialize() {
+            initializeChangePasswordPanel();
+            initializeChangeUsernamePanel();
+        }
+
+        private void initializeChangePasswordPanel(){
+            inputPasswordField.setTranslateY(-562);
+            inputPasswordField.setMinWidth(0);
+            inputPasswordField.setMaxWidth(0);
+//            toggleButton.setText("MENU");
+            changePasswordBtn.setSelected(false);
+
+            changePasswordMenu();
+        }
+
+        private void initializeChangeUsernamePanel(){
+            inputCredentialsField.setTranslateY(-562);
+            inputCredentialsField.setMinWidth(0);
+            inputCredentialsField.setMaxWidth(0);
+            changeUsernameBtn.setSelected(false);
+
             changeUsernameMenu();
         }
 
@@ -45,4 +76,29 @@ public class accountSettings {
 //            changeUsernameBtn.setText(buttonText);
             });
         }
+
+    public void changePasswordMenu(){
+        changePasswordBtn.setOnAction(event -> {
+            boolean isSelected = changePasswordBtn.isSelected();
+
+            double targetY = isSelected ? -562 : 0;
+            double targetWidth = isSelected ? 0 : 562;
+//            String buttonText = isSelected ? "MORE" : "CLOSE";
+
+            Timeline timeline = new Timeline();
+
+            KeyValue translateY = new KeyValue(inputPasswordField.translateYProperty(), targetY, Interpolator.EASE_OUT);
+            KeyValue resizeWidth = new KeyValue(inputPasswordField.prefWidthProperty(), targetWidth, Interpolator.EASE_OUT);
+
+            KeyValue slidePanelWidth = new KeyValue(inputPasswordField.minWidthProperty(), targetWidth, Interpolator.EASE_OUT);
+            KeyValue slidePanelMaxWidth = new KeyValue(inputPasswordField.maxWidthProperty(), targetWidth, Interpolator.EASE_OUT);
+
+            KeyFrame keyFrame = new KeyFrame(Duration.seconds(0.2), translateY, resizeWidth, slidePanelWidth, slidePanelMaxWidth);
+
+            timeline.getKeyFrames().add(keyFrame);
+            timeline.play();
+
+//            changeUsernameBtn.setText(buttonText);
+        });
+    }
 }
