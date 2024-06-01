@@ -76,7 +76,7 @@ public class articleCards extends articleLoader implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        setArticleImage(null);
+//        setArticleImage(null);
 
     }
 
@@ -94,8 +94,31 @@ public class articleCards extends articleLoader implements Initializable {
 
     public void setArticleImage(Image image) {
         imageView.setImage(image);
-        Rectangle clipRect = new Rectangle(1000, 600);
+
+        double fixedWidth = 300;
+        double fixedHeight = 900;
+        imageView.setFitWidth(fixedWidth);
+        imageView.setFitHeight(fixedHeight);
+        imageView.setPreserveRatio(true);
+
+        double aspectRatio = image.getWidth() / image.getHeight();
+
+        double clipWidth = fixedWidth;
+        double clipHeight = fixedHeight;
+
+        if (image.getWidth() < fixedWidth && image.getHeight() < fixedHeight) {
+            if (aspectRatio > fixedWidth / fixedHeight) {
+                clipHeight = fixedWidth / aspectRatio;
+            } else {
+                clipWidth = fixedHeight * aspectRatio;
+            }
+        }
+
+        Rectangle clipRect = new Rectangle(clipWidth, clipHeight);
         imageView.setClip(clipRect);
+
+        clipRect.widthProperty().bind(imageView.fitWidthProperty());
+        clipRect.heightProperty().bind(imageView.fitHeightProperty());
     }
 
     public void removeArticleImage() {
