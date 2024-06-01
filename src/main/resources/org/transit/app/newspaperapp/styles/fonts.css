@@ -62,6 +62,18 @@
     -fx-text-fill: #4c4c4c;
 }
 
+.byline-label {
+    -fx-font-size: 15;
+    -fx-text-fill: #4c4c4c;
+    -fx-text-style: italic;
+}
+
+.article-content-label {
+    -fx-font-size: 12;
+    -fx-text-fill: #4c4c4c;
+    -fx-text-style: italic;
+}
+
 .welcomeUserLbl {
     -fx-font-family: 'Fraunces Medium';
     -fx-font-size: 23px;

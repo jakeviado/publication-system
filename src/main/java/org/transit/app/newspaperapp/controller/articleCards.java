@@ -83,13 +83,12 @@ public class articleCards extends articleLoader implements Initializable {
     public void setArticleTexts(String headline, String byline, String content, String publishedDate, String category, String authorName, int articleId) {
         this.articleId = articleId;
         headlineLabel.setText(headline);
-        bylineLabel.setText(byline);
+        bylineLabel.setText("/ " + byline);
         contentLabel.setText(content);
         dateLabel.setText(publishedDate);
         ctgryLbl.setText(category);
         authorLabel.setText("By: " + authorName);
 
-//        loadCommentsForArticle(articleId);
         loadNumberOfComments(articleId);
     }
 
