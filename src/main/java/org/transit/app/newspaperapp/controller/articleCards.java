@@ -76,7 +76,6 @@ public class articleCards extends articleLoader implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-//        setArticleImage(null);
 
     }
 

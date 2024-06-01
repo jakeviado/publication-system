@@ -136,8 +136,8 @@ public abstract class articleLoader implements Initializable {
                     imageCache.put(imageURL, image);
                     Platform.runLater(() -> callback.accept(image));
                 }
-            } catch (IOException | URISyntaxException e) {
-                throw new IllegalArgumentException(e.getMessage());
+            } catch (IOException | URISyntaxException | IllegalArgumentException e) {
+                Platform.runLater(() -> handleLoadError("Error loading image: " + e.getMessage()));
             }
         }).start();
     }
