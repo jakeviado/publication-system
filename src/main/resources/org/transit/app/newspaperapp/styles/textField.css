@@ -21,3 +21,14 @@
     -fx-border-color: rgba(70, 66, 66, 0.161);
     -fx-border-width: 2px 2px 2px 2px;
 }
+
+.publishing-textfield {
+    -fx-border-radius: 3px;
+    -fx-background-color: #ffffff;
+    -fx-border-color: rgba(70, 66, 66, 0.161);
+    -fx-border-width: 1px 1px 1px 1px;
+}
+
+.publishing-textfield:focused {
+    -fx-background-color: #ccc9c5;
+}
