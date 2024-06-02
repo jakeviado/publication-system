@@ -4,12 +4,14 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Button;
 
 import javafx.stage.Stage;
 import org.transit.app.newspaperapp.Main;
+import org.transit.app.newspaperapp.model.User;
 import org.transit.app.newspaperapp.model.UserSession;
 import org.transit.app.newspaperapp.services.UserTr;
 
@@ -48,7 +50,7 @@ public class accountSettings {
     private Button changePasswordBtn;
 
     @FXML
-    public void handleChangeUsername() {
+    public void handleChangeUsername() throws IOException {
         String oldUsername = oldUsernameTextfield.getText().trim();
         String newUsername = newUsernameTextfield.getText().trim();
         String confirmNewUsername = confirmNewUnTextfield.getText().trim();
@@ -71,6 +73,15 @@ public class accountSettings {
                 boolean success = UserTr.changeUsername(userId, newUsername);
                 if (success) {
                     alertLbl.setText("Username changed successfully");
+
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Username changed successfully");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Need to re-log-in");
+                    alert.show();
+
+                    switchToLoginForm();
+                    clearSession(UserSession.getInstance().getLoggedInUser());
                 } else {
                     alertLbl.setText("Failed to change username");
                 }
@@ -83,7 +94,7 @@ public class accountSettings {
     }
 
     @FXML
-    public void handleChangePassword() {
+    public void handleChangePassword() throws IOException {
         String oldPassword = oldPasswordTextfield.getText().trim();
         String newPassword = newPasswordTextfield.getText().trim();
         String confirmNewPassword = confirmNewPasswordTextfield.getText().trim();
@@ -101,6 +112,15 @@ public class accountSettings {
                 boolean success = UserTr.changePassword(userId, newPassword);
                 if (success) {
                     alertLbl.setText("Password changed successfully");
+
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Password changed successfully");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Need to re-log-in");
+                    alert.show();
+
+                    switchToLoginForm();
+                    clearSession(UserSession.getInstance().getLoggedInUser());
                 } else {
                     alertLbl.setText("Failed to change password");
                 }
@@ -123,6 +143,7 @@ public class accountSettings {
                 System.out.println("Account deleted successfully");
                 try {
                     switchToLoginForm();
+                    clearSession(UserSession.getInstance().getLoggedInUser());
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -132,6 +153,11 @@ public class accountSettings {
         } else {
             System.out.println("User not logged in");
         }
+    }
+
+    public void clearSession(User user) {
+        user.setUsername(null);
+        user.setPassword(null);
     }
 
     private void switchToLoginForm() throws IOException {

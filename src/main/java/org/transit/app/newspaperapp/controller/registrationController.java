@@ -110,10 +110,10 @@ public class registrationController {
     }
 
     private void validateInput() {
-        String username = usernameTextField.getText();
-        String password = passwordTextField.getText();
-        String firstName = firstNameTextField.getText();
-        String lastName = lastNameTextField.getText();
+        String username = usernameTextField.getText().trim();
+        String password = passwordTextField.getText().trim();
+        String firstName = firstNameTextField.getText().trim();
+        String lastName = lastNameTextField.getText().trim();
 
         if (username.isEmpty() || password.isEmpty() || firstName.isEmpty() || lastName.isEmpty()) {
             throw new IllegalArgumentException("All fields are required");
