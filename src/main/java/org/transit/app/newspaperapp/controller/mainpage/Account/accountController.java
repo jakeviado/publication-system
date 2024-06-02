@@ -7,11 +7,14 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.event.ActionEvent;
 import org.transit.app.newspaperapp.Main;
+import org.transit.app.newspaperapp.model.User;
+import org.transit.app.newspaperapp.model.UserSession;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
+import java.util.Set;
 
 public class accountController implements Initializable {
 
@@ -32,12 +35,10 @@ public class accountController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        User currentUser = UserSession.getCurrentUser();
-
-        usernameLabel.setText(currentUser.username());
-        nameLabel.setText(currentUser.name());
-        emailLabel.setText(currentUser.email());
-        roleLabel.setText(currentUser.role());
+        setUsernameLabel();
+        setNameLabel();
+        setEmailLabel();
+        determineRoleSession();
     }
 
     @FXML
@@ -68,13 +69,28 @@ public class accountController implements Initializable {
         }
     }
 
-
-    public record User(String username, String name, String email, String role) {
+    public void setUsernameLabel() {
+        usernameLabel.setText("@" + UserSession.getInstance().getLoggedInUser().getUsername());
     }
 
-    public static class UserSession {
-        public static User getCurrentUser() {
-            return new User("Username", "Name", "test@gmail.com", "User");
+    public void setNameLabel() {
+        nameLabel.setText(UserSession.getInstance().getLoggedInUser().getFirstName() + " " + UserSession.getInstance().getLoggedInUser().getLastName());
+    }
+
+    public void setEmailLabel() {
+        emailLabel.setText(UserSession.getInstance().getLoggedInUser().getEmail());
+    }
+
+    public void determineRoleSession() {
+        UserSession session = UserSession.getInstance();
+        Set<Integer> roles = session.getRoles();
+
+        int roleIdToCheck = 1;
+
+        if (!roles.contains(roleIdToCheck)) {
+            roleLabel.setText("READER");
+        } else {
+            roleLabel.setText("AUTHOR");
         }
     }
 }
