@@ -37,17 +37,17 @@
                               <String fx:value="commentSectionButtons" />
                            </styleClass></Button>
                         <Separator orientation="VERTICAL" prefHeight="200.0" />
-                        <Button fx:id="commentBtn" minHeight="-Infinity" mnemonicParsing="false" onAction="#showCommentSection" prefHeight="35.0" prefWidth="100.0" style="-fx-font-size: 14;" text="Comments">
+                        <Button fx:id="commentBtn" minHeight="-Infinity" mnemonicParsing="false" onAction="#showCommentSection" prefHeight="35.0" prefWidth="138.0" style="-fx-font-size: 14;">
                            <styleClass>
                               <String fx:value="commentsBtn" />
                               <String fx:value="commentSectionButtons" />
                            </styleClass>
+                           <graphic>
+                              <Label fx:id="numberOfCommentsLbl" style="-fx-font-size: 14;" text="()" />
+                           </graphic>
                         </Button>
                         <Separator orientation="VERTICAL" prefHeight="200.0" />
-                        <HBox alignment="CENTER_RIGHT" prefHeight="35.0" prefWidth="617.0" HBox.hgrow="ALWAYS">
-                           <children>
-                              <Label fx:id="numberOfCommentsLbl" style="-fx-font-size: 14;" text="Comments Quantity" />
-                           </children>
+                        <HBox alignment="CENTER_RIGHT" prefHeight="35.0" prefWidth="573.0" HBox.hgrow="ALWAYS">
                            <padding>
                               <Insets right="30.0" />
                            </padding>
