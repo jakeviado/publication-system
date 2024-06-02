@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:id="articleCard" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" nodeOrientation="RIGHT_TO_LEFT" style="-fx-background-insets: 0;" styleClass="card" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.transit.app.newspaperapp.controller.mainpage.Account.savedArticlesLoader">
+<BorderPane fx:id="articleCard" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" nodeOrientation="RIGHT_TO_LEFT" prefWidth="700.0" style="-fx-background-insets: 0;" styleClass="card" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.transit.app.newspaperapp.controller.mainpage.Account.savedArticlesLoader">
     <padding>
         <Insets />
     </padding>

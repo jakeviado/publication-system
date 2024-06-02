@@ -23,9 +23,12 @@
       </HBox>
    </top>
    <center>
-      <ScrollPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <ScrollPane hbarPolicy="NEVER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <content>
-            <VBox fx:id="savedArticleContainer" alignment="TOP_CENTER" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" />
+            <VBox fx:id="savedArticleContainer" alignment="CENTER" maxWidth="1.7976931348623157E308" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+               <padding>
+                  <Insets left="30.0" right="30.0" />
+               </padding></VBox>
          </content>
       </ScrollPane>
    </center>
