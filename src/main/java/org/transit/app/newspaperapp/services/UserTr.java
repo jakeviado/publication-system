@@ -1,6 +1,5 @@
 package org.transit.app.newspaperapp.services;
 
-import org.transit.app.newspaperapp.model.User;
 import org.transit.app.newspaperapp.model.Signup;
 
 import java.sql.*;
@@ -10,45 +9,6 @@ import java.util.Set;
 import static org.transit.app.newspaperapp.utilities.DBConnection.getConnection;
 
 public class UserTr {
-
-
-    public User getUserByUsername(String username) throws SQLException {
-        try (Connection connection = getConnection()) {
-            String query = "SELECT * FROM USERS WHERE USERNAME = ?";
-            assert connection != null;
-            PreparedStatement stmt = connection.prepareStatement(query);
-            stmt.setString(1, username);
-
-            ResultSet rs = stmt.executeQuery();
-            if (rs.next()) {
-                String password = rs.getString("PASSWORD");
-                return new User(username, password);
-            } else {
-                return null;
-            }
-        } catch (SQLException e) {
-            throw new IllegalArgumentException("Failed", e);
-        }
-    }
-
-//    public boolean loginQuery(User userData) throws SQLException {
-//        User dbUser = getUserByUsername(userData.getUsername());
-//        return dbUser != null && dbUser.checkPassword(userData.getPassword());
-//    }
-//
-//    private static Signup authenticate(Connection conn, String username, String password) throws SQLException {
-//        String query = "SELECT * FROM users WHERE username = ? AND password = ?";
-//        try (PreparedStatement pstmt = conn.prepareStatement(query)) {
-//            pstmt.setString(1, username);
-//            pstmt.setString(2, password);
-//            ResultSet rs = pstmt.executeQuery();
-//            if (rs.next()) {
-//                return new Signup(rs.getString("username"), rs.getString("password"), rs.getString("email"),
-//                        rs.getString("first_name"), rs.getString("last_name"));
-//            }
-//        }
-//        return null;
-//    }
 
     public Signup authenticate(String username, String password) throws SQLException {
         String query = "SELECT * FROM Users WHERE username = ? AND password = ?";
@@ -152,6 +112,96 @@ public class UserTr {
         return false;
     }
 
+
+    public static boolean changeUsername(int userId, String newUsername) {
+        String query = "UPDATE Users SET username = ? WHERE user_id = ?";
+        try (Connection connection = getConnection()) {
+            assert connection != null;
+            try (PreparedStatement pstmt = connection.prepareStatement(query)) {
+                connection.setAutoCommit(false);
+
+                pstmt.setString(1, newUsername);
+                pstmt.setInt(2, userId);
+
+                int rowsAffected = pstmt.executeUpdate();
+                connection.commit();
+
+                return rowsAffected == 1;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public static boolean changePassword(int userId, String newPassword) {
+        String query = "UPDATE Users SET password = ? WHERE user_id = ?";
+        try (Connection connection = getConnection()) {
+            assert connection != null;
+            try (PreparedStatement pstmt = connection.prepareStatement(query)) {
+                connection.setAutoCommit(false);
+
+                pstmt.setString(1, newPassword);
+                pstmt.setInt(2, userId);
+
+                int rowsAffected = pstmt.executeUpdate();
+                connection.commit();
+
+                return rowsAffected == 1;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public static boolean deleteAccount(int userId) {
+        String deleteCommentsQuery = "DELETE FROM Comments WHERE user_id = ?";
+        String deleteSavedArticlesQuery = "DELETE FROM SavedArticles WHERE user_id = ?";
+        String deleteArticlesQuery = "DELETE FROM Articles WHERE author_id = ?";
+        String deleteRolesQuery = "DELETE FROM UserRoles WHERE user_id = ?";
+        String deleteUserQuery = "DELETE FROM Users WHERE user_id = ?";
+
+        try (Connection connection = getConnection()) {
+            assert connection != null;
+            try (PreparedStatement deleteCommentsStmt = connection.prepareStatement(deleteCommentsQuery);
+                 PreparedStatement deleteSavedArticlesStmt = connection.prepareStatement(deleteSavedArticlesQuery);
+                 PreparedStatement deleteArticlesStmt = connection.prepareStatement(deleteArticlesQuery);
+                 PreparedStatement deleteRolesStmt = connection.prepareStatement(deleteRolesQuery);
+                 PreparedStatement deleteUserStmt = connection.prepareStatement(deleteUserQuery)) {
+
+                connection.setAutoCommit(false);
+
+                // comments
+                deleteCommentsStmt.setInt(1, userId);
+                deleteCommentsStmt.executeUpdate();
+
+                // saved articles
+                deleteSavedArticlesStmt.setInt(1, userId);
+                deleteSavedArticlesStmt.executeUpdate();
+
+                // articles publishes by the user
+                deleteArticlesStmt.setInt(1, userId);
+                deleteArticlesStmt.executeUpdate();
+
+                // Delete on UserRoles
+                deleteRolesStmt.setInt(1, userId);
+                deleteRolesStmt.executeUpdate();
+
+                // users
+                deleteUserStmt.setInt(1, userId);
+
+                int rowsAffected = deleteUserStmt.executeUpdate();
+
+                connection.commit();
+
+                return rowsAffected == 1;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 
 }
 

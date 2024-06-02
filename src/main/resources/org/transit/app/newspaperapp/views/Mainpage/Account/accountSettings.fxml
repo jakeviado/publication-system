@@ -1,384 +1,250 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="1000.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.transit.app.newspaperapp.controller.mainpage.Account.accountSettings">
+<BorderPane prefHeight="1018.0" prefWidth="918.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.transit.app.newspaperapp.controller.mainpage.Account.accountSettings">
+
+   <stylesheets>
+      <URL value="@../../../styles/buttons.css" />
+      <URL value="@../../../styles/fonts.css" />
+      <URL value="@../../../styles/textField.css" />
+      <URL value="@../../../styles/components.css" />
+   </stylesheets>
+   <top>
+      <HBox alignment="CENTER_LEFT" prefHeight="59.0" prefWidth="918.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label prefHeight="36.0" prefWidth="154.0" style="-fx-font-size: 14;" text="Account Setting">
+               <padding>
+                  <Insets bottom="10.0" left="1.0" right="10.0" top="10.0" />
+               </padding>
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="alertLbl" maxWidth="1.7976931348623157E308" style="-fx-font-size: 14;" textFill="#ff5757" />
+         </children>
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+      </HBox>
+   </top>
    <center>
-      <ScrollPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <ScrollPane hbarPolicy="NEVER" hmax="0.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="1036.0" prefWidth="918.0" BorderPane.alignment="CENTER">
          <content>
-            <VBox prefHeight="439.0" prefWidth="582.0">
+            <VBox alignment="TOP_CENTER" prefHeight="966.0" prefWidth="582.0">
                <children>
-                  <Label text="Account Setting">
-                     <VBox.margin>
-                        <Insets left="5.0" right="10.0" top="10.0" />
-                     </VBox.margin>
+                  <VBox prefHeight="410.0" prefWidth="918.0">
                      <padding>
-                        <Insets bottom="10.0" left="1.0" right="10.0" top="10.0" />
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                      </padding>
-                     <font>
-                        <Font name="Arial Black" size="12.0" />
-                     </font>
-                  </Label>
-                  <Label text="Hi @username!">
-                     <VBox.margin>
-                        <Insets bottom="10.0" left="15.0" right="10.0" top="2.0" />
-                     </VBox.margin>
+                     <children>
+                        <Label alignment="CENTER" maxWidth="1.7976931348623157E308" style="-fx-font-size: 17;" text="Change Username">
+                           <padding>
+                              <Insets bottom="10.0" right="10.0" top="10.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets bottom="10.0" right="10.0" top="10.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font name="Arial Black" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label prefHeight="17.0" prefWidth="95.0" text="Old username:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="3.0" left="5.0" right="5.0" top="3.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                           </padding>
+                        </Label>
+                        <TextField fx:id="oldUsernameTextfield" prefHeight="40.0">
+                           <VBox.margin>
+                              <Insets bottom="5.0" top="5.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </TextField>
+                        <Label prefHeight="22.0" prefWidth="206.0" text="New username:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="3.0" left="5.0" right="5.0" top="3.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                           </padding>
+                        </Label>
+                        <TextField fx:id="newUsernameTextfield" prefHeight="40.0">
+                           <VBox.margin>
+                              <Insets bottom="5.0" top="5.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </TextField>
+                        <Label prefHeight="23.0" prefWidth="147.0" text="Confirm new username:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="3.0" left="5.0" right="5.0" top="3.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                           </padding>
+                        </Label>
+                        <TextField fx:id="confirmNewUnTextfield" prefHeight="40.0">
+                           <VBox.margin>
+                              <Insets bottom="5.0" top="5.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </TextField>
+                        <HBox alignment="CENTER_RIGHT" prefHeight="66.0" prefWidth="878.0">
+                           <children>
+                              <Button fx:id="changeUsernameBtn" maxHeight="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleChangeUsername" text="Confirm Changes" HBox.hgrow="ALWAYS" />
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" top="10.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="590.0" prefWidth="918.0">
                      <padding>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                      </padding>
-                  </Label>
-                  <BorderPane prefHeight="123.0" prefWidth="582.0">
-                     <top>
-                        <VBox prefHeight="44.0" prefWidth="582.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" style="-fx-font-size: 17;" text="Change Password" textAlignment="CENTER">
+                           <padding>
+                              <Insets bottom="10.0" right="10.0" top="10.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets bottom="10.0" right="10.0" top="10.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font name="Arial Black" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label prefHeight="17.0" prefWidth="95.0" text="Old password:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="3.0" left="5.0" right="5.0" top="3.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                           </padding>
+                        </Label>
+                        <TextField fx:id="oldPasswordTextfield" prefHeight="40.0">
+                           <VBox.margin>
+                              <Insets bottom="5.0" top="5.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </TextField>
+                        <Label prefHeight="17.0" prefWidth="95.0" text="New password:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="3.0" left="5.0" right="5.0" top="3.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                           </padding>
+                        </Label>
+                        <TextField fx:id="newPasswordTextfield" prefHeight="40.0">
+                           <VBox.margin>
+                              <Insets bottom="5.0" top="5.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </TextField>
+                        <Label prefHeight="23.0" prefWidth="147.0" text="Confirm new password:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="3.0" left="5.0" right="5.0" top="3.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                           </padding>
+                        </Label>
+                        <TextField fx:id="confirmNewPasswordTextfield" prefHeight="40.0">
+                           <VBox.margin>
+                              <Insets bottom="5.0" top="5.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </TextField>
+                        <HBox alignment="CENTER_RIGHT" prefHeight="66.0" prefWidth="878.0">
                            <children>
-                              <Label text="Change Username">
-                                 <padding>
-                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                 </padding>
-                                 <VBox.margin>
-                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                 </VBox.margin>
-                                 <font>
-                                    <Font name="Arial Black" size="12.0" />
-                                 </font>
-                              </Label>
+                              <Button fx:id="changePasswordBtn" maxHeight="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleChangePassword" prefHeight="50.0" prefWidth="141.0" text="Confim Changes" />
                            </children>
-                        </VBox>
-                     </top>
-                     <center>
-                        <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
-                     </center>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="10.0" top="10.0" />
+                           </padding>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="115.0" prefWidth="878.0">
+                           <children>
+                              <VBox alignment="TOP_CENTER" prefHeight="115.0" prefWidth="203.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <Label alignment="CENTER" maxWidth="1.7976931348623157E308" style="-fx-font-size: 17;" text="Delete your account?">
+                                       <padding>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </padding>
+                                    </Label>
+                                    <Button fx:id="deleteAccountBtn" mnemonicParsing="false" onAction="#handleDeleteAccount" prefHeight="40.0" prefWidth="201.0" text="DELETE ACCOUNT">
+                                       <padding>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </padding>
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets top="10.0" />
+                                       </VBox.margin>
+                                    </Button>
+                                 </children>
+                              </VBox>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </HBox>
+                     </children>
                      <VBox.margin>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                        <Insets top="10.0" />
                      </VBox.margin>
-                     <bottom>
-                        <VBox fx:id="inputCredentialsField" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
-                           <children>
-                              <VBox prefHeight="65.0" prefWidth="562.0">
-                                 <children>
-                                    <VBox prefHeight="27.0" prefWidth="562.0">
-                                       <children>
-                                          <Label prefHeight="17.0" prefWidth="95.0" text="Old username:">
-                                             <font>
-                                                <Font name="System Bold" size="12.0" />
-                                             </font>
-                                             <VBox.margin>
-                                                <Insets bottom="3.0" left="5.0" right="5.0" top="3.0" />
-                                             </VBox.margin>
-                                             <padding>
-                                                <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
-                                             </padding>
-                                          </Label>
-                                       </children>
-                                    </VBox>
-                                    <VBox prefHeight="34.0" prefWidth="562.0">
-                                       <children>
-                                          <TextField fx:id="oldUsernameTextfield">
-                                             <VBox.margin>
-                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                             </VBox.margin>
-                                             <padding>
-                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                             </padding>
-                                          </TextField>
-                                       </children>
-                                    </VBox>
-                                 </children>
-                                 <VBox.margin>
-                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                 </VBox.margin>
-                              </VBox>
-                              <VBox prefHeight="65.0" prefWidth="562.0">
-                                 <children>
-                                    <VBox prefHeight="27.0" prefWidth="562.0">
-                                       <children>
-                                          <Label prefHeight="17.0" prefWidth="95.0" text="New username:">
-                                             <font>
-                                                <Font name="System Bold" size="12.0" />
-                                             </font>
-                                             <VBox.margin>
-                                                <Insets bottom="3.0" left="5.0" right="5.0" top="3.0" />
-                                             </VBox.margin>
-                                             <padding>
-                                                <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
-                                             </padding>
-                                          </Label>
-                                       </children>
-                                    </VBox>
-                                    <VBox prefHeight="34.0" prefWidth="562.0">
-                                       <children>
-                                          <TextField fx:id="newUsernameTextfield">
-                                             <VBox.margin>
-                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                             </VBox.margin>
-                                             <padding>
-                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                             </padding>
-                                          </TextField>
-                                       </children>
-                                    </VBox>
-                                 </children>
-                                 <VBox.margin>
-                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                 </VBox.margin>
-                              </VBox>
-                              <VBox prefHeight="65.0" prefWidth="562.0">
-                                 <children>
-                                    <VBox prefHeight="27.0" prefWidth="562.0">
-                                       <children>
-                                          <Label prefHeight="23.0" prefWidth="147.0" text="Confirm new username:">
-                                             <font>
-                                                <Font name="System Bold" size="12.0" />
-                                             </font>
-                                             <VBox.margin>
-                                                <Insets bottom="3.0" left="5.0" right="5.0" top="3.0" />
-                                             </VBox.margin>
-                                             <padding>
-                                                <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
-                                             </padding>
-                                          </Label>
-                                       </children>
-                                    </VBox>
-                                    <VBox prefHeight="34.0" prefWidth="562.0">
-                                       <children>
-                                          <TextField fx:id="confirmNewUnTextfield">
-                                             <VBox.margin>
-                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                             </VBox.margin>
-                                             <padding>
-                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                             </padding>
-                                          </TextField>
-                                       </children>
-                                    </VBox>
-                                 </children>
-                                 <VBox.margin>
-                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                 </VBox.margin>
-                              </VBox>
-                              <VBox prefHeight="65.0" prefWidth="562.0">
-                                 <children>
-                                    <VBox alignment="TOP_RIGHT" prefHeight="27.0" prefWidth="562.0">
-                                       <children>
-                                          <ToggleButton fx:id="changeUsernameBtn" mnemonicParsing="false" prefHeight="28.0" prefWidth="139.0" text="Confirm Changes">
-                                             <font>
-                                                <Font name="Arial Black" size="12.0" />
-                                             </font>
-                                             <VBox.margin>
-                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                             </VBox.margin>
-                                             <padding>
-                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                             </padding>
-                                          </ToggleButton>
-                                       </children>
-                                    </VBox>
-                                 </children>
-                              </VBox>
-                           </children>
-                        </VBox>
-                     </bottom>
-                  </BorderPane>
-                  <BorderPane prefHeight="123.0" prefWidth="582.0">
-                     <top>
-                        <VBox prefHeight="44.0" prefWidth="582.0" BorderPane.alignment="CENTER">
-                           <children>
-                              <Label text="Change Password">
-                                 <padding>
-                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                 </padding>
-                                 <VBox.margin>
-                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                 </VBox.margin>
-                                 <font>
-                                    <Font name="Arial Black" size="12.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </VBox>
-                     </top>
-                     <center>
-                        <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
-                     </center>
-                     <bottom>
-                        <VBox fx:id="inputCredentialsField1" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
-                           <children>
-                              <VBox prefHeight="65.0" prefWidth="562.0">
-                                 <children>
-                                    <VBox prefHeight="27.0" prefWidth="562.0">
-                                       <children>
-                                          <Label prefHeight="17.0" prefWidth="95.0" text="Old password:">
-                                             <font>
-                                                <Font name="System Bold" size="12.0" />
-                                             </font>
-                                             <VBox.margin>
-                                                <Insets bottom="3.0" left="5.0" right="5.0" top="3.0" />
-                                             </VBox.margin>
-                                             <padding>
-                                                <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
-                                             </padding>
-                                          </Label>
-                                       </children>
-                                    </VBox>
-                                    <VBox prefHeight="34.0" prefWidth="562.0">
-                                       <children>
-                                          <TextField fx:id="oldPasswordTextfield">
-                                             <VBox.margin>
-                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                             </VBox.margin>
-                                             <padding>
-                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                             </padding>
-                                          </TextField>
-                                       </children>
-                                    </VBox>
-                                 </children>
-                                 <VBox.margin>
-                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                 </VBox.margin>
-                              </VBox>
-                              <VBox prefHeight="65.0" prefWidth="562.0">
-                                 <children>
-                                    <VBox prefHeight="27.0" prefWidth="562.0">
-                                       <children>
-                                          <Label prefHeight="17.0" prefWidth="95.0" text="New password:">
-                                             <font>
-                                                <Font name="System Bold" size="12.0" />
-                                             </font>
-                                             <VBox.margin>
-                                                <Insets bottom="3.0" left="5.0" right="5.0" top="3.0" />
-                                             </VBox.margin>
-                                             <padding>
-                                                <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
-                                             </padding>
-                                          </Label>
-                                       </children>
-                                    </VBox>
-                                    <VBox prefHeight="34.0" prefWidth="562.0">
-                                       <children>
-                                          <TextField fx:id="newPasswordTextfield">
-                                             <VBox.margin>
-                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                             </VBox.margin>
-                                             <padding>
-                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                             </padding>
-                                          </TextField>
-                                       </children>
-                                    </VBox>
-                                 </children>
-                                 <VBox.margin>
-                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                 </VBox.margin>
-                              </VBox>
-                              <VBox prefHeight="65.0" prefWidth="562.0">
-                                 <children>
-                                    <VBox prefHeight="27.0" prefWidth="562.0">
-                                       <children>
-                                          <Label prefHeight="23.0" prefWidth="147.0" text="Confirm new password:">
-                                             <font>
-                                                <Font name="System Bold" size="12.0" />
-                                             </font>
-                                             <VBox.margin>
-                                                <Insets bottom="3.0" left="5.0" right="5.0" top="3.0" />
-                                             </VBox.margin>
-                                             <padding>
-                                                <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
-                                             </padding>
-                                          </Label>
-                                       </children>
-                                    </VBox>
-                                    <VBox prefHeight="34.0" prefWidth="562.0">
-                                       <children>
-                                          <TextField fx:id="confirmNewPasswordTextfield">
-                                             <VBox.margin>
-                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                             </VBox.margin>
-                                             <padding>
-                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                             </padding>
-                                          </TextField>
-                                       </children>
-                                    </VBox>
-                                 </children>
-                                 <VBox.margin>
-                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                 </VBox.margin>
-                              </VBox>
-                              <VBox prefHeight="65.0" prefWidth="562.0">
-                                 <children>
-                                    <VBox alignment="TOP_RIGHT" prefHeight="27.0" prefWidth="562.0">
-                                       <children>
-                                          <ToggleButton fx:id="changePasswordBtn" mnemonicParsing="false" prefHeight="28.0" prefWidth="139.0" text="Confirm Changes">
-                                             <font>
-                                                <Font name="Arial Black" size="12.0" />
-                                             </font>
-                                             <VBox.margin>
-                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                             </VBox.margin>
-                                             <padding>
-                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                             </padding>
-                                          </ToggleButton>
-                                       </children>
-                                    </VBox>
-                                 </children>
-                              </VBox>
-                           </children>
-                        </VBox>
-                     </bottom>
-                  </BorderPane>
-                  <BorderPane prefHeight="123.0" prefWidth="582.0">
-                     <top>
-                        <VBox prefHeight="44.0" prefWidth="582.0" BorderPane.alignment="CENTER">
-                           <children>
-                              <Label text="Lorem ipsum dolor sit amet, consectetur adipiscing elit,">
-                                 <VBox.margin>
-                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                 </VBox.margin>
-                                 <padding>
-                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                 </padding>
-                              </Label>
-                           </children>
-                        </VBox>
-                     </top>
-                     <center>
-                        <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
-                           <children>
-                              <Button fx:id="deleteAccountBtn" mnemonicParsing="false" text="DELETE ACCOUNT">
-                                 <VBox.margin>
-                                    <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
-                                 </VBox.margin>
-                                 <padding>
-                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                 </padding>
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font>
-                              </Button>
-                           </children>
-                        </VBox>
-                     </center>
-                  </BorderPane>
+                  </VBox>
                </children>
             </VBox>
          </content>
       </ScrollPane>
    </center>
-<!--   <stylesheets>-->
-<!--      <URL value="@../../styles/buttons.css" />-->
-<!--      <URL value="@../../styles/fonts.css" />-->
-<!--      <URL value="@../../styles/textField.css" />-->
-<!--      <URL value="@../../styles/components.css" />-->
-<!--   </stylesheets>-->
 
 </BorderPane>
