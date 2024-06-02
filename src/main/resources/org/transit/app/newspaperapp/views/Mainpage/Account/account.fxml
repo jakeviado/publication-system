@@ -23,31 +23,40 @@
    <left>
       <VBox prefHeight="500.0" prefWidth="312.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox alignment="CENTER" prefHeight="134.0" prefWidth="312.0">
+            <HBox alignment="CENTER" prefHeight="157.0" prefWidth="312.0">
                <children>
-                  <ImageView fitHeight="88.0" fitWidth="84.0" pickOnBounds="true" preserveRatio="true">
-                     <Image url="@../../../assets/profile.png" />
-                  </ImageView>
+                  <VBox alignment="CENTER" prefHeight="158.0" prefWidth="59.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <ImageView fitHeight="66.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+                           <Image url="@../../../assets/profile.png" />
+                        </ImageView>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="158.0" prefWidth="201.0" spacing="5.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label fx:id="nameLabel" maxWidth="1.7976931348623157E308" prefHeight="15.0" style="-fx-font-size: 14;" text="Name" wrapText="true" />
+                        <Label fx:id="usernameLabel" maxWidth="1.7976931348623157E308" prefHeight="15.0" style="-fx-font-size: 14;" text="Username" wrapText="true" />
+                     </children>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </VBox>
                </children>
             </HBox>
-            <GridPane maxWidth="1.7976931348623157E308" prefHeight="181.0" prefWidth="312.0">
+            <GridPane maxWidth="1.7976931348623157E308" prefHeight="106.0" prefWidth="312.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label fx:id="usernameLabel" maxWidth="1.7976931348623157E308" prefHeight="15.0" style="-fx-font-size: 14;" text="Username" wrapText="true" />
-                  <Label fx:id="nameLabel" maxWidth="1.7976931348623157E308" prefHeight="15.0" style="-fx-font-size: 14;" text="Name" wrapText="true" GridPane.rowIndex="1" />
-                  <Label fx:id="emailLabel" maxWidth="1.7976931348623157E308" style="-fx-font-size: 14;" text="Email" wrapText="true" GridPane.rowIndex="2" />
-                  <Label fx:id="roleLabel" maxWidth="1.7976931348623157E308" style="-fx-font-size: 14;" text="Role" wrapText="true" GridPane.rowIndex="3" />
+                  <Label fx:id="emailLabel" maxWidth="1.7976931348623157E308" style="-fx-font-size: 14;" text="Email" wrapText="true" />
+                  <Label fx:id="roleLabel" maxWidth="1.7976931348623157E308" style="-fx-font-size: 14;" text="Role" wrapText="true" GridPane.rowIndex="1" />
                </children>
                <padding>
-                  <Insets left="15.0" right="15.0" />
+                  <Insets left="20.0" right="20.0" />
                </padding>
             </GridPane>
             <VBox alignment="BOTTOM_CENTER" prefHeight="205.0" prefWidth="312.0" VBox.vgrow="ALWAYS">
