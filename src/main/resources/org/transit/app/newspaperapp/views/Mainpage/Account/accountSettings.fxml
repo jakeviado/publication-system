@@ -92,7 +92,7 @@
                                     </VBox>
                                     <VBox prefHeight="34.0" prefWidth="562.0">
                                        <children>
-                                          <TextField>
+                                          <TextField fx:id="oldUsernameTextfield">
                                              <VBox.margin>
                                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                              </VBox.margin>
@@ -126,7 +126,7 @@
                                     </VBox>
                                     <VBox prefHeight="34.0" prefWidth="562.0">
                                        <children>
-                                          <TextField>
+                                          <TextField fx:id="newUsernameTextfield">
                                              <VBox.margin>
                                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                              </VBox.margin>
@@ -160,7 +160,7 @@
                                     </VBox>
                                     <VBox prefHeight="34.0" prefWidth="562.0">
                                        <children>
-                                          <TextField>
+                                          <TextField fx:id="confirmNewUnTextfield">
                                              <VBox.margin>
                                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                              </VBox.margin>
@@ -236,7 +236,7 @@
                                     </VBox>
                                     <VBox prefHeight="34.0" prefWidth="562.0">
                                        <children>
-                                          <TextField>
+                                          <TextField fx:id="oldPasswordTextfield">
                                              <VBox.margin>
                                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                              </VBox.margin>
@@ -270,7 +270,7 @@
                                     </VBox>
                                     <VBox prefHeight="34.0" prefWidth="562.0">
                                        <children>
-                                          <TextField>
+                                          <TextField fx:id="newPasswordTextfield">
                                              <VBox.margin>
                                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                              </VBox.margin>
@@ -304,7 +304,7 @@
                                     </VBox>
                                     <VBox prefHeight="34.0" prefWidth="562.0">
                                        <children>
-                                          <TextField>
+                                          <TextField fx:id="confirmNewPwTextfield">
                                              <VBox.margin>
                                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                              </VBox.margin>

@@ -3,7 +3,6 @@
 <?import java.lang.String?>
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
-<?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
@@ -11,41 +10,13 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:id="articleCard" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" nodeOrientation="RIGHT_TO_LEFT" style="-fx-background-insets: 0;" styleClass="card" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.transit.app.newspaperapp.controller.articleCards">
+<BorderPane fx:id="articleCard" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" nodeOrientation="RIGHT_TO_LEFT" style="-fx-background-insets: 0;" styleClass="card" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.transit.app.newspaperapp.controller.articleCards">
    <padding>
       <Insets />
    </padding>
-
-   <left>
-      <VBox prefHeight="470.0" prefWidth="385.0" BorderPane.alignment="TOP_CENTER">
-         <BorderPane.margin>
-            <Insets bottom="20.0" />
-         </BorderPane.margin>
-         <children>
-            <HBox alignment="TOP_CENTER" maxHeight="-Infinity" prefHeight="428.0" prefWidth="375.0">
-               <children>
-                  <ImageView fx:id="imageView" fitHeight="428.0" fitWidth="350.0" pickOnBounds="true" preserveRatio="true" styleClass="imageView" HBox.hgrow="ALWAYS">
-                     <viewport>
-                        <Rectangle2D height="800.0" width="600.0" />
-                     </viewport>
-                     <HBox.margin>
-                        <Insets left="40.0" right="40.0" />
-                     </HBox.margin>
-                  </ImageView>
-               </children>
-               <VBox.margin>
-                  <Insets top="40.0" />
-               </VBox.margin>
-            </HBox>
-         </children>
-      </VBox>
-   </left>
 
    <stylesheets>
       <URL value="@../../styles/buttons.css" />
@@ -54,9 +25,9 @@
       <URL value="@../../styles/components.css" />
    </stylesheets>
    <bottom>
-      <HBox alignment="CENTER" nodeOrientation="RIGHT_TO_LEFT" prefHeight="198.0" prefWidth="906.0" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER" nodeOrientation="RIGHT_TO_LEFT" prefHeight="179.0" prefWidth="910.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="191.0" prefWidth="906.0" HBox.hgrow="ALWAYS">
+            <HBox alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="172.0" prefWidth="910.0" HBox.hgrow="ALWAYS">
                <children>
                   <VBox fx:id="commentsSection" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" nodeOrientation="LEFT_TO_RIGHT" prefHeight="168.0" prefWidth="787.0" spacing="10" HBox.hgrow="ALWAYS">
                      <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="42.0" prefWidth="906.0" spacing="5" VBox.vgrow="ALWAYS">
@@ -66,17 +37,17 @@
                               <String fx:value="commentSectionButtons" />
                            </styleClass></Button>
                         <Separator orientation="VERTICAL" prefHeight="200.0" />
-                        <Button fx:id="commentBtn" minHeight="-Infinity" mnemonicParsing="false" onAction="#showCommentSection" prefHeight="35.0" prefWidth="100.0" style="-fx-font-size: 14;" text="Comments">
+                        <Button fx:id="commentBtn" minHeight="-Infinity" mnemonicParsing="false" onAction="#showCommentSection" prefHeight="35.0" prefWidth="138.0" style="-fx-font-size: 14;">
                            <styleClass>
                               <String fx:value="commentsBtn" />
                               <String fx:value="commentSectionButtons" />
                            </styleClass>
+                           <graphic>
+                              <Label fx:id="numberOfCommentsLbl" style="-fx-font-size: 14;" text="()" />
+                           </graphic>
                         </Button>
                         <Separator orientation="VERTICAL" prefHeight="200.0" />
-                        <HBox alignment="CENTER_RIGHT" prefHeight="35.0" prefWidth="617.0" HBox.hgrow="ALWAYS">
-                           <children>
-                              <Label fx:id="numberOfCommentsLbl" style="-fx-font-size: 14;" text="Comments Quantity" />
-                           </children>
+                        <HBox alignment="CENTER_RIGHT" prefHeight="35.0" prefWidth="573.0" HBox.hgrow="ALWAYS">
                            <padding>
                               <Insets right="30.0" />
                            </padding>
@@ -137,91 +108,6 @@
          </children>
       </HBox>
    </bottom>
-   <right>
-      <VBox prefWidth="504.0" BorderPane.alignment="CENTER">
-         <BorderPane.margin>
-            <Insets bottom="10.0" />
-         </BorderPane.margin>
-         <children>
-            <GridPane fx:id="gridPane" alignment="TOP_CENTER" maxHeight="-Infinity" minHeight="400.0" nodeOrientation="LEFT_TO_RIGHT" prefWidth="466.0">
-               <columnConstraints>
-                  <ColumnConstraints maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="100.0" />
-               </columnConstraints>
-               <rowConstraints>
-                  <RowConstraints maxHeight="65.60001220703126" minHeight="26.399992370605474" prefHeight="26.399992370605474" />
-                  <RowConstraints maxHeight="-Infinity" minHeight="70.0" />
-                  <RowConstraints maxHeight="-Infinity" minHeight="0.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="-Infinity" minHeight="7.199999999999989" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="-Infinity" minHeight="17.60002441406249" />
-                  <RowConstraints maxHeight="-Infinity" minHeight="17.0" vgrow="ALWAYS" />
-               </rowConstraints>
-               <children>
-                  <VBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefWidth="200.0">
-                     <children>
-                        <Label fx:id="ctgryLbl" styleClass="article-texts" text="Category" />
-                     </children>
-                  </VBox>
-                  <VBox maxHeight="-Infinity" prefWidth="506.0" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" GridPane.vgrow="ALWAYS">
-                     <padding>
-                        <Insets top="10.0" />
-                     </padding>
-                  </VBox>
-                  <VBox maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefWidth="347.0" GridPane.rowIndex="1">
-                     <children>
-                        <Hyperlink fx:id="headlineLabel" maxHeight="-Infinity" prefWidth="444.0" styleClass="headlineLabel" text="Headline" textOverrun="CLIP" wrapText="true" />
-                     </children>
-                  </VBox>
-                  <VBox maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefWidth="351.0" styleClass="article-texts" GridPane.rowIndex="4">
-                     <children>
-                        <Label fx:id="bylineLabel" maxHeight="-Infinity" prefWidth="444.0" textOverrun="CLIP" wrapText="true">
-                           <padding>
-                              <Insets bottom="10.0" top="10.0" />
-                           </padding>
-                           <styleClass>
-                              <String fx:value="article-texts" />
-                              <String fx:value="byline-label" />
-                           </styleClass>
-                           <VBox.margin>
-                              <Insets bottom="7.0" top="7.0" />
-                           </VBox.margin>
-                        </Label>
-                     </children>
-                  </VBox>
-                  <VBox maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefWidth="200.0" GridPane.rowIndex="2">
-                     <children>
-                        <Label fx:id="authorLabel" maxHeight="-Infinity" prefWidth="444.0" styleClass="article-texts" text="Author:" textOverrun="CLIP" wrapText="true">
-                           <padding>
-                              <Insets bottom="10.0" top="10.0" />
-                           </padding>
-                        </Label>
-                     </children>
-                  </VBox>
-                  <VBox maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefWidth="200.0" GridPane.rowIndex="5">
-                     <children>
-                        <Label fx:id="contentLabel" alignment="TOP_LEFT" contentDisplay="TOP" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefWidth="444.0" textAlignment="JUSTIFY" textOverrun="CLIP" wrapText="true">
-                           <styleClass>
-                              <String fx:value="article-texts" />
-                              <String fx:value="article-content-label" />
-                           </styleClass></Label>
-                     </children>
-                  </VBox>
-                  <VBox maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefWidth="366.0" GridPane.rowIndex="3">
-                     <children>
-                        <Label fx:id="dateLabel" maxHeight="-Infinity" prefWidth="444.0" styleClass="article-texts" wrapText="true">
-                           <padding>
-                              <Insets bottom="10.0" top="10.0" />
-                           </padding>
-                        </Label>
-                     </children>
-                  </VBox>
-               </children>
-               <padding>
-                  <Insets left="30.0" right="30.0" top="40.0" />
-               </padding>
-            </GridPane>
-         </children>
-      </VBox>
-   </right>
 
    <stylesheets>
       <URL value="@../../styles/buttons.css" />
@@ -229,4 +115,65 @@
       <URL value="@../../styles/textField.css" />
       <URL value="@../../styles/components.css" />
    </stylesheets>
+   <left>
+      <VBox alignment="TOP_CENTER" blendMode="SRC_ATOP" prefHeight="470.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="20.0" />
+         </BorderPane.margin>
+         <children>
+            <ImageView fx:id="imageView" pickOnBounds="true" preserveRatio="true" styleClass="imageView" VBox.vgrow="NEVER" />
+         </children>
+         <padding>
+            <Insets top="80.0" />
+         </padding>
+      </VBox>
+   </left>
+   <center>
+      <VBox maxHeight="1.7976931348623157E308" nodeOrientation="LEFT_TO_RIGHT" prefWidth="591.0" spacing="13.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="10.0" />
+         </BorderPane.margin>
+         <children>
+            <Label fx:id="ctgryLbl" maxWidth="1.7976931348623157E308" styleClass="article-texts" text="Category">
+               <padding>
+                  <Insets bottom="5.0" top="5.0" />
+               </padding></Label>
+            <Hyperlink fx:id="headlineLabel" maxWidth="1.7976931348623157E308" prefWidth="444.0" styleClass="headlineLabel" text="Headline" textOverrun="CLIP" wrapText="true">
+               <padding>
+                  <Insets right="5.0" />
+               </padding></Hyperlink>
+            <Label fx:id="bylineLabel" maxWidth="1.7976931348623157E308" prefWidth="444.0" text="Byline" textOverrun="CLIP" wrapText="true">
+               <styleClass>
+                  <String fx:value="article-texts" />
+                  <String fx:value="byline-label" />
+               </styleClass>
+               <padding>
+                  <Insets bottom="10.0" right="5.0" top="10.0" />
+               </padding>
+            </Label>
+            <Label fx:id="authorLabel" maxWidth="1.7976931348623157E308" prefWidth="444.0" styleClass="article-texts" text="Author:" textOverrun="CLIP" wrapText="true">
+               <padding>
+                  <Insets bottom="5.0" top="5.0" />
+               </padding>
+            </Label>
+            <Label fx:id="dateLabel" maxWidth="1.7976931348623157E308" prefWidth="444.0" styleClass="article-texts" text="Date" wrapText="true">
+               <padding>
+                  <Insets bottom="5.0" top="5.0" />
+               </padding>
+            </Label>
+            <Label fx:id="contentLabel" alignment="TOP_LEFT" contentDisplay="TOP" maxWidth="1.7976931348623157E308" prefWidth="444.0" text="Content" textAlignment="JUSTIFY" textOverrun="CLIP" wrapText="true">
+               <styleClass>
+                  <String fx:value="article-texts" />
+                  <String fx:value="article-content-label" />
+               </styleClass>
+               <padding>
+                  <Insets bottom="5.0" top="5.0" />
+               </padding>
+            </Label>
+         </children>
+         <padding>
+            <Insets bottom="30.0" left="20.0" right="30.0" top="40.0" />
+         </padding>
+      </VBox>
+   </center>
 </BorderPane>

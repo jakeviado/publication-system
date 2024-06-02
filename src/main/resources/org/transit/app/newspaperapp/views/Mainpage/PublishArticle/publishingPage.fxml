@@ -33,14 +33,14 @@
                   <RowConstraints maxHeight="437.0000061035156" minHeight="10.0" prefHeight="55.99998779296874" vgrow="ALWAYS" />
                </rowConstraints>
                <children>
-                  <Label text="Headline" />
-                  <Label text="Byline" GridPane.rowIndex="2" />
-                  <Label text="Content" GridPane.rowIndex="4" />
-                  <TextField fx:id="headlineTextfield" prefHeight="52.0" prefWidth="726.0" GridPane.rowIndex="1" />
-                  <TextField fx:id="bylineTextfield" prefHeight="52.0" prefWidth="726.0" GridPane.rowIndex="3" />
-                  <TextArea fx:id="contentTextArea" prefHeight="313.0" prefWidth="726.0" wrapText="true" GridPane.rowIndex="5" />
-                  <Label text="Link to Image" GridPane.rowIndex="6" />
-                  <TextField fx:id="imageLinkTextfield" prefHeight="82.0" prefWidth="687.0" GridPane.rowIndex="7" />
+                  <Label style="-fx-font-size: 14;" text="Headline" />
+                  <Label style="-fx-font-size: 14;" text="Byline" GridPane.rowIndex="2" />
+                  <Label style="-fx-font-size: 14;" text="Content" GridPane.rowIndex="4" />
+                  <TextField fx:id="headlineTextfield" prefHeight="52.0" prefWidth="726.0" styleClass="publishing-textfield" GridPane.rowIndex="1" />
+                  <TextField fx:id="bylineTextfield" prefHeight="52.0" prefWidth="726.0" styleClass="publishing-textfield" GridPane.rowIndex="3" />
+                  <TextArea fx:id="contentTextArea" prefHeight="313.0" prefWidth="726.0" styleClass="publishing-textfield" wrapText="true" GridPane.rowIndex="5" />
+                  <Label style="-fx-font-size: 14;" text="Link to Image (Optional)" GridPane.rowIndex="6" />
+                  <TextField fx:id="imageLinkTextfield" prefHeight="82.0" prefWidth="687.0" styleClass="publishing-textfield" GridPane.rowIndex="7" />
                </children>
                <padding>
                   <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />

@@ -5,6 +5,7 @@ import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
+import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.VBox;
 import javafx.util.Duration;
@@ -27,6 +28,23 @@ public class accountSettings {
 //    @FXML
 //    private Button deleteAccountBtn;
 
+    @FXML
+    private TextField confirmNewPwTextfield;
+
+    @FXML
+    private TextField confirmNewUnTextfield;
+
+    @FXML
+    private TextField newPasswordTextfield;
+
+    @FXML
+    private TextField newUsernameTextfield;
+
+    @FXML
+    private TextField oldPasswordTextfield;
+
+    @FXML
+    private TextField oldUsernameTextfield;
 
         public void initialize() {
             initializeChangePasswordPanel();
@@ -101,4 +119,8 @@ public class accountSettings {
 //            changeUsernameBtn.setText(buttonText);
         });
     }
+
+//    public void changeOldUsername(){
+//        String username = oldUsernameTextfield.getText();
+//    }
 }

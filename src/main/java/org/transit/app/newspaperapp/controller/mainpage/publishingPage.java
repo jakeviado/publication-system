@@ -74,13 +74,13 @@ public class publishingPage {
     }
 
     private void validateInput() {
-        String headline = headlineTextfield.getText();
-        String byline =  bylineTextfield.getText();
-        String content =  contentTextArea.getText();
+        String headline = headlineTextfield.getText().trim();
+        String byline = bylineTextfield.getText().trim();
+        String content = contentTextArea.getText().trim();
         String category = categoryComboBox.getValue();
-        String imageLink = imageLinkTextfield.getText();
+        String imageLink = imageLinkTextfield.getText().trim();
 
-        if (headline.isEmpty() || byline.isEmpty() || content.isEmpty() || category.isEmpty() || imageLink.isEmpty()) {
+        if (headline.isEmpty() || byline.isEmpty() || content.isEmpty() || category == null || category.isEmpty()) {
             throw new IllegalArgumentException("All fields are required");
         }
     }
