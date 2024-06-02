@@ -61,7 +61,7 @@ public class ArticleTr {
     }
 
     //TODO: implementation
-    public void unpublishArticleQuery(Articles articles) {
+    public static void unpublishArticleQuery(Articles articles) {
         String headline = articles.headline();
 
         try (Connection connection = getConnection()) {
@@ -152,7 +152,7 @@ public class ArticleTr {
     }
 
 
-    public void saveArticle(int userId, int articleId) {
+    public static void saveArticle(int userId, int articleId) {
         try (Connection connection = getConnection()) {
             String query = "INSERT INTO SavedArticles (USER_ID, ARTICLE_ID) VALUES (?, ?)";
             assert connection != null;
@@ -171,5 +171,79 @@ public class ArticleTr {
         } catch (SQLException e) {
             throw new RuntimeException("Error", e);
         }
+    }
+
+    public static void unsaveArticle(int userId, int articleId) {
+        String query = "DELETE FROM SavedArticles WHERE USER_ID = ? AND ARTICLE_ID = ?";
+        try (Connection connection = getConnection()) {
+            assert connection != null;
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setInt(1, userId);
+            stmt.setInt(2, articleId);
+            int rowsDeleted = stmt.executeUpdate();
+            if (rowsDeleted > 0) {
+                System.out.println("Article unsaved successfully.");
+            } else {
+                System.out.println("Failed to unsave article.");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException("Error unsaving article", e);
+        }
+    }
+
+    public List<Articles> getSavedArticles() {
+        List<Articles> savedArticles = new ArrayList<>();
+        UserSession userSession = UserSession.getInstance();
+        int userId = userSession.getUserId();
+
+        String query = "SELECT a.article_id, a.headline, a.byline, a.publication_date, " +
+                "a.content, a.category_type, a.imagelink, a.word_count " +
+                "FROM SavedArticles sa " +
+                "JOIN Articles a ON sa.article_id = a.article_id " +
+                "WHERE sa.user_id = ?";
+
+        try (Connection connection = getConnection()) {
+            assert connection != null;
+            try (PreparedStatement stmt = connection.prepareStatement(query)) {
+
+                stmt.setInt(1, userId);
+
+                try (ResultSet rs = stmt.executeQuery()) {
+                    while (rs.next()) {
+                        Articles article = new Articles();
+                        article.setArticleId(rs.getInt("article_id"));
+                        article.setHeadline(rs.getString("headline"));
+                        article.setByline(rs.getString("byline"));
+                        article.setPublicationDate(String.valueOf(rs.getDate("publication_date")));
+                        article.setContent(rs.getString("content"));
+                        article.setCategory(rs.getString("category_type"));
+                        article.setImageLink(rs.getString("imagelink"));
+    //                    article.setWordCount(rs.getInt("word_count"));
+
+                        savedArticles.add(article);
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException("Error fetching saved articles", e);
+        }
+        return savedArticles;
+    }
+
+    public static boolean isArticleSavedByUser(int userId, int articleId) {
+        String query = "SELECT COUNT(*) FROM SavedArticles WHERE USER_ID = ? AND ARTICLE_ID = ?";
+        try (Connection connection = getConnection()) {
+            assert connection != null;
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setInt(1, userId);
+            stmt.setInt(2, articleId);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                return rs.getInt(1) > 0;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException("Error checking if article is saved", e);
+        }
+        return false;
     }
 }

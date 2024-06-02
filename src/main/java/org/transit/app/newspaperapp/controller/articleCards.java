@@ -14,6 +14,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
+import org.transit.app.newspaperapp.model.Articles;
 import org.transit.app.newspaperapp.model.Comments;
 import org.transit.app.newspaperapp.model.UserSession;
 import org.transit.app.newspaperapp.services.ArticleTr;
@@ -89,6 +90,7 @@ public class articleCards extends articleLoader implements Initializable {
         authorLabel.setText("By: " + authorName);
 
         loadNumberOfComments(articleId);
+        updateSaveButtonStatus();
     }
 
     public void setArticleImage(Image image) {
@@ -152,17 +154,47 @@ public class articleCards extends articleLoader implements Initializable {
         loadCommentsForArticle(articleId);
     }
 
-    public void saveArticleAction(ActionEvent event) {
-        saveArticle();
+    private void updateSaveButtonStatus() {
+        int userId = UserSession.getInstance().getUserId();
+        isArticleSaved = ArticleTr.isArticleSavedByUser(userId, articleId);
+        if (isArticleSaved) {
+            saveArticleAction.setText("Saved");
+            saveArticleAction.setStyle("-fx-background-color: #000000; -fx-text-fill: #f4f4f4;");
+        } else {
+            saveArticleAction.setText("Save");
+            saveArticleAction.setStyle("-fx-background-color: #f4f4f4; -fx-text-fill: #000000;");
+        }
     }
+
+    private boolean isArticleSaved = false;
+
+    @FXML
+    public void saveArticleAction(ActionEvent event) {
+        int userId = UserSession.getInstance().getUserId();
+        if (isArticleSaved) {
+            unsaveArticle();
+        } else {
+            saveArticle();
+        }
+        updateSaveButtonStatus();
+    }
+
 
     private void saveArticle() {
         try {
-            ArticleTr articleTr = new ArticleTr();
-            articleTr.saveArticle(UserSession.getInstance().getUserId(), articleId);
-            System.out.println("Article saved successfully!");
+            ArticleTr.saveArticle(UserSession.getInstance().getUserId(), articleId);
+            System.out.println("article saved");
         } catch (RuntimeException e) {
-            System.err.println("Failed to save article: " + e.getMessage());
+            System.err.println("failed to save: " + e.getMessage());
+        }
+    }
+
+    private void unsaveArticle() {
+        try {
+            ArticleTr.unsaveArticle(UserSession.getInstance().getUserId(), articleId);
+            System.out.println("article unsaved");
+        } catch (RuntimeException e) {
+            System.err.println("failed to unsave: " + e.getMessage());
         }
     }
 }

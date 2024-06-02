@@ -41,8 +41,8 @@ import javafx.scene.control.TextField;
 
         public void initialize() {
             changeUsernameMenu();
-            updateUsername.setOnAction(event -> updateUsername());
-            updatePassword.setOnAction(event -> updatePassword());
+//            updateUsername.setOnAction(event -> updateUsername());
+//            updatePassword.setOnAction(event -> updatePassword());
         }
 
         private void changeUsernameMenu() {

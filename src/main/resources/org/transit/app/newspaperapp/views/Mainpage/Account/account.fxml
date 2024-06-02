@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="500.0" prefWidth="940.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.transit.app.newspaperapp.controller.mainpage.Account.accountController">
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="600.0" prefWidth="940.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.transit.app.newspaperapp.controller.mainpage.Account.accountController">
 
    <stylesheets>
       <URL value="@../../../styles/buttons.css" />
@@ -23,14 +23,14 @@
    <left>
       <VBox prefHeight="500.0" prefWidth="312.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox alignment="CENTER" prefHeight="215.0" prefWidth="302.0">
+            <HBox alignment="CENTER" prefHeight="134.0" prefWidth="312.0">
                <children>
-                  <ImageView fitHeight="120.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="88.0" fitWidth="84.0" pickOnBounds="true" preserveRatio="true">
                      <Image url="@../../../assets/profile.png" />
                   </ImageView>
                </children>
             </HBox>
-            <GridPane maxWidth="1.7976931348623157E308" prefHeight="162.0">
+            <GridPane maxWidth="1.7976931348623157E308" prefHeight="181.0" prefWidth="312.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
               </columnConstraints>
@@ -41,55 +41,33 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label fx:id="usernameLabel" maxWidth="1.7976931348623157E308" prefHeight="15.0" text="Username" wrapText="true" />
-                  <Label fx:id="nameLabel" maxWidth="1.7976931348623157E308" prefHeight="15.0" text="Name" wrapText="true" GridPane.rowIndex="1" />
-                  <Label fx:id="emailLabel" maxWidth="1.7976931348623157E308" text="Email" wrapText="true" GridPane.rowIndex="2" />
-                  <Label fx:id="roleLabel" maxWidth="1.7976931348623157E308" text="Role" wrapText="true" GridPane.rowIndex="3" />
+                  <Label fx:id="usernameLabel" maxWidth="1.7976931348623157E308" prefHeight="15.0" style="-fx-font-size: 14;" text="Username" wrapText="true" />
+                  <Label fx:id="nameLabel" maxWidth="1.7976931348623157E308" prefHeight="15.0" style="-fx-font-size: 14;" text="Name" wrapText="true" GridPane.rowIndex="1" />
+                  <Label fx:id="emailLabel" maxWidth="1.7976931348623157E308" style="-fx-font-size: 14;" text="Email" wrapText="true" GridPane.rowIndex="2" />
+                  <Label fx:id="roleLabel" maxWidth="1.7976931348623157E308" style="-fx-font-size: 14;" text="Role" wrapText="true" GridPane.rowIndex="3" />
                </children>
                <padding>
                   <Insets left="15.0" right="15.0" />
                </padding>
             </GridPane>
-            <HBox alignment="CENTER" prefHeight="58.0" prefWidth="302.0">
+            <VBox alignment="BOTTOM_CENTER" prefHeight="205.0" prefWidth="312.0" VBox.vgrow="ALWAYS">
                <children>
-                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#savedArticlesBtnAction" prefHeight="26.0" prefWidth="200.0" text="Saved Articles">
+                  <Button alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#savedArticlesBtnAction" prefHeight="55.0" prefWidth="312.0" style="-fx-background-color: #ffffff; -fx-text-fill: #000000;" text="View Saved Articles">
                      <padding>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                        <Insets bottom="10.0" left="10.0" right="20.0" top="10.0" />
+                     </padding>
+                  </Button>
+                  <Button alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#accountSettingsBtnAction" prefHeight="59.0" prefWidth="312.0" style="-fx-background-color: #ffffff; -fx-text-fill: #000000;" text="Account Settings">
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="20.0" top="10.0" />
                      </padding>
                   </Button>
                </children>
-               <VBox.margin>
-                  <Insets bottom="5.0" left="10.0" right="10.0" top="10.0" />
-               </VBox.margin>
-               <padding>
-                  <Insets bottom="5.0" left="10.0" right="10.0" top="10.0" />
-               </padding>
-            </HBox>
-            <HBox alignment="CENTER" prefHeight="58.0" prefWidth="302.0">
-               <children>
-                  <Button mnemonicParsing="false" onAction="#accountSettingsBtnAction" prefHeight="29.0" prefWidth="200.0" text="Account Settings">
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                     <padding>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                     </padding>
-                  </Button>
-               </children>
-               <VBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="5.0" />
-               </VBox.margin>
-               <padding>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="5.0" />
-               </padding>
-            </HBox>
+            </VBox>
          </children>
       </VBox>
    </left>
-   <padding>
-      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-   </padding>
    <center>
-      <BorderPane fx:id="accountContainerBorderPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+      <BorderPane fx:id="accountContainerBorderPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
    </center>
 </BorderPane>
