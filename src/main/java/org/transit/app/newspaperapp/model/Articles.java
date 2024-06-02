@@ -39,6 +39,7 @@ public class Articles implements articles {
 
     }
 
+
     @Override
     public String headline() {
         return getHeadline();

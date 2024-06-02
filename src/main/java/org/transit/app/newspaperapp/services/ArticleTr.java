@@ -197,9 +197,11 @@ public class ArticleTr {
         int userId = userSession.getUserId();
 
         String query = "SELECT a.article_id, a.headline, a.byline, a.publication_date, " +
-                "a.content, a.category_type, a.imagelink, a.word_count " +
+                "a.content, a.category_type, a.imagelink, " +
+                "ar.name AS author_name " +
                 "FROM SavedArticles sa " +
                 "JOIN Articles a ON sa.article_id = a.article_id " +
+                "LEFT JOIN Authors ar ON a.author_id = ar.author_id " +
                 "WHERE sa.user_id = ?";
 
         try (Connection connection = getConnection()) {
@@ -218,7 +220,7 @@ public class ArticleTr {
                         article.setContent(rs.getString("content"));
                         article.setCategory(rs.getString("category_type"));
                         article.setImageLink(rs.getString("imagelink"));
-    //                    article.setWordCount(rs.getInt("word_count"));
+                        article.setAuthor_name(rs.getString("author_name"));
 
                         savedArticles.add(article);
                     }
@@ -229,6 +231,8 @@ public class ArticleTr {
         }
         return savedArticles;
     }
+
+
 
     public static boolean isArticleSavedByUser(int userId, int articleId) {
         String query = "SELECT COUNT(*) FROM SavedArticles WHERE USER_ID = ? AND ARTICLE_ID = ?";

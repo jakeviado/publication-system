@@ -34,7 +34,7 @@ public class savedArticles {
                 BorderPane articleCard = loader.load();
 
                 savedArticlesLoader controller = loader.getController();
-                controller.setArticleData(article);
+                controller.setArticleData(article.getHeadline(), article.getByline(), article.getContent(), article.getPublicationDate(), article.getCategory(), article.getAuthor_name());
 
                 savedArticleContainer.getChildren().add(articleCard);
             } catch (IOException e) {

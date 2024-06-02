@@ -21,12 +21,12 @@ public class savedArticlesLoader {
     @FXML
     private Label contentLabel;
 
-    public void setArticleData(Articles article) {
-        ctgryLbl.setText(article.getCategory());
-        headlineLabel.setText(article.getHeadline());
-        bylineLabel.setText("/ " + article.getByline());
-        authorLabel.setText("Author: " + article.getAuthor_name());
-        dateLabel.setText(article.getPublicationDate());
-        contentLabel.setText(article.getContent());
+    public void setArticleData(String headline, String byline, String content, String publishedDate, String category, String authorName) {
+        ctgryLbl.setText(category);
+        headlineLabel.setText(headline);
+        bylineLabel.setText("/ " + byline);
+        authorLabel.setText("Author: " + authorName);
+        dateLabel.setText(publishedDate);
+        contentLabel.setText(content);
     }
 }

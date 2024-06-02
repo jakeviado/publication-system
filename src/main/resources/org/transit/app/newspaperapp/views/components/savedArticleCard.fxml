@@ -43,7 +43,7 @@
                         <Insets bottom="10.0" right="5.0" top="10.0" />
                     </padding>
                 </Label>
-                <Label fx:id="authorLabel" maxWidth="1.7976931348623157E308" prefWidth="444.0" styleClass="article-texts" text="Author:" textOverrun="CLIP" wrapText="true">
+                <Label fx:id="authorLabel" maxWidth="1.7976931348623157E308" prefWidth="444.0" styleClass="article-texts" textOverrun="CLIP" wrapText="true">
                     <padding>
                         <Insets bottom="5.0" top="5.0" />
                     </padding>
