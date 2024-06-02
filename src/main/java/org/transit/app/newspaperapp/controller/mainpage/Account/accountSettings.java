@@ -142,12 +142,26 @@ public class accountSettings {
             if (success) {
                 System.out.println("Account deleted successfully");
                 try {
+
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Account deleted successfully");
+                    alert.setHeaderText(null);
+                    alert.setContentText("thank you");
+                    alert.show();
+
                     switchToLoginForm();
                     clearSession(UserSession.getInstance().getLoggedInUser());
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             } else {
+
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Failed to delete account");
+                alert.setHeaderText(null);
+                alert.setContentText("An error occurred");
+                alert.showAndWait();
+
                 alertLbl.setText("Failed to delete account");
             }
         } else {
