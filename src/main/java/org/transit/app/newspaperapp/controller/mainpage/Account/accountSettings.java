@@ -5,13 +5,14 @@ import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
-import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.VBox;
 import javafx.util.Duration;
-//import javafx.scene.control.Button;
+import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 
-public class accountSettings {
+    public class accountSettings {
 
         @FXML
         private VBox inputCredentialsField;
@@ -19,70 +20,42 @@ public class accountSettings {
         @FXML
         private ToggleButton changeUsernameBtn;
 
-    @FXML
-    private VBox inputPasswordField;
+        @FXML
+        private TextField newUsernameField;
 
-    @FXML
-    private ToggleButton changePasswordBtn;
+        @FXML
+        private PasswordField currentPasswordField;
 
-//    @FXML
-//    private Button deleteAccountBtn;
+        @FXML
+        private PasswordField newPasswordField;
 
-    @FXML
-    private TextField confirmNewPwTextfield;
+        @FXML
+        private PasswordField confirmPasswordField;
 
-    @FXML
-    private TextField confirmNewUnTextfield;
+        @FXML
+        private Button updateUsername;
 
-    @FXML
-    private TextField newPasswordTextfield;
+        @FXML
+        private Button updatePassword;
 
-    @FXML
-    private TextField newUsernameTextfield;
-
-    @FXML
-    private TextField oldPasswordTextfield;
-
-    @FXML
-    private TextField oldUsernameTextfield;
 
         public void initialize() {
-            initializeChangePasswordPanel();
-            initializeChangeUsernamePanel();
-        }
-
-        private void initializeChangePasswordPanel(){
-            inputPasswordField.setTranslateY(-562);
-            inputPasswordField.setMinWidth(0);
-            inputPasswordField.setMaxWidth(0);
-//            toggleButton.setText("MENU");
-            changePasswordBtn.setSelected(false);
-
-            changePasswordMenu();
-        }
-
-        private void initializeChangeUsernamePanel(){
-            inputCredentialsField.setTranslateY(-562);
-            inputCredentialsField.setMinWidth(0);
-            inputCredentialsField.setMaxWidth(0);
-            changeUsernameBtn.setSelected(false);
-
             changeUsernameMenu();
+            updateUsername.setOnAction(event -> updateUsername());
+            updatePassword.setOnAction(event -> updatePassword());
         }
 
-        public void changeUsernameMenu(){
+        private void changeUsernameMenu() {
             changeUsernameBtn.setOnAction(event -> {
                 boolean isSelected = changeUsernameBtn.isSelected();
 
                 double targetY = isSelected ? -562 : 0;
                 double targetWidth = isSelected ? 0 : 562;
-//            String buttonText = isSelected ? "MORE" : "CLOSE";
 
                 Timeline timeline = new Timeline();
 
                 KeyValue translateY = new KeyValue(inputCredentialsField.translateYProperty(), targetY, Interpolator.EASE_OUT);
                 KeyValue resizeWidth = new KeyValue(inputCredentialsField.prefWidthProperty(), targetWidth, Interpolator.EASE_OUT);
-
                 KeyValue slidePanelWidth = new KeyValue(inputCredentialsField.minWidthProperty(), targetWidth, Interpolator.EASE_OUT);
                 KeyValue slidePanelMaxWidth = new KeyValue(inputCredentialsField.maxWidthProperty(), targetWidth, Interpolator.EASE_OUT);
 
@@ -90,37 +63,45 @@ public class accountSettings {
 
                 timeline.getKeyFrames().add(keyFrame);
                 timeline.play();
-
-//            changeUsernameBtn.setText(buttonText);
             });
         }
 
-    public void changePasswordMenu(){
-        changePasswordBtn.setOnAction(event -> {
-            boolean isSelected = changePasswordBtn.isSelected();
+        @FXML
+        private void updateUsername() {
+            String newUsername = newUsernameField.getText().trim();
 
-            double targetY = isSelected ? -562 : 0;
-            double targetWidth = isSelected ? 0 : 562;
-//            String buttonText = isSelected ? "MORE" : "CLOSE";
+            if (newUsername.isEmpty()) {
+                System.out.println("Username cannot be empty");
+                return;
+            }
 
-            Timeline timeline = new Timeline();
+            System.out.println("New Username: " + newUsername);
+            newUsernameField.clear();
+        }
 
-            KeyValue translateY = new KeyValue(inputPasswordField.translateYProperty(), targetY, Interpolator.EASE_OUT);
-            KeyValue resizeWidth = new KeyValue(inputPasswordField.prefWidthProperty(), targetWidth, Interpolator.EASE_OUT);
+        @FXML
+        private void updatePassword() {
+            String currentPassword = currentPasswordField.getText().trim();
+            String newPassword = newPasswordField.getText().trim();
+            String confirmPassword = confirmPasswordField.getText().trim();
 
-            KeyValue slidePanelWidth = new KeyValue(inputPasswordField.minWidthProperty(), targetWidth, Interpolator.EASE_OUT);
-            KeyValue slidePanelMaxWidth = new KeyValue(inputPasswordField.maxWidthProperty(), targetWidth, Interpolator.EASE_OUT);
+            if (currentPassword.isEmpty() || newPassword.isEmpty() || confirmPassword.isEmpty()) {
+                System.out.println("All password fields must be filled.");
+                return;
+            }
 
-            KeyFrame keyFrame = new KeyFrame(Duration.seconds(0.2), translateY, resizeWidth, slidePanelWidth, slidePanelMaxWidth);
+            if (!newPassword.equals(confirmPassword)) {
+                System.out.println("Password does not match");
+                return;
+            }
 
-            timeline.getKeyFrames().add(keyFrame);
-            timeline.play();
-
-//            changeUsernameBtn.setText(buttonText);
-        });
+            if (!currentPassword.equals("currentPassword")) {
+                System.out.println("Current password is incorrect.");
+                return;
+            }
+            System.out.println("Password updated to: " + newPassword);
+            currentPasswordField.clear();
+            newPasswordField.clear();
+            confirmPasswordField.clear();
+        }
     }
-
-//    public void changeOldUsername(){
-//        String username = oldUsernameTextfield.getText();
-//    }
-}
