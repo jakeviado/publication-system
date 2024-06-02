@@ -144,10 +144,6 @@ public class registrationController {
     }
 
     public void SceneSwitch(VBox loginScene, String fxml) throws IOException {
-//        VBox nextVbox = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource(fxml)));
-//        loginScene.getChildren().removeAll();
-//        loginScene.getChildren().setAll(nextVbox);
-
         Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource(fxml)));
         Stage stage = (Stage) loginScene.getScene().getWindow();
         Scene scene = new Scene(root);

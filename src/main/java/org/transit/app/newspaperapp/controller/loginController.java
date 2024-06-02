@@ -1,11 +1,9 @@
 package org.transit.app.newspaperapp.controller;
 
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.layout.BorderPane;
 import org.transit.app.newspaperapp.Main;
 import javafx.scene.layout.VBox;
 import org.transit.app.newspaperapp.model.Signup;
@@ -16,10 +14,8 @@ import javafx.fxml.FXML;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.net.URL;
 import java.sql.SQLException;
 import java.util.Objects;
-import java.util.ResourceBundle;
 import java.util.Set;
 
 public class loginController {
@@ -43,7 +39,6 @@ public class loginController {
     @FXML
     private VBox loginScene;
 
-    // ensure that the user is properly logged in not just switching scenes.
     public void login() throws IOException {
         User userData = new User(usernameTextField.getText(), passwordTextField.getText());
         UserTr transact = new UserTr();

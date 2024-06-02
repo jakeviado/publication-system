@@ -1,6 +1,5 @@
 package org.transit.app.newspaperapp.controller;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -14,7 +13,6 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
-import org.transit.app.newspaperapp.model.Articles;
 import org.transit.app.newspaperapp.model.Comments;
 import org.transit.app.newspaperapp.model.UserSession;
 import org.transit.app.newspaperapp.services.ArticleTr;
@@ -43,9 +41,6 @@ public class articleCards extends articleLoader implements Initializable {
 
     @FXML
     public BorderPane articleCard;
-
-    @FXML
-    public GridPane gridPane;
 
     @FXML
     public ImageView imageView;
@@ -141,7 +136,7 @@ public class articleCards extends articleLoader implements Initializable {
 
     @FXML
     private void handleSubmitComment() {
-        String commentText = newCommentField.getText();
+        String commentText = newCommentField.getText().trim();
         if (!commentText.isEmpty()) {
             Comments comment = new Comments(0, articleId, UserSession.getInstance().getUserId(), commentText, LocalDateTime.now());
             commentService.addComment(comment);
@@ -169,8 +164,7 @@ public class articleCards extends articleLoader implements Initializable {
     private boolean isArticleSaved = false;
 
     @FXML
-    public void saveArticleAction(ActionEvent event) {
-        int userId = UserSession.getInstance().getUserId();
+    public void saveArticleAction() {
         if (isArticleSaved) {
             unsaveArticle();
         } else {

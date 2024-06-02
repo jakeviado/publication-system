@@ -170,11 +170,11 @@ public class mainpage implements Initializable {
         notifyLabel.setText("~ Account ~");
     }
 
-    public void exitApp() throws IOException {
+    public void exitApp() {
         exitSession(UserSession.getInstance().getLoggedInUser());
     }
 
-    public void exitSession(User user) throws IOException {
+    public void exitSession(User user) {
         Stage stage  = (Stage) exitButton.getScene().getWindow();
         stage.close();
         user.setUsername(null);
@@ -198,10 +198,6 @@ public class mainpage implements Initializable {
     }
 
     public void logoutScene(String fxml) throws IOException {
-//        VBox nextVbox = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource(fxml)));
-//        homepageScene.getChildren().removeAll();
-//        homepageScene.getChildren().setAll(nextVbox);
-
         Parent root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource(fxml)));
         Stage stage = (Stage) homepageScene.getScene().getWindow();
         Scene scene = new Scene(root);

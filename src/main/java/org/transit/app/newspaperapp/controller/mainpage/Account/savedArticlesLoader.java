@@ -24,7 +24,7 @@ public class savedArticlesLoader {
     public void setArticleData(Articles article) {
         ctgryLbl.setText(article.getCategory());
         headlineLabel.setText(article.getHeadline());
-        bylineLabel.setText(article.getByline());
+        bylineLabel.setText("/ " + article.getByline());
         authorLabel.setText("Author: " + article.getAuthor_name());
         dateLabel.setText(article.getPublicationDate());
         contentLabel.setText(article.getContent());
