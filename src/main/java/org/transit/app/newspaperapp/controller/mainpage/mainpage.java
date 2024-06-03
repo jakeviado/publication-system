@@ -183,6 +183,7 @@ public class mainpage implements Initializable {
 
     public void setLogoutButton() throws IOException {
         logoutSession(UserSession.getInstance().getLoggedInUser());
+        UserSession.getInstance().clearSession();
     }
 
     public void logoutSession(User user) throws IOException {

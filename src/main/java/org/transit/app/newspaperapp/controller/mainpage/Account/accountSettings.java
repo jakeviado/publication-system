@@ -172,6 +172,7 @@ public class accountSettings {
     public void clearSession(User user) {
         user.setUsername(null);
         user.setPassword(null);
+        UserSession.getInstance().clearSession();
     }
 
     private void switchToLoginForm() throws IOException {
