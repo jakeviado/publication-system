@@ -155,7 +155,7 @@ public class UserTr {
         }
     }
 
-    public static boolean deleteAccount(int userId) {
+    public static boolean deleteAccount(int user_Id) {
         String deleteCommentsQuery = "DELETE FROM Comments WHERE user_id = ?";
         String deleteSavedArticlesQuery = "DELETE FROM SavedArticles WHERE user_id = ?";
         String deleteArticlesQuery = "DELETE FROM Articles WHERE author_id = ?";
@@ -173,23 +173,23 @@ public class UserTr {
                 connection.setAutoCommit(false);
 
                 // comments
-                deleteCommentsStmt.setInt(1, userId);
+                deleteCommentsStmt.setInt(1, user_Id);
                 deleteCommentsStmt.executeUpdate();
 
                 // saved articles
-                deleteSavedArticlesStmt.setInt(1, userId);
+                deleteSavedArticlesStmt.setInt(1, user_Id);
                 deleteSavedArticlesStmt.executeUpdate();
 
                 // articles publishes by the user
-                deleteArticlesStmt.setInt(1, userId);
+                deleteArticlesStmt.setInt(1, user_Id);
                 deleteArticlesStmt.executeUpdate();
 
                 // Delete on UserRoles
-                deleteRolesStmt.setInt(1, userId);
+                deleteRolesStmt.setInt(1, user_Id);
                 deleteRolesStmt.executeUpdate();
 
                 // users
-                deleteUserStmt.setInt(1, userId);
+                deleteUserStmt.setInt(1, user_Id);
 
                 int rowsAffected = deleteUserStmt.executeUpdate();
 
